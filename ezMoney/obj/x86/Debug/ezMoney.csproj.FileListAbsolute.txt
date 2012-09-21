@@ -1,0 +1,9 @@
+D:\Desktop\GitHubRepositories\ezMoney\ezMoney\bin\Debug\ezMoney.exe
+D:\Desktop\GitHubRepositories\ezMoney\ezMoney\bin\Debug\ezMoney.pdb
+D:\Desktop\GitHubRepositories\ezMoney\ezMoney\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Desktop\GitHubRepositories\ezMoney\ezMoney\obj\x86\Debug\ezMoney.FormCategoryManagement.resources
+D:\Desktop\GitHubRepositories\ezMoney\ezMoney\obj\x86\Debug\ezMoney.Properties.Resources.resources
+D:\Desktop\GitHubRepositories\ezMoney\ezMoney\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Desktop\GitHubRepositories\ezMoney\ezMoney\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Desktop\GitHubRepositories\ezMoney\ezMoney\obj\x86\Debug\ezMoney.exe
+D:\Desktop\GitHubRepositories\ezMoney\ezMoney\obj\x86\Debug\ezMoney.pdb
