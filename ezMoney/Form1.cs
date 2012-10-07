@@ -25,7 +25,7 @@ namespace ezMoney
         private void FormCategoryManagement_Load(object sender, EventArgs e)
         {
             _categoryModel = new CategoryModel();
-            _categoryManagementView = new CategoryManagementView();
+            _categoryManagementView = new CategoryManagementView(_categoryModel);
             BindControls();
             BindControlsEvent();
             _categoryManagementView.View();
@@ -38,6 +38,8 @@ namespace ezMoney
             _listBoxCategories.DataSource = _categoryManagementView.GetCategoryList();
             //make listbox items sync to category list
             _categoryManagementView.CurrencyManager = (CurrencyManager)BindingContext[_categoryManagementView.GetCategoryList()];
+            _categoryManagementView.ErrorProvider = _errorProviderAddButton;
+            _categoryManagementView.ErrorProvider.BlinkStyle = ErrorBlinkStyle.AlwaysBlink;
         }
 
         //bind all control to categoryManagementView

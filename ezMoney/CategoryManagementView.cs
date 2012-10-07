@@ -15,10 +15,15 @@ namespace ezMoney
         Button _buttonAdd;
         ErrorProvider _errorProvider;
 
-        public CategoryManagementView() {
-            _categoryModel = new CategoryModel();
-            _errorProvider = new ErrorProvider();
-            _errorProvider.BlinkStyle = ErrorBlinkStyle.AlwaysBlink;
+
+        public CategoryManagementView(CategoryModel categoryModel) {
+            _categoryModel = categoryModel;
+        }
+
+        public ErrorProvider ErrorProvider
+        {
+            get { return _errorProvider; }
+            set { _errorProvider = value; }
         }
 
         public TextBox TextBoxCategoryName

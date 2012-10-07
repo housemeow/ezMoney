@@ -34,9 +34,9 @@
             this._textBoxCategoryName = new System.Windows.Forms.TextBox();
             this._buttonAdd = new System.Windows.Forms.Button();
             this._listBoxCategories = new System.Windows.Forms.ListBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this._errorProviderAddButton = new System.Windows.Forms.ErrorProvider(this.components);
             this._tableLayoutPanelCategoryManagement.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._errorProviderAddButton)).BeginInit();
             this.SuspendLayout();
             // 
             // _tableLayoutPanelCategoryManagement
@@ -98,9 +98,9 @@
             this._listBoxCategories.Size = new System.Drawing.Size(328, 296);
             this._listBoxCategories.TabIndex = 3;
             // 
-            // errorProvider1
+            // _errorProviderAddButton
             // 
-            this.errorProvider1.ContainerControl = this;
+            this._errorProviderAddButton.ContainerControl = this;
             // 
             // FormCategoryManagement
             // 
@@ -113,7 +113,7 @@
             this.Load += new System.EventHandler(this.FormCategoryManagement_Load);
             this._tableLayoutPanelCategoryManagement.ResumeLayout(false);
             this._tableLayoutPanelCategoryManagement.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._errorProviderAddButton)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -125,7 +125,7 @@
         private System.Windows.Forms.TextBox _textBoxCategoryName;
         private System.Windows.Forms.Button _buttonAdd;
         private System.Windows.Forms.ListBox _listBoxCategories;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider _errorProviderAddButton;
     }
 }
 
