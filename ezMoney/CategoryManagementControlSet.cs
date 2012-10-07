@@ -50,7 +50,7 @@ namespace ezMoney
         }
 
         //enable/ disable button and ErrorProvider
-        public void SetButtonAndErrorProviderState(CategoryModel model)
+        public void SetButtonAndErrorProviderState(EZMoneyModel model)
         {
             String categoryName = _textBoxCategoryName.Text;
             if (categoryName == "")
