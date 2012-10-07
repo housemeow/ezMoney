@@ -12,7 +12,7 @@ namespace ezMoney
     public partial class FormCategoryManagement : Form
     {
         //view of categoryManagement
-        CategoryModel _categoryModel;
+        EZMoneyModel _categoryModel;
         CategoryManagementView _categoryManagementView;
 
         //class constructor
@@ -24,18 +24,26 @@ namespace ezMoney
         //form load event
         private void FormCategoryManagement_Load(object sender, EventArgs e)
         {
+            _categoryModel = new EZMoneyModel();
             InitCategoryManagementView();
+            InitRecordView();
         }
 
         //initialize categoryManagementView
         void InitCategoryManagementView()
         {
-            _categoryModel = new CategoryModel();
             _listBoxCategories.DataSource = _categoryModel.GetCategories();
             CurrencyManager currencyManager = (CurrencyManager)BindingContext[_categoryModel.GetCategories()];
             CategoryManagementControlSet controlSet = new CategoryManagementControlSet(_textBoxCategoryName, _listBoxCategories, currencyManager, _buttonCategoryAdd, _errorProviderAddButton);
             _categoryManagementView = new CategoryManagementView(controlSet, _categoryModel);
-            //_categoryManagementView.View();
+        }
+        //initialize recordView
+        void InitRecordView()
+        {
+            _comboBoxCategory.DataSource = _categoryModel.GetCategories();
+            CurrencyManager currencyManagerComboBox = (CurrencyManager)BindingContext[_categoryModel.GetCategories()];
+            CurrencyManager currencyManagerDataGridView = (CurrencyManager)BindingContext[_categoryModel.GetRecords()];
+
         }
     }
 }

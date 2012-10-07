@@ -39,13 +39,13 @@
             this._tabPageCategoryManagement = new System.Windows.Forms.TabPage();
             this._tabPageRecord = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this._dateTimePickerRecord = new System.Windows.Forms.DateTimePicker();
+            this._radioButtonIncome = new System.Windows.Forms.RadioButton();
             this._radioButtonExpanse = new System.Windows.Forms.RadioButton();
+            this._dateTimePickerRecord = new System.Windows.Forms.DateTimePicker();
             this._comboBoxCategory = new System.Windows.Forms.ComboBox();
             this._textBoxRecordMessage = new System.Windows.Forms.TextBox();
             this._buttonRecordAdd = new System.Windows.Forms.Button();
             this._dataGridViewRecord = new System.Windows.Forms.DataGridView();
-            this._radioButtonIncome = new System.Windows.Forms.RadioButton();
             this._tableLayoutPanelCategoryManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._errorProviderAddButton)).BeginInit();
             this._tabControl.SuspendLayout();
@@ -175,14 +175,16 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(364, 380);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // _dateTimePickerRecord
+            // _radioButtonIncome
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this._dateTimePickerRecord, 2);
-            this._dateTimePickerRecord.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._dateTimePickerRecord.Location = new System.Drawing.Point(3, 3);
-            this._dateTimePickerRecord.Name = "_dateTimePickerRecord";
-            this._dateTimePickerRecord.Size = new System.Drawing.Size(176, 22);
-            this._dateTimePickerRecord.TabIndex = 0;
+            this._radioButtonIncome.AutoSize = true;
+            this._radioButtonIncome.Location = new System.Drawing.Point(185, 3);
+            this._radioButtonIncome.Name = "_radioButtonIncome";
+            this._radioButtonIncome.Size = new System.Drawing.Size(58, 16);
+            this._radioButtonIncome.TabIndex = 1;
+            this._radioButtonIncome.TabStop = true;
+            this._radioButtonIncome.Text = "Income";
+            this._radioButtonIncome.UseVisualStyleBackColor = true;
             // 
             // _radioButtonExpanse
             // 
@@ -194,6 +196,15 @@
             this._radioButtonExpanse.TabStop = true;
             this._radioButtonExpanse.Text = "Expanse";
             this._radioButtonExpanse.UseVisualStyleBackColor = true;
+            // 
+            // _dateTimePickerRecord
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this._dateTimePickerRecord, 2);
+            this._dateTimePickerRecord.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._dateTimePickerRecord.Location = new System.Drawing.Point(3, 3);
+            this._dateTimePickerRecord.Name = "_dateTimePickerRecord";
+            this._dateTimePickerRecord.Size = new System.Drawing.Size(176, 22);
+            this._dateTimePickerRecord.TabIndex = 0;
             // 
             // _comboBoxCategory
             // 
@@ -233,17 +244,6 @@
             this._dataGridViewRecord.RowTemplate.Height = 24;
             this._dataGridViewRecord.Size = new System.Drawing.Size(358, 294);
             this._dataGridViewRecord.TabIndex = 6;
-            // 
-            // _radioButtonIncome
-            // 
-            this._radioButtonIncome.AutoSize = true;
-            this._radioButtonIncome.Location = new System.Drawing.Point(185, 3);
-            this._radioButtonIncome.Name = "_radioButtonIncome";
-            this._radioButtonIncome.Size = new System.Drawing.Size(58, 16);
-            this._radioButtonIncome.TabIndex = 1;
-            this._radioButtonIncome.TabStop = true;
-            this._radioButtonIncome.Text = "Income";
-            this._radioButtonIncome.UseVisualStyleBackColor = true;
             // 
             // FormCategoryManagement
             // 
