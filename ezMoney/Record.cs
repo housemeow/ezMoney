@@ -8,11 +8,11 @@ namespace ezMoney
     public class Record
     {
         DateTime _date;
-        String _category;
+        Category _category;
         int _amount;
 
         //record constructor
-        public Record(DateTime date, String category, int amount)
+        public Record(DateTime date, Category category, int amount)
         {
             _date = date;
             _category = category;
@@ -25,7 +25,7 @@ namespace ezMoney
             set { _date = value; }
         }
 
-        public String Category
+        public Category Category
         {
             get { return _category; }
             set { _category = value; }

@@ -6,7 +6,7 @@ using System.Text;
 namespace ezMoney
 {
     //list changed event handler
-    public delegate void CategoryListChangedEventHandler(List<String> list, EventArgs args);
+    public delegate void CategoryListChangedEventHandler(List<Category> list, EventArgs args);
     public delegate void RecordListChangedEventHandler(List<Record> list, EventArgs args);
     class EZMoneyModel
     {
@@ -15,27 +15,30 @@ namespace ezMoney
         //record list change event handler
         public event RecordListChangedEventHandler RecordListChangeEvent;
 
-        private List<String> _categories;
+        private List<Category> _categories;
         private List<Record> _records;
+        //constructor
         public EZMoneyModel()
         {
-            _categories = new List<String>();
+            _categories = new List<Category>();
             _records = new List<Record>();
         }
-        public void AddCategory(String categoryName)
+        //add category to categoryList
+        public void AddCategory(Category categoryName)
         {
             _categories.Add(categoryName);
             //trigger event
             ChangeCategoryList();
         }
-        public Boolean IsExist(String categoryName)
+        public Boolean IsExist(Category categoryName)
         {
             return _categories.Contains(categoryName);
         }
-        public List<String> GetCategories()
+        public List<Category> GetCategories()
         {
             return _categories;
         }
+        //add record to RecordList
         public void AddRecord(Record record)
         {
             _records.Add(record);
