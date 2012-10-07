@@ -17,6 +17,7 @@ namespace ezMoney
             _categoryManagementControlSet = categoryManagementConstrolSet;
             _categoryModel = categoryModel;
             BindControlSetEvent();
+            InitControlSet();
         }
 
         //bind all control to categoryManagementView
@@ -26,16 +27,21 @@ namespace ezMoney
             Button buttonAdd = _categoryManagementControlSet.GetButtonAdd();
             textBoxCategoryName.TextChanged += new EventHandler(CategoryNameChanged);
             buttonAdd.Click += new EventHandler(AddCategory);
+            _categoryModel._categoryListChangedEvent += CategoryListChanged;
+        }
+        //initialize control
+        public void InitControlSet()
+        {
+            Button buttonAdd = _categoryManagementControlSet.GetButtonAdd();
             buttonAdd.Enabled = false;
-            _categoryModel.CategoryListChangedEvent += CategoryListChanged;
         }
 
-        //control events
+        //add category
         public void AddCategory(object sender, EventArgs args)
         {
             TextBox textBoxCategoryName = _categoryManagementControlSet.GetTextBoxCategoryName();
             String categoryName = textBoxCategoryName.Text;
-            _categoryModel.AddCategory(categoryName);
+            _categoryModel.AddCategory(new Category(categoryName));
             textBoxCategoryName.Text = "";
         }
 

@@ -39,13 +39,13 @@
             this._tabPageCategoryManagement = new System.Windows.Forms.TabPage();
             this._tabPageRecord = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this._radioButtonIncome = new System.Windows.Forms.RadioButton();
             this._radioButtonExpanse = new System.Windows.Forms.RadioButton();
             this._dateTimePickerRecord = new System.Windows.Forms.DateTimePicker();
             this._comboBoxCategory = new System.Windows.Forms.ComboBox();
             this._textBoxRecordAmount = new System.Windows.Forms.TextBox();
             this._buttonRecordAdd = new System.Windows.Forms.Button();
             this._dataGridViewRecord = new System.Windows.Forms.DataGridView();
-            this._radioButtonIncome = new System.Windows.Forms.RadioButton();
             this._errorProviderRecord = new System.Windows.Forms.ErrorProvider(this.components);
             this._tableLayoutPanelCategoryManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._errorProviderAddButton)).BeginInit();
@@ -176,6 +176,18 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(364, 380);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // _radioButtonIncome
+            // 
+            this._radioButtonIncome.AutoSize = true;
+            this._radioButtonIncome.Checked = true;
+            this._radioButtonIncome.Location = new System.Drawing.Point(185, 3);
+            this._radioButtonIncome.Name = "_radioButtonIncome";
+            this._radioButtonIncome.Size = new System.Drawing.Size(58, 16);
+            this._radioButtonIncome.TabIndex = 1;
+            this._radioButtonIncome.TabStop = true;
+            this._radioButtonIncome.Text = "Income";
+            this._radioButtonIncome.UseVisualStyleBackColor = true;
+            // 
             // _radioButtonExpanse
             // 
             this._radioButtonExpanse.AutoSize = true;
@@ -234,18 +246,6 @@
             this._dataGridViewRecord.RowTemplate.Height = 24;
             this._dataGridViewRecord.Size = new System.Drawing.Size(358, 294);
             this._dataGridViewRecord.TabIndex = 6;
-            // 
-            // _radioButtonIncome
-            // 
-            this._radioButtonIncome.AutoSize = true;
-            this._radioButtonIncome.Checked = true;
-            this._radioButtonIncome.Location = new System.Drawing.Point(185, 3);
-            this._radioButtonIncome.Name = "_radioButtonIncome";
-            this._radioButtonIncome.Size = new System.Drawing.Size(58, 16);
-            this._radioButtonIncome.TabIndex = 1;
-            this._radioButtonIncome.TabStop = true;
-            this._radioButtonIncome.Text = "Income";
-            this._radioButtonIncome.UseVisualStyleBackColor = true;
             // 
             // _errorProviderRecord
             // 

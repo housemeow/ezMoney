@@ -16,6 +16,7 @@ namespace ezMoney
             _ezMoneyModel = ezMoneyModel;
             _recordControlSet = recordControlSet;
             BindControlSetEvent();
+            InitControlSet();
         }
 
         //bind control event
@@ -27,8 +28,12 @@ namespace ezMoney
             Button buttonRecord = _recordControlSet.GetButtonRecordAdd();
             buttonRecord.Click += new EventHandler(RecordButtonClick);
             buttonRecord.Enabled = false;
-            _ezMoneyModel.RecordListChangeEvent += RecordListChanged;
-            _ezMoneyModel.CategoryListChangedEvent += CategoryListChanged;
+            _ezMoneyModel._recordListChangeEvent += RecordListChanged;
+            _ezMoneyModel._categoryListChangedEvent += CategoryListChanged;
+        }
+        //initialize control set
+        public void InitControlSet()
+        {
         }
 
         public void RecordAmountTextBoxChanged(object sender, EventArgs args)
@@ -39,7 +44,10 @@ namespace ezMoney
         //record amount textbox key press event
         public void RecordAmountTextBoxKeyPress(object sender, KeyPressEventArgs e)
         {
-            if((Keys)e.KeyChar < Keys.D0 || (Keys)e.KeyChar > Keys.D9)
+            if ((Keys)e.KeyChar == Keys.Back)
+            {//enable back key
+                return;
+            }else if ((Keys)e.KeyChar < Keys.D0 || (Keys)e.KeyChar > Keys.D9)
             {//cancel key message
                 e.Handled = true;
             }
