@@ -9,74 +9,52 @@ namespace ezMoney
     class CategoryManagementView
     {
         CategoryModel _categoryModel;
-        TextBox _textBoxCategoryName;
-        ListBox _listBoxCategories;
-        CurrencyManager _currencyManager;
-        Button _buttonAdd;
-        ErrorProvider _errorProvider;
+        CategoryManagementControlSet _categoryManagementControlSet;
 
-
-        public CategoryManagementView(CategoryModel categoryModel) {
+        //categoryManagementView constructor
+        public CategoryManagementView(CategoryManagementControlSet categoryManagementConstrolSet, CategoryModel categoryModel)
+        {
+            _categoryManagementControlSet = categoryManagementConstrolSet;
             _categoryModel = categoryModel;
+            BindControlSetEvent();
         }
 
-        public ErrorProvider ErrorProvider
+        //bind all control to categoryManagementView
+        private void BindControlSetEvent()
         {
-            get { return _errorProvider; }
-            set { _errorProvider = value; }
+            TextBox textBoxCategoryName = _categoryManagementControlSet.GetTextBoxCategoryName();
+            Button buttonAdd = _categoryManagementControlSet.GetButtonAdd();
+            textBoxCategoryName.TextChanged += new EventHandler(CategoryNameChanged);
+            buttonAdd.Click += new EventHandler(AddCategory);
         }
 
-        public TextBox TextBoxCategoryName
-        {
-            get { return _textBoxCategoryName; }
-            set { _textBoxCategoryName = value; }
-        }
-        public Button ButtonAdd
-        {
-            get { return _buttonAdd; }
-            set { _buttonAdd = value; }
-        }
-
-        public ListBox ListBoxCategories
-        {
-            get { return _listBoxCategories; }
-            set { _listBoxCategories = value; }
-        }
-
-        public CurrencyManager CurrencyManager
-        {
-            get { return _currencyManager; }
-            set { _currencyManager = value; }
-        }
         //control events
-        public void AddCategory(object sender, EventArgs args) {
-            String categoryName = _textBoxCategoryName.Text;
+        public void AddCategory(object sender, EventArgs args)
+        {
+            TextBox textBoxCategoryName = _categoryManagementControlSet.GetTextBoxCategoryName();
+            String categoryName = textBoxCategoryName.Text;
             _categoryModel.AddCategory(categoryName);
-            _textBoxCategoryName.Text = "";
+            textBoxCategoryName.Text = "";
             //reload view
             View();
         }
+
+        //change category name event
         public void CategoryNameChanged(object sender, EventArgs args)
         {
-            String categoryName = _textBoxCategoryName.Text;
-            if (categoryName == "" || _categoryModel.IsExist(categoryName))
-            {
-                _buttonAdd.Enabled = false;
-                _errorProvider.SetError(_buttonAdd, "category name must has value and non-repeat.");
-            }
-            else
-            {
-                _errorProvider.Clear();
-                _buttonAdd.Enabled = true;
-            }
+            _categoryManagementControlSet.SetButtonAndErrorProviderState(_categoryModel);
         }
 
-        public List<String> GetCategoryList() {
+        public List<String> GetCategoryList()
+        {
             return _categoryModel.GetCategories();
         }
+
+        //refresh view
         public void View()
         {
-            _currencyManager.Refresh();
+            CurrencyManager currencyManager = _categoryManagementControlSet.GetCurrencyManager();
+            currencyManager.Refresh();
         }
     }
 }
