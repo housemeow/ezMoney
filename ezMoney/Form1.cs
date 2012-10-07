@@ -11,30 +11,39 @@ namespace ezMoney
 {
     public partial class FormCategoryManagement : Form
     {
+        //class constructor
         public FormCategoryManagement()
         {
             InitializeComponent();
         }
-        CategoriesManagementView _categoryManagementView;
+
+        //view of categoryManagement
+        CategoryModel _categoryModel;
+        CategoryManagementView _categoryManagementView;
+
+        //form load event
         private void FormCategoryManagement_Load(object sender, EventArgs e)
         {
-            _categoryManagementView = new CategoriesManagementView();
-            ControlsBind();
-            ControlsEventBind();
+            _categoryModel = new CategoryModel();
+            _categoryManagementView = new CategoryManagementView();
+            BindControls();
+            BindControlsEvent();
             _categoryManagementView.View();
         }
-        private void ControlsBind() {
-            _categoryManagementView.ButtonAdd = buttonAdd;
-            _categoryManagementView.TextBoxCategoryName = textBoxCategoryName;
-            _categoryManagementView.ListBoxCategories = listBoxCategories;
-            listBoxCategories.DataSource = _categoryManagementView.GetCategoryList();
+        //bind control
+        private void BindControls() {
+            _categoryManagementView.ButtonAdd = _buttonAdd;
+            _categoryManagementView.TextBoxCategoryName = _textBoxCategoryName;
+            _categoryManagementView.ListBoxCategories = _listBoxCategories;
+            _listBoxCategories.DataSource = _categoryManagementView.GetCategoryList();
             //make listbox items sync to category list
-            _categoryManagementView.CurrencyManager =
-                (CurrencyManager)BindingContext[_categoryManagementView.GetCategoryList()];
+            _categoryManagementView.CurrencyManager = (CurrencyManager)BindingContext[_categoryManagementView.GetCategoryList()];
         }
-        private void ControlsEventBind() {
-            textBoxCategoryName.TextChanged += new EventHandler(_categoryManagementView.CategoryNameChanged);
-            buttonAdd.Click += new EventHandler(_categoryManagementView.AddCategory);
+
+        //bind all control to categoryManagementView
+        private void BindControlsEvent() {
+            _textBoxCategoryName.TextChanged += new EventHandler(_categoryManagementView.CategoryNameChanged);
+            _buttonAdd.Click += new EventHandler(_categoryManagementView.AddCategory);
         }
     }
 }
