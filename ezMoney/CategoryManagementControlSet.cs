@@ -52,13 +52,13 @@ namespace ezMoney
         //enable/ disable button and ErrorProvider
         public void SetButtonAndErrorProviderState(EZMoneyModel model)
         {
-            String categoryName = _textBoxCategoryName.Text;
-            if (categoryName == "")
+            Category category = new Category(_textBoxCategoryName.Text);
+            if (category.CategoryName == "")
             {
                 _errorProvider.SetError(_buttonAdd, "category name must have value.");
                 _buttonAdd.Enabled = false;
             }
-            else if (model.IsExist(categoryName))
+            else if (model.IsExist(category))
             {
                 _errorProvider.SetError(_buttonAdd, "category name must has value and non-repeat.");
                 _buttonAdd.Enabled = false;

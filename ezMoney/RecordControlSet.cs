@@ -67,6 +67,10 @@ namespace ezMoney
         {
             return _buttonRecordAdd;
         }
+        public DataGridView GetDataGridViewRecord()
+        {
+            return _dataGridViewRecord;
+        }
         public CurrencyManager GetCurrencyManagerComboBox()
         {
             return _currencyManagerComboBox;
@@ -101,7 +105,7 @@ namespace ezMoney
             DateTime dateTime = _dateTimePickerRecord.Value;
             int money = GetMoney();
             String categoryName = _comboBoxCategory.SelectedValue.ToString();
-            Record record = new Record(dateTime, categoryName, money);
+            Record record = new Record(dateTime, new Category(categoryName), money);
             return record;
         }
 
