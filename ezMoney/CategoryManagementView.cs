@@ -8,11 +8,11 @@ namespace ezMoney
 {
     class CategoryManagementView
     {
-        CategoryModel _categoryModel;
+        EZMoneyModel _categoryModel;
         CategoryManagementControlSet _categoryManagementControlSet;
 
         //categoryManagementView constructor
-        public CategoryManagementView(CategoryManagementControlSet categoryManagementConstrolSet, CategoryModel categoryModel)
+        public CategoryManagementView(CategoryManagementControlSet categoryManagementConstrolSet, EZMoneyModel categoryModel)
         {
             _categoryManagementControlSet = categoryManagementConstrolSet;
             _categoryModel = categoryModel;
@@ -26,7 +26,8 @@ namespace ezMoney
             Button buttonAdd = _categoryManagementControlSet.GetButtonAdd();
             textBoxCategoryName.TextChanged += new EventHandler(CategoryNameChanged);
             buttonAdd.Click += new EventHandler(AddCategory);
-            _categoryModel.ListChangedEvent += CategoryListChanged;
+            buttonAdd.Enabled = false;
+            _categoryModel.CategoryListChangedEvent += CategoryListChanged;
         }
 
         //control events
