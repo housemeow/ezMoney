@@ -26,6 +26,7 @@ namespace ezMoney
             Button buttonAdd = _categoryManagementControlSet.GetButtonAdd();
             textBoxCategoryName.TextChanged += new EventHandler(CategoryNameChanged);
             buttonAdd.Click += new EventHandler(AddCategory);
+            _categoryModel.ListChangedEvent += CategoryListChanged;
         }
 
         //control events
@@ -35,8 +36,6 @@ namespace ezMoney
             String categoryName = textBoxCategoryName.Text;
             _categoryModel.AddCategory(categoryName);
             textBoxCategoryName.Text = "";
-            //reload view
-            View();
         }
 
         //change category name event
@@ -45,13 +44,8 @@ namespace ezMoney
             _categoryManagementControlSet.SetButtonAndErrorProviderState(_categoryModel);
         }
 
-        public List<String> GetCategoryList()
-        {
-            return _categoryModel.GetCategories();
-        }
-
-        //refresh view
-        public void View()
+        //list change
+        public void CategoryListChanged(object sender, EventArgs args)
         {
             CurrencyManager currencyManager = _categoryManagementControlSet.GetCurrencyManager();
             currencyManager.Refresh();
