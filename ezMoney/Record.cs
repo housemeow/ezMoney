@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ezMoney
 {
-    class Record
+    public class Record
     {
         DateTime _date;
         String _category;
@@ -18,8 +18,6 @@ namespace ezMoney
             _category = category;
             _amount = amount;
         }
-
-
 
         public DateTime Date
         {

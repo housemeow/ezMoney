@@ -39,13 +39,14 @@
             this._tabPageCategoryManagement = new System.Windows.Forms.TabPage();
             this._tabPageRecord = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this._radioButtonIncome = new System.Windows.Forms.RadioButton();
             this._radioButtonExpanse = new System.Windows.Forms.RadioButton();
             this._dateTimePickerRecord = new System.Windows.Forms.DateTimePicker();
             this._comboBoxCategory = new System.Windows.Forms.ComboBox();
-            this._textBoxRecordMessage = new System.Windows.Forms.TextBox();
+            this._textBoxRecordAmount = new System.Windows.Forms.TextBox();
             this._buttonRecordAdd = new System.Windows.Forms.Button();
             this._dataGridViewRecord = new System.Windows.Forms.DataGridView();
+            this._radioButtonIncome = new System.Windows.Forms.RadioButton();
+            this._errorProviderRecord = new System.Windows.Forms.ErrorProvider(this.components);
             this._tableLayoutPanelCategoryManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._errorProviderAddButton)).BeginInit();
             this._tabControl.SuspendLayout();
@@ -53,6 +54,7 @@
             this._tabPageRecord.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewRecord)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._errorProviderRecord)).BeginInit();
             this.SuspendLayout();
             // 
             // _tableLayoutPanelCategoryManagement
@@ -95,7 +97,6 @@
             // _buttonCategoryAdd
             // 
             this._buttonCategoryAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this._buttonCategoryAdd.Enabled = false;
             this._buttonCategoryAdd.Location = new System.Drawing.Point(271, 28);
             this._buttonCategoryAdd.Name = "_buttonCategoryAdd";
             this._buttonCategoryAdd.Size = new System.Drawing.Size(75, 23);
@@ -162,7 +163,7 @@
             this.tableLayoutPanel1.Controls.Add(this._radioButtonExpanse, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this._dateTimePickerRecord, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this._comboBoxCategory, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this._textBoxRecordMessage, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this._textBoxRecordAmount, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this._buttonRecordAdd, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this._dataGridViewRecord, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -175,17 +176,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(364, 380);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // _radioButtonIncome
-            // 
-            this._radioButtonIncome.AutoSize = true;
-            this._radioButtonIncome.Location = new System.Drawing.Point(185, 3);
-            this._radioButtonIncome.Name = "_radioButtonIncome";
-            this._radioButtonIncome.Size = new System.Drawing.Size(58, 16);
-            this._radioButtonIncome.TabIndex = 1;
-            this._radioButtonIncome.TabStop = true;
-            this._radioButtonIncome.Text = "Income";
-            this._radioButtonIncome.UseVisualStyleBackColor = true;
-            // 
             // _radioButtonExpanse
             // 
             this._radioButtonExpanse.AutoSize = true;
@@ -193,7 +183,6 @@
             this._radioButtonExpanse.Name = "_radioButtonExpanse";
             this._radioButtonExpanse.Size = new System.Drawing.Size(62, 16);
             this._radioButtonExpanse.TabIndex = 2;
-            this._radioButtonExpanse.TabStop = true;
             this._radioButtonExpanse.Text = "Expanse";
             this._radioButtonExpanse.UseVisualStyleBackColor = true;
             // 
@@ -209,20 +198,21 @@
             // _comboBoxCategory
             // 
             this._comboBoxCategory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._comboBoxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._comboBoxCategory.FormattingEnabled = true;
             this._comboBoxCategory.Location = new System.Drawing.Point(3, 43);
             this._comboBoxCategory.Name = "_comboBoxCategory";
             this._comboBoxCategory.Size = new System.Drawing.Size(85, 20);
             this._comboBoxCategory.TabIndex = 3;
             // 
-            // _textBoxRecordMessage
+            // _textBoxRecordAmount
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this._textBoxRecordMessage, 2);
-            this._textBoxRecordMessage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._textBoxRecordMessage.Location = new System.Drawing.Point(94, 43);
-            this._textBoxRecordMessage.Name = "_textBoxRecordMessage";
-            this._textBoxRecordMessage.Size = new System.Drawing.Size(176, 22);
-            this._textBoxRecordMessage.TabIndex = 4;
+            this.tableLayoutPanel1.SetColumnSpan(this._textBoxRecordAmount, 2);
+            this._textBoxRecordAmount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._textBoxRecordAmount.Location = new System.Drawing.Point(94, 43);
+            this._textBoxRecordAmount.Name = "_textBoxRecordAmount";
+            this._textBoxRecordAmount.Size = new System.Drawing.Size(176, 22);
+            this._textBoxRecordAmount.TabIndex = 4;
             // 
             // _buttonRecordAdd
             // 
@@ -245,6 +235,22 @@
             this._dataGridViewRecord.Size = new System.Drawing.Size(358, 294);
             this._dataGridViewRecord.TabIndex = 6;
             // 
+            // _radioButtonIncome
+            // 
+            this._radioButtonIncome.AutoSize = true;
+            this._radioButtonIncome.Checked = true;
+            this._radioButtonIncome.Location = new System.Drawing.Point(185, 3);
+            this._radioButtonIncome.Name = "_radioButtonIncome";
+            this._radioButtonIncome.Size = new System.Drawing.Size(58, 16);
+            this._radioButtonIncome.TabIndex = 1;
+            this._radioButtonIncome.TabStop = true;
+            this._radioButtonIncome.Text = "Income";
+            this._radioButtonIncome.UseVisualStyleBackColor = true;
+            // 
+            // _errorProviderRecord
+            // 
+            this._errorProviderRecord.ContainerControl = this;
+            // 
             // FormCategoryManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -263,6 +269,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewRecord)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._errorProviderRecord)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -282,10 +289,11 @@
         private System.Windows.Forms.RadioButton _radioButtonExpanse;
         private System.Windows.Forms.DateTimePicker _dateTimePickerRecord;
         private System.Windows.Forms.ComboBox _comboBoxCategory;
-        private System.Windows.Forms.TextBox _textBoxRecordMessage;
+        private System.Windows.Forms.TextBox _textBoxRecordAmount;
         private System.Windows.Forms.Button _buttonRecordAdd;
         private System.Windows.Forms.DataGridView _dataGridViewRecord;
         private System.Windows.Forms.RadioButton _radioButtonIncome;
+        private System.Windows.Forms.ErrorProvider _errorProviderRecord;
     }
 }
 

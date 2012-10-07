@@ -26,7 +26,8 @@ namespace ezMoney
             Button buttonAdd = _categoryManagementControlSet.GetButtonAdd();
             textBoxCategoryName.TextChanged += new EventHandler(CategoryNameChanged);
             buttonAdd.Click += new EventHandler(AddCategory);
-            _categoryModel.ListChangedEvent += CategoryListChanged;
+            buttonAdd.Enabled = false;
+            _categoryModel.CategoryListChangedEvent += CategoryListChanged;
         }
 
         //control events

@@ -6,10 +6,14 @@ using System.Text;
 namespace ezMoney
 {
     //list changed event handler
-    public delegate void ListChangedEventHandler(List<String> list, EventArgs args);
+    public delegate void CategoryListChangedEventHandler(List<String> list, EventArgs args);
+    public delegate void RecordListChangedEventHandler(List<Record> list, EventArgs args);
     class EZMoneyModel
     {
-        public event ListChangedEventHandler ListChangedEvent;
+        //category list change event handler
+        public event CategoryListChangedEventHandler CategoryListChangedEvent;
+        //record list change event handler
+        public event RecordListChangedEventHandler RecordListChangeEvent;
 
         private List<String> _categories;
         private List<Record> _records;
@@ -22,7 +26,7 @@ namespace ezMoney
         {
             _categories.Add(categoryName);
             //trigger event
-            ChangeList();
+            ChangeCategoryList();
         }
         public Boolean IsExist(String categoryName)
         {
@@ -32,17 +36,32 @@ namespace ezMoney
         {
             return _categories;
         }
+        public void AddRecord(Record record)
+        {
+            _records.Add(record);
+            ChangeRecordList();
+        }
+
         public List<Record> GetRecords()
         {
             return _records;
         }
 
-        //change list trigger
-        public void ChangeList()
+        //change category list trigger
+        public void ChangeCategoryList()
         {
-            if (ListChangedEvent != null)
+            if (CategoryListChangedEvent != null)
             {
-                ListChangedEvent(_categories, new EventArgs());
+                CategoryListChangedEvent(_categories, new EventArgs());
+            }
+        }
+
+        //change record list
+        public void ChangeRecordList()
+        {
+            if (RecordListChangeEvent != null)
+            {
+                RecordListChangeEvent(_records, new EventArgs());
             }
         }
     }
