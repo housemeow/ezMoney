@@ -33,9 +33,9 @@ namespace ezMoney
             _categoryModel = new CategoryModel();
             _listBoxCategories.DataSource = _categoryModel.GetCategories();
             CurrencyManager currencyManager = (CurrencyManager)BindingContext[_categoryModel.GetCategories()];
-            CategoryManagementControlSet controlSet = new CategoryManagementControlSet(_textBoxCategoryName, _listBoxCategories, currencyManager, _buttonAdd, _errorProviderAddButton);
+            CategoryManagementControlSet controlSet = new CategoryManagementControlSet(_textBoxCategoryName, _listBoxCategories, currencyManager, _buttonCategoryAdd, _errorProviderAddButton);
             _categoryManagementView = new CategoryManagementView(controlSet, _categoryModel);
-            _categoryManagementView.View();
+            //_categoryManagementView.View();
         }
     }
 }
