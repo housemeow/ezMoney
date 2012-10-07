@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace ezMoney
 {
-    class CategoriesManagementView
+    class CategoryManagementView
     {
         CategoryModel _categoryModel;
         TextBox _textBoxCategoryName;
@@ -15,7 +15,7 @@ namespace ezMoney
         Button _buttonAdd;
         ErrorProvider _errorProvider;
 
-        public CategoriesManagementView() {
+        public CategoryManagementView() {
             _categoryModel = new CategoryModel();
             _errorProvider = new ErrorProvider();
             _errorProvider.BlinkStyle = ErrorBlinkStyle.AlwaysBlink;
