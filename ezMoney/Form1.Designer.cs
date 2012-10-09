@@ -228,10 +228,9 @@
             // 
             // _buttonRecordAdd
             // 
-            this._buttonRecordAdd.Dock = System.Windows.Forms.DockStyle.Top;
             this._buttonRecordAdd.Location = new System.Drawing.Point(276, 43);
             this._buttonRecordAdd.Name = "_buttonRecordAdd";
-            this._buttonRecordAdd.Size = new System.Drawing.Size(85, 23);
+            this._buttonRecordAdd.Size = new System.Drawing.Size(68, 23);
             this._buttonRecordAdd.TabIndex = 5;
             this._buttonRecordAdd.Text = "Enter";
             this._buttonRecordAdd.UseVisualStyleBackColor = true;

@@ -8,16 +8,17 @@ namespace ezMoney
 {
     class CategoryManagementView
     {
-        EZMoneyModel _categoryModel;
+        EZMoneyModel _ezMoneyModel;
         CategoryManagementControlSet _categoryManagementControlSet;
 
         //categoryManagementView constructor
-        public CategoryManagementView(CategoryManagementControlSet categoryManagementConstrolSet, EZMoneyModel categoryModel)
+        public CategoryManagementView(CategoryManagementControlSet categoryManagementConstrolSet, EZMoneyModel ezMoneyModel)
         {
             _categoryManagementControlSet = categoryManagementConstrolSet;
-            _categoryModel = categoryModel;
+            _ezMoneyModel = ezMoneyModel;
             BindControlSetEvent();
             InitControlSet();
+            _categoryManagementControlSet.SetButtonAndErrorProviderState(_ezMoneyModel);
         }
 
         //bind all control to categoryManagementView
@@ -27,8 +28,9 @@ namespace ezMoney
             Button buttonAdd = _categoryManagementControlSet.GetButtonAdd();
             textBoxCategoryName.TextChanged += new EventHandler(CategoryNameChanged);
             buttonAdd.Click += new EventHandler(AddCategory);
-            _categoryModel._categoryListChangedEvent += CategoryListChanged;
+            _ezMoneyModel._categoryListChangedEvent += CategoryListChanged;
         }
+
         //initialize control
         public void InitControlSet()
         {
@@ -41,14 +43,14 @@ namespace ezMoney
         {
             TextBox textBoxCategoryName = _categoryManagementControlSet.GetTextBoxCategoryName();
             String categoryName = textBoxCategoryName.Text;
-            _categoryModel.AddCategory(new Category(categoryName));
+            _ezMoneyModel.AddCategory(new Category(categoryName));
             textBoxCategoryName.Text = "";
         }
 
         //change category name event
         public void CategoryNameChanged(object sender, EventArgs args)
         {
-            _categoryManagementControlSet.SetButtonAndErrorProviderState(_categoryModel);
+            _categoryManagementControlSet.SetButtonAndErrorProviderState(_ezMoneyModel);
         }
 
         //list change

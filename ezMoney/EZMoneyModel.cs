@@ -5,11 +5,11 @@ using System.Text;
 
 namespace ezMoney
 {
-    //list changed event handler
-    public delegate void CategoryListChangedEventHandler(List<Category> list, EventArgs args);
-    public delegate void RecordListChangedEventHandler(List<Record> list, EventArgs args);
     class EZMoneyModel
     {
+        //list changed event handler
+        public delegate void CategoryListChangedEventHandler(List<Category> list, EventArgs args);
+        public delegate void RecordListChangedEventHandler(List<Record> list, EventArgs args);
         //category list change event handler
         public event CategoryListChangedEventHandler _categoryListChangedEvent;
         //record list change event handler
@@ -17,6 +17,7 @@ namespace ezMoney
 
         private List<Category> _categories;
         private List<Record> _records;
+
         //constructor
         public EZMoneyModel()
         {

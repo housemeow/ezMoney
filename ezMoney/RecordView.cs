@@ -11,12 +11,13 @@ namespace ezMoney
         EZMoneyModel _ezMoneyModel;
         RecordControlSet _recordControlSet;
 
+        //constructor
         public RecordView(RecordControlSet recordControlSet, EZMoneyModel ezMoneyModel)
         {
             _ezMoneyModel = ezMoneyModel;
             _recordControlSet = recordControlSet;
             BindControlSetEvent();
-            InitControlSet();
+            _recordControlSet.SetButtonAndErrorProviderState();
         }
 
         //bind control event
@@ -31,11 +32,8 @@ namespace ezMoney
             _ezMoneyModel._recordListChangeEvent += RecordListChanged;
             _ezMoneyModel._categoryListChangedEvent += CategoryListChanged;
         }
-        //initialize control set
-        public void InitControlSet()
-        {
-        }
 
+        //event of recordAmountTextBoxChanged
         public void RecordAmountTextBoxChanged(object sender, EventArgs args)
         {
             _recordControlSet.SetButtonAndErrorProviderState();
@@ -52,6 +50,7 @@ namespace ezMoney
                 e.Handled = true;
             }
         }
+        
         //record button click
         public void RecordButtonClick(object sender, EventArgs args)
         {
@@ -65,6 +64,7 @@ namespace ezMoney
             currencyManager.Refresh();
             _recordControlSet.SetButtonAndErrorProviderState();
         }
+
         //record list changed
         public void RecordListChanged(object sender, EventArgs args)
         {
