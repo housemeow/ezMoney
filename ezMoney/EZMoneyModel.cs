@@ -52,6 +52,13 @@ namespace ezMoney
                     _categories.Add(category);
                 }
             }
+            streamReader.Close();
+        }
+        //get category index from category name
+        public int GetCategoryIndex(Category category)
+        {
+            int index = _categories.IndexOf(category);
+            return index;
         }
 
         //add category to categoryList
@@ -74,6 +81,19 @@ namespace ezMoney
         {
             _records.Add(record);
             ChangeRecordList();
+        }
+
+        //write record to record.txt
+        public void WriteRecordToFile(String fileName)
+        {
+            StreamWriter streamWriter = new StreamWriter(fileName);
+            foreach (Record record in _records)
+            {
+                streamWriter.Write(record.Date.ToString("yyyy/M/d "));
+                streamWriter.Write(GetCategoryIndex(record.Category) + " ");
+                streamWriter.WriteLine(record.Amount.ToString());
+            }
+            streamWriter.Close();
         }
 
         public List<Record> GetRecords()
