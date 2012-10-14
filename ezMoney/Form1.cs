@@ -37,7 +37,7 @@ namespace ezMoney
         {
             _listBoxCategories.DataSource = _ezMoneyModel.GetCategories();
             CurrencyManager currencyManager = (CurrencyManager)BindingContext[_ezMoneyModel.GetCategories()];
-            CategoryManagementControlSet controlSet = new CategoryManagementControlSet(_textBoxCategoryName, _listBoxCategories, currencyManager, _buttonCategoryAdd, _errorProviderAddButton);
+            CategoryControlSet controlSet = new CategoryControlSet(_textBoxCategoryName, _listBoxCategories, currencyManager, _buttonCategoryAdd, _errorProviderAddButton);
             _categoryManagementView = new CategoryManagementView(controlSet, _ezMoneyModel);
         }
         //initialize recordView

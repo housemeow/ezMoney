@@ -9,10 +9,10 @@ namespace ezMoney
     class CategoryManagementView
     {
         EZMoneyModel _ezMoneyModel;
-        CategoryManagementControlSet _categoryManagementControlSet;
+        CategoryControlSet _categoryManagementControlSet;
 
         //categoryManagementView constructor
-        public CategoryManagementView(CategoryManagementControlSet categoryManagementConstrolSet, EZMoneyModel ezMoneyModel)
+        public CategoryManagementView(CategoryControlSet categoryManagementConstrolSet, EZMoneyModel ezMoneyModel)
         {
             _categoryManagementControlSet = categoryManagementConstrolSet;
             _ezMoneyModel = ezMoneyModel;

@@ -31,12 +31,12 @@ namespace ezMoney
         //write file to category
         public void WriteCategoryToFile(String fileName)
         {
-            StreamWriter sw = new StreamWriter(fileName);
+            StreamWriter streamWriter = new StreamWriter(fileName);
             foreach (Category category in _categories)
             {
-                sw.WriteLine(category.CategoryName);
+                streamWriter.WriteLine(category.CategoryName);
             }
-            sw.Close();
+            streamWriter.Close();
         }
 
         //read file from category.txt
@@ -114,6 +114,7 @@ namespace ezMoney
                     _records.Add(record);
                 }
             }
+            streamReader.Close();
         }
 
         public List<Record> GetRecords()
