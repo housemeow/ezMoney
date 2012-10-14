@@ -64,6 +64,7 @@ namespace ezMoney
         private void FormCategoryManagement_FormClosing(object sender, FormClosingEventArgs e)
         {
             _ezMoneyModel.WriteCategoryToFile("category.txt");
+            _ezMoneyModel.WriteRecordToFile("record.txt");
         }
     }
 }
