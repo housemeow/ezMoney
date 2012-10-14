@@ -26,6 +26,7 @@ namespace ezMoney
         private void FormCategoryManagement_Load(object sender, EventArgs e)
         {
             _ezMoneyModel = new EZMoneyModel();
+            _ezMoneyModel.ReadCategoryFromFile("category.txt");
             InitCategoryManagementView();
             InitRecordView();
         }
@@ -58,12 +59,11 @@ namespace ezMoney
                 currencyManagerDataGridView,
                 _errorProviderRecord);
             _recordView = new RecordView(controlSet, _ezMoneyModel);
-            
         }
 
         private void FormCategoryManagement_FormClosing(object sender, FormClosingEventArgs e)
         {
-            _ezMoneyModel.WriteCategory("category.txt");
+            _ezMoneyModel.WriteCategoryToFile("category.txt");
         }
     }
 }
