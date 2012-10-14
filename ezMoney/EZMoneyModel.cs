@@ -16,6 +16,8 @@ namespace ezMoney
         //record list change event handler
         public event RecordListChangedEventHandler _recordListChangeEvent;
 
+        private const string EMPTY_LINE = "";
+
         private List<Category> _categories;
         private List<Record> _records;
 
@@ -25,9 +27,9 @@ namespace ezMoney
             _categories = new List<Category>();
             _records = new List<Record>();
         }
-        
+
         //write file to category
-        public void WriteCategory(String fileName)
+        public void WriteCategoryToFile(String fileName)
         {
             StreamWriter sw = new StreamWriter(fileName);
             foreach (Category category in _categories)
@@ -35,6 +37,21 @@ namespace ezMoney
                 sw.WriteLine(category.CategoryName);
             }
             sw.Close();
+        }
+
+        //read file from category.txt
+        public void ReadCategoryFromFile(String fileName)
+        {
+            StreamReader streamReader = new StreamReader(fileName);
+            while (!streamReader.EndOfStream)
+            {
+                String categoryName = streamReader.ReadLine();
+                if (!categoryName.Equals(EMPTY_LINE))
+                {
+                    Category category = new Category(categoryName);
+                    _categories.Add(category);
+                }
+            }
         }
 
         //add category to categoryList
