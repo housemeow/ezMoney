@@ -435,6 +435,7 @@
             this.Controls.Add(this._tabControl);
             this.Name = "FormCategoryManagement";
             this.Text = "Categories Management";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCategoryManagement_FormClosing);
             this.Load += new System.EventHandler(this.FormCategoryManagement_Load);
             this._tableLayoutPanelCategoryManagement.ResumeLayout(false);
             this._tableLayoutPanelCategoryManagement.PerformLayout();
