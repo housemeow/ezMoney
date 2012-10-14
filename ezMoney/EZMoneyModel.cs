@@ -5,18 +5,19 @@ using System.Text;
 
 namespace ezMoney
 {
-    //list changed event handler
-    public delegate void CategoryListChangedEventHandler(List<Category> list, EventArgs args);
-    public delegate void RecordListChangedEventHandler(List<Record> list, EventArgs args);
     class EZMoneyModel
     {
+        //list changed event handler
+        public delegate void CategoryListChangedEventHandler(List<Category> list, EventArgs args);
+        public delegate void RecordListChangedEventHandler(List<Record> list, EventArgs args);
         //category list change event handler
-        public event CategoryListChangedEventHandler CategoryListChangedEvent;
+        public event CategoryListChangedEventHandler _categoryListChangedEvent;
         //record list change event handler
-        public event RecordListChangedEventHandler RecordListChangeEvent;
+        public event RecordListChangedEventHandler _recordListChangeEvent;
 
         private List<Category> _categories;
         private List<Record> _records;
+
         //constructor
         public EZMoneyModel()
         {
@@ -53,18 +54,18 @@ namespace ezMoney
         //change category list trigger
         public void ChangeCategoryList()
         {
-            if (CategoryListChangedEvent != null)
+            if (_categoryListChangedEvent != null)
             {
-                CategoryListChangedEvent(_categories, new EventArgs());
+                _categoryListChangedEvent(_categories, new EventArgs());
             }
         }
 
         //change record list
         public void ChangeRecordList()
         {
-            if (RecordListChangeEvent != null)
+            if (_recordListChangeEvent != null)
             {
-                RecordListChangeEvent(_records, new EventArgs());
+                _recordListChangeEvent(_records, new EventArgs());
             }
         }
     }

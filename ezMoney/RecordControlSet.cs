@@ -99,9 +99,9 @@ namespace ezMoney
             return money;
         }
 
+        //get record from datetimePicker, textBox, and combobox
         public Record GetRecord()
         {
-
             DateTime dateTime = _dateTimePickerRecord.Value;
             int money = GetMoney();
             String categoryName = _comboBoxCategory.SelectedValue.ToString();
@@ -109,6 +109,7 @@ namespace ezMoney
             return record;
         }
 
+        //set button enable and errorprovider
         public void SetButtonAndErrorProviderState()
         {
             String amountString = _textBoxRecordAmount.Text;

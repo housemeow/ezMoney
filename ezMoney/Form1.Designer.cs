@@ -46,6 +46,19 @@
             this._textBoxRecordAmount = new System.Windows.Forms.TextBox();
             this._buttonRecordAdd = new System.Windows.Forms.Button();
             this._dataGridViewRecord = new System.Windows.Forms.DataGridView();
+            this._tabPageStatistic = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this._labelStatisticIncome = new System.Windows.Forms.Label();
+            this._labelStatisticExpense = new System.Windows.Forms.Label();
+            this._labelBalance = new System.Windows.Forms.Label();
+            this._labelStatisticDetail = new System.Windows.Forms.Label();
+            this._radioButtonStatisticIncome = new System.Windows.Forms.RadioButton();
+            this._radioButtonStatisticExpense = new System.Windows.Forms.RadioButton();
+            this._textBoxIncome = new System.Windows.Forms.TextBox();
+            this._textBoxStatisticExpense = new System.Windows.Forms.TextBox();
+            this._textBoxBalance = new System.Windows.Forms.TextBox();
+            this._dataGridViewStatisticRecord = new System.Windows.Forms.DataGridView();
+            this._dataGridViewDetail = new System.Windows.Forms.DataGridView();
             this._errorProviderRecord = new System.Windows.Forms.ErrorProvider(this.components);
             this._tableLayoutPanelCategoryManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._errorProviderAddButton)).BeginInit();
@@ -54,6 +67,10 @@
             this._tabPageRecord.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewRecord)).BeginInit();
+            this._tabPageStatistic.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._dataGridViewStatisticRecord)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._dataGridViewDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._errorProviderRecord)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +88,7 @@
             this._tableLayoutPanelCategoryManagement.Location = new System.Drawing.Point(3, 3);
             this._tableLayoutPanelCategoryManagement.Name = "_tableLayoutPanelCategoryManagement";
             this._tableLayoutPanelCategoryManagement.RowCount = 2;
-            this._tableLayoutPanelCategoryManagement.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this._tableLayoutPanelCategoryManagement.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this._tableLayoutPanelCategoryManagement.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this._tableLayoutPanelCategoryManagement.Size = new System.Drawing.Size(364, 380);
             this._tableLayoutPanelCategoryManagement.TabIndex = 0;
@@ -80,7 +97,7 @@
             // 
             this._categoryNameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this._categoryNameLabel.AutoSize = true;
-            this._categoryNameLabel.Location = new System.Drawing.Point(21, 34);
+            this._categoryNameLabel.Location = new System.Drawing.Point(21, 14);
             this._categoryNameLabel.Name = "_categoryNameLabel";
             this._categoryNameLabel.Size = new System.Drawing.Size(48, 12);
             this._categoryNameLabel.TabIndex = 0;
@@ -89,7 +106,7 @@
             // _textBoxCategoryName
             // 
             this._textBoxCategoryName.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this._textBoxCategoryName.Location = new System.Drawing.Point(94, 29);
+            this._textBoxCategoryName.Location = new System.Drawing.Point(94, 9);
             this._textBoxCategoryName.Name = "_textBoxCategoryName";
             this._textBoxCategoryName.Size = new System.Drawing.Size(157, 22);
             this._textBoxCategoryName.TabIndex = 1;
@@ -97,7 +114,7 @@
             // _buttonCategoryAdd
             // 
             this._buttonCategoryAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this._buttonCategoryAdd.Location = new System.Drawing.Point(271, 28);
+            this._buttonCategoryAdd.Location = new System.Drawing.Point(271, 8);
             this._buttonCategoryAdd.Name = "_buttonCategoryAdd";
             this._buttonCategoryAdd.Size = new System.Drawing.Size(75, 23);
             this._buttonCategoryAdd.TabIndex = 2;
@@ -110,9 +127,9 @@
             this._listBoxCategories.Dock = System.Windows.Forms.DockStyle.Fill;
             this._listBoxCategories.FormattingEnabled = true;
             this._listBoxCategories.ItemHeight = 12;
-            this._listBoxCategories.Location = new System.Drawing.Point(3, 83);
+            this._listBoxCategories.Location = new System.Drawing.Point(3, 43);
             this._listBoxCategories.Name = "_listBoxCategories";
-            this._listBoxCategories.Size = new System.Drawing.Size(358, 294);
+            this._listBoxCategories.Size = new System.Drawing.Size(358, 334);
             this._listBoxCategories.TabIndex = 3;
             // 
             // _errorProviderAddButton
@@ -123,6 +140,7 @@
             // 
             this._tabControl.Controls.Add(this._tabPageCategoryManagement);
             this._tabControl.Controls.Add(this._tabPageRecord);
+            this._tabControl.Controls.Add(this._tabPageStatistic);
             this._tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this._tabControl.Location = new System.Drawing.Point(0, 0);
             this._tabControl.Name = "_tabControl";
@@ -178,9 +196,10 @@
             // 
             // _radioButtonIncome
             // 
+            this._radioButtonIncome.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this._radioButtonIncome.AutoSize = true;
             this._radioButtonIncome.Checked = true;
-            this._radioButtonIncome.Location = new System.Drawing.Point(185, 3);
+            this._radioButtonIncome.Location = new System.Drawing.Point(185, 12);
             this._radioButtonIncome.Name = "_radioButtonIncome";
             this._radioButtonIncome.Size = new System.Drawing.Size(58, 16);
             this._radioButtonIncome.TabIndex = 1;
@@ -190,8 +209,9 @@
             // 
             // _radioButtonExpanse
             // 
+            this._radioButtonExpanse.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this._radioButtonExpanse.AutoSize = true;
-            this._radioButtonExpanse.Location = new System.Drawing.Point(276, 3);
+            this._radioButtonExpanse.Location = new System.Drawing.Point(276, 12);
             this._radioButtonExpanse.Name = "_radioButtonExpanse";
             this._radioButtonExpanse.Size = new System.Drawing.Size(62, 16);
             this._radioButtonExpanse.TabIndex = 2;
@@ -200,38 +220,38 @@
             // 
             // _dateTimePickerRecord
             // 
+            this._dateTimePickerRecord.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tableLayoutPanel1.SetColumnSpan(this._dateTimePickerRecord, 2);
-            this._dateTimePickerRecord.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._dateTimePickerRecord.Location = new System.Drawing.Point(3, 3);
+            this._dateTimePickerRecord.Location = new System.Drawing.Point(3, 9);
             this._dateTimePickerRecord.Name = "_dateTimePickerRecord";
             this._dateTimePickerRecord.Size = new System.Drawing.Size(176, 22);
             this._dateTimePickerRecord.TabIndex = 0;
             // 
             // _comboBoxCategory
             // 
-            this._comboBoxCategory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._comboBoxCategory.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this._comboBoxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._comboBoxCategory.FormattingEnabled = true;
-            this._comboBoxCategory.Location = new System.Drawing.Point(3, 43);
+            this._comboBoxCategory.Location = new System.Drawing.Point(3, 50);
             this._comboBoxCategory.Name = "_comboBoxCategory";
             this._comboBoxCategory.Size = new System.Drawing.Size(85, 20);
             this._comboBoxCategory.TabIndex = 3;
             // 
             // _textBoxRecordAmount
             // 
+            this._textBoxRecordAmount.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tableLayoutPanel1.SetColumnSpan(this._textBoxRecordAmount, 2);
-            this._textBoxRecordAmount.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._textBoxRecordAmount.Location = new System.Drawing.Point(94, 43);
+            this._textBoxRecordAmount.Location = new System.Drawing.Point(94, 49);
             this._textBoxRecordAmount.Name = "_textBoxRecordAmount";
             this._textBoxRecordAmount.Size = new System.Drawing.Size(176, 22);
             this._textBoxRecordAmount.TabIndex = 4;
             // 
             // _buttonRecordAdd
             // 
-            this._buttonRecordAdd.Dock = System.Windows.Forms.DockStyle.Top;
-            this._buttonRecordAdd.Location = new System.Drawing.Point(276, 43);
+            this._buttonRecordAdd.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this._buttonRecordAdd.Location = new System.Drawing.Point(276, 48);
             this._buttonRecordAdd.Name = "_buttonRecordAdd";
-            this._buttonRecordAdd.Size = new System.Drawing.Size(85, 23);
+            this._buttonRecordAdd.Size = new System.Drawing.Size(68, 23);
             this._buttonRecordAdd.TabIndex = 5;
             this._buttonRecordAdd.Text = "Enter";
             this._buttonRecordAdd.UseVisualStyleBackColor = true;
@@ -246,6 +266,162 @@
             this._dataGridViewRecord.RowTemplate.Height = 24;
             this._dataGridViewRecord.Size = new System.Drawing.Size(358, 294);
             this._dataGridViewRecord.TabIndex = 6;
+            // 
+            // _tabPageStatistic
+            // 
+            this._tabPageStatistic.Controls.Add(this.tableLayoutPanel2);
+            this._tabPageStatistic.Location = new System.Drawing.Point(4, 22);
+            this._tabPageStatistic.Name = "_tabPageStatistic";
+            this._tabPageStatistic.Size = new System.Drawing.Size(370, 386);
+            this._tabPageStatistic.TabIndex = 2;
+            this._tabPageStatistic.Text = "Statistic";
+            this._tabPageStatistic.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 6;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel2.Controls.Add(this._labelStatisticIncome, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this._labelStatisticExpense, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(this._labelBalance, 4, 2);
+            this.tableLayoutPanel2.Controls.Add(this._labelStatisticDetail, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this._radioButtonStatisticIncome, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this._radioButtonStatisticExpense, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this._textBoxIncome, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this._textBoxStatisticExpense, 3, 2);
+            this.tableLayoutPanel2.Controls.Add(this._textBoxBalance, 5, 2);
+            this.tableLayoutPanel2.Controls.Add(this._dataGridViewStatisticRecord, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this._dataGridViewDetail, 0, 4);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 5;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(370, 386);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // _labelStatisticIncome
+            // 
+            this._labelStatisticIncome.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this._labelStatisticIncome.AutoSize = true;
+            this._labelStatisticIncome.Location = new System.Drawing.Point(3, 187);
+            this._labelStatisticIncome.Name = "_labelStatisticIncome";
+            this._labelStatisticIncome.Size = new System.Drawing.Size(43, 12);
+            this._labelStatisticIncome.TabIndex = 0;
+            this._labelStatisticIncome.Text = "Income:";
+            this._labelStatisticIncome.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // _labelStatisticExpense
+            // 
+            this._labelStatisticExpense.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this._labelStatisticExpense.AutoSize = true;
+            this._labelStatisticExpense.Location = new System.Drawing.Point(125, 187);
+            this._labelStatisticExpense.Name = "_labelStatisticExpense";
+            this._labelStatisticExpense.Size = new System.Drawing.Size(47, 12);
+            this._labelStatisticExpense.TabIndex = 1;
+            this._labelStatisticExpense.Text = "Expense:";
+            // 
+            // _labelBalance
+            // 
+            this._labelBalance.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this._labelBalance.AutoSize = true;
+            this._labelBalance.Location = new System.Drawing.Point(247, 187);
+            this._labelBalance.Name = "_labelBalance";
+            this._labelBalance.Size = new System.Drawing.Size(45, 12);
+            this._labelBalance.TabIndex = 2;
+            this._labelBalance.Text = "Balance:";
+            // 
+            // _labelStatisticDetail
+            // 
+            this._labelStatisticDetail.AutoSize = true;
+            this.tableLayoutPanel2.SetColumnSpan(this._labelStatisticDetail, 6);
+            this._labelStatisticDetail.Dock = System.Windows.Forms.DockStyle.Top;
+            this._labelStatisticDetail.Location = new System.Drawing.Point(3, 213);
+            this._labelStatisticDetail.Name = "_labelStatisticDetail";
+            this._labelStatisticDetail.Size = new System.Drawing.Size(364, 12);
+            this._labelStatisticDetail.TabIndex = 3;
+            this._labelStatisticDetail.Text = "The detail of the category:";
+            // 
+            // _radioButtonStatisticIncome
+            // 
+            this._radioButtonStatisticIncome.AutoSize = true;
+            this.tableLayoutPanel2.SetColumnSpan(this._radioButtonStatisticIncome, 2);
+            this._radioButtonStatisticIncome.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._radioButtonStatisticIncome.Location = new System.Drawing.Point(3, 3);
+            this._radioButtonStatisticIncome.Name = "_radioButtonStatisticIncome";
+            this._radioButtonStatisticIncome.Size = new System.Drawing.Size(116, 34);
+            this._radioButtonStatisticIncome.TabIndex = 4;
+            this._radioButtonStatisticIncome.TabStop = true;
+            this._radioButtonStatisticIncome.Text = "Income";
+            this._radioButtonStatisticIncome.UseVisualStyleBackColor = true;
+            // 
+            // _radioButtonStatisticExpense
+            // 
+            this._radioButtonStatisticExpense.AutoSize = true;
+            this.tableLayoutPanel2.SetColumnSpan(this._radioButtonStatisticExpense, 2);
+            this._radioButtonStatisticExpense.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._radioButtonStatisticExpense.Location = new System.Drawing.Point(125, 3);
+            this._radioButtonStatisticExpense.Name = "_radioButtonStatisticExpense";
+            this._radioButtonStatisticExpense.Size = new System.Drawing.Size(116, 34);
+            this._radioButtonStatisticExpense.TabIndex = 5;
+            this._radioButtonStatisticExpense.TabStop = true;
+            this._radioButtonStatisticExpense.Text = "Expense";
+            this._radioButtonStatisticExpense.UseVisualStyleBackColor = true;
+            // 
+            // _textBoxIncome
+            // 
+            this._textBoxIncome.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this._textBoxIncome.Location = new System.Drawing.Point(64, 182);
+            this._textBoxIncome.Name = "_textBoxIncome";
+            this._textBoxIncome.Size = new System.Drawing.Size(55, 22);
+            this._textBoxIncome.TabIndex = 6;
+            // 
+            // _textBoxStatisticExpense
+            // 
+            this._textBoxStatisticExpense.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this._textBoxStatisticExpense.Location = new System.Drawing.Point(186, 182);
+            this._textBoxStatisticExpense.Name = "_textBoxStatisticExpense";
+            this._textBoxStatisticExpense.Size = new System.Drawing.Size(55, 22);
+            this._textBoxStatisticExpense.TabIndex = 7;
+            // 
+            // _textBoxBalance
+            // 
+            this._textBoxBalance.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this._textBoxBalance.Location = new System.Drawing.Point(308, 182);
+            this._textBoxBalance.Name = "_textBoxBalance";
+            this._textBoxBalance.Size = new System.Drawing.Size(59, 22);
+            this._textBoxBalance.TabIndex = 8;
+            // 
+            // _dataGridViewStatisticRecord
+            // 
+            this._dataGridViewStatisticRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableLayoutPanel2.SetColumnSpan(this._dataGridViewStatisticRecord, 6);
+            this._dataGridViewStatisticRecord.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._dataGridViewStatisticRecord.Location = new System.Drawing.Point(3, 43);
+            this._dataGridViewStatisticRecord.Name = "_dataGridViewStatisticRecord";
+            this._dataGridViewStatisticRecord.RowTemplate.Height = 24;
+            this._dataGridViewStatisticRecord.Size = new System.Drawing.Size(364, 127);
+            this._dataGridViewStatisticRecord.TabIndex = 9;
+            // 
+            // _dataGridViewDetail
+            // 
+            this._dataGridViewDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableLayoutPanel2.SetColumnSpan(this._dataGridViewDetail, 6);
+            this._dataGridViewDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._dataGridViewDetail.Location = new System.Drawing.Point(3, 256);
+            this._dataGridViewDetail.Name = "_dataGridViewDetail";
+            this._dataGridViewDetail.RowTemplate.Height = 24;
+            this._dataGridViewDetail.Size = new System.Drawing.Size(364, 127);
+            this._dataGridViewDetail.TabIndex = 10;
             // 
             // _errorProviderRecord
             // 
@@ -269,6 +445,11 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewRecord)).EndInit();
+            this._tabPageStatistic.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._dataGridViewStatisticRecord)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._dataGridViewDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._errorProviderRecord)).EndInit();
             this.ResumeLayout(false);
 
@@ -294,6 +475,19 @@
         private System.Windows.Forms.DataGridView _dataGridViewRecord;
         private System.Windows.Forms.RadioButton _radioButtonIncome;
         private System.Windows.Forms.ErrorProvider _errorProviderRecord;
+        private System.Windows.Forms.TabPage _tabPageStatistic;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label _labelStatisticIncome;
+        private System.Windows.Forms.Label _labelStatisticExpense;
+        private System.Windows.Forms.Label _labelBalance;
+        private System.Windows.Forms.Label _labelStatisticDetail;
+        private System.Windows.Forms.RadioButton _radioButtonStatisticIncome;
+        private System.Windows.Forms.RadioButton _radioButtonStatisticExpense;
+        private System.Windows.Forms.TextBox _textBoxIncome;
+        private System.Windows.Forms.TextBox _textBoxStatisticExpense;
+        private System.Windows.Forms.TextBox _textBoxBalance;
+        private System.Windows.Forms.DataGridView _dataGridViewStatisticRecord;
+        private System.Windows.Forms.DataGridView _dataGridViewDetail;
     }
 }
 
