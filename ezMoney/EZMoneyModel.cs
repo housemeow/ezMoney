@@ -114,10 +114,7 @@ namespace ezMoney
                     _records.Add(record);
                 }
             }
-<<<<<<< HEAD
             streamReader.Close();
-=======
->>>>>>> fb281d86677634b12490680d4f8e09523ff34d8b
         }
 
         public List<Record> GetRecords()
