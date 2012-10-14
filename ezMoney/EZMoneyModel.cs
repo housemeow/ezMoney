@@ -31,12 +31,12 @@ namespace ezMoney
         //write file to category
         public void WriteCategoryToFile(String fileName)
         {
-            StreamWriter sw = new StreamWriter(fileName);
+            StreamWriter streamWriter = new StreamWriter(fileName);
             foreach (Category category in _categories)
             {
-                sw.WriteLine(category.CategoryName);
+                streamWriter.WriteLine(category.CategoryName);
             }
-            sw.Close();
+            streamWriter.Close();
         }
 
         //read file from category.txt
@@ -94,6 +94,27 @@ namespace ezMoney
                 streamWriter.WriteLine(record.Amount.ToString());
             }
             streamWriter.Close();
+        }
+
+        //read record from record.txt
+        public void ReadRecordFromFile(String fileName)
+        { 
+            StreamReader streamReader = new StreamReader(fileName);
+            while(!streamReader.EndOfStream)
+            {
+                String recordString = streamReader.ReadLine();
+                if(recordString!=EMPTY_LINE)
+                {
+                    String[] strings = recordString.Split(new char[] { ' ' });
+                    IFormatProvider culture = new System.Globalization.CultureInfo("zh-TW", true);
+                    DateTime date = DateTime.ParseExact(strings[0], "yyyy/M/d", culture);
+                    Category category = _categories[Convert.ToInt32(strings[1])];
+                    int amount = Convert.ToInt32(strings[2]);
+                    Record record = new Record(date, category, amount);
+                    _records.Add(record);
+                }
+            }
+            streamReader.Close();
         }
 
         public List<Record> GetRecords()

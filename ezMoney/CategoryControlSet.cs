@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace ezMoney
 {
-    class CategoryManagementControlSet
+    class CategoryControlSet
     {
         TextBox _textBoxCategoryName;
         ListBox _listBoxCategories;
@@ -15,7 +15,7 @@ namespace ezMoney
         ErrorProvider _errorProvider;
 
         //constructor of categoryManagementConstrolSet
-        public CategoryManagementControlSet(TextBox textBox, ListBox listBox, CurrencyManager currencyManager, Button button, ErrorProvider errorProvider)
+        public CategoryControlSet(TextBox textBox, ListBox listBox, CurrencyManager currencyManager, Button button, ErrorProvider errorProvider)
         {
             _textBoxCategoryName = textBox;
             _listBoxCategories = listBox;
