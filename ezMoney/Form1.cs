@@ -58,6 +58,12 @@ namespace ezMoney
                 currencyManagerDataGridView,
                 _errorProviderRecord);
             _recordView = new RecordView(controlSet, _ezMoneyModel);
+            
+        }
+
+        private void FormCategoryManagement_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _ezMoneyModel.WriteCategory("category.txt");
         }
     }
 }

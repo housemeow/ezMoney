@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace ezMoney
 {
@@ -24,6 +25,18 @@ namespace ezMoney
             _categories = new List<Category>();
             _records = new List<Record>();
         }
+        
+        //write file to category
+        public void WriteCategory(String fileName)
+        {
+            StreamWriter sw = new StreamWriter(fileName);
+            foreach (Category category in _categories)
+            {
+                sw.WriteLine(category.CategoryName);
+            }
+            sw.Close();
+        }
+
         //add category to categoryList
         public void AddCategory(Category categoryName)
         {
