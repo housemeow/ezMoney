@@ -27,6 +27,7 @@ namespace ezMoney
         {
             _ezMoneyModel = new EZMoneyModel();
             _ezMoneyModel.ReadCategoryFromFile("category.txt");
+            _ezMoneyModel.ReadRecordFromFile("record.txt");
             InitCategoryManagementView();
             InitRecordView();
         }
