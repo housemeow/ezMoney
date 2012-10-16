@@ -153,7 +153,7 @@ namespace ezMoney
             return records;
         }
 
-        public List<Record> GetNegativeRecord(List<Record> records)
+        public List<Record> GetNegativeRecords(List<Record> records)
         {
             List<Record> negativeRecords = new List<Record>();
             foreach (Record record in records)
@@ -164,6 +164,19 @@ namespace ezMoney
                 }
             }
             return negativeRecords;
+        }
+
+        public List<Record> GetPositiveRecords(List<Record> records)
+        {
+            List<Record> positiveRecords = new List<Record>();
+            foreach (Record record in records)
+            {
+                if (record.Amount >= 0)
+                {
+                    positiveRecords.Add(record);
+                }
+            }
+            return positiveRecords;
         }
     }
 }
