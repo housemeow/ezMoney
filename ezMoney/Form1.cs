@@ -15,6 +15,8 @@ namespace ezMoney
         EZMoneyModel _ezMoneyModel;
         CategoryManagementView _categoryManagementView;
         RecordView _recordView;
+        StatisticView _statisticView;
+        StatisticModel _statisticModel;
 
         //class constructor
         public FormCategoryManagement()
@@ -28,14 +30,10 @@ namespace ezMoney
             _ezMoneyModel = new EZMoneyModel();
             _ezMoneyModel.ReadCategoryFromFile("category.txt");
             _ezMoneyModel.ReadRecordFromFile("record.txt");
-            List<Record> records = _ezMoneyModel.GetRecordsFromCategory(new Category("Movie"));
-            records = _ezMoneyModel.GetNegativeRecords(records);
-            foreach (Record record in records)
-            {
-                MessageBox.Show(record.Category.ToString() + ":" + record.Amount.ToString() );
-            }
+            _statisticModel = new StatisticModel();
             InitCategoryManagementView();
             InitRecordView();
+            InitStatisticView();
         }
 
         //initialize categoryManagementView
@@ -66,6 +64,21 @@ namespace ezMoney
                 currencyManagerDataGridView,
                 _errorProviderRecord);
             _recordView = new RecordView(controlSet, _ezMoneyModel);
+        }
+
+        
+        //initialize statisticView
+        void InitStatisticView()
+        {
+            StatisticControlSet statisticControlSet = new StatisticControlSet();
+            statisticControlSet.RadioButtonIncome = _radioButtonStatisticIncome;
+            statisticControlSet.RadioButtonExpense = _radioButtonStatisticExpense;
+            statisticControlSet.DataGridViewStatistic = _dataGridViewStatisticRecord;
+            statisticControlSet.TextBoxIncome = _textBoxIncome;
+            statisticControlSet.TextBoxExpense = _textBoxStatisticExpense;
+            statisticControlSet.TextBoxBalance = _textBoxBalance;
+            statisticControlSet.DataGridViewDetail = _dataGridViewDetail;
+            _statisticView = new StatisticView(statisticControlSet, _statisticModel, _ezMoneyModel);
         }
 
         private void FormCategoryManagement_FormClosing(object sender, FormClosingEventArgs e)

@@ -15,24 +15,114 @@ namespace ezMoney
         private TextBox _textBoxExpense;
         private TextBox _textBoxBalance;
         private DataGridView _dataGridViewDetail;
-        
-        //constructor
-        public StatisticControlSet(
-            RadioButton radioButtonIncome,
-            RadioButton radioButtonExpense,
-            DataGridView dataGridViewStatistic,
-            TextBox textBoxIncome,
-            TextBox textBoxExpense,
-            TextBox textBoxBalance,
-            DataGridView dataGridViewDetail)
+
+        public RadioButton RadioButtonIncome
         {
-            _radioButtonIncome = radioButtonIncome;
-            _radioButtonExpense = radioButtonExpense;
-            _dataGridViewStatistic = dataGridViewStatistic;
-            _textBoxIncome = textBoxIncome;
-            _textBoxExpense = textBoxExpense;
-            _textBoxBalance = textBoxBalance;
-            _dataGridViewDetail = dataGridViewDetail;
+            get
+            {
+                return _radioButtonIncome;
+            }
+            set
+            {
+                _radioButtonIncome = value;
+            }
+        }
+
+        public RadioButton RadioButtonExpense
+        {
+            get
+            {
+                return _radioButtonExpense;
+            }
+            set
+            {
+                _radioButtonExpense = value;
+            }
+        }
+
+        public DataGridView DataGridViewStatistic
+        {
+            get
+            {
+                return _dataGridViewStatistic;
+            }
+            set
+            {
+                _dataGridViewStatistic = value;
+            }
+        }
+
+        public TextBox TextBoxIncome
+        {
+            get
+            {
+                return _textBoxIncome;
+            }
+            set
+            {
+                _textBoxIncome = value;
+            }
+        }
+
+        public TextBox TextBoxExpense
+        {
+            get
+            {
+                return _textBoxExpense;
+            }
+            set
+            {
+                _textBoxExpense = value;
+            }
+        }
+
+        public TextBox TextBoxBalance
+        {
+            get
+            {
+                return _textBoxBalance;
+            }
+            set
+            {
+                _textBoxBalance = value;
+            }
+        }
+
+        public DataGridView DataGridViewDetail
+        {
+            get
+            {
+                return _dataGridViewDetail;
+            }
+            set
+            {
+                _dataGridViewDetail = value;
+            }
+        }
+
+        public List<Statistic> GetStatisticDataGridViewSource(StatisticModel statisticModel, EZMoneyModel ezMoneyModel)
+        {
+            List<Statistic> statistics = new List<Statistic>();
+            if (_radioButtonIncome.Checked)
+            {
+                statistics = statisticModel.GetIncomeStatistics(ezMoneyModel.GetCategories(), ezMoneyModel.GetRecords());
+            }
+            else if(_radioButtonExpense.Checked)
+            {
+                statistics = statisticModel.GetExpenseStatistics(ezMoneyModel.GetCategories(), ezMoneyModel.GetRecords());
+            }
+            return statistics;
+        }
+
+        public List<Record> GetRecords(int rowIndex, EZMoneyModel ezMoneyModel)
+        { 
+            List<Record> records = new List<Record>();
+            if (rowIndex >= 0)
+            {
+                Category category =(Category) _dataGridViewStatistic.Rows[rowIndex].Cells[0].Value;
+                records = ezMoneyModel.GetRecords(category);
+            }
+            return records;
         }
     }
 }

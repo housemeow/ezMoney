@@ -102,7 +102,11 @@ namespace ezMoney
         //get record from datetimePicker, textBox, and combobox
         public Record GetRecord()
         {
-            DateTime dateTime = _dateTimePickerRecord.Value;
+            int year, month, day;
+            year = _dateTimePickerRecord.Value.Year;
+            month = _dateTimePickerRecord.Value.Month;
+            day = _dateTimePickerRecord.Value.Day;
+            DateTime dateTime = new DateTime(year,month,day);
             int money = GetMoney();
             String categoryName = _comboBoxCategory.SelectedValue.ToString();
             Record record = new Record(dateTime, new Category(categoryName), money);

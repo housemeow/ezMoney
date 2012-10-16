@@ -61,7 +61,9 @@
     <Compile Include="Record.cs" />
     <Compile Include="RecordControlSet.cs" />
     <Compile Include="RecordView.cs" />
+    <Compile Include="Statistic.cs" />
     <Compile Include="StatisticControlSet.cs" />
+    <Compile Include="StatisticModel.cs" />
     <Compile Include="StatisticView.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

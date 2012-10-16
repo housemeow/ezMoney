@@ -9,12 +9,19 @@ namespace ezMoney
     class EZMoneyModel
     {
         //list changed event handler
+        public delegate void CategoryListLoadedEventHandler(List<Category> list, EventArgs args);
+        public delegate void RecordListLoadedEventHandler(List<Record> list, EventArgs args);
         public delegate void CategoryListChangedEventHandler(List<Category> list, EventArgs args);
         public delegate void RecordListChangedEventHandler(List<Record> list, EventArgs args);
         //category list change event handler
         public event CategoryListChangedEventHandler _categoryListChangedEvent;
+        //categories loaded event handler
+        public event CategoryListLoadedEventHandler _categoryListLoadedEvent;
         //record list change event handler
         public event RecordListChangedEventHandler _recordListChangeEvent;
+        //records loaded event handler
+        public event RecordListLoadedEventHandler _recordListLoadedEvent;
+
 
         private const string EMPTY_LINE = "";
 
@@ -53,6 +60,7 @@ namespace ezMoney
                 }
             }
             streamReader.Close();
+            CategoryListLoaded();
         }
         //get category index from category name
         public int GetCategoryIndex(Category category)
@@ -115,6 +123,7 @@ namespace ezMoney
                 }
             }
             streamReader.Close();
+            RecordListLoaded();
         }
 
         public List<Record> GetRecords()
@@ -140,7 +149,26 @@ namespace ezMoney
             }
         }
 
-        public List<Record> GetRecordsFromCategory(Category category)
+        //categories loaded
+        private void CategoryListLoaded()
+        {
+            if (_categoryListLoadedEvent != null)
+            {
+                _categoryListLoadedEvent(_categories, new EventArgs());
+            }
+        }
+
+        //records loaded
+        private void RecordListLoaded()
+        {
+            if (_recordListLoadedEvent != null)
+            {
+                _recordListLoadedEvent(_records, new EventArgs());
+            }
+        }
+
+        //get records of category
+        public List<Record> GetRecords(Category category)
         {
             List<Record> records = new List<Record>();
             foreach (Record record in _records)
