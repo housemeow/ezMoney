@@ -152,5 +152,18 @@ namespace ezMoney
             }
             return records;
         }
+
+        public List<Record> GetNegativeRecord(List<Record> records)
+        {
+            List<Record> negativeRecords = new List<Record>();
+            foreach (Record record in records)
+            {
+                if (record.Amount < 0)
+                {
+                    negativeRecords.Add(record);
+                }
+            }
+            return negativeRecords;
+        }
     }
 }
