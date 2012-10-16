@@ -47,7 +47,7 @@
             this._buttonRecordAdd = new System.Windows.Forms.Button();
             this._dataGridViewRecord = new System.Windows.Forms.DataGridView();
             this._tabPageStatistic = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this._tableLayoutPanelStatistic = new System.Windows.Forms.TableLayoutPanel();
             this._labelStatisticIncome = new System.Windows.Forms.Label();
             this._labelStatisticExpense = new System.Windows.Forms.Label();
             this._labelBalance = new System.Windows.Forms.Label();
@@ -68,7 +68,7 @@
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewRecord)).BeginInit();
             this._tabPageStatistic.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this._tableLayoutPanelStatistic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewStatisticRecord)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._errorProviderRecord)).BeginInit();
@@ -269,7 +269,7 @@
             // 
             // _tabPageStatistic
             // 
-            this._tabPageStatistic.Controls.Add(this.tableLayoutPanel2);
+            this._tabPageStatistic.Controls.Add(this._tableLayoutPanelStatistic);
             this._tabPageStatistic.Location = new System.Drawing.Point(4, 22);
             this._tabPageStatistic.Name = "_tabPageStatistic";
             this._tabPageStatistic.Size = new System.Drawing.Size(370, 386);
@@ -279,35 +279,35 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 6;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.Controls.Add(this._labelStatisticIncome, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this._labelStatisticExpense, 2, 2);
-            this.tableLayoutPanel2.Controls.Add(this._labelBalance, 4, 2);
-            this.tableLayoutPanel2.Controls.Add(this._labelStatisticDetail, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this._radioButtonStatisticIncome, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this._radioButtonStatisticExpense, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this._textBoxIncome, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this._textBoxStatisticExpense, 3, 2);
-            this.tableLayoutPanel2.Controls.Add(this._textBoxBalance, 5, 2);
-            this.tableLayoutPanel2.Controls.Add(this._dataGridViewStatisticRecord, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this._dataGridViewDetail, 0, 4);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 5;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(370, 386);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this._tableLayoutPanelStatistic.ColumnCount = 6;
+            this._tableLayoutPanelStatistic.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this._tableLayoutPanelStatistic.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this._tableLayoutPanelStatistic.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this._tableLayoutPanelStatistic.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this._tableLayoutPanelStatistic.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this._tableLayoutPanelStatistic.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this._tableLayoutPanelStatistic.Controls.Add(this._labelStatisticIncome, 0, 2);
+            this._tableLayoutPanelStatistic.Controls.Add(this._labelStatisticExpense, 2, 2);
+            this._tableLayoutPanelStatistic.Controls.Add(this._labelBalance, 4, 2);
+            this._tableLayoutPanelStatistic.Controls.Add(this._labelStatisticDetail, 0, 3);
+            this._tableLayoutPanelStatistic.Controls.Add(this._radioButtonStatisticIncome, 0, 0);
+            this._tableLayoutPanelStatistic.Controls.Add(this._radioButtonStatisticExpense, 2, 0);
+            this._tableLayoutPanelStatistic.Controls.Add(this._textBoxIncome, 1, 2);
+            this._tableLayoutPanelStatistic.Controls.Add(this._textBoxStatisticExpense, 3, 2);
+            this._tableLayoutPanelStatistic.Controls.Add(this._textBoxBalance, 5, 2);
+            this._tableLayoutPanelStatistic.Controls.Add(this._dataGridViewStatisticRecord, 0, 1);
+            this._tableLayoutPanelStatistic.Controls.Add(this._dataGridViewDetail, 0, 4);
+            this._tableLayoutPanelStatistic.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._tableLayoutPanelStatistic.Location = new System.Drawing.Point(0, 0);
+            this._tableLayoutPanelStatistic.Name = "tableLayoutPanel2";
+            this._tableLayoutPanelStatistic.RowCount = 5;
+            this._tableLayoutPanelStatistic.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this._tableLayoutPanelStatistic.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this._tableLayoutPanelStatistic.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this._tableLayoutPanelStatistic.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this._tableLayoutPanelStatistic.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this._tableLayoutPanelStatistic.Size = new System.Drawing.Size(370, 386);
+            this._tableLayoutPanelStatistic.TabIndex = 0;
             // 
             // _labelStatisticIncome
             // 
@@ -343,7 +343,7 @@
             // _labelStatisticDetail
             // 
             this._labelStatisticDetail.AutoSize = true;
-            this.tableLayoutPanel2.SetColumnSpan(this._labelStatisticDetail, 6);
+            this._tableLayoutPanelStatistic.SetColumnSpan(this._labelStatisticDetail, 6);
             this._labelStatisticDetail.Dock = System.Windows.Forms.DockStyle.Top;
             this._labelStatisticDetail.Location = new System.Drawing.Point(3, 213);
             this._labelStatisticDetail.Name = "_labelStatisticDetail";
@@ -354,7 +354,7 @@
             // _radioButtonStatisticIncome
             // 
             this._radioButtonStatisticIncome.AutoSize = true;
-            this.tableLayoutPanel2.SetColumnSpan(this._radioButtonStatisticIncome, 2);
+            this._tableLayoutPanelStatistic.SetColumnSpan(this._radioButtonStatisticIncome, 2);
             this._radioButtonStatisticIncome.Dock = System.Windows.Forms.DockStyle.Fill;
             this._radioButtonStatisticIncome.Location = new System.Drawing.Point(3, 3);
             this._radioButtonStatisticIncome.Name = "_radioButtonStatisticIncome";
@@ -367,7 +367,7 @@
             // _radioButtonStatisticExpense
             // 
             this._radioButtonStatisticExpense.AutoSize = true;
-            this.tableLayoutPanel2.SetColumnSpan(this._radioButtonStatisticExpense, 2);
+            this._tableLayoutPanelStatistic.SetColumnSpan(this._radioButtonStatisticExpense, 2);
             this._radioButtonStatisticExpense.Dock = System.Windows.Forms.DockStyle.Fill;
             this._radioButtonStatisticExpense.Location = new System.Drawing.Point(125, 3);
             this._radioButtonStatisticExpense.Name = "_radioButtonStatisticExpense";
@@ -404,7 +404,7 @@
             // _dataGridViewStatisticRecord
             // 
             this._dataGridViewStatisticRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableLayoutPanel2.SetColumnSpan(this._dataGridViewStatisticRecord, 6);
+            this._tableLayoutPanelStatistic.SetColumnSpan(this._dataGridViewStatisticRecord, 6);
             this._dataGridViewStatisticRecord.Dock = System.Windows.Forms.DockStyle.Fill;
             this._dataGridViewStatisticRecord.Location = new System.Drawing.Point(3, 43);
             this._dataGridViewStatisticRecord.Name = "_dataGridViewStatisticRecord";
@@ -415,7 +415,7 @@
             // _dataGridViewDetail
             // 
             this._dataGridViewDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableLayoutPanel2.SetColumnSpan(this._dataGridViewDetail, 6);
+            this._tableLayoutPanelStatistic.SetColumnSpan(this._dataGridViewDetail, 6);
             this._dataGridViewDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this._dataGridViewDetail.Location = new System.Drawing.Point(3, 256);
             this._dataGridViewDetail.Name = "_dataGridViewDetail";
@@ -435,8 +435,8 @@
             this.Controls.Add(this._tabControl);
             this.Name = "FormCategoryManagement";
             this.Text = "Categories Management";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCategoryManagement_FormClosing);
-            this.Load += new System.EventHandler(this.FormCategoryManagement_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClosingFormCategoryManagementForm);
+            this.Load += new System.EventHandler(this.LoadFormCategoryManagement);
             this._tableLayoutPanelCategoryManagement.ResumeLayout(false);
             this._tableLayoutPanelCategoryManagement.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._errorProviderAddButton)).EndInit();
@@ -447,8 +447,8 @@
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewRecord)).EndInit();
             this._tabPageStatistic.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
+            this._tableLayoutPanelStatistic.ResumeLayout(false);
+            this._tableLayoutPanelStatistic.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewStatisticRecord)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._errorProviderRecord)).EndInit();
@@ -477,7 +477,7 @@
         private System.Windows.Forms.RadioButton _radioButtonIncome;
         private System.Windows.Forms.ErrorProvider _errorProviderRecord;
         private System.Windows.Forms.TabPage _tabPageStatistic;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel _tableLayoutPanelStatistic;
         private System.Windows.Forms.Label _labelStatisticIncome;
         private System.Windows.Forms.Label _labelStatisticExpense;
         private System.Windows.Forms.Label _labelBalance;

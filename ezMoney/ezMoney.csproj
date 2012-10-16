@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Category.cs" />
+    <Compile Include="CategoryControlProperty.cs" />
     <Compile Include="CategoryControlSet.cs" />
+    <Compile Include="CategoryModel.cs" />
     <Compile Include="CategoryView.cs" />
     <Compile Include="EZMoneyModel.cs" />
     <Compile Include="Form1.cs">
@@ -59,9 +61,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Record.cs" />
+    <Compile Include="RecordControlProperty.cs" />
     <Compile Include="RecordControlSet.cs" />
     <Compile Include="RecordView.cs" />
     <Compile Include="Statistic.cs" />
+    <Compile Include="StatisticControlProperty.cs" />
     <Compile Include="StatisticControlSet.cs" />
     <Compile Include="StatisticModel.cs" />
     <Compile Include="StatisticView.cs" />

@@ -6,95 +6,24 @@ using System.Windows.Forms;
 
 namespace ezMoney
 {
-    class RecordControlSet
+    class RecordControlSet : RecordControlProperty
     {
-        DateTimePicker _dateTimePickerRecord;
-        RadioButton _radioButtonIncome;
-        RadioButton _radioButtonExpanse;
-        ComboBox _comboBoxCategory;
-        TextBox _textBoxRecordAmount;
-        Button _buttonRecordAdd;
-        DataGridView _dataGridViewRecord;
-        CurrencyManager _currencyManagerComboBox;
-        CurrencyManager _currencyManagerDataGridView;
-        ErrorProvider _errorProvider;
-
         //record control set constructor
-        public RecordControlSet(DateTimePicker dateTimePickerRecord,
-            RadioButton radioButtonIncome,
-            RadioButton radioButtonExpanse,
-            ComboBox comboBoxCategory,
-            TextBox textBoxRecordMessage,
-            Button buttonRecordAdd,
-            DataGridView dataGridViewRecord,
-            CurrencyManager currencyManagerComboBox,
-            CurrencyManager currencyManagerDataGridView,
-            ErrorProvider errorProvider)
+        public RecordControlSet()
         {
-            _dateTimePickerRecord = dateTimePickerRecord;
-            _radioButtonIncome = radioButtonIncome;
-            _radioButtonExpanse = radioButtonExpanse;
-            _comboBoxCategory = comboBoxCategory;
-            _textBoxRecordAmount = textBoxRecordMessage;
-            _buttonRecordAdd = buttonRecordAdd;
-            _dataGridViewRecord = dataGridViewRecord;
-            _currencyManagerComboBox = currencyManagerComboBox;
-            _currencyManagerDataGridView = currencyManagerDataGridView;
-            _errorProvider = errorProvider;
-        }
-
-        public DateTimePicker GetDateTimePickerRecord()
-        {
-            return _dateTimePickerRecord;
-        }
-        public RadioButton GetRadioButtonIncome()
-        {
-            return _radioButtonIncome;
-        }
-        public RadioButton GetRadioButtonExpanse()
-        {
-            return _radioButtonExpanse;
-        }
-        public ComboBox GetComboBoxCategory()
-        {
-            return _comboBoxCategory;
-        }
-        public TextBox GetTextBoxRecordAmount()
-        {
-            return _textBoxRecordAmount;
-        }
-        public Button GetButtonRecordAdd()
-        {
-            return _buttonRecordAdd;
-        }
-        public DataGridView GetDataGridViewRecord()
-        {
-            return _dataGridViewRecord;
-        }
-        public CurrencyManager GetCurrencyManagerComboBox()
-        {
-            return _currencyManagerComboBox;
-        }
-        public CurrencyManager GetCurrencyManagerDataGridView()
-        {
-            return _currencyManagerDataGridView;
-        }
-        public ErrorProvider GetErrorProvider()
-        {
-            return _errorProvider;
         }
 
         //get money from moneytextbox
         public int GetMoney()
         {
             int money;
-            if (_radioButtonIncome.Checked)
+            if (RadioButtonIncome.Checked)
             {
-                money = Convert.ToInt32(_textBoxRecordAmount.Text);
+                money = Convert.ToInt32(TextBoxRecordAmount.Text);
             }
             else
             {
-                money = -Convert.ToInt32(_textBoxRecordAmount.Text);
+                money = -Convert.ToInt32(TextBoxRecordAmount.Text);
             }
             return money;
         }
@@ -103,12 +32,12 @@ namespace ezMoney
         public Record GetRecord()
         {
             int year, month, day;
-            year = _dateTimePickerRecord.Value.Year;
-            month = _dateTimePickerRecord.Value.Month;
-            day = _dateTimePickerRecord.Value.Day;
-            DateTime dateTime = new DateTime(year,month,day);
+            year = DateTimePickerRecord.Value.Year;
+            month = DateTimePickerRecord.Value.Month;
+            day = DateTimePickerRecord.Value.Day;
+            DateTime dateTime = new DateTime(year, month, day);
             int money = GetMoney();
-            String categoryName = _comboBoxCategory.SelectedValue.ToString();
+            String categoryName = ComboBoxCategory.SelectedValue.ToString();
             Record record = new Record(dateTime, new Category(categoryName), money);
             return record;
         }
@@ -116,27 +45,28 @@ namespace ezMoney
         //set button enable and errorprovider
         public void SetButtonAndErrorProviderState()
         {
-            String amountString = _textBoxRecordAmount.Text;
+            String amountString = TextBoxRecordAmount.Text;
             int amount;
             bool isNum = int.TryParse(amountString, out amount);
             if (amountString == "")
             {
-                _errorProvider.SetError(_buttonRecordAdd, "must have number.");
-                _buttonRecordAdd.Enabled = false;
+                ErrorProvider.SetError(ButtonRecordAdd, "must have number.");
+                ButtonRecordAdd.Enabled = false;
             }
-            else if (_comboBoxCategory.SelectedIndex == -1)
+            else if (ComboBoxCategory.SelectedIndex == -1)
             {
-                _errorProvider.SetError(_buttonRecordAdd, "must select a category.");
-                _buttonRecordAdd.Enabled = false;
+                ErrorProvider.SetError(ButtonRecordAdd, "must select a category.");
+                ButtonRecordAdd.Enabled = false;
             }
             else if (!isNum)
             {
-                _errorProvider.SetError(_buttonRecordAdd, "text is not a number.");
-                _buttonRecordAdd.Enabled = false;
-            }else
+                ErrorProvider.SetError(ButtonRecordAdd, "text is not a number.");
+                ButtonRecordAdd.Enabled = false;
+            }
+            else
             {
-                _errorProvider.Clear();
-                _buttonRecordAdd.Enabled = true;
+                ErrorProvider.Clear();
+                ButtonRecordAdd.Enabled = true;
             }
         }
     }

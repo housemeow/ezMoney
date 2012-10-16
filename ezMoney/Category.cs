@@ -17,8 +17,14 @@ namespace ezMoney
 
         public String CategoryName
         {
-            get { return _categoryName; }
-            set { _categoryName = value; }
+            get
+            {
+                return _categoryName;
+            }
+            set
+            {
+                _categoryName = value;
+            }
         }
 
         //show to control
@@ -32,6 +38,7 @@ namespace ezMoney
         {
             return Equals(obj as Category);
         }
+
         //overide IEquatable Interface
         public bool Equals(Category category)
         {
@@ -41,6 +48,7 @@ namespace ezMoney
             }
             return category._categoryName == _categoryName;
         }
+
         //overide IEquatable Interface
         public override int GetHashCode()
         {

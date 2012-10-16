@@ -23,52 +23,53 @@ namespace ezMoney
         //bind control event
         public void BindControlSetEvent()
         {
-            TextBox textBoxRecordAmount = _recordControlSet.GetTextBoxRecordAmount();
-            textBoxRecordAmount.KeyPress += new KeyPressEventHandler(RecordAmountTextBoxKeyPress);
-            textBoxRecordAmount.TextChanged += new EventHandler(RecordAmountTextBoxChanged);
-            Button buttonRecord = _recordControlSet.GetButtonRecordAdd();
-            buttonRecord.Click += new EventHandler(RecordButtonClick);
+            TextBox textBoxRecordAmount = _recordControlSet.TextBoxRecordAmount;
+            textBoxRecordAmount.KeyPress += new KeyPressEventHandler(PressRecordAmountTextBoxKey);
+            textBoxRecordAmount.TextChanged += new EventHandler(ChangeRecordAmountTextBox);
+            Button buttonRecord = _recordControlSet.ButtonRecordAdd;
+            buttonRecord.Click += new EventHandler(ClickRecordButton);
             buttonRecord.Enabled = false;
-            _ezMoneyModel._recordListChangeEvent += RecordListChanged;
-            _ezMoneyModel._categoryListChangedEvent += CategoryListChanged;
+            _ezMoneyModel._recordListChangeEvent += ChangeRecordList;
+            _ezMoneyModel._categoryListChangedEvent += ChangeCategoryList;
         }
 
         //event of recordAmountTextBoxChanged
-        public void RecordAmountTextBoxChanged(object sender, EventArgs args)
+        public void ChangeRecordAmountTextBox(object sender, EventArgs args)
         {
             _recordControlSet.SetButtonAndErrorProviderState();
         }
 
         //record amount textbox key press event
-        public void RecordAmountTextBoxKeyPress(object sender, KeyPressEventArgs e)
+        public void PressRecordAmountTextBoxKey(object sender, KeyPressEventArgs e)
         {
             if ((Keys)e.KeyChar == Keys.Back)
             {//enable back key
                 return;
-            }else if ((Keys)e.KeyChar < Keys.D0 || (Keys)e.KeyChar > Keys.D9)
+            }
+            else if ((Keys)e.KeyChar < Keys.D0 || (Keys)e.KeyChar > Keys.D9)
             {//cancel key message
                 e.Handled = true;
             }
         }
         
         //record button click
-        public void RecordButtonClick(object sender, EventArgs args)
+        public void ClickRecordButton(object sender, EventArgs args)
         {
             _ezMoneyModel.AddRecord(_recordControlSet.GetRecord());
         }
 
         //list changed
-        public void CategoryListChanged(object sender, EventArgs args)
+        public void ChangeCategoryList(object sender, EventArgs args)
         {
-            CurrencyManager currencyManager = _recordControlSet.GetCurrencyManagerComboBox();
+            CurrencyManager currencyManager = _recordControlSet.CurrencyManagerComboBox;
             currencyManager.Refresh();
             _recordControlSet.SetButtonAndErrorProviderState();
         }
 
         //record list changed
-        public void RecordListChanged(object sender, EventArgs args)
+        public void ChangeRecordList(object sender, EventArgs args)
         {
-            CurrencyManager currencyManager = _recordControlSet.GetCurrencyManagerDataGridView();
+            CurrencyManager currencyManager = _recordControlSet.CurrencyManagerDataGridView;
             currencyManager.Refresh();
             _recordControlSet.SetButtonAndErrorProviderState();
         }

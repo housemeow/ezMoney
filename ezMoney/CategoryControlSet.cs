@@ -6,67 +6,33 @@ using System.Windows.Forms;
 
 namespace ezMoney
 {
-    class CategoryControlSet
+    class CategoryControlSet : CategoryControlProperty
     {
-        TextBox _textBoxCategoryName;
-        ListBox _listBoxCategories;
-        CurrencyManager _currencyManager;
-        Button _buttonAdd;
-        ErrorProvider _errorProvider;
-
         //constructor of categoryManagementConstrolSet
-        public CategoryControlSet(TextBox textBox, ListBox listBox, CurrencyManager currencyManager, Button button, ErrorProvider errorProvider)
-        {
-            _textBoxCategoryName = textBox;
-            _listBoxCategories = listBox;
-            _currencyManager = currencyManager;
-            _buttonAdd = button;
-            _errorProvider = errorProvider;
-        }
-
-        public TextBox GetTextBoxCategoryName()
-        {
-            return _textBoxCategoryName;
-        }
-
-        public ListBox GetListBoxCategories()
-        {
-            return _listBoxCategories;
-        }
-
-        public CurrencyManager GetCurrencyManager()
-        {
-            return _currencyManager;
-        }
-
-        public Button GetButtonAdd()
-        {
-            return _buttonAdd;
-        }
-
-        public ErrorProvider GetErrorProvider()
-        {
-            return _errorProvider;
+        public CategoryControlSet()
+        { 
         }
 
         //enable/ disable button and ErrorProvider
         public void SetButtonAndErrorProviderState(EZMoneyModel model)
         {
-            Category category = new Category(_textBoxCategoryName.Text);
+            Category category = new Category(TextBoxCategoryName.Text);
+            const String CATEGORY_NO_NAME_INFO = "category name must have value.";
+            const string CATEGORY_REPEAT_INFO = "category name is repeat.";
             if (category.CategoryName == "")
             {
-                _errorProvider.SetError(_buttonAdd, "category name must have value.");
-                _buttonAdd.Enabled = false;
+                ErrorProvider.SetError(ButtonAdd, CATEGORY_NO_NAME_INFO);
+                ButtonAdd.Enabled = false;
             }
             else if (model.IsExist(category))
             {
-                _errorProvider.SetError(_buttonAdd, "category name must has value and non-repeat.");
-                _buttonAdd.Enabled = false;
+                ErrorProvider.SetError(ButtonAdd, CATEGORY_REPEAT_INFO);
+                ButtonAdd.Enabled = false;
             }
             else
             {
-                _errorProvider.Clear();
-                _buttonAdd.Enabled = true;
+                ErrorProvider.Clear();
+                ButtonAdd.Enabled = true;
             }
         }
     }

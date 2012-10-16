@@ -21,20 +21,38 @@ namespace ezMoney
 
         public DateTime Date
         {
-            get { return _date; }
-            set { _date = value; }
+            get
+            {
+                return _date;
+            }
+            set
+            {
+                _date = value;
+            }
         }
 
         public Category Category
         {
-            get { return _category; }
-            set { _category = value; }
+            get
+            {
+                return _category;
+            }
+            set
+            {
+                _category = value;
+            }
         }
 
         public int Amount
         {
-            get { return _amount; }
-            set { _amount = value; }
+            get
+            {
+                return _amount;
+            }
+            set
+            {
+                _amount = value;
+            }
         }
     }
 }

@@ -25,7 +25,7 @@ namespace ezMoney
         }
 
         //form load event
-        private void FormCategoryManagement_Load(object sender, EventArgs e)
+        private void LoadFormCategoryManagement(object sender, EventArgs e)
         {
             _ezMoneyModel = new EZMoneyModel();
             _ezMoneyModel.ReadCategoryFromFile("category.txt");
@@ -41,9 +41,15 @@ namespace ezMoney
         {
             _listBoxCategories.DataSource = _ezMoneyModel.GetCategories();
             CurrencyManager currencyManager = (CurrencyManager)BindingContext[_ezMoneyModel.GetCategories()];
-            CategoryControlSet controlSet = new CategoryControlSet(_textBoxCategoryName, _listBoxCategories, currencyManager, _buttonCategoryAdd, _errorProviderAddButton);
+            CategoryControlSet controlSet = new CategoryControlSet();
+            controlSet.TextBoxCategoryName =  _textBoxCategoryName;
+            controlSet.ListBoxCategories =  _listBoxCategories;
+            controlSet.CurrencyManager = currencyManager;
+            controlSet.ButtonAdd =  _buttonCategoryAdd;
+            controlSet.ErrorProvider =  _errorProviderAddButton;
             _categoryManagementView = new CategoryManagementView(controlSet, _ezMoneyModel);
         }
+
         //initialize recordView
         void InitRecordView()
         {
@@ -52,21 +58,20 @@ namespace ezMoney
             CurrencyManager currencyManagerDataGridView = (CurrencyManager)BindingContext[_ezMoneyModel.GetRecords()];
             _dataGridViewRecord.DataSource = _ezMoneyModel.GetRecords();
             _dataGridViewRecord.AutoGenerateColumns = true;
-            RecordControlSet controlSet = new RecordControlSet(
-                _dateTimePickerRecord,
-                _radioButtonIncome,
-                _radioButtonExpanse,
-                _comboBoxCategory,
-                _textBoxRecordAmount,
-                _buttonRecordAdd,
-                _dataGridViewRecord,
-                currencyManagerComboBox,
-                currencyManagerDataGridView,
-                _errorProviderRecord);
+            RecordControlSet controlSet = new RecordControlSet();
+            controlSet.DateTimePickerRecord = _dateTimePickerRecord;
+            controlSet.RadioButtonIncome = _radioButtonIncome;
+            controlSet.RadioButtonExpanse =  _radioButtonExpanse;
+            controlSet.ComboBoxCategory =  _comboBoxCategory;
+            controlSet.TextBoxRecordAmount =  _textBoxRecordAmount;
+            controlSet.ButtonRecordAdd =  _buttonRecordAdd;
+            controlSet.DataGridViewRecord =  _dataGridViewRecord;
+            controlSet.CurrencyManagerComboBox =  currencyManagerComboBox;
+            controlSet.CurrencyManagerDataGridView =  currencyManagerDataGridView;
+            controlSet.ErrorProvider =  _errorProviderRecord;
             _recordView = new RecordView(controlSet, _ezMoneyModel);
         }
 
-        
         //initialize statisticView
         void InitStatisticView()
         {
@@ -81,7 +86,8 @@ namespace ezMoney
             _statisticView = new StatisticView(statisticControlSet, _statisticModel, _ezMoneyModel);
         }
 
-        private void FormCategoryManagement_FormClosing(object sender, FormClosingEventArgs e)
+        //closing form
+        private void ClosingFormCategoryManagementForm(object sender, FormClosingEventArgs e)
         {
             _ezMoneyModel.WriteCategoryToFile("category.txt");
             _ezMoneyModel.WriteRecordToFile("record.txt");

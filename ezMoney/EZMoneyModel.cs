@@ -76,14 +76,18 @@ namespace ezMoney
             //trigger event
             ChangeCategoryList();
         }
+
+        //category is in categoies
         public Boolean IsExist(Category categoryName)
         {
             return _categories.Contains(categoryName);
         }
+
         public List<Category> GetCategories()
         {
             return _categories;
         }
+
         //add record to RecordList
         public void AddRecord(Record record)
         {

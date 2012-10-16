@@ -24,39 +24,39 @@ namespace ezMoney
         //bind all control to categoryManagementView
         private void BindControlSetEvent()
         {
-            TextBox textBoxCategoryName = _categoryManagementControlSet.GetTextBoxCategoryName();
-            Button buttonAdd = _categoryManagementControlSet.GetButtonAdd();
-            textBoxCategoryName.TextChanged += new EventHandler(CategoryNameChanged);
+            TextBox textBoxCategoryName = _categoryManagementControlSet.TextBoxCategoryName;
+            Button buttonAdd = _categoryManagementControlSet.ButtonAdd;
+            textBoxCategoryName.TextChanged += new EventHandler(ChangeCategoryName);
             buttonAdd.Click += new EventHandler(AddCategory);
-            _ezMoneyModel._categoryListChangedEvent += CategoryListChanged;
+            _ezMoneyModel._categoryListChangedEvent += ChangeCategoryList;
         }
 
         //initialize control
         public void InitControlSet()
         {
-            Button buttonAdd = _categoryManagementControlSet.GetButtonAdd();
+            Button buttonAdd = _categoryManagementControlSet.ButtonAdd;
             buttonAdd.Enabled = false;
         }
 
         //add category
         public void AddCategory(object sender, EventArgs args)
         {
-            TextBox textBoxCategoryName = _categoryManagementControlSet.GetTextBoxCategoryName();
+            TextBox textBoxCategoryName = _categoryManagementControlSet.TextBoxCategoryName;
             String categoryName = textBoxCategoryName.Text;
             _ezMoneyModel.AddCategory(new Category(categoryName));
             textBoxCategoryName.Text = "";
         }
 
         //change category name event
-        public void CategoryNameChanged(object sender, EventArgs args)
+        public void ChangeCategoryName(object sender, EventArgs args)
         {
             _categoryManagementControlSet.SetButtonAndErrorProviderState(_ezMoneyModel);
         }
 
         //list change
-        public void CategoryListChanged(object sender, EventArgs args)
+        public void ChangeCategoryList(object sender, EventArgs args)
         {
-            CurrencyManager currencyManager = _categoryManagementControlSet.GetCurrencyManager();
+            CurrencyManager currencyManager = _categoryManagementControlSet.CurrencyManager;
             currencyManager.Refresh();
         }
     }
