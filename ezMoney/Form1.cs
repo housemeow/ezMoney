@@ -29,6 +29,7 @@ namespace ezMoney
             _ezMoneyModel.ReadCategoryFromFile("category.txt");
             _ezMoneyModel.ReadRecordFromFile("record.txt");
             List<Record> records = _ezMoneyModel.GetRecordsFromCategory(new Category("Movie"));
+            records = _ezMoneyModel.GetNegativeRecords(records);
             foreach (Record record in records)
             {
                 MessageBox.Show(record.Category.ToString() + ":" + record.Amount.ToString() );
