@@ -139,5 +139,18 @@ namespace ezMoney
                 _recordListChangeEvent(_records, new EventArgs());
             }
         }
+
+        public List<Record> GetRecordsFromCategory(Category category)
+        {
+            List<Record> records = new List<Record>();
+            foreach (Record record in _records)
+            {
+                if (record.Category.Equals(category))
+                {
+                    records.Add(record);
+                }
+            }
+            return records;
+        }
     }
 }
