@@ -16,32 +16,62 @@ namespace ezMoney
 
         public TextBox TextBoxCategoryName
         {
-            get { return _textBoxCategoryName; }
-            set { _textBoxCategoryName = value; }
+            get
+            {
+                return _textBoxCategoryName;
+            }
+            set
+            {
+                _textBoxCategoryName = value;
+            }
         }
 
         public ListBox ListBoxCategories
         {
-            get { return _listBoxCategories; }
-            set { _listBoxCategories = value; }
+            get
+            {
+                return _listBoxCategories;
+            }
+            set
+            {
+                _listBoxCategories = value;
+            }
         }
 
         public CurrencyManager CurrencyManager
         {
-            get { return _currencyManager; }
-            set { _currencyManager = value; }
+            get
+            {
+                return _currencyManager;
+            }
+            set
+            {
+                _currencyManager = value;
+            }
         }
 
         public Button ButtonAdd
         {
-            get { return _buttonAdd; }
-            set { _buttonAdd = value; }
+            get
+            {
+                return _buttonAdd;
+            }
+            set
+            {
+                _buttonAdd = value;
+            }
         }
 
         public ErrorProvider ErrorProvider
         {
-            get { return _errorProvider; }
-            set { _errorProvider = value; }
+            get
+            {
+                return _errorProvider;
+            }
+            set
+            {
+                _errorProvider = value;
+            }
         }
     }
 }

@@ -99,6 +99,5 @@ namespace ezMoney
                 _dataGridViewDetail = value;
             }
         }
-
     }
 }

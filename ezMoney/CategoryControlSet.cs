@@ -10,7 +10,7 @@ namespace ezMoney
     {
         //constructor of categoryManagementConstrolSet
         public CategoryControlSet()
-        { 
+        {
         }
 
         //enable/ disable button and ErrorProvider
@@ -18,8 +18,8 @@ namespace ezMoney
         {
             Category category = new Category(TextBoxCategoryName.Text);
             const String CATEGORY_NO_NAME_INFO = "category name must have value.";
-            const string CATEGORY_REPEAT_INFO = "category name is repeat.";
-            if (category.CategoryName == "")
+            const String CATEGORY_REPEAT_INFO = "category name is repeat.";
+            if (category.CategoryName == String.Empty)
             {
                 ErrorProvider.SetError(ButtonAdd, CATEGORY_NO_NAME_INFO);
                 ButtonAdd.Enabled = false;

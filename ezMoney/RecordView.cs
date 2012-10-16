@@ -51,7 +51,7 @@ namespace ezMoney
                 e.Handled = true;
             }
         }
-        
+
         //record button click
         public void ClickRecordButton(object sender, EventArgs args)
         {

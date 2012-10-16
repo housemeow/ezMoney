@@ -22,9 +22,8 @@ namespace ezMoney
         //records loaded event handler
         public event RecordListLoadedEventHandler _recordListLoadedEvent;
 
-
+        private const string DATE_FORMAT = "yyyy/M/d";
         private const string EMPTY_LINE = "";
-
         private List<Category> _categories;
         private List<Record> _records;
 
@@ -101,7 +100,7 @@ namespace ezMoney
             StreamWriter streamWriter = new StreamWriter(fileName);
             foreach (Record record in _records)
             {
-                streamWriter.Write(record.Date.ToString("yyyy/M/d "));
+                streamWriter.Write(record.Date.ToString(DATE_FORMAT));
                 streamWriter.Write(GetCategoryIndex(record.Category) + " ");
                 streamWriter.WriteLine(record.Amount.ToString());
             }
@@ -110,16 +109,17 @@ namespace ezMoney
 
         //read record from record.txt
         public void ReadRecordFromFile(String fileName)
-        { 
+        {
             StreamReader streamReader = new StreamReader(fileName);
-            while(!streamReader.EndOfStream)
+            while (!streamReader.EndOfStream)
             {
                 String recordString = streamReader.ReadLine();
-                if(recordString!=EMPTY_LINE)
+                if (recordString != EMPTY_LINE)
                 {
+                    const String ZH_TW = "zh-TW";
                     String[] strings = recordString.Split(new char[] { ' ' });
-                    IFormatProvider culture = new System.Globalization.CultureInfo("zh-TW", true);
-                    DateTime date = DateTime.ParseExact(strings[0], "yyyy/M/d", culture);
+                    IFormatProvider culture = new System.Globalization.CultureInfo(ZH_TW, true);
+                    DateTime date = DateTime.ParseExact(strings[0], DATE_FORMAT, culture);
                     Category category = _categories[Convert.ToInt32(strings[1])];
                     int amount = Convert.ToInt32(strings[2]);
                     Record record = new Record(date, category, amount);
@@ -185,6 +185,7 @@ namespace ezMoney
             return records;
         }
 
+        //get negative records
         public List<Record> GetNegativeRecords(List<Record> records)
         {
             List<Record> negativeRecords = new List<Record>();
@@ -198,6 +199,7 @@ namespace ezMoney
             return negativeRecords;
         }
 
+        //get positive records
         public List<Record> GetPositiveRecords(List<Record> records)
         {
             List<Record> positiveRecords = new List<Record>();

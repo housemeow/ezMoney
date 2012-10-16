@@ -38,7 +38,7 @@
             this._tabControl = new System.Windows.Forms.TabControl();
             this._tabPageCategoryManagement = new System.Windows.Forms.TabPage();
             this._tabPageRecord = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this._tableLayoutPanelRecord = new System.Windows.Forms.TableLayoutPanel();
             this._radioButtonIncome = new System.Windows.Forms.RadioButton();
             this._radioButtonExpanse = new System.Windows.Forms.RadioButton();
             this._dateTimePickerRecord = new System.Windows.Forms.DateTimePicker();
@@ -65,7 +65,7 @@
             this._tabControl.SuspendLayout();
             this._tabPageCategoryManagement.SuspendLayout();
             this._tabPageRecord.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this._tableLayoutPanelRecord.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewRecord)).BeginInit();
             this._tabPageStatistic.SuspendLayout();
             this._tableLayoutPanelStatistic.SuspendLayout();
@@ -161,7 +161,7 @@
             // 
             // _tabPageRecord
             // 
-            this._tabPageRecord.Controls.Add(this.tableLayoutPanel1);
+            this._tabPageRecord.Controls.Add(this._tableLayoutPanelRecord);
             this._tabPageRecord.Location = new System.Drawing.Point(4, 22);
             this._tabPageRecord.Name = "_tabPageRecord";
             this._tabPageRecord.Padding = new System.Windows.Forms.Padding(3);
@@ -170,29 +170,29 @@
             this._tabPageRecord.Text = "Record";
             this._tabPageRecord.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel1
+            // _tableLayoutPanelRecord
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Controls.Add(this._radioButtonIncome, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this._radioButtonExpanse, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this._dateTimePickerRecord, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this._comboBoxCategory, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this._textBoxRecordAmount, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this._buttonRecordAdd, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this._dataGridViewRecord, 0, 2);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(364, 380);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this._tableLayoutPanelRecord.ColumnCount = 4;
+            this._tableLayoutPanelRecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this._tableLayoutPanelRecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this._tableLayoutPanelRecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this._tableLayoutPanelRecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this._tableLayoutPanelRecord.Controls.Add(this._radioButtonIncome, 2, 0);
+            this._tableLayoutPanelRecord.Controls.Add(this._radioButtonExpanse, 3, 0);
+            this._tableLayoutPanelRecord.Controls.Add(this._dateTimePickerRecord, 0, 0);
+            this._tableLayoutPanelRecord.Controls.Add(this._comboBoxCategory, 0, 1);
+            this._tableLayoutPanelRecord.Controls.Add(this._textBoxRecordAmount, 1, 1);
+            this._tableLayoutPanelRecord.Controls.Add(this._buttonRecordAdd, 3, 1);
+            this._tableLayoutPanelRecord.Controls.Add(this._dataGridViewRecord, 0, 2);
+            this._tableLayoutPanelRecord.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._tableLayoutPanelRecord.Location = new System.Drawing.Point(3, 3);
+            this._tableLayoutPanelRecord.Name = "_tableLayoutPanelRecord";
+            this._tableLayoutPanelRecord.RowCount = 3;
+            this._tableLayoutPanelRecord.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this._tableLayoutPanelRecord.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this._tableLayoutPanelRecord.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this._tableLayoutPanelRecord.Size = new System.Drawing.Size(364, 380);
+            this._tableLayoutPanelRecord.TabIndex = 0;
             // 
             // _radioButtonIncome
             // 
@@ -221,7 +221,7 @@
             // _dateTimePickerRecord
             // 
             this._dateTimePickerRecord.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tableLayoutPanel1.SetColumnSpan(this._dateTimePickerRecord, 2);
+            this._tableLayoutPanelRecord.SetColumnSpan(this._dateTimePickerRecord, 2);
             this._dateTimePickerRecord.Location = new System.Drawing.Point(3, 9);
             this._dateTimePickerRecord.Name = "_dateTimePickerRecord";
             this._dateTimePickerRecord.Size = new System.Drawing.Size(176, 22);
@@ -240,7 +240,7 @@
             // _textBoxRecordAmount
             // 
             this._textBoxRecordAmount.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tableLayoutPanel1.SetColumnSpan(this._textBoxRecordAmount, 2);
+            this._tableLayoutPanelRecord.SetColumnSpan(this._textBoxRecordAmount, 2);
             this._textBoxRecordAmount.Location = new System.Drawing.Point(94, 49);
             this._textBoxRecordAmount.Name = "_textBoxRecordAmount";
             this._textBoxRecordAmount.Size = new System.Drawing.Size(176, 22);
@@ -259,7 +259,7 @@
             // _dataGridViewRecord
             // 
             this._dataGridViewRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableLayoutPanel1.SetColumnSpan(this._dataGridViewRecord, 4);
+            this._tableLayoutPanelRecord.SetColumnSpan(this._dataGridViewRecord, 4);
             this._dataGridViewRecord.Dock = System.Windows.Forms.DockStyle.Fill;
             this._dataGridViewRecord.Location = new System.Drawing.Point(3, 83);
             this._dataGridViewRecord.Name = "_dataGridViewRecord";
@@ -277,7 +277,7 @@
             this._tabPageStatistic.Text = "Statistic";
             this._tabPageStatistic.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel2
+            // _tableLayoutPanelStatistic
             // 
             this._tableLayoutPanelStatistic.ColumnCount = 6;
             this._tableLayoutPanelStatistic.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -299,7 +299,7 @@
             this._tableLayoutPanelStatistic.Controls.Add(this._dataGridViewDetail, 0, 4);
             this._tableLayoutPanelStatistic.Dock = System.Windows.Forms.DockStyle.Fill;
             this._tableLayoutPanelStatistic.Location = new System.Drawing.Point(0, 0);
-            this._tableLayoutPanelStatistic.Name = "tableLayoutPanel2";
+            this._tableLayoutPanelStatistic.Name = "_tableLayoutPanelStatistic";
             this._tableLayoutPanelStatistic.RowCount = 5;
             this._tableLayoutPanelStatistic.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this._tableLayoutPanelStatistic.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -443,8 +443,8 @@
             this._tabControl.ResumeLayout(false);
             this._tabPageCategoryManagement.ResumeLayout(false);
             this._tabPageRecord.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this._tableLayoutPanelRecord.ResumeLayout(false);
+            this._tableLayoutPanelRecord.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewRecord)).EndInit();
             this._tabPageStatistic.ResumeLayout(false);
             this._tableLayoutPanelStatistic.ResumeLayout(false);
@@ -467,7 +467,7 @@
         private System.Windows.Forms.TabControl _tabControl;
         private System.Windows.Forms.TabPage _tabPageCategoryManagement;
         private System.Windows.Forms.TabPage _tabPageRecord;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel _tableLayoutPanelRecord;
         private System.Windows.Forms.RadioButton _radioButtonExpanse;
         private System.Windows.Forms.DateTimePicker _dateTimePickerRecord;
         private System.Windows.Forms.ComboBox _comboBoxCategory;

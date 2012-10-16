@@ -31,10 +31,9 @@ namespace ezMoney
         //get record from datetimePicker, textBox, and combobox
         public Record GetRecord()
         {
-            int year, month, day;
-            year = DateTimePickerRecord.Value.Year;
-            month = DateTimePickerRecord.Value.Month;
-            day = DateTimePickerRecord.Value.Day;
+            int year = DateTimePickerRecord.Value.Year;
+            int month = DateTimePickerRecord.Value.Month;
+            int day = DateTimePickerRecord.Value.Day;
             DateTime dateTime = new DateTime(year, month, day);
             int money = GetMoney();
             String categoryName = ComboBoxCategory.SelectedValue.ToString();
@@ -45,22 +44,26 @@ namespace ezMoney
         //set button enable and errorprovider
         public void SetButtonAndErrorProviderState()
         {
+            const String NO_NUMBER_INFO = "must have number.";
+            const String NO_SELECT_CATEGORY_INFO = "must select a category.";
+            const String TEXT_IS_NOT_NUMBER_INFO = "text is not a number.";
+            const int NO_SELECT_COMBOX_ITEM = -1;
             String amountString = TextBoxRecordAmount.Text;
             int amount;
             bool isNum = int.TryParse(amountString, out amount);
-            if (amountString == "")
+            if (amountString == String.Empty)
             {
-                ErrorProvider.SetError(ButtonRecordAdd, "must have number.");
+                ErrorProvider.SetError(ButtonRecordAdd, NO_NUMBER_INFO);
                 ButtonRecordAdd.Enabled = false;
             }
-            else if (ComboBoxCategory.SelectedIndex == -1)
+            else if (ComboBoxCategory.SelectedIndex == NO_SELECT_COMBOX_ITEM)
             {
-                ErrorProvider.SetError(ButtonRecordAdd, "must select a category.");
+                ErrorProvider.SetError(ButtonRecordAdd, NO_SELECT_CATEGORY_INFO);
                 ButtonRecordAdd.Enabled = false;
             }
             else if (!isNum)
             {
-                ErrorProvider.SetError(ButtonRecordAdd, "text is not a number.");
+                ErrorProvider.SetError(ButtonRecordAdd, TEXT_IS_NOT_NUMBER_INFO);
                 ButtonRecordAdd.Enabled = false;
             }
             else

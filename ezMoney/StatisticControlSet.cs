@@ -8,7 +8,8 @@ namespace ezMoney
 {
     class StatisticControlSet:StatisticControlProperty
     {
-        public List<Statistic> GetStatisticDataGridViewSource(StatisticModel statisticModel, EZMoneyModel ezMoneyModel)
+        //get statistic datagridview datasource
+        public List<Statistic> GetStatisticDataGridViewDataSource(StatisticModel statisticModel, EZMoneyModel ezMoneyModel)
         {
             List<Statistic> statistics = new List<Statistic>();
             if (RadioButtonIncome.Checked)
@@ -22,6 +23,7 @@ namespace ezMoney
             return statistics;
         }
 
+        //get record from select statistic datagridview row
         public List<Record> GetRecords(int rowIndex, EZMoneyModel ezMoneyModel)
         { 
             List<Record> records = new List<Record>();

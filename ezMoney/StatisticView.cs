@@ -14,6 +14,8 @@ namespace ezMoney
         private List<Statistic> _statistics;
         private List<Record> _recordsOfCategory;
         private EZMoneyModel _ezMoneyModel;
+
+        //constructor
         public StatisticView(StatisticControlSet statisticControlSet, StatisticModel statisticModel, EZMoneyModel ezMoneyModel)
         {
             _statisticControlSet = statisticControlSet;
@@ -21,7 +23,7 @@ namespace ezMoney
             _ezMoneyModel = ezMoneyModel;
             BindControlSetEvent();
             InitControlSet();
-            _ezMoneyModel._recordListChangeEvent += new EZMoneyModel.RecordListChangedEventHandler(RecordListChanged);
+            _ezMoneyModel._recordListChangeEvent += new EZMoneyModel.RecordListChangedEventHandler(ChangeRecordList);
         }
 
         //bind control event
@@ -35,9 +37,9 @@ namespace ezMoney
         //init control
         private void InitControlSet()
         {
+            _statisticControlSet.RadioButtonIncome.Checked = true;
             InitStatisticDataGridView();
             InitDetailDataGridView();
-            _statisticControlSet.RadioButtonIncome.Checked = true;
             _statisticControlSet.TextBoxIncome.ReadOnly = true;
             _statisticControlSet.TextBoxExpense.ReadOnly = true;
             _statisticControlSet.TextBoxBalance.ReadOnly = true;
@@ -55,25 +57,7 @@ namespace ezMoney
         //init statistic datagridview
         private void InitStatisticDataGridView()
         {
-            _statisticControlSet.DataGridViewStatistic.AutoGenerateColumns = false;
-            DataGridViewTextBoxColumn nameColumn = new DataGridViewTextBoxColumn();
-            nameColumn.DataPropertyName = "Category";
-            nameColumn.HeaderText = "Name";
-            DataGridViewTextBoxColumn countColumn = new DataGridViewTextBoxColumn();
-            countColumn.DataPropertyName = "Count";
-            countColumn.HeaderText = "Count";
-            DataGridViewTextBoxColumn amountColumn = new DataGridViewTextBoxColumn();
-            amountColumn.DataPropertyName = "Amounts";
-            amountColumn.HeaderText = "Amount";
-            DataGridViewTextBoxColumn percentColumn = new DataGridViewTextBoxColumn();
-            percentColumn.DataPropertyName = "Percent";
-            percentColumn.HeaderText = "Percent";
-            _statisticControlSet.DataGridViewStatistic.Columns.Add(nameColumn);
-            _statisticControlSet.DataGridViewStatistic.Columns.Add(countColumn);
-            _statisticControlSet.DataGridViewStatistic.Columns.Add(amountColumn);
-            _statisticControlSet.DataGridViewStatistic.Columns.Add(percentColumn);
-            _statisticControlSet.DataGridViewStatistic.DataSource = _statistics;
-            _statisticControlSet.DataGridViewStatistic.ReadOnly = true;
+            _statisticControlSet.DataGridViewStatistic.AutoGenerateColumns = true;
         }
 
         //init detail datagridview
@@ -83,7 +67,6 @@ namespace ezMoney
             DataGridViewTextBoxColumn dateColumn = new DataGridViewTextBoxColumn();
             dateColumn.DataPropertyName = "Date";
             dateColumn.HeaderText = "Date";
-
             DataGridViewTextBoxColumn amountColumn = new DataGridViewTextBoxColumn();
             amountColumn.DataPropertyName = "Amount";
             amountColumn.HeaderText = "Amount";
@@ -93,11 +76,10 @@ namespace ezMoney
             _statisticControlSet.DataGridViewDetail.ReadOnly = true;
         }
 
-
         //radio button checked change
         private void CheckChangeRadioButton(object sender, EventArgs e)
         {
-            _statistics = _statisticControlSet.GetStatisticDataGridViewSource(_statisticModel, _ezMoneyModel);
+            _statistics = _statisticControlSet.GetStatisticDataGridViewDataSource(_statisticModel, _ezMoneyModel);
             _statisticControlSet.DataGridViewStatistic.DataSource = _statistics;
         }
 
@@ -109,7 +91,7 @@ namespace ezMoney
         }
 
         //record list changed
-        private void RecordListChanged(List<Record> records, EventArgs e)
+        private void ChangeRecordList(List<Record> records, EventArgs e)
         {
             CheckChangeRadioButton(this, new EventArgs());
             InitTextBoxValue(records);

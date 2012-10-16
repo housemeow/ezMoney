@@ -49,13 +49,10 @@ namespace ezMoney
             Statistic statistic = new Statistic(category);
             foreach (Record record in records)
             {
-                if (record.Category.Equals(category))
+                if (record.Category.Equals(category) && ((isPositive && record.Amount >= 0) || (!isPositive && record.Amount < 0)))
                 {
-                    if ((isPositive && record.Amount >= 0) || (!isPositive && record.Amount < 0))
-                    {
-                        statistic.Count++;
-                        statistic.Amounts += record.Amount;
-                    }
+                    statistic.Count++;
+                    statistic.Amounts += record.Amount;
                 }
             }
             return statistic;
@@ -67,7 +64,7 @@ namespace ezMoney
             foreach (Statistic statistic in statistics)
             {
                 double percent;
-                percent = (double)Math.Abs(statistic.Amounts) / Math.Abs(amounts)*100;
+                percent = (double)Math.Abs(statistic.Amounts) / Math.Abs(amounts) * 100;
                 statistic.Percent = Convert.ToInt32(Math.Round(percent)).ToString() + "%";
             }
         }

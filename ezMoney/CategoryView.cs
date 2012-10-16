@@ -44,7 +44,7 @@ namespace ezMoney
             TextBox textBoxCategoryName = _categoryManagementControlSet.TextBoxCategoryName;
             String categoryName = textBoxCategoryName.Text;
             _ezMoneyModel.AddCategory(new Category(categoryName));
-            textBoxCategoryName.Text = "";
+            textBoxCategoryName.Text = String.Empty;
         }
 
         //change category name event
