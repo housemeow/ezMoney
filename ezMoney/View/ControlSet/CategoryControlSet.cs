@@ -14,7 +14,7 @@ namespace ezMoney
         }
 
         //enable/ disable button and ErrorProvider
-        public void SetButtonAndErrorProviderState(EZMoneyModel model)
+        public void SetButtonAndErrorProviderState(CategoryModel model)
         {
             Category category = new Category(TextBoxCategoryName.Text);
             const String CATEGORY_NO_NAME_INFO = "category name must have value.";

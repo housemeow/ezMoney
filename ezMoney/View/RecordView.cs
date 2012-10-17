@@ -8,13 +8,16 @@ namespace ezMoney
 {
     class RecordView
     {
-        EZMoneyModel _ezMoneyModel;
+        //EZMoneyModel _ezMoneyModel;
+        CategoryModel _categoryModel;
+        RecordModel _recordModel;
         RecordControlSet _recordControlSet;
 
         //constructor
-        public RecordView(RecordControlSet recordControlSet, EZMoneyModel ezMoneyModel)
+        public RecordView(RecordControlSet recordControlSet, CategoryModel categoryModel, RecordModel recordModel)
         {
-            _ezMoneyModel = ezMoneyModel;
+            _categoryModel = categoryModel;
+            _recordModel = recordModel;
             _recordControlSet = recordControlSet;
             BindControlSetEvent();
             _recordControlSet.SetButtonAndErrorProviderState();
@@ -29,8 +32,8 @@ namespace ezMoney
             Button buttonRecord = _recordControlSet.ButtonRecordAdd;
             buttonRecord.Click += new EventHandler(ClickRecordButton);
             buttonRecord.Enabled = false;
-            _ezMoneyModel._recordListChangeEvent += ChangeRecordList;
-            _ezMoneyModel._categoryListChangedEvent += ChangeCategoryList;
+            _recordModel._recordListChangeEvent += ChangeRecordList;
+            _categoryModel._categoryListChangedEvent += ChangeCategoryList;
         }
 
         //event of recordAmountTextBoxChanged
@@ -55,7 +58,7 @@ namespace ezMoney
         //record button click
         public void ClickRecordButton(object sender, EventArgs args)
         {
-            _ezMoneyModel.AddRecord(_recordControlSet.GetRecord());
+            _recordModel.AddRecord(_recordControlSet.GetRecord());
         }
 
         //list changed

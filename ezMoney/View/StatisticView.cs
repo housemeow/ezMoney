@@ -9,21 +9,23 @@ namespace ezMoney
 {
     class StatisticView
     {
-        private StatisticControlSet _statisticControlSet;
-        private StatisticModel _statisticModel;
-        private List<Statistic> _statistics;
-        private List<Record> _recordsOfCategory;
-        private EZMoneyModel _ezMoneyModel;
+        StatisticControlSet _statisticControlSet;
+        List<Statistic> _statistics;
+        List<Record> _recordsOfCategory;
+        CategoryModel _categoryModel;
+        RecordModel _recordModel;
+        StatisticModel _statisticModel;
 
         //constructor
-        public StatisticView(StatisticControlSet statisticControlSet, StatisticModel statisticModel, EZMoneyModel ezMoneyModel)
+        public StatisticView(StatisticControlSet statisticControlSet, CategoryModel categoryModel, RecordModel recordModel, StatisticModel statisticModel)
         {
             _statisticControlSet = statisticControlSet;
+            _categoryModel = categoryModel;
+            _recordModel = recordModel;
             _statisticModel = statisticModel;
-            _ezMoneyModel = ezMoneyModel;
             BindControlSetEvent();
             InitControlSet();
-            _ezMoneyModel._recordListChangeEvent += new EZMoneyModel.RecordListChangedEventHandler(ChangeRecordList);
+            _recordModel._recordListChangeEvent += new RecordModel.RecordListChangedEventHandler(ChangeRecordList);
         }
 
         //bind control event
@@ -43,7 +45,7 @@ namespace ezMoney
             _statisticControlSet.TextBoxIncome.ReadOnly = true;
             _statisticControlSet.TextBoxExpense.ReadOnly = true;
             _statisticControlSet.TextBoxBalance.ReadOnly = true;
-            InitTextBoxValue(_ezMoneyModel.GetRecords());
+            InitTextBoxValue(_recordModel.GetRecords());
         }
 
         //show 
@@ -58,6 +60,7 @@ namespace ezMoney
         private void InitStatisticDataGridView()
         {
             _statisticControlSet.DataGridViewStatistic.AutoGenerateColumns = true;
+            _statisticControlSet.DataGridViewStatistic.ReadOnly = true;
         }
 
         //init detail datagridview
@@ -79,14 +82,14 @@ namespace ezMoney
         //radio button checked change
         private void CheckChangeRadioButton(object sender, EventArgs e)
         {
-            _statistics = _statisticControlSet.GetStatisticDataGridViewDataSource(_statisticModel, _ezMoneyModel);
+            _statistics = _statisticControlSet.GetStatisticDataGridViewDataSource(_statisticModel);
             _statisticControlSet.DataGridViewStatistic.DataSource = _statistics;
         }
 
         //click datagridView's cell
         private void ClickDataGridViewCell(object sender, DataGridViewCellEventArgs e)
         {
-            _recordsOfCategory = _statisticControlSet.GetRecords(e.RowIndex, _ezMoneyModel);
+            _recordsOfCategory = _statisticControlSet.GetRecords(e.RowIndex, _recordModel);
             _statisticControlSet.DataGridViewDetail.DataSource = _recordsOfCategory;
         }
 

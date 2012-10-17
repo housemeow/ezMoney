@@ -6,19 +6,19 @@ using System.Windows.Forms;
 
 namespace ezMoney
 {
-    class CategoryManagementView
+    class CategoryView
     {
-        EZMoneyModel _ezMoneyModel;
+        CategoryModel _categoryModel;
         CategoryControlSet _categoryManagementControlSet;
 
         //categoryManagementView constructor
-        public CategoryManagementView(CategoryControlSet categoryManagementConstrolSet, EZMoneyModel ezMoneyModel)
+        public CategoryView(CategoryControlSet categoryManagementConstrolSet, CategoryModel categoryModel)
         {
             _categoryManagementControlSet = categoryManagementConstrolSet;
-            _ezMoneyModel = ezMoneyModel;
+            _categoryModel = categoryModel;
             BindControlSetEvent();
             InitControlSet();
-            _categoryManagementControlSet.SetButtonAndErrorProviderState(_ezMoneyModel);
+            _categoryManagementControlSet.SetButtonAndErrorProviderState(_categoryModel);
         }
 
         //bind all control to categoryManagementView
@@ -28,7 +28,7 @@ namespace ezMoney
             Button buttonAdd = _categoryManagementControlSet.ButtonAdd;
             textBoxCategoryName.TextChanged += new EventHandler(ChangeCategoryName);
             buttonAdd.Click += new EventHandler(AddCategory);
-            _ezMoneyModel._categoryListChangedEvent += ChangeCategoryList;
+            _categoryModel._categoryListChangedEvent += ChangeCategoryList;
         }
 
         //initialize control
@@ -43,14 +43,14 @@ namespace ezMoney
         {
             TextBox textBoxCategoryName = _categoryManagementControlSet.TextBoxCategoryName;
             String categoryName = textBoxCategoryName.Text;
-            _ezMoneyModel.AddCategory(new Category(categoryName));
+            _categoryModel.AddCategory(new Category(categoryName));
             textBoxCategoryName.Text = String.Empty;
         }
 
         //change category name event
         public void ChangeCategoryName(object sender, EventArgs args)
         {
-            _categoryManagementControlSet.SetButtonAndErrorProviderState(_ezMoneyModel);
+            _categoryManagementControlSet.SetButtonAndErrorProviderState(_categoryModel);
         }
 
         //list change

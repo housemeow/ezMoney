@@ -7,14 +7,24 @@ namespace ezMoney
 {
     class StatisticModel
     {
+        CategoryModel _categoryModel;
+        RecordModel _recordModel;
+
+        //constructor
+        public StatisticModel(CategoryModel categoryModel, RecordModel recordModel)
+        {
+            _categoryModel = categoryModel;
+            _recordModel = recordModel;
+        }
+
         //get expense statistics
-        public List<Statistic> GetExpenseStatistics(List<Category> categories, List<Record> records)
+        public List<Statistic> GetExpenseStatistics()
         {
             List<Statistic> expenseStatistics = new List<Statistic>();
             int amounts = 0;
-            foreach (Category category in categories)
+            foreach (Category category in _categoryModel.GetCategories())
             {
-                Statistic statistic = GetStatistic(category, records, false);
+                Statistic statistic = GetStatistic(category, false);
                 if (statistic.Count != 0)
                 {
                     expenseStatistics.Add(statistic);
@@ -26,13 +36,13 @@ namespace ezMoney
         }
 
         //get income statistics
-        public List<Statistic> GetIncomeStatistics(List<Category> categories, List<Record> records)
+        public List<Statistic> GetIncomeStatistics()
         {
             List<Statistic> incomeStatistics = new List<Statistic>();
             int amounts = 0;
-            foreach (Category category in categories)
+            foreach (Category category in _categoryModel.GetCategories())
             {
-                Statistic statistic = GetStatistic(category, records, true);
+                Statistic statistic = GetStatistic(category, true);
                 if (statistic.Count != 0)
                 {
                     incomeStatistics.Add(statistic);
@@ -44,10 +54,10 @@ namespace ezMoney
         }
 
         //get statistic from category and records
-        private Statistic GetStatistic(Category category, List<Record> records, bool isPositive)
+        private Statistic GetStatistic(Category category, bool isPositive)
         {
             Statistic statistic = new Statistic(category);
-            foreach (Record record in records)
+            foreach (Record record in _recordModel.GetRecords())
             {
                 if (record.Category.Equals(category) && ((isPositive && record.Amount >= 0) || (!isPositive && record.Amount < 0)))
                 {
