@@ -11,15 +11,11 @@ namespace ezMoney
 {
     public partial class FormCategoryManagement : Form
     {
-        const String CATEGORY_FILE_NAME = "category.txt";
-        const String RECORD_FILE_NAME = "record.txt";
-
         //view of categoryManagement
         EZMoneyModel _ezMoneyModel;
-        CategoryManagementView _categoryManagementView;
+        CategoryView _categoryManagementView;
         RecordView _recordView;
         StatisticView _statisticView;
-        StatisticModel _statisticModel;
 
         //class constructor
         public FormCategoryManagement()
@@ -31,9 +27,6 @@ namespace ezMoney
         private void LoadFormCategoryManagement(object sender, EventArgs e)
         {
             _ezMoneyModel = new EZMoneyModel();
-            _ezMoneyModel.ReadCategoryFromFile(CATEGORY_FILE_NAME);
-            _ezMoneyModel.ReadRecordFromFile(RECORD_FILE_NAME);
-            _statisticModel = new StatisticModel();
             InitCategoryManagementView();
             InitRecordView();
             InitStatisticView();
@@ -50,7 +43,7 @@ namespace ezMoney
             controlSet.CurrencyManager = currencyManager;
             controlSet.ButtonAdd = _buttonCategoryAdd;
             controlSet.ErrorProvider = _errorProviderAddButton;
-            _categoryManagementView = new CategoryManagementView(controlSet, _ezMoneyModel);
+            _categoryManagementView = new CategoryView(controlSet, _ezMoneyModel.GetCategoryModel());
         }
 
         //initialize recordView
@@ -72,7 +65,7 @@ namespace ezMoney
             controlSet.CurrencyManagerComboBox = currencyManagerComboBox;
             controlSet.CurrencyManagerDataGridView = currencyManagerDataGridView;
             controlSet.ErrorProvider = _errorProviderRecord;
-            _recordView = new RecordView(controlSet, _ezMoneyModel);
+            _recordView = new RecordView(controlSet, _ezMoneyModel.GetCategoryModel(), _ezMoneyModel.GetRecordModel());
         }
 
         //initialize statisticView
@@ -86,14 +79,14 @@ namespace ezMoney
             statisticControlSet.TextBoxExpense = _textBoxStatisticExpense;
             statisticControlSet.TextBoxBalance = _textBoxBalance;
             statisticControlSet.DataGridViewDetail = _dataGridViewDetail;
-            _statisticView = new StatisticView(statisticControlSet, _statisticModel, _ezMoneyModel);
+            _statisticView = new StatisticView(statisticControlSet, _ezMoneyModel.GetCategoryModel(), _ezMoneyModel.GetRecordModel(), _ezMoneyModel.GetStatisticModel());
         }
 
         //closing form
         private void ClosingFormCategoryManagementForm(object sender, FormClosingEventArgs e)
         {
-            _ezMoneyModel.WriteCategoryToFile(CATEGORY_FILE_NAME);
-            _ezMoneyModel.WriteRecordToFile(RECORD_FILE_NAME);
+            _ezMoneyModel.WriteCategoryToFile();
+            _ezMoneyModel.WriteRecordToFile();
         }
     }
 }
