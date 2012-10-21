@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="46ac87c7-3220-43a2-842a-c4705c7b7ee4" name="Meow@MEOW-PC 2012-10-21 17:40:29" runUser="Meow-PC\Meow" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="本機" id="4c5d43f5-97de-455f-80f8-d6dcfee819f3">
+    <Description>這些是本機測試回合的預設測試設定。</Description>
+    <Deployment runDeploymentRoot="Meow_MEOW-PC 2012-10-21 17_40_29">
+      <DeploymentItem filename="D:\Desktop\GitHubRepositories\ezMoney\ezMoney\bin\Debug\ezMoney.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific>
+        <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+          <AssemblyResolution>
+            <TestDirectory useLoadContext="true" />
+          </AssemblyResolution>
+        </UnitTestRunConfig>
+        <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+          <Browser name="Internet Explorer 7.0">
+            <Headers>
+              <Header name="User-Agent" value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)" />
+              <Header name="Accept" value="*/*" />
+              <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+              <Header name="Accept-Encoding" value="GZIP" />
+            </Headers>
+          </Browser>
+        </WebTestRunConfiguration>
+      </TestTypeSpecific>
+      <AgentRule name="LocalMachineDefaultRole">
+        <DataCollectors>
+          <DataCollector uri="datacollector://microsoft/CodeCoverage/1.0" assemblyQualifiedName="Microsoft.VisualStudio.TestTools.CodeCoverage.CoveragePlugIn, Microsoft.VisualStudio.QualityTools.Plugins.CodeCoverage, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" friendlyName="程式碼涵蓋範圍">
+            <Configuration>
+              <CodeCoverage xmlns="">
+                <Regular>
+                  <CodeCoverageItem binaryFile="D:\Desktop\GitHubRepositories\ezMoney\ezMoney\bin\Debug\ezMoney.exe" pdbFile="D:\Desktop\GitHubRepositories\ezMoney\ezMoney\bin\Debug\ezMoney.instr.pdb" instrumentInPlace="true" />
+                </Regular>
+              </CodeCoverage>
+            </Configuration>
+          </DataCollector>
+        </DataCollectors>
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-10-21T17:40:29.2814100+08:00" queuing="2012-10-21T17:40:29.7504368+08:00" start="2012-10-21T17:40:29.8244411+08:00" finish="2012-10-21T17:40:32.6196009+08:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="13" executed="13" passed="1" error="0" failed="8" timeout="0" aborted="0" inconclusive="4" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <ResultFiles>
+      <ResultFile path="MEOW-PC\data.coverage" />
+    </ResultFiles>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="GetRecordsTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="f8eafeb8-ea36-d2b9-e132-8cd977c7038e">
+      <Execution id="4661490d-ec22-43c5-a621-a54da0c6f196" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetRecordsTest" />
+    </UnitTest>
+    <UnitTest name="EZMoneyModelConstructorTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="313cab06-c5de-8a73-3b5e-61b6150e82a0">
+      <Execution id="056ce9c6-9ef6-4006-8e44-a763990aaa91" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="EZMoneyModelConstructorTest" />
+    </UnitTest>
+    <UnitTest name="GetCategoriesTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="438cc15e-b3bd-02d0-6d9f-e76978d5582b">
+      <Execution id="81c3245b-5e7d-434a-babb-014066152c77" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetCategoriesTest" />
+    </UnitTest>
+    <UnitTest name="GetStatisticModelTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="a83ff9cb-2c44-dc59-36ae-98ed0ad10991">
+      <Execution id="1fc013b7-93fb-47c2-b45e-5b6b9c2366c0" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetStatisticModelTest" />
+    </UnitTest>
+    <UnitTest name="AddRecordTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="d2581d1f-b856-d57a-1aa7-c785831728f9">
+      <Execution id="4c716de8-c1a3-4e9d-bfc6-645677fec81d" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddRecordTest" />
+    </UnitTest>
+    <UnitTest name="GetCategoryModelTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="78dd5f9d-13bb-9546-be81-14ebcc0b1c0c">
+      <Execution id="4d02f070-76b0-48dc-93f1-e44687a08d98" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetCategoryModelTest" />
+    </UnitTest>
+    <UnitTest name="AddCategoryTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="4fc4636a-78c0-4218-adb2-6173283accca">
+      <Execution id="e343685f-5d46-45ad-bdf9-1abc88644ffa" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddCategoryTest" />
+    </UnitTest>
+    <UnitTest name="WriteRecordToFileTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="c5ca2b8f-e709-c820-f97a-a0bb56c92bc5">
+      <Execution id="b9699f53-f76a-4215-9060-b7fc54adc85c" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="WriteRecordToFileTest" />
+    </UnitTest>
+    <UnitTest name="GetRecordsTest1" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="8612f2be-8f63-7d5e-ebd7-3a19cb63d7f9">
+      <Execution id="f793e83f-b479-46ee-aed3-ce092ef2b0d8" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetRecordsTest1" />
+    </UnitTest>
+    <UnitTest name="WriteCategoryToFileTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="88b35f6f-ad01-e7b6-8824-0c819dab486a">
+      <Execution id="ad5ff6aa-4baa-4f0a-ae82-598df6404750" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="WriteCategoryToFileTest" />
+    </UnitTest>
+    <UnitTest name="GetRecordModelTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="c0f06d6c-dcd7-4804-00f4-8b52a6b0ab52">
+      <Execution id="9fbfbf47-944d-49e6-9049-5dd71b1a43f8" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetRecordModelTest" />
+    </UnitTest>
+    <UnitTest name="GetCategoryIndexTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="dc426b2d-1e5c-2277-6ac7-8c4d5eb93b39">
+      <Execution id="7871d484-2629-4f14-bb3f-a20ba8f46243" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetCategoryIndexTest" />
+    </UnitTest>
+    <UnitTest name="GetInformationModelTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="afd3f908-844e-45d3-d3c9-74714f9775ee">
+      <Execution id="143608a5-d343-4af1-8869-4ad0e7d978a4" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetInformationModelTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="不在清單中的結果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有載入的結果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="313cab06-c5de-8a73-3b5e-61b6150e82a0" executionId="056ce9c6-9ef6-4006-8e44-a763990aaa91" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="438cc15e-b3bd-02d0-6d9f-e76978d5582b" executionId="81c3245b-5e7d-434a-babb-014066152c77" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4fc4636a-78c0-4218-adb2-6173283accca" executionId="e343685f-5d46-45ad-bdf9-1abc88644ffa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="78dd5f9d-13bb-9546-be81-14ebcc0b1c0c" executionId="4d02f070-76b0-48dc-93f1-e44687a08d98" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8612f2be-8f63-7d5e-ebd7-3a19cb63d7f9" executionId="f793e83f-b479-46ee-aed3-ce092ef2b0d8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="88b35f6f-ad01-e7b6-8824-0c819dab486a" executionId="ad5ff6aa-4baa-4f0a-ae82-598df6404750" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a83ff9cb-2c44-dc59-36ae-98ed0ad10991" executionId="1fc013b7-93fb-47c2-b45e-5b6b9c2366c0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="afd3f908-844e-45d3-d3c9-74714f9775ee" executionId="143608a5-d343-4af1-8869-4ad0e7d978a4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c0f06d6c-dcd7-4804-00f4-8b52a6b0ab52" executionId="9fbfbf47-944d-49e6-9049-5dd71b1a43f8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c5ca2b8f-e709-c820-f97a-a0bb56c92bc5" executionId="b9699f53-f76a-4215-9060-b7fc54adc85c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d2581d1f-b856-d57a-1aa7-c785831728f9" executionId="4c716de8-c1a3-4e9d-bfc6-645677fec81d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dc426b2d-1e5c-2277-6ac7-8c4d5eb93b39" executionId="7871d484-2629-4f14-bb3f-a20ba8f46243" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f8eafeb8-ea36-d2b9-e132-8cd977c7038e" executionId="4661490d-ec22-43c5-a621-a54da0c6f196" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="056ce9c6-9ef6-4006-8e44-a763990aaa91" testId="313cab06-c5de-8a73-3b5e-61b6150e82a0" testName="EZMoneyModelConstructorTest" computerName="MEOW-PC" duration="00:00:00.0538457" startTime="2012-10-21T17:40:30.6754897+08:00" endTime="2012-10-21T17:40:30.9695066+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="056ce9c6-9ef6-4006-8e44-a763990aaa91">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive 失敗。TODO: 實作程式碼以驗證目標</Message>
+          <StackTrace>   於 TestEZMoney.EZMoneyModelTest.EZMoneyModelConstructorTest() 於 D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestEZMoney\EZMoneyModelTest.cs: 行 77
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="81c3245b-5e7d-434a-babb-014066152c77" testId="438cc15e-b3bd-02d0-6d9f-e76978d5582b" testName="GetCategoriesTest" computerName="MEOW-PC" duration="00:00:00.0182309" startTime="2012-10-21T17:40:30.9725067+08:00" endTime="2012-10-21T17:40:30.9965081+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="81c3245b-5e7d-434a-babb-014066152c77">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual 失敗。預期: &lt;(null)&gt;。實際: &lt;System.Collections.Generic.List`1[ezMoney.Category]&gt;。</Message>
+          <StackTrace>   於 TestEZMoney.EZMoneyModelTest.GetCategoriesTest() 於 D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestEZMoney\EZMoneyModelTest.cs: 行 114
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="e343685f-5d46-45ad-bdf9-1abc88644ffa" testId="4fc4636a-78c0-4218-adb2-6173283accca" testName="AddCategoryTest" computerName="MEOW-PC" duration="00:00:00.0035780" startTime="2012-10-21T17:40:30.9985082+08:00" endTime="2012-10-21T17:40:31.0075087+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e343685f-5d46-45ad-bdf9-1abc88644ffa">
+    </UnitTestResult>
+    <UnitTestResult executionId="4d02f070-76b0-48dc-93f1-e44687a08d98" testId="78dd5f9d-13bb-9546-be81-14ebcc0b1c0c" testName="GetCategoryModelTest" computerName="MEOW-PC" duration="00:00:00.0019434" startTime="2012-10-21T17:40:31.0105089+08:00" endTime="2012-10-21T17:40:31.0185094+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4d02f070-76b0-48dc-93f1-e44687a08d98">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual 失敗。預期: &lt;(null)&gt;。實際: &lt;ezMoney.CategoryModel&gt;。</Message>
+          <StackTrace>   於 TestEZMoney.EZMoneyModelTest.GetCategoryModelTest() 於 D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestEZMoney\EZMoneyModelTest.cs: 行 143
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="f793e83f-b479-46ee-aed3-ce092ef2b0d8" testId="8612f2be-8f63-7d5e-ebd7-3a19cb63d7f9" testName="GetRecordsTest1" computerName="MEOW-PC" duration="00:00:00.0043552" startTime="2012-10-21T17:40:31.0295100+08:00" endTime="2012-10-21T17:40:31.0395106+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f793e83f-b479-46ee-aed3-ce092ef2b0d8">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual 失敗。預期: &lt;(null)&gt;。實際: &lt;System.Collections.Generic.List`1[ezMoney.Record]&gt;。</Message>
+          <StackTrace>   於 TestEZMoney.EZMoneyModelTest.GetRecordsTest1() 於 D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestEZMoney\EZMoneyModelTest.cs: 行 200
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ad5ff6aa-4baa-4f0a-ae82-598df6404750" testId="88b35f6f-ad01-e7b6-8824-0c819dab486a" testName="WriteCategoryToFileTest" computerName="MEOW-PC" duration="00:00:00.0025046" startTime="2012-10-21T17:40:31.0445109+08:00" endTime="2012-10-21T17:40:31.0555115+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ad5ff6aa-4baa-4f0a-ae82-598df6404750">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive 失敗。無法驗證不傳回值的方法。</Message>
+          <StackTrace>   於 TestEZMoney.EZMoneyModelTest.WriteCategoryToFileTest() 於 D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestEZMoney\EZMoneyModelTest.cs: 行 226
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1fc013b7-93fb-47c2-b45e-5b6b9c2366c0" testId="a83ff9cb-2c44-dc59-36ae-98ed0ad10991" testName="GetStatisticModelTest" computerName="MEOW-PC" duration="00:00:00.0028293" startTime="2012-10-21T17:40:31.0585117+08:00" endTime="2012-10-21T17:40:31.0665121+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1fc013b7-93fb-47c2-b45e-5b6b9c2366c0">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual 失敗。預期: &lt;(null)&gt;。實際: &lt;ezMoney.StatisticModel&gt;。</Message>
+          <StackTrace>   於 TestEZMoney.EZMoneyModelTest.GetStatisticModelTest() 於 D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestEZMoney\EZMoneyModelTest.cs: 行 214
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="143608a5-d343-4af1-8869-4ad0e7d978a4" testId="afd3f908-844e-45d3-d3c9-74714f9775ee" testName="GetInformationModelTest" computerName="MEOW-PC" duration="00:00:00.0022331" startTime="2012-10-21T17:40:31.0705123+08:00" endTime="2012-10-21T17:40:31.0785128+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="143608a5-d343-4af1-8869-4ad0e7d978a4">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual 失敗。預期: &lt;(null)&gt;。實際: &lt;ezMoney.InformationModel&gt;。</Message>
+          <StackTrace>   於 TestEZMoney.EZMoneyModelTest.GetInformationModelTest() 於 D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestEZMoney\EZMoneyModelTest.cs: 行 157
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="9fbfbf47-944d-49e6-9049-5dd71b1a43f8" testId="c0f06d6c-dcd7-4804-00f4-8b52a6b0ab52" testName="GetRecordModelTest" computerName="MEOW-PC" duration="00:00:00.0029515" startTime="2012-10-21T17:40:31.0825130+08:00" endTime="2012-10-21T17:40:31.0915135+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9fbfbf47-944d-49e6-9049-5dd71b1a43f8">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual 失敗。預期: &lt;(null)&gt;。實際: &lt;ezMoney.RecordModel&gt;。</Message>
+          <StackTrace>   於 TestEZMoney.EZMoneyModelTest.GetRecordModelTest() 於 D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestEZMoney\EZMoneyModelTest.cs: 行 171
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="b9699f53-f76a-4215-9060-b7fc54adc85c" testId="c5ca2b8f-e709-c820-f97a-a0bb56c92bc5" testName="WriteRecordToFileTest" computerName="MEOW-PC" duration="00:00:00.0026021" startTime="2012-10-21T17:40:31.0965138+08:00" endTime="2012-10-21T17:40:31.1045143+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b9699f53-f76a-4215-9060-b7fc54adc85c">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive 失敗。無法驗證不傳回值的方法。</Message>
+          <StackTrace>   於 TestEZMoney.EZMoneyModelTest.WriteRecordToFileTest() 於 D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestEZMoney\EZMoneyModelTest.cs: 行 237
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4c716de8-c1a3-4e9d-bfc6-645677fec81d" testId="d2581d1f-b856-d57a-1aa7-c785831728f9" testName="AddRecordTest" computerName="MEOW-PC" duration="00:00:00.0012250" startTime="2012-10-21T17:40:31.1075145+08:00" endTime="2012-10-21T17:40:31.1165150+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4c716de8-c1a3-4e9d-bfc6-645677fec81d">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive 失敗。無法驗證不傳回值的方法。</Message>
+          <StackTrace>   於 TestEZMoney.EZMoneyModelTest.AddRecordTest() 於 D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestEZMoney\EZMoneyModelTest.cs: 行 101
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="7871d484-2629-4f14-bb3f-a20ba8f46243" testId="dc426b2d-1e5c-2277-6ac7-8c4d5eb93b39" testName="GetCategoryIndexTest" computerName="MEOW-PC" duration="00:00:00.0023987" startTime="2012-10-21T17:40:31.1185151+08:00" endTime="2012-10-21T17:40:31.1265155+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7871d484-2629-4f14-bb3f-a20ba8f46243">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual 失敗。預期: &lt;0&gt;。實際: &lt;-1&gt;。</Message>
+          <StackTrace>   於 TestEZMoney.EZMoneyModelTest.GetCategoryIndexTest() 於 D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestEZMoney\EZMoneyModelTest.cs: 行 129
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4661490d-ec22-43c5-a621-a54da0c6f196" testId="f8eafeb8-ea36-d2b9-e132-8cd977c7038e" testName="GetRecordsTest" computerName="MEOW-PC" duration="00:00:00.0022914" startTime="2012-10-21T17:40:31.1305158+08:00" endTime="2012-10-21T17:40:31.1385162+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4661490d-ec22-43c5-a621-a54da0c6f196">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual 失敗。預期: &lt;(null)&gt;。實際: &lt;System.Collections.Generic.List`1[ezMoney.Record]&gt;。</Message>
+          <StackTrace>   於 TestEZMoney.EZMoneyModelTest.GetRecordsTest() 於 D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestEZMoney\EZMoneyModelTest.cs: 行 185
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

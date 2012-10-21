@@ -8,9 +8,9 @@ namespace ezMoney
 {
     class RecordModel
     {
-        private const String DATE_FORMAT = "yyyy/M/d";
-        private const String RECORD_FILE_NAME = "record.txt";
-        private const string EMPTY_LINE = "";
+        public const String DATE_FORMAT = "yyyy/M/d";
+        public const String RECORD_FILE_NAME = "record.txt";
+        public const string EMPTY_LINE = "";
         private List<Record> _records;
         private CategoryModel _categoryModel;
 
@@ -19,7 +19,6 @@ namespace ezMoney
         {
             _categoryModel = categoryModel;
             _records = new List<Record>();
-            ReadRecordFromFile();
         }
 
         public List<Record> GetRecords()

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ezMoney
 {
-    class InformationModel : Information
+    class InformationModel : InformationModelProperty
     {
         CategoryModel _categoryModel;
 

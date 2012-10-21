@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="eb50edec-a669-411e-a8ea-2dab4b6ce2e7" name="Meow@MEOW-PC 2012-10-21 18:06:17" runUser="Meow-PC\Meow" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="本機" id="4c5d43f5-97de-455f-80f8-d6dcfee819f3">
+    <Description>這些是本機測試回合的預設測試設定。</Description>
+    <Deployment runDeploymentRoot="Meow_MEOW-PC 2012-10-21 18_06_17">
+      <DeploymentItem filename="D:\Desktop\GitHubRepositories\ezMoney\ezMoney\bin\Debug\ezMoney.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific>
+        <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+          <AssemblyResolution>
+            <TestDirectory useLoadContext="true" />
+          </AssemblyResolution>
+        </UnitTestRunConfig>
+        <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+          <Browser name="Internet Explorer 7.0">
+            <Headers>
+              <Header name="User-Agent" value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)" />
+              <Header name="Accept" value="*/*" />
+              <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+              <Header name="Accept-Encoding" value="GZIP" />
+            </Headers>
+          </Browser>
+        </WebTestRunConfiguration>
+      </TestTypeSpecific>
+      <AgentRule name="LocalMachineDefaultRole">
+        <DataCollectors>
+          <DataCollector uri="datacollector://microsoft/CodeCoverage/1.0" assemblyQualifiedName="Microsoft.VisualStudio.TestTools.CodeCoverage.CoveragePlugIn, Microsoft.VisualStudio.QualityTools.Plugins.CodeCoverage, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" friendlyName="程式碼涵蓋範圍">
+            <Configuration>
+              <CodeCoverage xmlns="">
+                <Regular>
+                  <CodeCoverageItem binaryFile="D:\Desktop\GitHubRepositories\ezMoney\ezMoney\bin\Debug\ezMoney.exe" pdbFile="D:\Desktop\GitHubRepositories\ezMoney\ezMoney\bin\Debug\ezMoney.instr.pdb" instrumentInPlace="true" />
+                </Regular>
+              </CodeCoverage>
+            </Configuration>
+          </DataCollector>
+        </DataCollectors>
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-10-21T18:06:17.8395382+08:00" queuing="2012-10-21T18:06:18.2451389+08:00" start="2012-10-21T18:06:18.2919390+08:00" finish="2012-10-21T18:06:21.5991448+08:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="49" executed="49" passed="49" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <ResultFiles>
+      <ResultFile path="MEOW-PC\data.coverage" />
+    </ResultFiles>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="GetRecordsTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="3a174999-523f-75e1-819b-4e6fac788c64">
+      <Execution id="073fe059-db51-4639-a6da-3647c13d08d8" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.RecordModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetRecordsTest" />
+    </UnitTest>
+    <UnitTest name="GetRecordModelTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="c0f06d6c-dcd7-4804-00f4-8b52a6b0ab52">
+      <Execution id="529c95a2-c874-4c52-bd15-61ce8244b9dd" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetRecordModelTest" />
+    </UnitTest>
+    <UnitTest name="GetExpenseStatisticsTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="7d3e6c23-29df-0d58-ab46-c33cfd104620">
+      <Execution id="5fcd8f0d-e6e3-4a77-a1da-7d33c3c78436" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.StatisticModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetExpenseStatisticsTest" />
+    </UnitTest>
+    <UnitTest name="ToStringTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="74efd12a-9c71-71c4-7dc6-67bf8631fefb">
+      <Execution id="acaa7718-9f26-4a45-a389-f2021bf3e14f" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.CategoryTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ToStringTest" />
+    </UnitTest>
+    <UnitTest name="GetCategoriesTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="e81eabcf-b83c-e229-b61a-105cd01ce1b6">
+      <Execution id="380cc964-5afc-487e-a291-5fc054fd9de6" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.CategoryModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetCategoriesTest" />
+    </UnitTest>
+    <UnitTest name="GetCategoryIndexTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="5f8b567f-98c3-ae13-5477-27a372c3a9a2">
+      <Execution id="b399e4f0-4853-40af-b381-7e569f9059b3" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.CategoryModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetCategoryIndexTest" />
+    </UnitTest>
+    <UnitTest name="PercentTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="4c7cc9a3-a41a-0458-944d-2dfab50e312d">
+      <Execution id="70ced859-ae01-4d9e-abca-1f831c3df954" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.StatisticTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="PercentTest" />
+    </UnitTest>
+    <UnitTest name="GetCategoryModelTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="78dd5f9d-13bb-9546-be81-14ebcc0b1c0c">
+      <Execution id="df2ece79-a769-4587-b8a4-b80633c2b6aa" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetCategoryModelTest" />
+    </UnitTest>
+    <UnitTest name="GetExpenseTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="b3053f22-9278-9467-c301-e74748f4cbe1">
+      <Execution id="29301496-f2da-47f2-80f2-00ecda699917" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.StatisticModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetExpenseTest" />
+    </UnitTest>
+    <UnitTest name="GetAmountsTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="4c120bd0-192a-f6ad-b54e-ad653ce85d9d">
+      <Execution id="26349edc-ca28-4205-bd68-07040a9862e1" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.StatisticModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetAmountsTest" />
+    </UnitTest>
+    <UnitTest name="GetAmountTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="b50a1ba1-45f3-8758-046a-23678c734d01">
+      <Execution id="a07164e4-0d0f-48eb-9532-17b50837d2d4" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.InformationModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetAmountTest" />
+    </UnitTest>
+    <UnitTest name="AddCategoryTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="41d244a7-e3cc-3543-7af4-2b014df37b62">
+      <Execution id="768238d0-5f8c-46d7-8336-71c151228a36" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.CategoryModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddCategoryTest" />
+    </UnitTest>
+    <UnitTest name="AddRecordTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="d2581d1f-b856-d57a-1aa7-c785831728f9">
+      <Execution id="7b2e1f7d-e77f-47de-bd24-47135709f363" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddRecordTest" />
+    </UnitTest>
+    <UnitTest name="CategoryTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="e13dfe34-ee77-5bc8-713b-2863090d5471">
+      <Execution id="16e74008-ad0b-427d-a06a-cd71e19cb4c3" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.StatisticTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CategoryTest" />
+    </UnitTest>
+    <UnitTest name="IsValidCategoryAddTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="0931094b-3b61-b4b8-0873-f4099ecd5d4c">
+      <Execution id="014e9db3-c26f-49e5-89ef-e22af440dfb8" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.InformationModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="IsValidCategoryAddTest" />
+    </UnitTest>
+    <UnitTest name="AmountsTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="c08601fa-e2ca-6b69-d339-98b3ccb9dfc5">
+      <Execution id="7a71b8ca-8bb7-41a3-81dc-0f19ce509994" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.StatisticTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AmountsTest" />
+    </UnitTest>
+    <UnitTest name="CountTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="fae568e8-7858-4564-7c53-02050778c4dc">
+      <Execution id="7d8807d1-e08a-40ca-a5eb-5123bc4b2737" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.StatisticTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CountTest" />
+    </UnitTest>
+    <UnitTest name="IsExistTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="cfb57f48-7a18-23b3-6961-3e854da8506c">
+      <Execution id="7868608c-0814-48cc-bc86-0a6a57012ede" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.CategoryModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="IsExistTest" />
+    </UnitTest>
+    <UnitTest name="GetBalanceTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="c5b22390-b403-06b6-7b08-7f2581f78a9f">
+      <Execution id="184814b1-a586-48a4-820a-e01698186feb" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.StatisticModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetBalanceTest" />
+    </UnitTest>
+    <UnitTest name="GetStatisticDataGridViewDataSourceTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="4ed46085-d240-d4ad-6bbd-ecc4826ca41e">
+      <Execution id="54899374-54ac-4861-92a1-082a55c3cf02" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.StatisticModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetStatisticDataGridViewDataSourceTest" />
+    </UnitTest>
+    <UnitTest name="GetIncomeTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="e186dc13-d4a8-b2aa-a20a-0a24ae26ce42">
+      <Execution id="f29e0330-6eb9-40c6-92e4-1fe19de41d08" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.StatisticModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetIncomeTest" />
+    </UnitTest>
+    <UnitTest name="CategoryTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="4d8a1e67-a741-d1dc-e666-be1101e5eac4">
+      <Execution id="d4dc179c-2b77-4bbd-848a-75fa331825a5" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.RecordTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CategoryTest" />
+    </UnitTest>
+    <UnitTest name="DateTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="2fff3d70-8a91-739b-bf71-7ff50172d6de">
+      <Execution id="dd9643c0-d6f5-4c1d-ad57-9ec0bb37fd4f" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.RecordTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DateTest" />
+    </UnitTest>
+    <UnitTest name="GetStatisticTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="555842fa-2d25-35aa-c17b-faa4b06bcc3c">
+      <DeploymentItems>
+        <DeploymentItem filename="ezMoney.exe" />
+      </DeploymentItems>
+      <Execution id="6b2de919-0dfc-4399-b0ad-8060d08b1817" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.StatisticModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetStatisticTest" />
+    </UnitTest>
+    <UnitTest name="GetRecordsTest1" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="8612f2be-8f63-7d5e-ebd7-3a19cb63d7f9">
+      <Execution id="9f6f0043-e6c7-4343-b25a-6a26263f7c17" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetRecordsTest1" />
+    </UnitTest>
+    <UnitTest name="GetPositiveRecordsTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="eee989bd-6a80-d85b-3f16-3dfd7ab1c324">
+      <Execution id="f8e0af1c-dae2-4a1c-8e53-3a5d68154f6a" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.RecordModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetPositiveRecordsTest" />
+    </UnitTest>
+    <UnitTest name="GetIncomeStatisticsTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="45012060-6be2-18b5-9392-a6ace57de7f1">
+      <Execution id="fda7dcf5-408c-4b9b-89a8-124851bb6825" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.StatisticModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetIncomeStatisticsTest" />
+    </UnitTest>
+    <UnitTest name="GetHashCodeTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="abb1e93d-9f24-6d2a-9e99-4f0f51cac12c">
+      <Execution id="070a148e-be72-44c2-a1bb-f7d2a8831389" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.CategoryTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetHashCodeTest" />
+    </UnitTest>
+    <UnitTest name="GetStatisticModelTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="a83ff9cb-2c44-dc59-36ae-98ed0ad10991">
+      <Execution id="94cf98e6-ceec-48f8-8f84-81eac228083d" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetStatisticModelTest" />
+    </UnitTest>
+    <UnitTest name="CategoryNameTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="07e6a34d-12d4-d88c-cc26-7bf4c189b456">
+      <Execution id="c007c1bd-573e-4fa9-b344-be2c54436009" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.CategoryTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CategoryNameTest" />
+    </UnitTest>
+    <UnitTest name="GetCategoriesTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="438cc15e-b3bd-02d0-6d9f-e76978d5582b">
+      <Execution id="031f0d0f-de52-41df-9370-a64f266dc32e" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetCategoriesTest" />
+    </UnitTest>
+    <UnitTest name="GetCategoryIndexTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="dc426b2d-1e5c-2277-6ac7-8c4d5eb93b39">
+      <Execution id="ef1d0658-6c40-4b7e-b765-4f6294da8def" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetCategoryIndexTest" />
+    </UnitTest>
+    <UnitTest name="SetPercentTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="8743b71d-5926-b78d-c573-e5254345d1a2">
+      <DeploymentItems>
+        <DeploymentItem filename="ezMoney.exe" />
+      </DeploymentItems>
+      <Execution id="a553e7dc-1320-4138-a804-a9571e11a682" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.StatisticModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SetPercentTest" />
+    </UnitTest>
+    <UnitTest name="WriteCategoryToFileTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="e6841291-87bc-44c9-0de6-c9d9d276bd27">
+      <Execution id="f76dd0db-3448-4ddd-acad-f806c47dfb3e" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.CategoryModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="WriteCategoryToFileTest" />
+    </UnitTest>
+    <UnitTest name="AddCategoryTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="4fc4636a-78c0-4218-adb2-6173283accca">
+      <Execution id="39120d98-b68e-415b-a3e3-ee1d36a28e35" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddCategoryTest" />
+    </UnitTest>
+    <UnitTest name="ReadRecordFromFileTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="985ad049-bb35-3360-42f7-3933780d5c59">
+      <Execution id="8c6daf74-5122-4f1b-94ac-9c6b2e8ad326" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.RecordModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ReadRecordFromFileTest" />
+    </UnitTest>
+    <UnitTest name="GetRecordsTest1" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="4c835668-35ae-5c48-78a8-686b3f511511">
+      <Execution id="7eab35ed-14cc-4889-8f95-6d913765325a" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.RecordModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetRecordsTest1" />
+    </UnitTest>
+    <UnitTest name="GetRecordsTest2" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="22da6018-ec09-dae5-62eb-931f2b883997">
+      <Execution id="5337b302-a51a-47e9-9531-01e365135c13" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.RecordModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetRecordsTest2" />
+    </UnitTest>
+    <UnitTest name="GetCategoryTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="2b33dc95-1dd8-69e9-fc44-d49069202e8d">
+      <Execution id="5d0e3a44-5b64-46f2-bf3c-300b44acce30" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.CategoryModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetCategoryTest" />
+    </UnitTest>
+    <UnitTest name="GetNegativeRecordsTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="ceb0e51e-614c-8f34-d82a-4c54d316785b">
+      <Execution id="8741a816-b455-4597-b7c0-7f3918b685d3" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.RecordModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetNegativeRecordsTest" />
+    </UnitTest>
+    <UnitTest name="GetRecordsTest3" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="6e12922e-f637-e0ab-2bbc-896f100fe096">
+      <Execution id="0912bf00-2458-4c6b-9761-b245b64859ed" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.RecordModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetRecordsTest3" />
+    </UnitTest>
+    <UnitTest name="AmountTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="c0746781-6825-d26a-5c81-52f601d3f840">
+      <Execution id="a6e514a9-6388-498a-bbd5-05bc5d8fa1cb" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.RecordTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AmountTest" />
+    </UnitTest>
+    <UnitTest name="IsValidRecordAddTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="5070df1b-9d86-cdf0-2681-ac5b90a53c61">
+      <Execution id="026c91fe-a9ea-446f-b455-d48b4c8b7e3e" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.InformationModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="IsValidRecordAddTest" />
+    </UnitTest>
+    <UnitTest name="EqualsTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="0393df5a-fa0b-3296-acc0-c8cfc4b7d946">
+      <Execution id="07403183-0b75-4ea0-8f78-0a7ff913feba" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.CategoryTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="EqualsTest" />
+    </UnitTest>
+    <UnitTest name="WriteRecordToFileTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="9c7f7ff2-c648-ab17-bf0b-fe1837c9864c">
+      <Execution id="9c612ae7-81b9-48a6-a861-637b201a22aa" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.RecordModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="WriteRecordToFileTest" />
+    </UnitTest>
+    <UnitTest name="GetInformationModelTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="afd3f908-844e-45d3-d3c9-74714f9775ee">
+      <Execution id="11a91c48-22a4-45e0-b2ff-52c826392e62" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetInformationModelTest" />
+    </UnitTest>
+    <UnitTest name="GetRecordsTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="f8eafeb8-ea36-d2b9-e132-8cd977c7038e">
+      <Execution id="098ed6dd-425d-4edf-af93-74cadd587378" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.EZMoneyModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetRecordsTest" />
+    </UnitTest>
+    <UnitTest name="ReadCategoryFromFileTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="ae8fa765-c6e3-3fd5-db33-812913565c79">
+      <Execution id="80cab05b-5711-4a8b-9659-0c99f023092d" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.CategoryModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ReadCategoryFromFileTest" />
+    </UnitTest>
+    <UnitTest name="AddRecordTest" storage="d:\desktop\githubrepositories\ezmoney\ezmoney\testezmoney\bin\debug\testezmoney.dll" id="14b81e4d-396f-3c8f-d4e8-0dc7ed2d0ceb">
+      <Execution id="f656ca4a-3af9-4bcf-8da9-e4b076c71f74" />
+      <TestMethod codeBase="D:/Desktop/GitHubRepositories/ezMoney/ezMoney/TestEZMoney/bin/Debug/TestEZMoney.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestEZMoney.RecordModelTest, TestEZMoney, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddRecordTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="不在清單中的結果" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="所有載入的結果" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="0393df5a-fa0b-3296-acc0-c8cfc4b7d946" executionId="07403183-0b75-4ea0-8f78-0a7ff913feba" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="07e6a34d-12d4-d88c-cc26-7bf4c189b456" executionId="c007c1bd-573e-4fa9-b344-be2c54436009" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0931094b-3b61-b4b8-0873-f4099ecd5d4c" executionId="014e9db3-c26f-49e5-89ef-e22af440dfb8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="14b81e4d-396f-3c8f-d4e8-0dc7ed2d0ceb" executionId="f656ca4a-3af9-4bcf-8da9-e4b076c71f74" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="22da6018-ec09-dae5-62eb-931f2b883997" executionId="5337b302-a51a-47e9-9531-01e365135c13" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2b33dc95-1dd8-69e9-fc44-d49069202e8d" executionId="5d0e3a44-5b64-46f2-bf3c-300b44acce30" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2fff3d70-8a91-739b-bf71-7ff50172d6de" executionId="dd9643c0-d6f5-4c1d-ad57-9ec0bb37fd4f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3a174999-523f-75e1-819b-4e6fac788c64" executionId="073fe059-db51-4639-a6da-3647c13d08d8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="41d244a7-e3cc-3543-7af4-2b014df37b62" executionId="768238d0-5f8c-46d7-8336-71c151228a36" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="438cc15e-b3bd-02d0-6d9f-e76978d5582b" executionId="031f0d0f-de52-41df-9370-a64f266dc32e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="45012060-6be2-18b5-9392-a6ace57de7f1" executionId="fda7dcf5-408c-4b9b-89a8-124851bb6825" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4c120bd0-192a-f6ad-b54e-ad653ce85d9d" executionId="26349edc-ca28-4205-bd68-07040a9862e1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4c7cc9a3-a41a-0458-944d-2dfab50e312d" executionId="70ced859-ae01-4d9e-abca-1f831c3df954" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4c835668-35ae-5c48-78a8-686b3f511511" executionId="7eab35ed-14cc-4889-8f95-6d913765325a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4d8a1e67-a741-d1dc-e666-be1101e5eac4" executionId="d4dc179c-2b77-4bbd-848a-75fa331825a5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4ed46085-d240-d4ad-6bbd-ecc4826ca41e" executionId="54899374-54ac-4861-92a1-082a55c3cf02" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4fc4636a-78c0-4218-adb2-6173283accca" executionId="39120d98-b68e-415b-a3e3-ee1d36a28e35" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5070df1b-9d86-cdf0-2681-ac5b90a53c61" executionId="026c91fe-a9ea-446f-b455-d48b4c8b7e3e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="555842fa-2d25-35aa-c17b-faa4b06bcc3c" executionId="6b2de919-0dfc-4399-b0ad-8060d08b1817" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5f8b567f-98c3-ae13-5477-27a372c3a9a2" executionId="b399e4f0-4853-40af-b381-7e569f9059b3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6e12922e-f637-e0ab-2bbc-896f100fe096" executionId="0912bf00-2458-4c6b-9761-b245b64859ed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="74efd12a-9c71-71c4-7dc6-67bf8631fefb" executionId="acaa7718-9f26-4a45-a389-f2021bf3e14f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="78dd5f9d-13bb-9546-be81-14ebcc0b1c0c" executionId="df2ece79-a769-4587-b8a4-b80633c2b6aa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7d3e6c23-29df-0d58-ab46-c33cfd104620" executionId="5fcd8f0d-e6e3-4a77-a1da-7d33c3c78436" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8612f2be-8f63-7d5e-ebd7-3a19cb63d7f9" executionId="9f6f0043-e6c7-4343-b25a-6a26263f7c17" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8743b71d-5926-b78d-c573-e5254345d1a2" executionId="a553e7dc-1320-4138-a804-a9571e11a682" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="985ad049-bb35-3360-42f7-3933780d5c59" executionId="8c6daf74-5122-4f1b-94ac-9c6b2e8ad326" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9c7f7ff2-c648-ab17-bf0b-fe1837c9864c" executionId="9c612ae7-81b9-48a6-a861-637b201a22aa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a83ff9cb-2c44-dc59-36ae-98ed0ad10991" executionId="94cf98e6-ceec-48f8-8f84-81eac228083d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="abb1e93d-9f24-6d2a-9e99-4f0f51cac12c" executionId="070a148e-be72-44c2-a1bb-f7d2a8831389" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ae8fa765-c6e3-3fd5-db33-812913565c79" executionId="80cab05b-5711-4a8b-9659-0c99f023092d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="afd3f908-844e-45d3-d3c9-74714f9775ee" executionId="11a91c48-22a4-45e0-b2ff-52c826392e62" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b3053f22-9278-9467-c301-e74748f4cbe1" executionId="29301496-f2da-47f2-80f2-00ecda699917" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b50a1ba1-45f3-8758-046a-23678c734d01" executionId="a07164e4-0d0f-48eb-9532-17b50837d2d4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c0746781-6825-d26a-5c81-52f601d3f840" executionId="a6e514a9-6388-498a-bbd5-05bc5d8fa1cb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c08601fa-e2ca-6b69-d339-98b3ccb9dfc5" executionId="7a71b8ca-8bb7-41a3-81dc-0f19ce509994" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c0f06d6c-dcd7-4804-00f4-8b52a6b0ab52" executionId="529c95a2-c874-4c52-bd15-61ce8244b9dd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c5b22390-b403-06b6-7b08-7f2581f78a9f" executionId="184814b1-a586-48a4-820a-e01698186feb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ceb0e51e-614c-8f34-d82a-4c54d316785b" executionId="8741a816-b455-4597-b7c0-7f3918b685d3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cfb57f48-7a18-23b3-6961-3e854da8506c" executionId="7868608c-0814-48cc-bc86-0a6a57012ede" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d2581d1f-b856-d57a-1aa7-c785831728f9" executionId="7b2e1f7d-e77f-47de-bd24-47135709f363" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dc426b2d-1e5c-2277-6ac7-8c4d5eb93b39" executionId="ef1d0658-6c40-4b7e-b765-4f6294da8def" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e13dfe34-ee77-5bc8-713b-2863090d5471" executionId="16e74008-ad0b-427d-a06a-cd71e19cb4c3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e186dc13-d4a8-b2aa-a20a-0a24ae26ce42" executionId="f29e0330-6eb9-40c6-92e4-1fe19de41d08" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e6841291-87bc-44c9-0de6-c9d9d276bd27" executionId="f76dd0db-3448-4ddd-acad-f806c47dfb3e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e81eabcf-b83c-e229-b61a-105cd01ce1b6" executionId="380cc964-5afc-487e-a291-5fc054fd9de6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eee989bd-6a80-d85b-3f16-3dfd7ab1c324" executionId="f8e0af1c-dae2-4a1c-8e53-3a5d68154f6a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f8eafeb8-ea36-d2b9-e132-8cd977c7038e" executionId="098ed6dd-425d-4edf-af93-74cadd587378" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fae568e8-7858-4564-7c53-02050778c4dc" executionId="7d8807d1-e08a-40ca-a5eb-5123bc4b2737" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="07403183-0b75-4ea0-8f78-0a7ff913feba" testId="0393df5a-fa0b-3296-acc0-c8cfc4b7d946" testName="EqualsTest" computerName="MEOW-PC" duration="00:00:00.0279263" startTime="2012-10-21T18:06:19.1031404+08:00" endTime="2012-10-21T18:06:19.4307410+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="07403183-0b75-4ea0-8f78-0a7ff913feba">
+    </UnitTestResult>
+    <UnitTestResult executionId="c007c1bd-573e-4fa9-b344-be2c54436009" testId="07e6a34d-12d4-d88c-cc26-7bf4c189b456" testName="CategoryNameTest" computerName="MEOW-PC" duration="00:00:00.0013957" startTime="2012-10-21T18:06:19.4307410+08:00" endTime="2012-10-21T18:06:19.4463410+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c007c1bd-573e-4fa9-b344-be2c54436009">
+    </UnitTestResult>
+    <UnitTestResult executionId="014e9db3-c26f-49e5-89ef-e22af440dfb8" testId="0931094b-3b61-b4b8-0873-f4099ecd5d4c" testName="IsValidCategoryAddTest" computerName="MEOW-PC" duration="00:00:00.0029595" startTime="2012-10-21T18:06:19.4463410+08:00" endTime="2012-10-21T18:06:19.4619411+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="014e9db3-c26f-49e5-89ef-e22af440dfb8">
+    </UnitTestResult>
+    <UnitTestResult executionId="f656ca4a-3af9-4bcf-8da9-e4b076c71f74" testId="14b81e4d-396f-3c8f-d4e8-0dc7ed2d0ceb" testName="AddRecordTest" computerName="MEOW-PC" duration="00:00:00.0029972" startTime="2012-10-21T18:06:19.4619411+08:00" endTime="2012-10-21T18:06:19.4619411+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f656ca4a-3af9-4bcf-8da9-e4b076c71f74">
+    </UnitTestResult>
+    <UnitTestResult executionId="5337b302-a51a-47e9-9531-01e365135c13" testId="22da6018-ec09-dae5-62eb-931f2b883997" testName="GetRecordsTest2" computerName="MEOW-PC" duration="00:00:00.0015595" startTime="2012-10-21T18:06:19.4775411+08:00" endTime="2012-10-21T18:06:19.4775411+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5337b302-a51a-47e9-9531-01e365135c13">
+    </UnitTestResult>
+    <UnitTestResult executionId="5d0e3a44-5b64-46f2-bf3c-300b44acce30" testId="2b33dc95-1dd8-69e9-fc44-d49069202e8d" testName="GetCategoryTest" computerName="MEOW-PC" duration="00:00:00.0075764" startTime="2012-10-21T18:06:19.4775411+08:00" endTime="2012-10-21T18:06:19.4931411+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5d0e3a44-5b64-46f2-bf3c-300b44acce30">
+    </UnitTestResult>
+    <UnitTestResult executionId="dd9643c0-d6f5-4c1d-ad57-9ec0bb37fd4f" testId="2fff3d70-8a91-739b-bf71-7ff50172d6de" testName="DateTest" computerName="MEOW-PC" duration="00:00:00.0029968" startTime="2012-10-21T18:06:19.4931411+08:00" endTime="2012-10-21T18:06:19.5087411+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dd9643c0-d6f5-4c1d-ad57-9ec0bb37fd4f">
+    </UnitTestResult>
+    <UnitTestResult executionId="073fe059-db51-4639-a6da-3647c13d08d8" testId="3a174999-523f-75e1-819b-4e6fac788c64" testName="GetRecordsTest" computerName="MEOW-PC" duration="00:00:00.0028988" startTime="2012-10-21T18:06:19.5087411+08:00" endTime="2012-10-21T18:06:19.5243412+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="073fe059-db51-4639-a6da-3647c13d08d8">
+    </UnitTestResult>
+    <UnitTestResult executionId="768238d0-5f8c-46d7-8336-71c151228a36" testId="41d244a7-e3cc-3543-7af4-2b014df37b62" testName="AddCategoryTest" computerName="MEOW-PC" duration="00:00:00.0004888" startTime="2012-10-21T18:06:19.5243412+08:00" endTime="2012-10-21T18:06:19.5243412+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="768238d0-5f8c-46d7-8336-71c151228a36">
+    </UnitTestResult>
+    <UnitTestResult executionId="031f0d0f-de52-41df-9370-a64f266dc32e" testId="438cc15e-b3bd-02d0-6d9f-e76978d5582b" testName="GetCategoriesTest" computerName="MEOW-PC" duration="00:00:00.0026063" startTime="2012-10-21T18:06:19.5243412+08:00" endTime="2012-10-21T18:06:19.5399412+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="031f0d0f-de52-41df-9370-a64f266dc32e">
+    </UnitTestResult>
+    <UnitTestResult executionId="fda7dcf5-408c-4b9b-89a8-124851bb6825" testId="45012060-6be2-18b5-9392-a6ace57de7f1" testName="GetIncomeStatisticsTest" computerName="MEOW-PC" duration="00:00:00.0040352" startTime="2012-10-21T18:06:19.5399412+08:00" endTime="2012-10-21T18:06:19.5555412+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fda7dcf5-408c-4b9b-89a8-124851bb6825">
+    </UnitTestResult>
+    <UnitTestResult executionId="26349edc-ca28-4205-bd68-07040a9862e1" testId="4c120bd0-192a-f6ad-b54e-ad653ce85d9d" testName="GetAmountsTest" computerName="MEOW-PC" duration="00:00:00.0012492" startTime="2012-10-21T18:06:19.5555412+08:00" endTime="2012-10-21T18:06:19.5555412+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="26349edc-ca28-4205-bd68-07040a9862e1">
+    </UnitTestResult>
+    <UnitTestResult executionId="70ced859-ae01-4d9e-abca-1f831c3df954" testId="4c7cc9a3-a41a-0458-944d-2dfab50e312d" testName="PercentTest" computerName="MEOW-PC" duration="00:00:00.0005952" startTime="2012-10-21T18:06:19.5555412+08:00" endTime="2012-10-21T18:06:19.5711412+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="70ced859-ae01-4d9e-abca-1f831c3df954">
+    </UnitTestResult>
+    <UnitTestResult executionId="7eab35ed-14cc-4889-8f95-6d913765325a" testId="4c835668-35ae-5c48-78a8-686b3f511511" testName="GetRecordsTest1" computerName="MEOW-PC" duration="00:00:00.0006946" startTime="2012-10-21T18:06:19.5711412+08:00" endTime="2012-10-21T18:06:19.5711412+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7eab35ed-14cc-4889-8f95-6d913765325a">
+    </UnitTestResult>
+    <UnitTestResult executionId="d4dc179c-2b77-4bbd-848a-75fa331825a5" testId="4d8a1e67-a741-d1dc-e666-be1101e5eac4" testName="CategoryTest" computerName="MEOW-PC" duration="00:00:00.0005626" startTime="2012-10-21T18:06:19.5711412+08:00" endTime="2012-10-21T18:06:19.5867413+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d4dc179c-2b77-4bbd-848a-75fa331825a5">
+    </UnitTestResult>
+    <UnitTestResult executionId="54899374-54ac-4861-92a1-082a55c3cf02" testId="4ed46085-d240-d4ad-6bbd-ecc4826ca41e" testName="GetStatisticDataGridViewDataSourceTest" computerName="MEOW-PC" duration="00:00:00.0017764" startTime="2012-10-21T18:06:19.5867413+08:00" endTime="2012-10-21T18:06:19.5867413+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="54899374-54ac-4861-92a1-082a55c3cf02">
+    </UnitTestResult>
+    <UnitTestResult executionId="39120d98-b68e-415b-a3e3-ee1d36a28e35" testId="4fc4636a-78c0-4218-adb2-6173283accca" testName="AddCategoryTest" computerName="MEOW-PC" duration="00:00:00.0003969" startTime="2012-10-21T18:06:19.5867413+08:00" endTime="2012-10-21T18:06:19.6023413+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="39120d98-b68e-415b-a3e3-ee1d36a28e35">
+    </UnitTestResult>
+    <UnitTestResult executionId="026c91fe-a9ea-446f-b455-d48b4c8b7e3e" testId="5070df1b-9d86-cdf0-2681-ac5b90a53c61" testName="IsValidRecordAddTest" computerName="MEOW-PC" duration="00:00:00.0010948" startTime="2012-10-21T18:06:19.6023413+08:00" endTime="2012-10-21T18:06:19.6023413+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="026c91fe-a9ea-446f-b455-d48b4c8b7e3e">
+    </UnitTestResult>
+    <UnitTestResult executionId="6b2de919-0dfc-4399-b0ad-8060d08b1817" testId="555842fa-2d25-35aa-c17b-faa4b06bcc3c" testName="GetStatisticTest" computerName="MEOW-PC" duration="00:00:00.0007146" startTime="2012-10-21T18:06:19.6023413+08:00" endTime="2012-10-21T18:06:19.6179413+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6b2de919-0dfc-4399-b0ad-8060d08b1817">
+    </UnitTestResult>
+    <UnitTestResult executionId="b399e4f0-4853-40af-b381-7e569f9059b3" testId="5f8b567f-98c3-ae13-5477-27a372c3a9a2" testName="GetCategoryIndexTest" computerName="MEOW-PC" duration="00:00:00.0003176" startTime="2012-10-21T18:06:19.6179413+08:00" endTime="2012-10-21T18:06:19.6179413+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b399e4f0-4853-40af-b381-7e569f9059b3">
+    </UnitTestResult>
+    <UnitTestResult executionId="0912bf00-2458-4c6b-9761-b245b64859ed" testId="6e12922e-f637-e0ab-2bbc-896f100fe096" testName="GetRecordsTest3" computerName="MEOW-PC" duration="00:00:00.0013192" startTime="2012-10-21T18:06:19.6179413+08:00" endTime="2012-10-21T18:06:19.6335414+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0912bf00-2458-4c6b-9761-b245b64859ed">
+    </UnitTestResult>
+    <UnitTestResult executionId="acaa7718-9f26-4a45-a389-f2021bf3e14f" testId="74efd12a-9c71-71c4-7dc6-67bf8631fefb" testName="ToStringTest" computerName="MEOW-PC" duration="00:00:00.0003774" startTime="2012-10-21T18:06:19.6335414+08:00" endTime="2012-10-21T18:06:19.6335414+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="acaa7718-9f26-4a45-a389-f2021bf3e14f">
+    </UnitTestResult>
+    <UnitTestResult executionId="df2ece79-a769-4587-b8a4-b80633c2b6aa" testId="78dd5f9d-13bb-9546-be81-14ebcc0b1c0c" testName="GetCategoryModelTest" computerName="MEOW-PC" duration="00:00:00.0007384" startTime="2012-10-21T18:06:19.6491414+08:00" endTime="2012-10-21T18:06:19.6491414+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="df2ece79-a769-4587-b8a4-b80633c2b6aa">
+    </UnitTestResult>
+    <UnitTestResult executionId="5fcd8f0d-e6e3-4a77-a1da-7d33c3c78436" testId="7d3e6c23-29df-0d58-ab46-c33cfd104620" testName="GetExpenseStatisticsTest" computerName="MEOW-PC" duration="00:00:00.0006409" startTime="2012-10-21T18:06:19.6491414+08:00" endTime="2012-10-21T18:06:19.6647414+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5fcd8f0d-e6e3-4a77-a1da-7d33c3c78436">
+    </UnitTestResult>
+    <UnitTestResult executionId="9f6f0043-e6c7-4343-b25a-6a26263f7c17" testId="8612f2be-8f63-7d5e-ebd7-3a19cb63d7f9" testName="GetRecordsTest1" computerName="MEOW-PC" duration="00:00:00.0009484" startTime="2012-10-21T18:06:19.6647414+08:00" endTime="2012-10-21T18:06:19.6647414+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9f6f0043-e6c7-4343-b25a-6a26263f7c17">
+    </UnitTestResult>
+    <UnitTestResult executionId="a553e7dc-1320-4138-a804-a9571e11a682" testId="8743b71d-5926-b78d-c573-e5254345d1a2" testName="SetPercentTest" computerName="MEOW-PC" duration="00:00:00.0004963" startTime="2012-10-21T18:06:19.6647414+08:00" endTime="2012-10-21T18:06:19.6803414+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a553e7dc-1320-4138-a804-a9571e11a682">
+    </UnitTestResult>
+    <UnitTestResult executionId="8c6daf74-5122-4f1b-94ac-9c6b2e8ad326" testId="985ad049-bb35-3360-42f7-3933780d5c59" testName="ReadRecordFromFileTest" computerName="MEOW-PC" duration="00:00:00.0177518" startTime="2012-10-21T18:06:19.6803414+08:00" endTime="2012-10-21T18:06:19.6959415+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8c6daf74-5122-4f1b-94ac-9c6b2e8ad326">
+    </UnitTestResult>
+    <UnitTestResult executionId="9c612ae7-81b9-48a6-a861-637b201a22aa" testId="9c7f7ff2-c648-ab17-bf0b-fe1837c9864c" testName="WriteRecordToFileTest" computerName="MEOW-PC" duration="00:00:00.0047345" startTime="2012-10-21T18:06:19.6959415+08:00" endTime="2012-10-21T18:06:19.7115415+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9c612ae7-81b9-48a6-a861-637b201a22aa">
+    </UnitTestResult>
+    <UnitTestResult executionId="94cf98e6-ceec-48f8-8f84-81eac228083d" testId="a83ff9cb-2c44-dc59-36ae-98ed0ad10991" testName="GetStatisticModelTest" computerName="MEOW-PC" duration="00:00:00.0004977" startTime="2012-10-21T18:06:19.7115415+08:00" endTime="2012-10-21T18:06:19.7115415+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="94cf98e6-ceec-48f8-8f84-81eac228083d">
+    </UnitTestResult>
+    <UnitTestResult executionId="070a148e-be72-44c2-a1bb-f7d2a8831389" testId="abb1e93d-9f24-6d2a-9e99-4f0f51cac12c" testName="GetHashCodeTest" computerName="MEOW-PC" duration="00:00:00.0008709" startTime="2012-10-21T18:06:19.7271415+08:00" endTime="2012-10-21T18:06:19.7271415+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="070a148e-be72-44c2-a1bb-f7d2a8831389">
+    </UnitTestResult>
+    <UnitTestResult executionId="80cab05b-5711-4a8b-9659-0c99f023092d" testId="ae8fa765-c6e3-3fd5-db33-812913565c79" testName="ReadCategoryFromFileTest" computerName="MEOW-PC" duration="00:00:00.0015487" startTime="2012-10-21T18:06:19.7271415+08:00" endTime="2012-10-21T18:06:19.7427415+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="80cab05b-5711-4a8b-9659-0c99f023092d">
+    </UnitTestResult>
+    <UnitTestResult executionId="11a91c48-22a4-45e0-b2ff-52c826392e62" testId="afd3f908-844e-45d3-d3c9-74714f9775ee" testName="GetInformationModelTest" computerName="MEOW-PC" duration="00:00:00.0006297" startTime="2012-10-21T18:06:19.7427415+08:00" endTime="2012-10-21T18:06:19.7427415+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="11a91c48-22a4-45e0-b2ff-52c826392e62">
+    </UnitTestResult>
+    <UnitTestResult executionId="29301496-f2da-47f2-80f2-00ecda699917" testId="b3053f22-9278-9467-c301-e74748f4cbe1" testName="GetExpenseTest" computerName="MEOW-PC" duration="00:00:00.0008252" startTime="2012-10-21T18:06:19.7427415+08:00" endTime="2012-10-21T18:06:19.7583416+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="29301496-f2da-47f2-80f2-00ecda699917">
+    </UnitTestResult>
+    <UnitTestResult executionId="a07164e4-0d0f-48eb-9532-17b50837d2d4" testId="b50a1ba1-45f3-8758-046a-23678c734d01" testName="GetAmountTest" computerName="MEOW-PC" duration="00:00:00.0007548" startTime="2012-10-21T18:06:19.7583416+08:00" endTime="2012-10-21T18:06:19.7583416+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a07164e4-0d0f-48eb-9532-17b50837d2d4">
+    </UnitTestResult>
+    <UnitTestResult executionId="a6e514a9-6388-498a-bbd5-05bc5d8fa1cb" testId="c0746781-6825-d26a-5c81-52f601d3f840" testName="AmountTest" computerName="MEOW-PC" duration="00:00:00.0005714" startTime="2012-10-21T18:06:19.7739416+08:00" endTime="2012-10-21T18:06:19.7739416+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a6e514a9-6388-498a-bbd5-05bc5d8fa1cb">
+    </UnitTestResult>
+    <UnitTestResult executionId="7a71b8ca-8bb7-41a3-81dc-0f19ce509994" testId="c08601fa-e2ca-6b69-d339-98b3ccb9dfc5" testName="AmountsTest" computerName="MEOW-PC" duration="00:00:00.0003088" startTime="2012-10-21T18:06:19.7739416+08:00" endTime="2012-10-21T18:06:19.7895416+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7a71b8ca-8bb7-41a3-81dc-0f19ce509994">
+    </UnitTestResult>
+    <UnitTestResult executionId="529c95a2-c874-4c52-bd15-61ce8244b9dd" testId="c0f06d6c-dcd7-4804-00f4-8b52a6b0ab52" testName="GetRecordModelTest" computerName="MEOW-PC" duration="00:00:00.0007977" startTime="2012-10-21T18:06:19.7895416+08:00" endTime="2012-10-21T18:06:19.7895416+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="529c95a2-c874-4c52-bd15-61ce8244b9dd">
+    </UnitTestResult>
+    <UnitTestResult executionId="184814b1-a586-48a4-820a-e01698186feb" testId="c5b22390-b403-06b6-7b08-7f2581f78a9f" testName="GetBalanceTest" computerName="MEOW-PC" duration="00:00:00.0009731" startTime="2012-10-21T18:06:19.7895416+08:00" endTime="2012-10-21T18:06:19.8051417+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="184814b1-a586-48a4-820a-e01698186feb">
+    </UnitTestResult>
+    <UnitTestResult executionId="8741a816-b455-4597-b7c0-7f3918b685d3" testId="ceb0e51e-614c-8f34-d82a-4c54d316785b" testName="GetNegativeRecordsTest" computerName="MEOW-PC" duration="00:00:00.0009194" startTime="2012-10-21T18:06:19.8051417+08:00" endTime="2012-10-21T18:06:19.8051417+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8741a816-b455-4597-b7c0-7f3918b685d3">
+    </UnitTestResult>
+    <UnitTestResult executionId="7868608c-0814-48cc-bc86-0a6a57012ede" testId="cfb57f48-7a18-23b3-6961-3e854da8506c" testName="IsExistTest" computerName="MEOW-PC" duration="00:00:00.0004170" startTime="2012-10-21T18:06:19.8051417+08:00" endTime="2012-10-21T18:06:19.8207417+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7868608c-0814-48cc-bc86-0a6a57012ede">
+    </UnitTestResult>
+    <UnitTestResult executionId="7b2e1f7d-e77f-47de-bd24-47135709f363" testId="d2581d1f-b856-d57a-1aa7-c785831728f9" testName="AddRecordTest" computerName="MEOW-PC" duration="00:00:00.0009110" startTime="2012-10-21T18:06:19.8207417+08:00" endTime="2012-10-21T18:06:19.8207417+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7b2e1f7d-e77f-47de-bd24-47135709f363">
+    </UnitTestResult>
+    <UnitTestResult executionId="ef1d0658-6c40-4b7e-b765-4f6294da8def" testId="dc426b2d-1e5c-2277-6ac7-8c4d5eb93b39" testName="GetCategoryIndexTest" computerName="MEOW-PC" duration="00:00:00.0008770" startTime="2012-10-21T18:06:19.8207417+08:00" endTime="2012-10-21T18:06:19.8363417+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ef1d0658-6c40-4b7e-b765-4f6294da8def">
+    </UnitTestResult>
+    <UnitTestResult executionId="16e74008-ad0b-427d-a06a-cd71e19cb4c3" testId="e13dfe34-ee77-5bc8-713b-2863090d5471" testName="CategoryTest" computerName="MEOW-PC" duration="00:00:00.0004329" startTime="2012-10-21T18:06:19.8363417+08:00" endTime="2012-10-21T18:06:19.8363417+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="16e74008-ad0b-427d-a06a-cd71e19cb4c3">
+    </UnitTestResult>
+    <UnitTestResult executionId="f29e0330-6eb9-40c6-92e4-1fe19de41d08" testId="e186dc13-d4a8-b2aa-a20a-0a24ae26ce42" testName="GetIncomeTest" computerName="MEOW-PC" duration="00:00:00.0009092" startTime="2012-10-21T18:06:19.8363417+08:00" endTime="2012-10-21T18:06:19.8519417+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f29e0330-6eb9-40c6-92e4-1fe19de41d08">
+    </UnitTestResult>
+    <UnitTestResult executionId="f76dd0db-3448-4ddd-acad-f806c47dfb3e" testId="e6841291-87bc-44c9-0de6-c9d9d276bd27" testName="WriteCategoryToFileTest" computerName="MEOW-PC" duration="00:00:00.0014634" startTime="2012-10-21T18:06:19.8519417+08:00" endTime="2012-10-21T18:06:19.8519417+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f76dd0db-3448-4ddd-acad-f806c47dfb3e">
+    </UnitTestResult>
+    <UnitTestResult executionId="380cc964-5afc-487e-a291-5fc054fd9de6" testId="e81eabcf-b83c-e229-b61a-105cd01ce1b6" testName="GetCategoriesTest" computerName="MEOW-PC" duration="00:00:00.0005453" startTime="2012-10-21T18:06:19.8675418+08:00" endTime="2012-10-21T18:06:19.8675418+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="380cc964-5afc-487e-a291-5fc054fd9de6">
+    </UnitTestResult>
+    <UnitTestResult executionId="f8e0af1c-dae2-4a1c-8e53-3a5d68154f6a" testId="eee989bd-6a80-d85b-3f16-3dfd7ab1c324" testName="GetPositiveRecordsTest" computerName="MEOW-PC" duration="00:00:00.0009894" startTime="2012-10-21T18:06:19.8675418+08:00" endTime="2012-10-21T18:06:19.8831418+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f8e0af1c-dae2-4a1c-8e53-3a5d68154f6a">
+    </UnitTestResult>
+    <UnitTestResult executionId="098ed6dd-425d-4edf-af93-74cadd587378" testId="f8eafeb8-ea36-d2b9-e132-8cd977c7038e" testName="GetRecordsTest" computerName="MEOW-PC" duration="00:00:00.0010860" startTime="2012-10-21T18:06:19.8831418+08:00" endTime="2012-10-21T18:06:19.8831418+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="098ed6dd-425d-4edf-af93-74cadd587378">
+    </UnitTestResult>
+    <UnitTestResult executionId="7d8807d1-e08a-40ca-a5eb-5123bc4b2737" testId="fae568e8-7858-4564-7c53-02050778c4dc" testName="CountTest" computerName="MEOW-PC" duration="00:00:00.0002775" startTime="2012-10-21T18:06:19.8831418+08:00" endTime="2012-10-21T18:06:19.8987418+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7d8807d1-e08a-40ca-a5eb-5123bc4b2737">
+    </UnitTestResult>
+  </Results>
+</TestRun>

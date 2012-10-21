@@ -87,10 +87,11 @@ namespace ezMoney
         //closing form
         private void ClosingFormCategoryManagementForm(object sender, FormClosingEventArgs e)
         {
-            _ezMoneyModel.WriteCategoryToFile();
-            _ezMoneyModel.WriteRecordToFile();
+            _ezMoneyModel.GetCategoryModel().WriteCategoryToFile();
+            _ezMoneyModel.GetRecordModel().WriteRecordToFile();
         }
 
+        //enter tab page statistic
         private void EnterTabPageStatistic(object sender, EventArgs e)
         {
             _statisticView.Refresh();

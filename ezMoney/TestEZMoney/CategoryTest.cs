@@ -1,11 +1,12 @@
 ﻿using ezMoney;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace TestEZMoney
 {
-    
-    
+
+
     /// <summary>
     ///這是 CategoryTest 的測試類別，應該包含
     ///所有 CategoryTest 單元測試
@@ -62,47 +63,22 @@ namespace TestEZMoney
         #endregion
 
 
-        /// <summary>
-        ///Category 建構函式 的測試
-        ///</summary>
-        [TestMethod()]
-        public void CategoryConstructorTest()
-        {
-            string categoryName = string.Empty; // TODO: 初始化為適當值
-            Category target = new Category(categoryName);
-            Assert.Inconclusive("TODO: 實作程式碼以驗證目標");
-        }
+        const string CATEGORY_NAME_MOVIE = "Movie";
+        const string DISTINCT_CATEGORY_NAME = "movie";
 
-        /// <summary>
+        /// <summar>ya
         ///Equals 的測試
         ///</summary>
         [TestMethod()]
         public void EqualsTest()
         {
-            string categoryName = string.Empty; // TODO: 初始化為適當值
-            Category target = new Category(categoryName); // TODO: 初始化為適當值
-            Category category = null; // TODO: 初始化為適當值
-            bool expected = false; // TODO: 初始化為適當值
-            bool actual;
-            actual = target.Equals(category);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("驗證這個測試方法的正確性。");
-        }
-
-        /// <summary>
-        ///Equals 的測試
-        ///</summary>
-        [TestMethod()]
-        public void EqualsTest1()
-        {
-            string categoryName = string.Empty; // TODO: 初始化為適當值
-            Category target = new Category(categoryName); // TODO: 初始化為適當值
-            object obj = null; // TODO: 初始化為適當值
-            bool expected = false; // TODO: 初始化為適當值
-            bool actual;
-            actual = target.Equals(obj);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("驗證這個測試方法的正確性。");
+            Category category1, category2;
+            category1 = new Category(CATEGORY_NAME_MOVIE);
+            category2 = new Category(CATEGORY_NAME_MOVIE);
+            Assert.AreEqual<Category>(category1, category2);
+            Assert.AreNotEqual(new Category(DISTINCT_CATEGORY_NAME), category1);
+            Assert.AreEqual<Category>(category1, category2);
+            Assert.IsFalse(category1.Equals(null));
         }
 
         /// <summary>
@@ -111,13 +87,9 @@ namespace TestEZMoney
         [TestMethod()]
         public void GetHashCodeTest()
         {
-            string categoryName = string.Empty; // TODO: 初始化為適當值
-            Category target = new Category(categoryName); // TODO: 初始化為適當值
-            int expected = 0; // TODO: 初始化為適當值
-            int actual;
-            actual = target.GetHashCode();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("驗證這個測試方法的正確性。");
+            Category category1 = new Category(CATEGORY_NAME_MOVIE);
+            Category category2 = new Category(CATEGORY_NAME_MOVIE);
+            Assert.AreNotEqual(category1.GetHashCode(), category2.GetHashCode());
         }
 
         /// <summary>
@@ -126,13 +98,8 @@ namespace TestEZMoney
         [TestMethod()]
         public void ToStringTest()
         {
-            string categoryName = string.Empty; // TODO: 初始化為適當值
-            Category target = new Category(categoryName); // TODO: 初始化為適當值
-            string expected = string.Empty; // TODO: 初始化為適當值
-            string actual;
-            actual = target.ToString();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("驗證這個測試方法的正確性。");
+            Category category = new Category(CATEGORY_NAME_MOVIE);
+            Assert.AreEqual(CATEGORY_NAME_MOVIE, category.ToString());
         }
 
         /// <summary>
@@ -141,14 +108,10 @@ namespace TestEZMoney
         [TestMethod()]
         public void CategoryNameTest()
         {
-            string categoryName = string.Empty; // TODO: 初始化為適當值
-            Category target = new Category(categoryName); // TODO: 初始化為適當值
-            string expected = string.Empty; // TODO: 初始化為適當值
-            string actual;
-            target.CategoryName = expected;
-            actual = target.CategoryName;
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("驗證這個測試方法的正確性。");
+            Category category = new Category(CATEGORY_NAME_MOVIE);
+            Assert.AreEqual(CATEGORY_NAME_MOVIE, category.CategoryName);
+            category.CategoryName = DISTINCT_CATEGORY_NAME;
+            Assert.AreEqual(DISTINCT_CATEGORY_NAME, category.CategoryName);
         }
     }
 }

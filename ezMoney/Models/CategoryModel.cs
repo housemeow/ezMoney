@@ -8,7 +8,7 @@ namespace ezMoney
 {
     class CategoryModel
     {
-        const String CATEGORY_FILE_NAME = "category.txt";
+        public const String CATEGORY_FILE_NAME = "category.txt";
         private const string EMPTY_LINE = "";
         private List<Category> _categories;
 
@@ -16,7 +16,6 @@ namespace ezMoney
         public CategoryModel()
         {
             _categories = new List<Category>();
-            ReadCategoryFromFile();
         }
 
         //write file to category

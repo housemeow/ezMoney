@@ -53,15 +53,24 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryModelTest.cs" />
     <Compile Include="CategoryTest.cs" />
+    <Compile Include="EZMoneyModelTest.cs" />
+    <Compile Include="InformationModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecordModelTest.cs" />
     <Compile Include="RecordTest.cs" />
+    <Compile Include="StatisticModelTest.cs" />
+    <Compile Include="StatisticTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ezMoney.csproj">
       <Project>{1F9508E8-0259-48D8-A082-D02A2894A0B5}</Project>
       <Name>ezMoney</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Shadow Include="測試參考\ezMoney.accessor" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ezMoney
 {
-    class Information
+    class InformationModelProperty
     {
         public const String CATEGORY_NO_NAME_INFO = "category name must have value.";
         public const String CATEGORY_REPEAT_INFO = "category name is repeat.";

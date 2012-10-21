@@ -17,7 +17,9 @@ namespace ezMoney
         public EZMoneyModel()
         {
             _categoryModel = new CategoryModel();
+            _categoryModel.ReadCategoryFromFile();
             _recordModel = new RecordModel(_categoryModel);
+            _recordModel.ReadRecordFromFile();
             _statisticModel = new StatisticModel(_categoryModel, _recordModel);
             _informationModel = new InformationModel(_categoryModel);
         }
@@ -74,18 +76,6 @@ namespace ezMoney
         public List<Record> GetRecords(Category category)
         {
             return _recordModel.GetRecords(category);
-        }
-
-        //write file to category
-        public void WriteCategoryToFile()
-        {
-            _categoryModel.WriteCategoryToFile();
-        }
-
-        //write record to record.txt
-        public void WriteRecordToFile()
-        {
-            _recordModel.WriteRecordToFile();
         }
     }
 }
