@@ -13,12 +13,22 @@ namespace TestEZMoney
     [TestClass()]
     public class RecordTest
     {
+<<<<<<< HEAD
 
 
         private TestContext testContextInstance;
         
         
 
+=======
+        private TestContext testContextInstance;
+
+        const string TEST_FILE_NAME = "category.txt";
+        const string CATEGORY_NAME_MOVIE = "Movie";
+        const string CATEGORY_NAME_WORK = "Work";
+        const string CATEGORY_NAME_ENTERTAINMENT = "Entertainment";
+        
+>>>>>>> TestProject
         /// <summary>
         ///取得或設定提供目前測試回合的相關資訊與功能
         ///的測試內容。
@@ -65,6 +75,7 @@ namespace TestEZMoney
         //
         #endregion
 
+<<<<<<< HEAD
 
         /// <summary>
         ///Record 建構函式 的測試
@@ -79,12 +90,15 @@ namespace TestEZMoney
             Assert.Inconclusive("TODO: 實作程式碼以驗證目標");
         }
 
+=======
+>>>>>>> TestProject
         /// <summary>
         ///Amount 的測試
         ///</summary>
         [TestMethod()]
         public void AmountTest()
         {
+<<<<<<< HEAD
             DateTime date = new DateTime(); // TODO: 初始化為適當值
             Category category = null; // TODO: 初始化為適當值
             int amount = 0; // TODO: 初始化為適當值
@@ -95,6 +109,18 @@ namespace TestEZMoney
             actual = target.Amount;
             Assert.AreEqual(expected, actual);
             Assert.Inconclusive("驗證這個測試方法的正確性。");
+=======
+            DateTime now = DateTime.Now;
+            DateTime date = new DateTime(now.Year, now.Month, now.Day); // TODO: 初始化為適當值
+            Category category = new Category(CATEGORY_NAME_MOVIE); // TODO: 初始化為適當值
+            int amount = 0; // TODO: 初始化為適當值
+            Record record = new Record(date, category, amount); // TODO: 初始化為適當值
+            Assert.AreEqual(0, record.Amount);
+            record.Amount = 100;
+            Assert.AreEqual(100, record.Amount);
+            record.Amount = -100;
+            Assert.AreEqual(-100, record.Amount);
+>>>>>>> TestProject
         }
 
         /// <summary>
@@ -103,6 +129,7 @@ namespace TestEZMoney
         [TestMethod()]
         public void CategoryTest()
         {
+<<<<<<< HEAD
             DateTime date = new DateTime(); // TODO: 初始化為適當值
             Category category = null; // TODO: 初始化為適當值
             int amount = 0; // TODO: 初始化為適當值
@@ -113,6 +140,20 @@ namespace TestEZMoney
             actual = target.Category;
             Assert.AreEqual(expected, actual);
             Assert.Inconclusive("驗證這個測試方法的正確性。");
+=======
+            DateTime now = DateTime.Now;
+            DateTime date = new DateTime(now.Year, now.Month, now.Day);
+            Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
+            Category categoryWork = new Category(CATEGORY_NAME_WORK);
+            int amount = 0; // TODO: 初始化為適當值
+            Record record = new Record(date, categoryMovie, amount);
+            Assert.AreEqual(categoryMovie, record.Category);
+            Assert.AreNotEqual(categoryWork, record.Category);
+            record.Category = categoryWork;
+            Assert.AreEqual(categoryWork, record.Category);
+            Assert.AreNotEqual(categoryMovie, record.Category);
+            
+>>>>>>> TestProject
         }
 
         /// <summary>
@@ -121,6 +162,7 @@ namespace TestEZMoney
         [TestMethod()]
         public void DateTest()
         {
+<<<<<<< HEAD
             DateTime date = new DateTime(); // TODO: 初始化為適當值
             Category category = null; // TODO: 初始化為適當值
             int amount = 0; // TODO: 初始化為適當值
@@ -131,6 +173,19 @@ namespace TestEZMoney
             actual = target.Date;
             Assert.AreEqual(expected, actual);
             Assert.Inconclusive("驗證這個測試方法的正確性。");
+=======
+            DateTime now = DateTime.Now;
+            DateTime date = new DateTime(now.Year, now.Month, now.Day);
+            DateTime differentDate = date.AddYears(100);
+            Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
+            int amount = 0; // TODO: 初始化為適當值
+            Record record = new Record(date, categoryMovie, amount);
+            Assert.AreEqual(date, record.Date);
+            Assert.AreNotEqual(differentDate, record.Date);
+            record.Date = differentDate;
+            Assert.AreEqual(differentDate, record.Date);
+            Assert.AreNotEqual(date, record.Date);
+>>>>>>> TestProject
         }
     }
 }

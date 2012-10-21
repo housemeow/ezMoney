@@ -1,11 +1,20 @@
 ﻿using ezMoney;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+<<<<<<< HEAD
 
 namespace TestEZMoney
 {
     
     
+=======
+using System.Collections.Generic;
+
+namespace TestEZMoney
+{
+
+
+>>>>>>> TestProject
     /// <summary>
     ///這是 CategoryTest 的測試類別，應該包含
     ///所有 CategoryTest 單元測試
@@ -62,6 +71,7 @@ namespace TestEZMoney
         #endregion
 
 
+<<<<<<< HEAD
         /// <summary>
         ///Category 建構函式 的測試
         ///</summary>
@@ -74,11 +84,18 @@ namespace TestEZMoney
         }
 
         /// <summary>
+=======
+        const string CATEGORY_NAME_MOVIE = "Movie";
+        const string DISTINCT_CATEGORY_NAME = "movie";
+
+        /// <summar>ya
+>>>>>>> TestProject
         ///Equals 的測試
         ///</summary>
         [TestMethod()]
         public void EqualsTest()
         {
+<<<<<<< HEAD
             string categoryName = string.Empty; // TODO: 初始化為適當值
             Category target = new Category(categoryName); // TODO: 初始化為適當值
             Category category = null; // TODO: 初始化為適當值
@@ -103,6 +120,15 @@ namespace TestEZMoney
             actual = target.Equals(obj);
             Assert.AreEqual(expected, actual);
             Assert.Inconclusive("驗證這個測試方法的正確性。");
+=======
+            Category category1, category2;
+            category1 = new Category(CATEGORY_NAME_MOVIE);
+            category2 = new Category(CATEGORY_NAME_MOVIE);
+            Assert.AreEqual<Category>(category1, category2);
+            Assert.AreNotEqual(new Category(DISTINCT_CATEGORY_NAME), category1);
+            Assert.AreEqual<Category>(category1, category2);
+            Assert.IsFalse(category1.Equals(null));
+>>>>>>> TestProject
         }
 
         /// <summary>
@@ -111,6 +137,7 @@ namespace TestEZMoney
         [TestMethod()]
         public void GetHashCodeTest()
         {
+<<<<<<< HEAD
             string categoryName = string.Empty; // TODO: 初始化為適當值
             Category target = new Category(categoryName); // TODO: 初始化為適當值
             int expected = 0; // TODO: 初始化為適當值
@@ -118,6 +145,11 @@ namespace TestEZMoney
             actual = target.GetHashCode();
             Assert.AreEqual(expected, actual);
             Assert.Inconclusive("驗證這個測試方法的正確性。");
+=======
+            Category category1 = new Category(CATEGORY_NAME_MOVIE);
+            Category category2 = new Category(CATEGORY_NAME_MOVIE);
+            Assert.AreNotEqual(category1.GetHashCode(), category2.GetHashCode());
+>>>>>>> TestProject
         }
 
         /// <summary>
@@ -126,6 +158,7 @@ namespace TestEZMoney
         [TestMethod()]
         public void ToStringTest()
         {
+<<<<<<< HEAD
             string categoryName = string.Empty; // TODO: 初始化為適當值
             Category target = new Category(categoryName); // TODO: 初始化為適當值
             string expected = string.Empty; // TODO: 初始化為適當值
@@ -133,6 +166,10 @@ namespace TestEZMoney
             actual = target.ToString();
             Assert.AreEqual(expected, actual);
             Assert.Inconclusive("驗證這個測試方法的正確性。");
+=======
+            Category category = new Category(CATEGORY_NAME_MOVIE);
+            Assert.AreEqual(CATEGORY_NAME_MOVIE, category.ToString());
+>>>>>>> TestProject
         }
 
         /// <summary>
@@ -141,6 +178,7 @@ namespace TestEZMoney
         [TestMethod()]
         public void CategoryNameTest()
         {
+<<<<<<< HEAD
             string categoryName = string.Empty; // TODO: 初始化為適當值
             Category target = new Category(categoryName); // TODO: 初始化為適當值
             string expected = string.Empty; // TODO: 初始化為適當值
@@ -149,6 +187,12 @@ namespace TestEZMoney
             actual = target.CategoryName;
             Assert.AreEqual(expected, actual);
             Assert.Inconclusive("驗證這個測試方法的正確性。");
+=======
+            Category category = new Category(CATEGORY_NAME_MOVIE);
+            Assert.AreEqual(CATEGORY_NAME_MOVIE, category.CategoryName);
+            category.CategoryName = DISTINCT_CATEGORY_NAME;
+            Assert.AreEqual(DISTINCT_CATEGORY_NAME, category.CategoryName);
+>>>>>>> TestProject
         }
     }
 }

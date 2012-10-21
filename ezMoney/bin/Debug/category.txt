@@ -1,0 +1,10 @@
+Movie
+Play
+Work
+Drink
+Learn
+Eat
+Exercise
+HI
+Hello
+Clothes

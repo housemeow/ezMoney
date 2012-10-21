@@ -54,7 +54,7 @@ namespace ezMoney
         }
 
         //get statistic from category and records
-        private Statistic GetStatistic(Category category, bool isPositive)
+        public Statistic GetStatistic(Category category, bool isPositive)
         {
             Statistic statistic = new Statistic(category);
             foreach (Record record in _recordModel.GetRecords())
@@ -69,7 +69,7 @@ namespace ezMoney
         }
 
         //set statistics percent
-        private void SetPercent(List<Statistic> statistics, int amounts)
+        public void SetPercent(List<Statistic> statistics, int amounts)
         {
             foreach (Statistic statistic in statistics)
             {
@@ -103,7 +103,11 @@ namespace ezMoney
         //get total expense
         public int GetExpense(List<Record> records)
         {
+<<<<<<< HEAD:ezMoney/Models/StatisticModel.cs
             int expense = GetAmounts(records, false);
+=======
+            int expense = -GetAmounts(records, false);
+>>>>>>> TestProject:ezMoney/Models/StatisticModel.cs
             return expense;
         }
 
@@ -112,7 +116,7 @@ namespace ezMoney
         {
             int income = GetIncome(records);
             int expense = GetExpense(records);
-            int balanse = income + expense;
+            int balanse = income - expense;
             return balanse;
         }
 
