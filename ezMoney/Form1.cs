@@ -9,16 +9,19 @@ using System.Windows.Forms;
 
 namespace ezMoney
 {
-    public partial class FormCategoryManagement : Form
+    public partial class EZMoneyForm : Form
     {
         //view of categoryManagement
         EZMoneyModel _ezMoneyModel;
-        CategoryView _categoryManagementView;
+        CategoryView _categoryView;
         RecordView _recordView;
         StatisticView _statisticView;
+        //currencyManager of list
+        CurrencyManager _currencyManagerCategoryList;
+        CurrencyManager _currencyManagerRecordList;
 
         //class constructor
-        public FormCategoryManagement()
+        public EZMoneyForm()
         {
             InitializeComponent();
         }
@@ -27,6 +30,8 @@ namespace ezMoney
         private void LoadFormCategoryManagement(object sender, EventArgs e)
         {
             _ezMoneyModel = new EZMoneyModel();
+            _currencyManagerCategoryList = (CurrencyManager)BindingContext[_ezMoneyModel.GetCategories()];
+            _currencyManagerRecordList = (CurrencyManager)BindingContext[_ezMoneyModel.GetRecords()];
             InitCategoryManagementView();
             InitRecordView();
             InitStatisticView();
@@ -36,50 +41,47 @@ namespace ezMoney
         void InitCategoryManagementView()
         {
             _listBoxCategories.DataSource = _ezMoneyModel.GetCategories();
-            CurrencyManager currencyManager = (CurrencyManager)BindingContext[_ezMoneyModel.GetCategories()];
-            CategoryControlSet controlSet = new CategoryControlSet();
-            controlSet.TextBoxCategoryName = _textBoxCategoryName;
-            controlSet.ListBoxCategories = _listBoxCategories;
-            controlSet.CurrencyManager = currencyManager;
-            controlSet.ButtonAdd = _buttonCategoryAdd;
-            controlSet.ErrorProvider = _errorProviderAddButton;
-            _categoryManagementView = new CategoryView(controlSet, _ezMoneyModel.GetCategoryModel());
+            _categoryView = new CategoryView(_ezMoneyModel.GetCategoryModel(), _ezMoneyModel.GetInformationModel());
+            _categoryView.TextBoxCategoryName = _textBoxCategoryName;
+            _categoryView.ListBoxCategories = _listBoxCategories;
+            _categoryView.CurrencyManager = _currencyManagerCategoryList;
+            _categoryView.ButtonAdd = _buttonCategoryAdd;
+            _categoryView.ErrorProvider = _errorProviderAddButton;
+            _categoryView.Initialize();
         }
 
         //initialize recordView
         void InitRecordView()
         {
             _comboBoxCategory.DataSource = _ezMoneyModel.GetCategories();
-            CurrencyManager currencyManagerComboBox = (CurrencyManager)BindingContext[_ezMoneyModel.GetCategories()];
-            CurrencyManager currencyManagerDataGridView = (CurrencyManager)BindingContext[_ezMoneyModel.GetRecords()];
             _dataGridViewRecord.DataSource = _ezMoneyModel.GetRecords();
             _dataGridViewRecord.AutoGenerateColumns = true;
-            RecordControlSet controlSet = new RecordControlSet();
-            controlSet.DateTimePickerRecord = _dateTimePickerRecord;
-            controlSet.RadioButtonIncome = _radioButtonIncome;
-            controlSet.RadioButtonExpanse = _radioButtonExpanse;
-            controlSet.ComboBoxCategory = _comboBoxCategory;
-            controlSet.TextBoxRecordAmount = _textBoxRecordAmount;
-            controlSet.ButtonRecordAdd = _buttonRecordAdd;
-            controlSet.DataGridViewRecord = _dataGridViewRecord;
-            controlSet.CurrencyManagerComboBox = currencyManagerComboBox;
-            controlSet.CurrencyManagerDataGridView = currencyManagerDataGridView;
-            controlSet.ErrorProvider = _errorProviderRecord;
-            _recordView = new RecordView(controlSet, _ezMoneyModel.GetCategoryModel(), _ezMoneyModel.GetRecordModel());
+            _recordView = new RecordView(_ezMoneyModel.GetCategoryModel(), _ezMoneyModel.GetRecordModel(), _ezMoneyModel.GetInformationModel());
+            _recordView.DateTimePickerRecord = _dateTimePickerRecord;
+            _recordView.RadioButtonIncome = _radioButtonIncome;
+            _recordView.RadioButtonExpanse = _radioButtonExpanse;
+            _recordView.ComboBoxCategory = _comboBoxCategory;
+            _recordView.TextBoxRecordAmount = _textBoxRecordAmount;
+            _recordView.ButtonRecordAdd = _buttonRecordAdd;
+            _recordView.DataGridViewRecord = _dataGridViewRecord;
+            _recordView.CurrencyManagerCategoryList = _currencyManagerCategoryList;
+            _recordView.CurrencyManagerRecordList = _currencyManagerRecordList;
+            _recordView.ErrorProvider = _errorProviderRecord;
+            _recordView.Initialize();
         }
 
         //initialize statisticView
         void InitStatisticView()
         {
-            StatisticControlSet statisticControlSet = new StatisticControlSet();
-            statisticControlSet.RadioButtonIncome = _radioButtonStatisticIncome;
-            statisticControlSet.RadioButtonExpense = _radioButtonStatisticExpense;
-            statisticControlSet.DataGridViewStatistic = _dataGridViewStatisticRecord;
-            statisticControlSet.TextBoxIncome = _textBoxIncome;
-            statisticControlSet.TextBoxExpense = _textBoxStatisticExpense;
-            statisticControlSet.TextBoxBalance = _textBoxBalance;
-            statisticControlSet.DataGridViewDetail = _dataGridViewDetail;
-            _statisticView = new StatisticView(statisticControlSet, _ezMoneyModel.GetCategoryModel(), _ezMoneyModel.GetRecordModel(), _ezMoneyModel.GetStatisticModel());
+            _statisticView = new StatisticView(_ezMoneyModel.GetCategoryModel(), _ezMoneyModel.GetRecordModel(), _ezMoneyModel.GetStatisticModel());
+            _statisticView.RadioButtonIncome = _radioButtonStatisticIncome;
+            _statisticView.RadioButtonExpense = _radioButtonStatisticExpense;
+            _statisticView.DataGridViewStatistic = _dataGridViewStatisticRecord;
+            _statisticView.TextBoxIncome = _textBoxIncome;
+            _statisticView.TextBoxExpense = _textBoxStatisticExpense;
+            _statisticView.TextBoxBalance = _textBoxBalance;
+            _statisticView.DataGridViewDetail = _dataGridViewDetail;
+            _statisticView.Initialize();
         }
 
         //closing form
@@ -87,6 +89,11 @@ namespace ezMoney
         {
             _ezMoneyModel.WriteCategoryToFile();
             _ezMoneyModel.WriteRecordToFile();
+        }
+
+        private void EnterTabPageStatistic(object sender, EventArgs e)
+        {
+            _statisticView.Refresh();
         }
     }
 }
