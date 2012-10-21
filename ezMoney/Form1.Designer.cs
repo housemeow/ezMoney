@@ -1,6 +1,6 @@
 ﻿namespace ezMoney
 {
-    partial class FormCategoryManagement
+    partial class EZMoneyForm
     {
         /// <summary>
         /// 設計工具所需的變數。
@@ -276,6 +276,7 @@
             this._tabPageStatistic.TabIndex = 2;
             this._tabPageStatistic.Text = "Statistic";
             this._tabPageStatistic.UseVisualStyleBackColor = true;
+            this._tabPageStatistic.Enter += new System.EventHandler(this.EnterTabPageStatistic);
             // 
             // _tableLayoutPanelStatistic
             // 
@@ -414,6 +415,8 @@
             // 
             // _dataGridViewDetail
             // 
+            this._dataGridViewDetail.AllowUserToAddRows = false;
+            this._dataGridViewDetail.AllowUserToDeleteRows = false;
             this._dataGridViewDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._tableLayoutPanelStatistic.SetColumnSpan(this._dataGridViewDetail, 6);
             this._dataGridViewDetail.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -427,13 +430,13 @@
             // 
             this._errorProviderRecord.ContainerControl = this;
             // 
-            // FormCategoryManagement
+            // EZMoneyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(378, 412);
             this.Controls.Add(this._tabControl);
-            this.Name = "FormCategoryManagement";
+            this.Name = "EZMoneyForm";
             this.Text = "Categories Management";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClosingFormCategoryManagementForm);
             this.Load += new System.EventHandler(this.LoadFormCategoryManagement);
