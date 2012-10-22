@@ -2,11 +2,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace TestEZMoney
 {
-    
-    
     /// <summary>
     ///這是 EZMoneyModelTest 的測試類別，應該包含
     ///所有 EZMoneyModelTest 單元測試
@@ -17,7 +16,6 @@ namespace TestEZMoney
         const string CATEGORY_NAME_MOVIE = "Movie";
         const string CATEGORY_NAME_WORK = "Work";
         const string CATEGORY_NAME_ENTERTAINMENT = "Entertainment";
-
         private TestContext testContextInstance;
 
         /// <summary>
@@ -36,44 +34,16 @@ namespace TestEZMoney
             }
         }
 
-        #region 其他測試屬性
-        // 
-        //您可以在撰寫測試時，使用下列的其他屬性:
-        //
-        //在執行類別中的第一項測試之前，先使用 ClassInitialize 執行程式碼
-        //[ClassInitialize()]
-        //public static void MyClassInitialize(TestContext testContext)
-        //{
-        //}
-        //
-        //在執行類別中的所有測試之後，使用 ClassCleanup 執行程式碼
-        //[ClassCleanup()]
-        //public static void MyClassCleanup()
-        //{
-        //}
-        //
-        //在執行每一項測試之前，先使用 TestInitialize 執行程式碼
-        //[TestInitialize()]
-        //public void MyTestInitialize()
-        //{
-        //}
-        //
-        //在執行每一項測試之後，使用 TestCleanup 執行程式碼
-        //[TestCleanup()]
-        //public void MyTestCleanup()
-        //{
-        //}
-        //
-        #endregion
-
         /// <summary>
         ///AddCategory 的測試
         ///</summary>
         [TestMethod()]
-        public void AddCategoryTest()
+        public void TestAddCategory()
         {
+            File.Delete(CategoryModel.CATEGORY_FILE_NAME);
+            File.Delete(RecordModel.RECORD_FILE_NAME);
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
-            Category movieCategory = new Category(CATEGORY_NAME_MOVIE); ; // TODO: 初始化為適當值
+            Category movieCategory = new Category(CATEGORY_NAME_MOVIE); // TODO: 初始化為適當值
             Assert.AreEqual(0, ezMoneyModel.GetCategories().Count);
             ezMoneyModel.AddCategory(movieCategory);
             Assert.AreEqual(1, ezMoneyModel.GetCategories().Count);
@@ -83,13 +53,13 @@ namespace TestEZMoney
         ///AddRecord 的測試
         ///</summary>
         [TestMethod()]
-        public void AddRecordTest()
+        public void TestAddRecord()
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
             DateTime now = DateTime.Now;
             DateTime date = new DateTime(now.Year, now.Month, now.Day);
             Category movieCategory = new Category(CATEGORY_NAME_MOVIE); ; // TODO: 初始化為適當值
-            Record record = new Record(date,movieCategory,1000); // TODO: 初始化為適當值
+            Record record = new Record(date, movieCategory, 1000); // TODO: 初始化為適當值
             Assert.AreEqual(0, ezMoneyModel.GetRecords().Count);
             ezMoneyModel.AddRecord(record);
             Assert.AreEqual(1, ezMoneyModel.GetRecords().Count);
@@ -99,7 +69,7 @@ namespace TestEZMoney
         ///GetCategories 的測試
         ///</summary>
         [TestMethod()]
-        public void GetCategoriesTest()
+        public void TestGetCategories()
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
             Category movieCategory = new Category(CATEGORY_NAME_MOVIE); ; // TODO: 初始化為適當值
@@ -112,7 +82,7 @@ namespace TestEZMoney
         ///GetCategoryIndex 的測試
         ///</summary>
         [TestMethod()]
-        public void GetCategoryIndexTest()
+        public void TestGetCategoryIndex()
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
             Category movieCategory = new Category(CATEGORY_NAME_MOVIE); ; // TODO: 初始化為適當值
@@ -127,7 +97,7 @@ namespace TestEZMoney
         ///GetCategoryModel 的測試
         ///</summary>
         [TestMethod()]
-        public void GetCategoryModelTest()
+        public void TestGetCategoryModel()
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
             Category movieCategory = new Category(CATEGORY_NAME_MOVIE); ; // TODO: 初始化為適當值
@@ -143,7 +113,7 @@ namespace TestEZMoney
         ///GetInformationModel 的測試
         ///</summary>
         [TestMethod()]
-        public void GetInformationModelTest()
+        public void TestGetInformationModel()
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
             InformationModel informationModel = ezMoneyModel.GetInformationModel();
@@ -154,7 +124,7 @@ namespace TestEZMoney
         ///GetRecordModel 的測試
         ///</summary>
         [TestMethod()]
-        public void GetRecordModelTest()
+        public void TestGetRecordModel()
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
             RecordModel recordModel = ezMoneyModel.GetRecordModel();
@@ -165,12 +135,10 @@ namespace TestEZMoney
         ///GetRecords 的測試
         ///</summary>
         [TestMethod()]
-        public void GetRecordsTest()
+        public void TestGetRecords()
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
-            
             List<Record> records = ezMoneyModel.GetRecords(); // TODO: 初始化為適當值
-
             DateTime now = DateTime.Now;
             DateTime date = new DateTime(now.Year, now.Month, now.Day);
             Category movieCategory = new Category(CATEGORY_NAME_MOVIE); ; // TODO: 初始化為適當值
@@ -188,10 +156,9 @@ namespace TestEZMoney
         ///GetRecords 的測試
         ///</summary>
         [TestMethod()]
-        public void GetRecordsTest1()
+        public void TestGetRecordsFromCategory()
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
-
             Category movieCategory = new Category(CATEGORY_NAME_MOVIE);
             Category workCategory = new Category(CATEGORY_NAME_WORK);
             DateTime now = DateTime.Now;
@@ -206,10 +173,8 @@ namespace TestEZMoney
             ezMoneyModel.AddRecord(workRecord1);
             ezMoneyModel.AddRecord(workRecord2);
             ezMoneyModel.AddRecord(workRecord3);
-
             List<Record> movieRecords = ezMoneyModel.GetRecords(movieCategory); // TODO: 初始化為適當值
             Assert.AreEqual(2, movieRecords.Count);
-
             List<Record> workRecords = ezMoneyModel.GetRecords(workCategory); // TODO: 初始化為適當值
             Assert.AreEqual(3, workRecords.Count);
         }
@@ -218,7 +183,7 @@ namespace TestEZMoney
         ///GetStatisticModel 的測試
         ///</summary>
         [TestMethod()]
-        public void GetStatisticModelTest()
+        public void TestGetStatisticModel()
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
             StatisticModel statisticModel = ezMoneyModel.GetStatisticModel();

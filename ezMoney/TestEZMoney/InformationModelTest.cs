@@ -4,8 +4,6 @@ using System;
 
 namespace TestEZMoney
 {
-
-
     /// <summary>
     ///這是 InformationModelTest 的測試類別，應該包含
     ///所有 InformationModelTest 單元測試
@@ -16,7 +14,6 @@ namespace TestEZMoney
         const string CATEGORY_NAME_MOVIE = "Movie";
         const string CATEGORY_NAME_WORK = "Work";
         const string CATEGORY_NAME_ENTERTAINMENT = "Entertainment";
-
         private TestContext testContextInstance;
 
         /// <summary>
@@ -35,42 +32,11 @@ namespace TestEZMoney
             }
         }
 
-        #region 其他測試屬性
-        // 
-        //您可以在撰寫測試時，使用下列的其他屬性:
-        //
-        //在執行類別中的第一項測試之前，先使用 ClassInitialize 執行程式碼
-        //[ClassInitialize()]
-        //public static void MyClassInitialize(TestContext testContext)
-        //{
-        //}
-        //
-        //在執行類別中的所有測試之後，使用 ClassCleanup 執行程式碼
-        //[ClassCleanup()]
-        //public static void MyClassCleanup()
-        //{
-        //}
-        //
-        //在執行每一項測試之前，先使用 TestInitialize 執行程式碼
-        //[TestInitialize()]
-        //public void MyTestInitialize()
-        //{
-        //}
-        //
-        //在執行每一項測試之後，使用 TestCleanup 執行程式碼
-        //[TestCleanup()]
-        //public void MyTestCleanup()
-        //{
-        //}
-        //
-        #endregion
-
-
         /// <summary>
         ///IsValidRecordAdd 的測試
         ///</summary>
         [TestMethod()]
-        public void IsValidRecordAddTest()
+        public void TestIsValidRecordAdd()
         {
             CategoryModel categoryModel = new CategoryModel(); // TODO: 初始化為適當值
             Category movieCategory = new Category(CATEGORY_NAME_MOVIE);
@@ -78,31 +44,26 @@ namespace TestEZMoney
             Category entertainmentCategory = new Category(CATEGORY_NAME_ENTERTAINMENT);
             categoryModel.AddCategory(movieCategory);
             categoryModel.AddCategory(workCategory);
-
             InformationModel informationModel = new InformationModel(categoryModel); // TODO: 初始化為適當值
             int categoryIndex;
             string amountString; // TODO: 初始化為適當值
             string errorMessage = string.Empty; // TODO: 初始化為適當值
             bool buttonEnable;
-
             categoryIndex = categoryModel.GetCategoryIndex(workCategory);
             amountString = "";
             buttonEnable = informationModel.IsValidRecordAdd(categoryIndex, amountString, ref errorMessage);
             Assert.AreEqual(false, buttonEnable);
             Assert.AreEqual(InformationModelProperty.NO_NUMBER_INFO, errorMessage);
-
             categoryIndex = -1;
             amountString = "111";
             buttonEnable = informationModel.IsValidRecordAdd(categoryIndex, amountString, ref errorMessage);
             Assert.AreEqual(false, buttonEnable);
             Assert.AreEqual(InformationModelProperty.NO_SELECT_CATEGORY_INFO, errorMessage);
-
             categoryIndex = categoryModel.GetCategoryIndex(workCategory);
             amountString = "xyz";
             buttonEnable = informationModel.IsValidRecordAdd(categoryIndex, amountString, ref errorMessage);
             Assert.AreEqual(false, buttonEnable);
             Assert.AreEqual(InformationModelProperty.TEXT_IS_NOT_NUMBER_INFO, errorMessage);
-
             categoryIndex = categoryModel.GetCategoryIndex(workCategory);
             amountString = "100";
             buttonEnable = informationModel.IsValidRecordAdd(categoryIndex, amountString, ref errorMessage);
@@ -114,7 +75,7 @@ namespace TestEZMoney
         ///IsValidCategoryAdd 的測試
         ///</summary>
         [TestMethod()]
-        public void IsValidCategoryAddTest()
+        public void TestIsValidCategoryAdd()
         {
             CategoryModel categoryModel = new CategoryModel(); // TODO: 初始化為適當值
             InformationModel informationModel = new InformationModel(categoryModel); // TODO: 初始化為適當值
@@ -123,18 +84,14 @@ namespace TestEZMoney
             Category entertainmentCategory = new Category(CATEGORY_NAME_ENTERTAINMENT);
             categoryModel.AddCategory(movieCategory);
             categoryModel.AddCategory(workCategory);
-
             string errorMessage = string.Empty; // TODO: 初始化為適當值
             bool buttonEnable;
-
             buttonEnable = informationModel.IsValidCategoryAdd(string.Empty, ref errorMessage);
             Assert.AreEqual(InformationModelProperty.CATEGORY_NO_NAME_INFO, errorMessage);
             Assert.AreEqual(false, buttonEnable);
-
             buttonEnable = informationModel.IsValidCategoryAdd(CATEGORY_NAME_MOVIE, ref errorMessage);
             Assert.AreEqual(InformationModelProperty.CATEGORY_NO_NAME_INFO, errorMessage);
             Assert.AreEqual(false, buttonEnable);
-
             buttonEnable = informationModel.IsValidCategoryAdd(CATEGORY_NAME_ENTERTAINMENT, ref errorMessage);
             Assert.AreEqual(InformationModelProperty.EMPTY_ERROR_MESSAGE, errorMessage);
             Assert.AreEqual(true, buttonEnable);
@@ -144,17 +101,15 @@ namespace TestEZMoney
         ///GetAmount 的測試
         ///</summary>
         [TestMethod()]
-        public void GetAmountTest()
+        public void TestGetAmount()
         {
             CategoryModel categoryModel = new CategoryModel(); // TODO: 初始化為適當值
             InformationModel informationModel = new InformationModel(categoryModel); // TODO: 初始化為適當值
             string amountString = string.Empty; // TODO: 初始化為適當值
             int amount;
-            
             amountString = "100";
             amount = informationModel.GetAmount(amountString, true);
             Assert.AreEqual(100, amount);
-            
             amountString = "100";
             amount = informationModel.GetAmount(amountString, false);
             Assert.AreEqual(-100, amount);

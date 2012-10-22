@@ -56,7 +56,7 @@ namespace ezMoney
 
         //get positive records
         public List<Record> GetPositiveRecords(List<Record> records)
-        { 
+        {
             List<Record> positiveRecords = GetRecords(records, true);
             return positiveRecords;
         }
@@ -73,8 +73,8 @@ namespace ezMoney
         {
             List<Record> newRecords = new List<Record>();
             foreach (Record record in records)
-            { 
-                if((isPositive && record.Amount>=0) || (!isPositive && record.Amount<0))
+            {
+                if ((isPositive && record.Amount >= 0) || (!isPositive && record.Amount < 0))
                 {
                     newRecords.Add(record);
                 }
@@ -98,26 +98,27 @@ namespace ezMoney
         //read record from record.txt
         public void ReadRecordFromFile()
         {
-            if (File.Exists(RECORD_FILE_NAME))
+            if (!File.Exists(RECORD_FILE_NAME))
             {
-                StreamReader streamReader = new StreamReader(RECORD_FILE_NAME);
-                while (!streamReader.EndOfStream)
-                {
-                    String recordString = streamReader.ReadLine();
-                    if (recordString != EMPTY_LINE)
-                    {
-                        const String ZH_TW = "zh-TW";
-                        String[] strings = recordString.Split(new char[] { ' ' });
-                        IFormatProvider culture = new System.Globalization.CultureInfo(ZH_TW, true);
-                        DateTime date = DateTime.ParseExact(strings[0], DATE_FORMAT, culture);
-                        Category category = _categoryModel.GetCategories()[Convert.ToInt32(strings[1])];
-                        int amount = Convert.ToInt32(strings[2]);
-                        Record record = new Record(date, category, amount);
-                        _records.Add(record);
-                    }
-                }
-                streamReader.Close();
+                return;
             }
+            StreamReader streamReader = new StreamReader(RECORD_FILE_NAME);
+            while (!streamReader.EndOfStream)
+            {
+                String recordString = streamReader.ReadLine();
+                if (recordString != EMPTY_LINE)
+                {
+                    const String ZH_TW = "zh-TW";
+                    String[] strings = recordString.Split(new char[] { ' ' });
+                    IFormatProvider culture = new System.Globalization.CultureInfo(ZH_TW, true);
+                    DateTime date = DateTime.ParseExact(strings[0], DATE_FORMAT, culture);
+                    Category category = _categoryModel.GetCategories()[Convert.ToInt32(strings[1])];
+                    int amount = Convert.ToInt32(strings[2]);
+                    Record record = new Record(date, category, amount);
+                    _records.Add(record);
+                }
+            }
+            streamReader.Close();
         }
     }
 }

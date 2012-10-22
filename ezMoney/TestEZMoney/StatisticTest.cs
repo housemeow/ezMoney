@@ -4,8 +4,6 @@ using System;
 
 namespace TestEZMoney
 {
-    
-    
     /// <summary>
     ///這是 StatisticTest 的測試類別，應該包含
     ///所有 StatisticTest 單元測試
@@ -35,42 +33,11 @@ namespace TestEZMoney
             }
         }
 
-        #region 其他測試屬性
-        // 
-        //您可以在撰寫測試時，使用下列的其他屬性:
-        //
-        //在執行類別中的第一項測試之前，先使用 ClassInitialize 執行程式碼
-        //[ClassInitialize()]
-        //public static void MyClassInitialize(TestContext testContext)
-        //{
-        //}
-        //
-        //在執行類別中的所有測試之後，使用 ClassCleanup 執行程式碼
-        //[ClassCleanup()]
-        //public static void MyClassCleanup()
-        //{
-        //}
-        //
-        //在執行每一項測試之前，先使用 TestInitialize 執行程式碼
-        //[TestInitialize()]
-        //public void MyTestInitialize()
-        //{
-        //}
-        //
-        //在執行每一項測試之後，使用 TestCleanup 執行程式碼
-        //[TestCleanup()]
-        //public void MyTestCleanup()
-        //{
-        //}
-        //
-        #endregion
-
-
         /// <summary>
         ///Amounts 的測試
         ///</summary>
         [TestMethod()]
-        public void AmountsTest()
+        public void TestAmounts()
         {
             Category movieCategory = new Category(CATEGORY_NAME_MOVIE); // TODO: 初始化為適當值
             Statistic statistic = new Statistic(movieCategory); // TODO: 初始化為適當值
@@ -85,7 +52,7 @@ namespace TestEZMoney
         ///Category 的測試
         ///</summary>
         [TestMethod()]
-        public void CategoryTest()
+        public void TestCategory()
         {
             Category movieCategory = new Category(CATEGORY_NAME_MOVIE); // TODO: 初始化為適當值
             Category workCategory = new Category(CATEGORY_NAME_WORK); // TODO: 初始化為適當值
@@ -100,7 +67,7 @@ namespace TestEZMoney
         ///Count 的測試
         ///</summary>
         [TestMethod()]
-        public void CountTest()
+        public void TestCount()
         {
             Category movieCategory = new Category(CATEGORY_NAME_MOVIE); // TODO: 初始化為適當值
             Statistic statistic = new Statistic(movieCategory); // TODO: 初始化為適當值
@@ -113,7 +80,7 @@ namespace TestEZMoney
         ///Percent 的測試
         ///</summary>
         [TestMethod()]
-        public void PercentTest()
+        public void TestPercent()
         {
             Category movieCategory = new Category(CATEGORY_NAME_MOVIE); // TODO: 初始化為適當值
             Statistic statistic = new Statistic(movieCategory); // TODO: 初始化為適當值

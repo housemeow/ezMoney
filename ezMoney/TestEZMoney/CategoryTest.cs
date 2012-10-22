@@ -5,8 +5,6 @@ using System.Collections.Generic;
 
 namespace TestEZMoney
 {
-
-
     /// <summary>
     ///這是 CategoryTest 的測試類別，應該包含
     ///所有 CategoryTest 單元測試
@@ -15,6 +13,8 @@ namespace TestEZMoney
     public class CategoryTest
     {
         private TestContext testContextInstance;
+        const string CATEGORY_NAME_MOVIE = "Movie";
+        const string DISTINCT_CATEGORY_NAME = "movie";
 
         /// <summary>
         ///取得或設定提供目前測試回合的相關資訊與功能
@@ -32,45 +32,11 @@ namespace TestEZMoney
             }
         }
 
-        #region 其他測試屬性
-        // 
-        //您可以在撰寫測試時，使用下列的其他屬性:
-        //
-        //在執行類別中的第一項測試之前，先使用 ClassInitialize 執行程式碼
-        //[ClassInitialize()]
-        //public static void MyClassInitialize(TestContext testContext)
-        //{
-        //}
-        //
-        //在執行類別中的所有測試之後，使用 ClassCleanup 執行程式碼
-        //[ClassCleanup()]
-        //public static void MyClassCleanup()
-        //{
-        //}
-        //
-        //在執行每一項測試之前，先使用 TestInitialize 執行程式碼
-        //[TestInitialize()]
-        //public void MyTestInitialize()
-        //{
-        //}
-        //
-        //在執行每一項測試之後，使用 TestCleanup 執行程式碼
-        //[TestCleanup()]
-        //public void MyTestCleanup()
-        //{
-        //}
-        //
-        #endregion
-
-
-        const string CATEGORY_NAME_MOVIE = "Movie";
-        const string DISTINCT_CATEGORY_NAME = "movie";
-
         /// <summar>ya
         ///Equals 的測試
         ///</summary>
         [TestMethod()]
-        public void EqualsTest()
+        public void TestEquals()
         {
             Category category1, category2;
             category1 = new Category(CATEGORY_NAME_MOVIE);
@@ -85,7 +51,7 @@ namespace TestEZMoney
         ///GetHashCode 的測試
         ///</summary>
         [TestMethod()]
-        public void GetHashCodeTest()
+        public void TestGetHashCode()
         {
             Category category1 = new Category(CATEGORY_NAME_MOVIE);
             Category category2 = new Category(CATEGORY_NAME_MOVIE);
@@ -96,7 +62,7 @@ namespace TestEZMoney
         ///ToString 的測試
         ///</summary>
         [TestMethod()]
-        public void ToStringTest()
+        public void TestToString()
         {
             Category category = new Category(CATEGORY_NAME_MOVIE);
             Assert.AreEqual(CATEGORY_NAME_MOVIE, category.ToString());
@@ -106,7 +72,7 @@ namespace TestEZMoney
         ///CategoryName 的測試
         ///</summary>
         [TestMethod()]
-        public void CategoryNameTest()
+        public void TestCategoryName()
         {
             Category category = new Category(CATEGORY_NAME_MOVIE);
             Assert.AreEqual(CATEGORY_NAME_MOVIE, category.CategoryName);

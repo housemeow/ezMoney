@@ -85,7 +85,7 @@ namespace ezMoney
             int amounts = 0;
             foreach (Record record in records)
             {
-                if ((isIncome && record.Amount >= 0) || (!isIncome && record.Amount<0))
+                if ((isIncome && record.Amount >= 0) || (!isIncome && record.Amount < 0))
                 {
                     amounts += record.Amount;
                 }
