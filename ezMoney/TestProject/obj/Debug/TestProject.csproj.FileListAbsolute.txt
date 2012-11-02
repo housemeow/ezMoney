@@ -1,7 +1,0 @@
-D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestProject\bin\Debug\TestProject.dll
-D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestProject\bin\Debug\TestProject.pdb
-D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestProject\bin\Debug\ezMoney.exe
-D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestProject\bin\Debug\ezMoney.pdb
-D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestProject\obj\Debug\ResolveAssemblyReference.cache
-D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestProject\obj\Debug\TestProject.dll
-D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestProject\obj\Debug\TestProject.pdb

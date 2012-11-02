@@ -202,7 +202,7 @@ namespace TestEZMoney
         ///GetStatisticDataGridViewDataSource 的測試
         ///</summary>
         [TestMethod()]
-        public void TestetStatisticDataGridViewDataSource()
+        public void TestStatisticDataGridViewDataSource()
         {
             CategoryModel categoryModel = new CategoryModel(); // TODO: 初始化為適當值
             Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
@@ -249,7 +249,7 @@ namespace TestEZMoney
         ///</summary>
         [TestMethod()]
         [DeploymentItem("ezMoney.exe")]
-        public void TestetStatistic()
+        public void TestStatistic()
         {
             CategoryModel categoryModel = new CategoryModel(); // TODO: 初始化為適當值
             Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
@@ -278,7 +278,7 @@ namespace TestEZMoney
         ///GetIncomeStatistics 的測試
         ///</summary>
         [TestMethod()]
-        public void TestetIncomeStatistics()
+        public void TestIncomeStatistics()
         {
             CategoryModel categoryModel = new CategoryModel(); // TODO: 初始化為適當值
             Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
@@ -317,7 +317,7 @@ namespace TestEZMoney
         ///GetIncome 的測試
         ///</summary>
         [TestMethod()]
-        public void TestetIncome()
+        public void TestIncome()
         {
             CategoryModel categoryModel = new CategoryModel(); // TODO: 初始化為適當值
             Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);

@@ -1,9 +1,0 @@
-D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestEZMoney\bin\Debug\TestEZMoney.dll
-D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestEZMoney\bin\Debug\TestEZMoney.pdb
-D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestEZMoney\bin\Debug\ezMoney.exe
-D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestEZMoney\bin\Debug\ezMoney.pdb
-D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestEZMoney\obj\Debug\ResolveAssemblyReference.cache
-D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestEZMoney\obj\Debug\TestEZMoney.dll
-D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestEZMoney\obj\Debug\TestEZMoney.pdb
-D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestEZMoney\bin\Debug\ezMoney_Accessor.exe
-D:\Desktop\GitHubRepositories\ezMoney\ezMoney\TestEZMoney\bin\Debug\ezMoney_Accessor.pdb

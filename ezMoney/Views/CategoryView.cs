@@ -47,7 +47,7 @@ namespace ezMoney
         {
             TextBox textBoxCategoryName = TextBoxCategoryName;
             String categoryName = textBoxCategoryName.Text;
-            _categoryModel.AddCategory(new Category(categoryName));
+            _categoryModel.AddCategory(new Category(categoryName));////
             CurrencyManager.Refresh();
             textBoxCategoryName.Text = String.Empty;
         }
