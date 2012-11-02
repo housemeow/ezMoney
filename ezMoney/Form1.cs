@@ -96,10 +96,5 @@ namespace ezMoney
         {
             _statisticView.Refresh();
         }
-
-        private void EnterTabPageStatistic(object sender, EventArgs e)
-        {
-            _statisticView.Refresh();
-        }
     }
 }

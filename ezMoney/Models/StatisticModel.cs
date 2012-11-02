@@ -103,11 +103,7 @@ namespace ezMoney
         //get total expense
         public int GetExpense(List<Record> records)
         {
-<<<<<<< HEAD:ezMoney/Models/StatisticModel.cs
-            int expense = GetAmounts(records, false);
-=======
             int expense = -GetAmounts(records, false);
->>>>>>> TestProject:ezMoney/Models/StatisticModel.cs
             return expense;
         }
 

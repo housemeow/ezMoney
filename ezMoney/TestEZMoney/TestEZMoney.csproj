@@ -53,11 +53,6 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <Compile Include="CategoryTest.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RecordTest.cs" />
-=======
     <Compile Include="CategoryModelTest.cs" />
     <Compile Include="CategoryTest.cs" />
     <Compile Include="EZMoneyModelTest.cs" />
@@ -67,7 +62,6 @@
     <Compile Include="RecordTest.cs" />
     <Compile Include="StatisticModelTest.cs" />
     <Compile Include="StatisticTest.cs" />
->>>>>>> TestProject
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ezMoney.csproj">
@@ -75,12 +69,9 @@
       <Name>ezMoney</Name>
     </ProjectReference>
   </ItemGroup>
-<<<<<<< HEAD
-=======
   <ItemGroup>
     <Shadow Include="測試參考\ezMoney.accessor" />
   </ItemGroup>
->>>>>>> TestProject
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

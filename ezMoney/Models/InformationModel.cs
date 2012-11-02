@@ -5,11 +5,7 @@ using System.Text;
 
 namespace ezMoney
 {
-<<<<<<< HEAD
-    class InformationModel : Information
-=======
     class InformationModel : InformationModelProperty
->>>>>>> TestProject
     {
         CategoryModel _categoryModel;
 

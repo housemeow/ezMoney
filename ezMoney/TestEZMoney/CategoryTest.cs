@@ -32,9 +32,6 @@ namespace TestEZMoney
             }
         }
 
-        const string CATEGORY_NAME_MOVIE = "Movie";
-        const string DISTINCT_CATEGORY_NAME = "movie";
-
         /// <summar>ya
         ///Equals 的測試
         ///</summary>

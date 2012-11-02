@@ -3,14 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ezMoney", "ezMoney.csproj", "{1F9508E8-0259-48D8-A082-D02A2894A0B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestEZMoney", "TestEZMoney\TestEZMoney.csproj", "{85235507-18BA-44B5-A4BD-05CAB522AF68}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7D22DE82-AB88-4BC7-9E31-5AC598FF72F2}"
 	ProjectSection(SolutionItems) = preProject
 		ezMoney1.vsmdi = ezMoney1.vsmdi
 		Local.testsettings = Local.testsettings
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestEZMoney", "TestEZMoney\TestEZMoney.csproj", "{85235507-18BA-44B5-A4BD-05CAB522AF68}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
