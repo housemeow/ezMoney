@@ -60,7 +60,8 @@ namespace ezMoney
         //record button click
         public void ClickRecordButton(object sender, EventArgs args)
         {
-            Record record = new Record(DateTimePickerRecord.Value, new Category(ComboBoxCategory.Text), GetMoney());
+            int money = _informationModel.GetAmount(TextBoxRecordAmount.Text, RadioButtonIncome.Checked);
+            Record record = new Record(DateTimePickerRecord.Value, new Category(ComboBoxCategory.Text), money);///////
             _recordModel.AddRecord(record);
             CurrencyManagerRecordList.Refresh();
             TextBoxRecordAmount.Text = "";
@@ -74,13 +75,6 @@ namespace ezMoney
             bool buttonEnable = informationModel.IsValidRecordAdd(ComboBoxCategory.SelectedIndex, TextBoxRecordAmount.Text, ref errorMessage);
             ErrorProvider.SetError(ButtonRecordAdd, errorMessage);
             ButtonRecordAdd.Enabled = buttonEnable;
-        }
-
-        //get money from moneytextbox
-        public int GetMoney()
-        {
-            int money = _informationModel.GetAmount(TextBoxRecordAmount.Text, RadioButtonIncome.Checked); ;
-            return money;
         }
     }
 }

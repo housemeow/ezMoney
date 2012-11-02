@@ -6,7 +6,6 @@ using System.IO;
 
 namespace TestEZMoney
 {
-    
     /// <summary>
     ///這是 RecordModelTest 的測試類別，應該包含
     ///所有 RecordModelTest 單元測試
@@ -36,48 +35,25 @@ namespace TestEZMoney
         }
 
         #region 其他測試屬性
-        // 
-        //您可以在撰寫測試時，使用下列的其他屬性:
-        //
-        //在執行類別中的第一項測試之前，先使用 ClassInitialize 執行程式碼
-        //[ClassInitialize()]
-        //public static void MyClassInitialize(TestContext testContext)
-        //{
-        //}
-        //
-        //在執行類別中的所有測試之後，使用 ClassCleanup 執行程式碼
-        //[ClassCleanup()]
-        //public static void MyClassCleanup()
-        //{
-        //}
-        //
-        //在執行每一項測試之前，先使用 TestInitialize 執行程式碼
-        //[TestInitialize()]
-        //public void MyTestInitialize()
-        //{
-        //}
-        //
         //在執行每一項測試之後，使用 TestCleanup 執行程式碼
         [TestCleanup()]
         public void MyTestCleanup()
         {
             File.Delete(RecordModel.RECORD_FILE_NAME);
         }
-        //
         #endregion
 
         /// <summary>
         ///AddRecord 的測試
         ///</summary>
         [TestMethod()]
-        public void AddRecordTest()
+        public void TestAddRecord()
         {
             CategoryModel categoryModel = new CategoryModel();
             Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
             Category categoryWork = new Category(CATEGORY_NAME_WORK);
             categoryModel.AddCategory(categoryMovie);
             categoryModel.AddCategory(categoryWork);
-
             RecordModel recordModel = new RecordModel(categoryModel);
             DateTime now = DateTime.Now;
             DateTime date = new DateTime(now.Year, now.Month, now.Day);
@@ -99,14 +75,13 @@ namespace TestEZMoney
         ///GetNegativeRecords 的測試
         ///</summary>
         [TestMethod()]
-        public void GetNegativeRecordsTest()
+        public void TestGetNegativeRecords()
         {
             CategoryModel categoryModel = new CategoryModel();
             Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
             Category categoryWork = new Category(CATEGORY_NAME_WORK);
             categoryModel.AddCategory(categoryMovie);
             categoryModel.AddCategory(categoryWork);
-
             RecordModel recordModel = new RecordModel(categoryModel);
             DateTime now = DateTime.Now;
             DateTime date = new DateTime(now.Year, now.Month, now.Day);
@@ -118,7 +93,6 @@ namespace TestEZMoney
             recordModel.AddRecord(recordMovieNegative);
             recordModel.AddRecord(recordWorkPositive);
             recordModel.AddRecord(recordWorkNegative);
-
             List<Record> negativeRecords = recordModel.GetNegativeRecords(recordModel.GetRecords());
             Assert.AreEqual(2, negativeRecords.Count);
         }
@@ -127,14 +101,13 @@ namespace TestEZMoney
         ///GetPositiveRecords 的測試
         ///</summary>
         [TestMethod()]
-        public void GetPositiveRecordsTest()
+        public void TestGetPositiveRecords()
         {
             CategoryModel categoryModel = new CategoryModel();
             Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
             Category categoryWork = new Category(CATEGORY_NAME_WORK);
             categoryModel.AddCategory(categoryMovie);
             categoryModel.AddCategory(categoryWork);
-
             RecordModel recordModel = new RecordModel(categoryModel);
             DateTime now = DateTime.Now;
             DateTime date = new DateTime(now.Year, now.Month, now.Day);
@@ -146,7 +119,6 @@ namespace TestEZMoney
             recordModel.AddRecord(recordMovieNegative);
             recordModel.AddRecord(recordWorkPositive);
             recordModel.AddRecord(recordWorkNegative);
-
             List<Record> positiveRecords = recordModel.GetPositiveRecords(recordModel.GetRecords());
             Assert.AreEqual(2, positiveRecords.Count);
         }
@@ -155,14 +127,13 @@ namespace TestEZMoney
         ///GetRecords 的測試
         ///</summary>
         [TestMethod()]
-        public void GetRecordsTest()
+        public void TestGetRecordsFromCategoryAndPositive()
         {
             CategoryModel categoryModel = new CategoryModel();
             Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
             Category categoryWork = new Category(CATEGORY_NAME_WORK);
             categoryModel.AddCategory(categoryMovie);
             categoryModel.AddCategory(categoryWork);
-
             RecordModel recordModel = new RecordModel(categoryModel);
             DateTime now = DateTime.Now;
             DateTime date = new DateTime(now.Year, now.Month, now.Day);
@@ -174,13 +145,11 @@ namespace TestEZMoney
             recordModel.AddRecord(recordMovieNegative);
             recordModel.AddRecord(recordWorkPositive);
             recordModel.AddRecord(recordWorkNegative);
-
             List<Record> positiveRecords;
-            positiveRecords =  recordModel.GetRecords(categoryMovie, true);
+            positiveRecords = recordModel.GetRecords(categoryMovie, true);
             Assert.AreEqual(1, positiveRecords.Count);
             positiveRecords = recordModel.GetRecords(categoryWork, true);
             Assert.AreEqual(1, positiveRecords.Count);
-
             List<Record> negativeRecords;
             negativeRecords = recordModel.GetRecords(categoryMovie, true);
             Assert.AreEqual(1, negativeRecords.Count);
@@ -192,14 +161,13 @@ namespace TestEZMoney
         ///GetRecords 的測試
         ///</summary>
         [TestMethod()]
-        public void GetRecordsTest1()
+        public void TestGetRecords()
         {
             CategoryModel categoryModel = new CategoryModel();
             Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
             Category categoryWork = new Category(CATEGORY_NAME_WORK);
             categoryModel.AddCategory(categoryMovie);
             categoryModel.AddCategory(categoryWork);
-
             RecordModel recordModel = new RecordModel(categoryModel);
             DateTime now = DateTime.Now;
             DateTime date = new DateTime(now.Year, now.Month, now.Day);
@@ -219,14 +187,13 @@ namespace TestEZMoney
         ///GetRecords 的測試
         ///</summary>
         [TestMethod()]
-        public void GetRecordsTest2()
+        public void TestGetRecordsByCategory()
         {
             CategoryModel categoryModel = new CategoryModel();
             Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
             Category categoryWork = new Category(CATEGORY_NAME_WORK);
             categoryModel.AddCategory(categoryMovie);
             categoryModel.AddCategory(categoryWork);
-
             RecordModel recordModel = new RecordModel(categoryModel);
             DateTime now = DateTime.Now;
             DateTime date = new DateTime(now.Year, now.Month, now.Day);
@@ -235,23 +202,18 @@ namespace TestEZMoney
             Record recordWorkPositive = new Record(date, categoryWork, 100);
             Record recordWorkNegative = new Record(date, categoryWork, -100);
             recordModel.AddRecord(recordMoviePositive);
-
             recordModel.AddRecord(recordMovieNegative);
             recordModel.AddRecord(recordMovieNegative);
-
             recordModel.AddRecord(recordWorkPositive);
             recordModel.AddRecord(recordWorkPositive);
             recordModel.AddRecord(recordWorkPositive);
-
             recordModel.AddRecord(recordWorkNegative);
             recordModel.AddRecord(recordWorkNegative);
             recordModel.AddRecord(recordWorkNegative);
             recordModel.AddRecord(recordWorkNegative);
-
             List<Record> movieRecords;
             movieRecords = recordModel.GetRecords(categoryMovie);
             Assert.AreEqual(3, movieRecords.Count);
-
             List<Record> workRecords;
             workRecords = recordModel.GetRecords(categoryWork);
             Assert.AreEqual(7, workRecords.Count);
@@ -261,14 +223,13 @@ namespace TestEZMoney
         ///GetRecords 的測試
         ///</summary>
         [TestMethod()]
-        public void GetRecordsTest3()
+        public void TestGetRecordsWithCategoryAndPositive()
         {
             CategoryModel categoryModel = new CategoryModel();
             Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
             Category categoryWork = new Category(CATEGORY_NAME_WORK);
             categoryModel.AddCategory(categoryMovie);
             categoryModel.AddCategory(categoryWork);
-
             RecordModel recordModel = new RecordModel(categoryModel);
             DateTime now = DateTime.Now;
             DateTime date = new DateTime(now.Year, now.Month, now.Day);
@@ -277,27 +238,21 @@ namespace TestEZMoney
             Record recordWorkPositive = new Record(date, categoryWork, 100);
             Record recordWorkNegative = new Record(date, categoryWork, -100);
             recordModel.AddRecord(recordMoviePositive);
-
             recordModel.AddRecord(recordMovieNegative);
             recordModel.AddRecord(recordMovieNegative);
-
             recordModel.AddRecord(recordWorkPositive);
             recordModel.AddRecord(recordWorkPositive);
             recordModel.AddRecord(recordWorkPositive);
-
             recordModel.AddRecord(recordWorkNegative);
             recordModel.AddRecord(recordWorkNegative);
             recordModel.AddRecord(recordWorkNegative);
             recordModel.AddRecord(recordWorkNegative);
-
             List<Record> positiveMovieRecords;
             positiveMovieRecords = recordModel.GetRecords(categoryMovie, true);
             Assert.AreEqual(1, positiveMovieRecords.Count);
             List<Record> negativeMovieRecords;
             negativeMovieRecords = recordModel.GetRecords(categoryMovie, false);
             Assert.AreEqual(2, negativeMovieRecords.Count);
-            
-
             List<Record> positiveWorkRecords;
             positiveWorkRecords = recordModel.GetRecords(categoryWork, true);
             Assert.AreEqual(3, positiveWorkRecords.Count);
@@ -310,14 +265,13 @@ namespace TestEZMoney
         ///ReadRecordFromFile 的測試
         ///</summary>
         [TestMethod()]
-        public void ReadRecordFromFileTest()
+        public void TestReadRecordFromFile()
         {
             CategoryModel categoryModel = new CategoryModel();
             Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
             Category categoryWork = new Category(CATEGORY_NAME_WORK);
             categoryModel.AddCategory(categoryMovie);
             categoryModel.AddCategory(categoryWork);
-
             RecordModel recordModel = new RecordModel(categoryModel);
             DateTime now = DateTime.Now;
             DateTime date = new DateTime(now.Year, now.Month, now.Day);
@@ -329,8 +283,6 @@ namespace TestEZMoney
             recordModel.AddRecord(recordMovieNegative);
             recordModel.AddRecord(recordWorkPositive);
             recordModel.AddRecord(recordWorkNegative);
-
-
             List<Record> records = recordModel.GetRecords();
             recordModel.WriteRecordToFile();
             recordModel = new RecordModel(categoryModel);
@@ -342,14 +294,13 @@ namespace TestEZMoney
         ///WriteRecordToFile 的測試
         ///</summary>
         [TestMethod()]
-        public void WriteRecordToFileTest()
+        public void TestWriteRecordToFile()
         {
             CategoryModel categoryModel = new CategoryModel();
             Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
             Category categoryWork = new Category(CATEGORY_NAME_WORK);
             categoryModel.AddCategory(categoryMovie);
             categoryModel.AddCategory(categoryWork);
-
             RecordModel recordModel = new RecordModel(categoryModel);
             DateTime now = DateTime.Now;
             DateTime date = new DateTime(now.Year, now.Month, now.Day);
@@ -361,8 +312,6 @@ namespace TestEZMoney
             recordModel.AddRecord(recordMovieNegative);
             recordModel.AddRecord(recordWorkPositive);
             recordModel.AddRecord(recordWorkNegative);
-
-
             List<Record> records = recordModel.GetRecords();
             recordModel.WriteRecordToFile();
             recordModel = new RecordModel(categoryModel);

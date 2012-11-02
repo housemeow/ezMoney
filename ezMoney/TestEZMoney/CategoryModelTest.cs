@@ -16,7 +16,6 @@ namespace TestEZMoney
         const string CATEGORY_NAME_MOVIE = "Movie";
         const string CATEGORY_NAME_WORK = "Work";
         const string CATEGORY_NAME_ENTERTAINMENT = "Entertainment";
-
         private TestContext testContextInstance;
 
         /// <summary>
@@ -36,41 +35,19 @@ namespace TestEZMoney
         }
 
         #region 其他測試屬性
-        // 
-        //您可以在撰寫測試時，使用下列的其他屬性:
-        //
-        //在執行類別中的第一項測試之前，先使用 ClassInitialize 執行程式碼
-        //[ClassInitialize()]
-        //public static void MyClassInitialize(TestContext testContext)
-        //{
-        //}
-        //
         //在執行類別中的所有測試之後，使用 ClassCleanup 執行程式碼
         [ClassCleanup()]
         public static void MyClassCleanup()
         {
             File.Delete(CategoryModel.CATEGORY_FILE_NAME);
         }
-        //
-        //在執行每一項測試之前，先使用 TestInitialize 執行程式碼
-        //[TestInitialize()]
-        //public void MyTestInitialize()
-        //{
-        //}
-        //
-        //在執行每一項測試之後，使用 TestCleanup 執行程式碼
-        //[TestCleanup()]
-        //public void MyTestCleanup()
-        //{
-        //}
-        //
         #endregion
-        
+
         /// <summary>
         ///AddCategory 的測試
         ///</summary>
         [TestMethod()]
-        public void AddCategoryTest()
+        public void TestAddCategory()
         {
             CategoryModel categoryModel = new CategoryModel();
             Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
@@ -85,7 +62,7 @@ namespace TestEZMoney
         ///GetCategories 的測試
         ///</summary>
         [TestMethod()]
-        public void GetCategoriesTest()
+        public void TestGetCategories()
         {
             CategoryModel categoryModel = new CategoryModel();
             Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
@@ -100,7 +77,7 @@ namespace TestEZMoney
         ///GetCategory 的測試
         ///</summary>
         [TestMethod()]
-        public void GetCategoryTest()
+        public void TestGetCategory()
         {
             CategoryModel categoryModel = new CategoryModel();
             Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
@@ -109,14 +86,14 @@ namespace TestEZMoney
             categoryModel.AddCategory(categoryWork);
             Assert.AreEqual(categoryMovie, categoryModel.GetCategory(0));
             Assert.AreEqual(categoryWork, categoryModel.GetCategory(1));
-            Assert.AreEqual(new Category(""), categoryModel.GetCategory(2));
+            Assert.AreEqual(new Category(string.Empty), categoryModel.GetCategory(2));
         }
 
         /// <summary>
         ///GetCategoryIndex 的測試
         ///</summary>
         [TestMethod()]
-        public void GetCategoryIndexTest()
+        public void TestGetCategoryIndex()
         {
             CategoryModel categoryModel = new CategoryModel();
             Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
@@ -131,7 +108,7 @@ namespace TestEZMoney
         ///IsExist 的測試
         ///</summary>
         [TestMethod()]
-        public void IsExistTest()
+        public void TestIsExist()
         {
             CategoryModel categoryModel = new CategoryModel();
             Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
@@ -148,7 +125,7 @@ namespace TestEZMoney
         ///ReadCategoryFromFile 的測試
         ///</summary>
         [TestMethod()]
-        public void ReadCategoryFromFileTest()
+        public void TestReadCategoryFromFile()
         {
             CategoryModel categoryModel = new CategoryModel(); // TODO: 初始化為適當值
             Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
@@ -171,7 +148,7 @@ namespace TestEZMoney
         ///WriteCategoryToFile 的測試
         ///</summary>
         [TestMethod()]
-        public void WriteCategoryToFileTest()
+        public void TestWriteCategoryToFile()
         {
             CategoryModel categoryModel = new CategoryModel(); // TODO: 初始化為適當值
             Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
