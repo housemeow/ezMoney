@@ -66,6 +66,7 @@
     <Compile Include="RecordTest.cs" />
     <Compile Include="StatisticModelTest.cs" />
     <Compile Include="StatisticPresentationModelPropertyTest.cs" />
+    <Compile Include="StatisticPresentationModelTest.cs" />
     <Compile Include="StatisticTest.cs" />
   </ItemGroup>
   <ItemGroup>
