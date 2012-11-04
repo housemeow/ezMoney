@@ -64,18 +64,6 @@ namespace ezMoney
             }
         }
 
-        public String e
-        {
-            get
-            {
-                return _expense;
-            }
-            set
-            {
-                _expense = value;
-            }
-        }
-
         public String Balance
         {
             get

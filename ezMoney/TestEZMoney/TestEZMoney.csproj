@@ -54,13 +54,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoryModelTest.cs" />
+    <Compile Include="CategoryPresentationModelPropertyTest.cs" />
+    <Compile Include="CategoryPresentationModelTest.cs" />
     <Compile Include="CategoryTest.cs" />
     <Compile Include="EZMoneyModelTest.cs" />
     <Compile Include="InformationModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecordModelTest.cs" />
+    <Compile Include="RecordPresentationModelPropertyTest.cs" />
     <Compile Include="RecordTest.cs" />
     <Compile Include="StatisticModelTest.cs" />
+    <Compile Include="StatisticPresentationModelPropertyTest.cs" />
     <Compile Include="StatisticTest.cs" />
   </ItemGroup>
   <ItemGroup>

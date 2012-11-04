@@ -117,7 +117,7 @@ namespace ezMoney
             }
             else if (_categoryModel.IsExist(categoryName))
             {
-                errorMessage = CATEGORY_NO_NAME_INFO;
+                errorMessage = CATEGORY_REPEAT_INFO;
                 buttonEnable = false;
             }
             else
