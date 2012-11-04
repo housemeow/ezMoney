@@ -11,11 +11,8 @@ namespace ezMoney
 {
     public partial class EZMoneyForm : Form
     {
-        //view of categoryManagement
+        //model
         EZMoneyModel _ezMoneyModel;
-        CategoryView _categoryView;
-        RecordView _recordView;
-        StatisticView _statisticView;
         //currencyManager of list
         CurrencyManager _currencyManagerCategoryList;
         CurrencyManager _currencyManagerRecordList;
@@ -27,27 +24,21 @@ namespace ezMoney
         }
 
         //form load event
-        private void LoadFormCategoryManagement(object sender, EventArgs e)
+        private void LoadFormView(object sender, EventArgs e)
         {
             _ezMoneyModel = new EZMoneyModel();
             _currencyManagerCategoryList = (CurrencyManager)BindingContext[_ezMoneyModel.GetCategories()];
             _currencyManagerRecordList = (CurrencyManager)BindingContext[_ezMoneyModel.GetRecords()];
-            InitCategoryManagementView();
+            InitCategoryView();
             InitRecordView();
             InitStatisticView();
         }
 
         //initialize categoryManagementView
-        void InitCategoryManagementView()
+        void InitCategoryView()
         {
             _listBoxCategories.DataSource = _ezMoneyModel.GetCategories();
-            _categoryView = new CategoryView(_ezMoneyModel.GetCategoryModel(), _ezMoneyModel.GetInformationModel());
-            _categoryView.TextBoxCategoryName = _textBoxCategoryName;
-            _categoryView.ListBoxCategories = _listBoxCategories;
-            _categoryView.CurrencyManager = _currencyManagerCategoryList;
-            _categoryView.ButtonAdd = _buttonCategoryAdd;
-            _categoryView.ErrorProvider = _errorProviderAddButton;
-            _categoryView.Initialize();
+            SetCategoryButtonAndErrorProviderState(_ezMoneyModel.GetInformationModel());
         }
 
         //initialize recordView
@@ -56,32 +47,78 @@ namespace ezMoney
             _comboBoxCategory.DataSource = _ezMoneyModel.GetCategories();
             _dataGridViewRecord.DataSource = _ezMoneyModel.GetRecords();
             _dataGridViewRecord.AutoGenerateColumns = true;
-            _recordView = new RecordView(_ezMoneyModel.GetCategoryModel(), _ezMoneyModel.GetRecordModel(), _ezMoneyModel.GetInformationModel());
-            _recordView.DateTimePickerRecord = _dateTimePickerRecord;
-            _recordView.RadioButtonIncome = _radioButtonIncome;
-            _recordView.RadioButtonExpanse = _radioButtonExpanse;
-            _recordView.ComboBoxCategory = _comboBoxCategory;
-            _recordView.TextBoxRecordAmount = _textBoxRecordAmount;
-            _recordView.ButtonRecordAdd = _buttonRecordAdd;
-            _recordView.DataGridViewRecord = _dataGridViewRecord;
-            _recordView.CurrencyManagerCategoryList = _currencyManagerCategoryList;
-            _recordView.CurrencyManagerRecordList = _currencyManagerRecordList;
-            _recordView.ErrorProvider = _errorProviderRecord;
-            _recordView.Initialize();
+            SetRecordButtonAndErrorProviderState(_ezMoneyModel.GetInformationModel());
         }
 
         //initialize statisticView
         void InitStatisticView()
         {
-            _statisticView = new StatisticView(_ezMoneyModel.GetCategoryModel(), _ezMoneyModel.GetRecordModel(), _ezMoneyModel.GetStatisticModel());
-            _statisticView.RadioButtonIncome = _radioButtonStatisticIncome;
-            _statisticView.RadioButtonExpense = _radioButtonStatisticExpense;
-            _statisticView.DataGridViewStatistic = _dataGridViewStatisticRecord;
-            _statisticView.TextBoxIncome = _textBoxIncome;
-            _statisticView.TextBoxExpense = _textBoxStatisticExpense;
-            _statisticView.TextBoxBalance = _textBoxBalance;
-            _statisticView.DataGridViewDetail = _dataGridViewDetail;
-            _statisticView.Initialize();
+            InitStatisticDataGridView();
+            InitDetailDataGridView();
+            RecordModel recordModel = _ezMoneyModel.GetRecordModel();
+            InitTextBoxValue(recordModel.GetRecords());
+        }
+
+        //show textBox value
+        private void InitTextBoxValue(BindingList<Record> records)
+        {
+            StatisticModel statisticModel = _ezMoneyModel.GetStatisticModel();
+            _textBoxIncome.Text = statisticModel.GetIncome(records).ToString();
+            _textBoxExpense.Text = statisticModel.GetExpense(records).ToString();
+            _textBoxBalance.Text = statisticModel.GetBalance(records).ToString();
+        }
+
+        //init statistic datagridview
+        private void InitStatisticDataGridView()
+        {
+            _dataGridViewStatisticRecord.AutoGenerateColumns = true;
+            _dataGridViewStatisticRecord.ReadOnly = true;
+        }
+
+        //init detail datagridview
+        private void InitDetailDataGridView()
+        {
+            _dataGridViewDetail.AutoGenerateColumns = false;
+            DataGridViewTextBoxColumn dateColumn = new DataGridViewTextBoxColumn();
+            dateColumn.DataPropertyName = "Date";
+            dateColumn.HeaderText = "Date";
+            DataGridViewTextBoxColumn amountColumn = new DataGridViewTextBoxColumn();
+            amountColumn.DataPropertyName = "Amount";
+            amountColumn.HeaderText = "Amount";
+            _dataGridViewDetail.Columns.Add(dateColumn);
+            _dataGridViewDetail.Columns.Add(amountColumn);
+            _dataGridViewDetail.ReadOnly = true;
+        }
+
+        //radio button checked change
+        private void CheckChangeRadioButton(object sender, EventArgs e)
+        {
+            StatisticModel statisticModel = _ezMoneyModel.GetStatisticModel();
+            _dataGridViewStatisticRecord.DataSource = statisticModel.GetStatisticDataGridViewDataSource(_radioButtonStatisticIncome.Checked);
+        }
+
+        //click datagridView's cell
+        private void ClickDataGridViewCell(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                Category category = (Category)_dataGridViewStatisticRecord.Rows[e.RowIndex].Cells[0].Value;
+                RecordModel recordModel = _ezMoneyModel.GetRecordModel();
+                _dataGridViewDetail.DataSource = recordModel.GetRecords(category, _radioButtonStatisticIncome.Checked);
+            }
+        }
+
+        //init control
+        private void InitControlSet()
+        {
+            _radioButtonIncome.Checked = true;
+            InitStatisticDataGridView();
+            InitDetailDataGridView();
+            _textBoxIncome.ReadOnly = true;
+            _textBoxExpense.ReadOnly = true;
+            _textBoxBalance.ReadOnly = true;
+            RecordModel recordModel = _ezMoneyModel.GetRecordModel();
+            InitTextBoxValue(recordModel.GetRecords());
         }
 
         //closing form
@@ -94,7 +131,81 @@ namespace ezMoney
         //enter tab page statistic
         private void EnterTabPageStatistic(object sender, EventArgs e)
         {
-            _statisticView.Refresh();
+            RefreshStatistic();
+        }
+
+        //refresh view
+        public void RefreshStatistic()
+        {
+            CheckChangeRadioButton(this, new EventArgs());
+            RecordModel recordModel = _ezMoneyModel.GetRecordModel();
+            InitTextBoxValue( recordModel.GetRecords());
+        }
+
+        //add category
+        private void AddCategory(object sender, EventArgs e)
+        {
+            CategoryModel categoryModel = _ezMoneyModel.GetCategoryModel();
+            categoryModel.AddCategory(_textBoxCategoryName.Text);////
+            _currencyManagerCategoryList.Refresh();
+            _textBoxCategoryName.Text = String.Empty;
+        }
+
+        //change category name event
+        private void ChangeCategoryName(object sender, EventArgs e)
+        {
+            InformationModel informationModel = _ezMoneyModel.GetInformationModel();
+            SetCategoryButtonAndErrorProviderState(informationModel);
+        }
+
+        //enable/ disable button and ErrorProvider
+        private void SetCategoryButtonAndErrorProviderState(InformationModel informationModel)
+        {
+            String errorMessage = String.Empty;
+            bool buttonEnable = informationModel.IsValidCategoryAdd(_textBoxCategoryName.Text, ref errorMessage);
+            _buttonCategoryAdd.Enabled = buttonEnable;
+            _errorProviderAddButton.SetError(_buttonCategoryAdd, errorMessage);
+        }
+
+        //record amount textbox key press event
+        private void PressRecordAmountTextBoxKey(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Back)
+            {//enable back key
+                return;
+            }
+            else if ((Keys)e.KeyChar < Keys.D0 || (Keys)e.KeyChar > Keys.D9)
+            {//cancel key message
+                e.Handled = true;
+            }
+        }
+
+        //event of recordAmountTextBoxChanged
+        private void ChangeRecordAmountTextBox(object sender, EventArgs e)
+        {
+            SetRecordButtonAndErrorProviderState(_ezMoneyModel.GetInformationModel());
+        }
+
+        //record button click
+        private void ClickRecordButton(object sender, EventArgs e)
+        {
+            InformationModel informationModel = _ezMoneyModel.GetInformationModel();
+            RecordModel recordModel = _ezMoneyModel.GetRecordModel();
+            int money = informationModel.GetAmount(_textBoxRecordAmount.Text, _radioButtonIncome.Checked);
+            Record record = new Record(_dateTimePickerRecord.Value, new Category(_comboBoxCategory.Text), money);///////
+            recordModel.AddRecord(record);
+            _currencyManagerRecordList.Refresh();
+            _textBoxRecordAmount.Text = "";
+            SetRecordButtonAndErrorProviderState(informationModel);
+        }
+
+        //set button enable and errorprovider
+        private void SetRecordButtonAndErrorProviderState(InformationModel informationModel)
+        {
+            String errorMessage = String.Empty;
+            bool buttonEnable = informationModel.IsValidRecordAdd(_comboBoxCategory.SelectedIndex, _textBoxRecordAmount.Text, ref errorMessage);
+            _errorProviderRecord.SetError(_buttonRecordAdd, errorMessage);
+            _buttonRecordAdd.Enabled = buttonEnable;
         }
     }
 }

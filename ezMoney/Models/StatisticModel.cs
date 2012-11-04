@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
 
 namespace ezMoney
 {
@@ -18,9 +19,9 @@ namespace ezMoney
         }
 
         //get expense statistics
-        public List<Statistic> GetExpenseStatistics()
+        public BindingList<Statistic> GetExpenseStatistics()
         {
-            List<Statistic> expenseStatistics = new List<Statistic>();
+            BindingList<Statistic> expenseStatistics = new BindingList<Statistic>();
             int amounts = 0;
             foreach (Category category in _categoryModel.GetCategories())
             {
@@ -36,9 +37,9 @@ namespace ezMoney
         }
 
         //get income statistics
-        public List<Statistic> GetIncomeStatistics()
+        public BindingList<Statistic> GetIncomeStatistics()
         {
-            List<Statistic> incomeStatistics = new List<Statistic>();
+            BindingList<Statistic> incomeStatistics = new BindingList<Statistic>();
             int amounts = 0;
             foreach (Category category in _categoryModel.GetCategories())
             {
@@ -69,7 +70,7 @@ namespace ezMoney
         }
 
         //set statistics percent
-        public void SetPercent(List<Statistic> statistics, int amounts)
+        public void SetPercent(BindingList<Statistic> statistics, int amounts)
         {
             foreach (Statistic statistic in statistics)
             {
@@ -80,7 +81,7 @@ namespace ezMoney
         }
 
         //get amounts with isIncome
-        public int GetAmounts(List<Record> records, bool isIncome)
+        public int GetAmounts(BindingList<Record> records, bool isIncome)
         {
             int amounts = 0;
             foreach (Record record in records)
@@ -94,21 +95,21 @@ namespace ezMoney
         }
 
         //get total income
-        public int GetIncome(List<Record> records)
+        public int GetIncome(BindingList<Record> records)
         {
             int income = GetAmounts(records, true);
             return income;
         }
 
         //get total expense
-        public int GetExpense(List<Record> records)
+        public int GetExpense(BindingList<Record> records)
         {
             int expense = -GetAmounts(records, false);
             return expense;
         }
 
         //get balance
-        public int GetBalance(List<Record> records)
+        public int GetBalance(BindingList<Record> records)
         {
             int income = GetIncome(records);
             int expense = GetExpense(records);
@@ -117,7 +118,7 @@ namespace ezMoney
         }
 
         //get statistic datagridview datasource
-        public List<Statistic> GetStatisticDataGridViewDataSource(bool isIncome)
+        public BindingList<Statistic> GetStatisticDataGridViewDataSource(bool isIncome)
         {
             if (isIncome)
             {

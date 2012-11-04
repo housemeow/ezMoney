@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.ComponentModel;
 
 namespace TestEZMoney
 {
@@ -93,7 +94,7 @@ namespace TestEZMoney
             recordModel.AddRecord(recordMovieNegative);
             recordModel.AddRecord(recordWorkPositive);
             recordModel.AddRecord(recordWorkNegative);
-            List<Record> negativeRecords = recordModel.GetNegativeRecords(recordModel.GetRecords());
+            BindingList<Record> negativeRecords = recordModel.GetNegativeRecords(recordModel.GetRecords());
             Assert.AreEqual(2, negativeRecords.Count);
         }
 
@@ -119,7 +120,7 @@ namespace TestEZMoney
             recordModel.AddRecord(recordMovieNegative);
             recordModel.AddRecord(recordWorkPositive);
             recordModel.AddRecord(recordWorkNegative);
-            List<Record> positiveRecords = recordModel.GetPositiveRecords(recordModel.GetRecords());
+            BindingList<Record> positiveRecords = recordModel.GetPositiveRecords(recordModel.GetRecords());
             Assert.AreEqual(2, positiveRecords.Count);
         }
 
@@ -145,12 +146,12 @@ namespace TestEZMoney
             recordModel.AddRecord(recordMovieNegative);
             recordModel.AddRecord(recordWorkPositive);
             recordModel.AddRecord(recordWorkNegative);
-            List<Record> positiveRecords;
+            BindingList<Record> positiveRecords;
             positiveRecords = recordModel.GetRecords(categoryMovie, true);
             Assert.AreEqual(1, positiveRecords.Count);
             positiveRecords = recordModel.GetRecords(categoryWork, true);
             Assert.AreEqual(1, positiveRecords.Count);
-            List<Record> negativeRecords;
+            BindingList<Record> negativeRecords;
             negativeRecords = recordModel.GetRecords(categoryMovie, true);
             Assert.AreEqual(1, negativeRecords.Count);
             negativeRecords = recordModel.GetRecords(categoryWork, true);
@@ -179,7 +180,7 @@ namespace TestEZMoney
             recordModel.AddRecord(recordMovieNegative);
             recordModel.AddRecord(recordWorkPositive);
             recordModel.AddRecord(recordWorkNegative);
-            List<Record> records = recordModel.GetRecords();
+            BindingList<Record> records = recordModel.GetRecords();
             Assert.AreEqual(records, recordModel.GetRecords());
         }
 
@@ -211,10 +212,10 @@ namespace TestEZMoney
             recordModel.AddRecord(recordWorkNegative);
             recordModel.AddRecord(recordWorkNegative);
             recordModel.AddRecord(recordWorkNegative);
-            List<Record> movieRecords;
+            BindingList<Record> movieRecords;
             movieRecords = recordModel.GetRecords(categoryMovie);
             Assert.AreEqual(3, movieRecords.Count);
-            List<Record> workRecords;
+            BindingList<Record> workRecords;
             workRecords = recordModel.GetRecords(categoryWork);
             Assert.AreEqual(7, workRecords.Count);
         }
@@ -247,16 +248,16 @@ namespace TestEZMoney
             recordModel.AddRecord(recordWorkNegative);
             recordModel.AddRecord(recordWorkNegative);
             recordModel.AddRecord(recordWorkNegative);
-            List<Record> positiveMovieRecords;
+            BindingList<Record> positiveMovieRecords;
             positiveMovieRecords = recordModel.GetRecords(categoryMovie, true);
             Assert.AreEqual(1, positiveMovieRecords.Count);
-            List<Record> negativeMovieRecords;
+            BindingList<Record> negativeMovieRecords;
             negativeMovieRecords = recordModel.GetRecords(categoryMovie, false);
             Assert.AreEqual(2, negativeMovieRecords.Count);
-            List<Record> positiveWorkRecords;
+            BindingList<Record> positiveWorkRecords;
             positiveWorkRecords = recordModel.GetRecords(categoryWork, true);
             Assert.AreEqual(3, positiveWorkRecords.Count);
-            List<Record> negativeWorkRecords;
+            BindingList<Record> negativeWorkRecords;
             negativeWorkRecords = recordModel.GetRecords(categoryWork, false);
             Assert.AreEqual(4, negativeWorkRecords.Count);
         }
@@ -283,7 +284,7 @@ namespace TestEZMoney
             recordModel.AddRecord(recordMovieNegative);
             recordModel.AddRecord(recordWorkPositive);
             recordModel.AddRecord(recordWorkNegative);
-            List<Record> records = recordModel.GetRecords();
+            BindingList<Record> records = recordModel.GetRecords();
             recordModel.WriteRecordToFile();
             recordModel = new RecordModel(categoryModel);
             recordModel.ReadRecordFromFile();
@@ -312,7 +313,7 @@ namespace TestEZMoney
             recordModel.AddRecord(recordMovieNegative);
             recordModel.AddRecord(recordWorkPositive);
             recordModel.AddRecord(recordWorkNegative);
-            List<Record> records = recordModel.GetRecords();
+            BindingList<Record> records = recordModel.GetRecords();
             recordModel.WriteRecordToFile();
             recordModel = new RecordModel(categoryModel);
             recordModel.ReadRecordFromFile();

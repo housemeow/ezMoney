@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.ComponentModel;
 
 namespace ezMoney
 {
@@ -10,12 +11,12 @@ namespace ezMoney
     {
         public const String CATEGORY_FILE_NAME = "category.txt";
         private const string EMPTY_LINE = "";
-        private List<Category> _categories;
+        private BindingList<Category> _categories;
 
         //constructor
         public CategoryModel()
         {
-            _categories = new List<Category>();
+            _categories = new BindingList<Category>();
         }
 
         //write file to category
@@ -71,9 +72,15 @@ namespace ezMoney
         }
 
         //add category to categoryList
-        public void AddCategory(Category categoryName)
+        public void AddCategory(Category category)
         {
-            _categories.Add(categoryName);
+            _categories.Add(category);
+        }
+
+        //add category to categoryList by Categoryname
+        public void AddCategory(String categoryName)
+        {
+            AddCategory(new Category(categoryName));
         }
 
         //category is in categoies
@@ -82,7 +89,7 @@ namespace ezMoney
             return _categories.Contains(categoryName);
         }
 
-        public List<Category> GetCategories()
+        public BindingList<Category> GetCategories()
         {
             return _categories;
         }

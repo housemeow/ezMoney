@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.ComponentModel;
 
 namespace TestEZMoney
 {
@@ -138,7 +139,7 @@ namespace TestEZMoney
         public void TestGetRecords()
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
-            List<Record> records = ezMoneyModel.GetRecords(); // TODO: 初始化為適當值
+            BindingList<Record> records = ezMoneyModel.GetRecords(); // TODO: 初始化為適當值
             DateTime now = DateTime.Now;
             DateTime date = new DateTime(now.Year, now.Month, now.Day);
             Category movieCategory = new Category(CATEGORY_NAME_MOVIE); ; // TODO: 初始化為適當值
@@ -173,9 +174,9 @@ namespace TestEZMoney
             ezMoneyModel.AddRecord(workRecord1);
             ezMoneyModel.AddRecord(workRecord2);
             ezMoneyModel.AddRecord(workRecord3);
-            List<Record> movieRecords = ezMoneyModel.GetRecords(movieCategory); // TODO: 初始化為適當值
+            BindingList<Record> movieRecords = ezMoneyModel.GetRecords(movieCategory); // TODO: 初始化為適當值
             Assert.AreEqual(2, movieRecords.Count);
-            List<Record> workRecords = ezMoneyModel.GetRecords(workCategory); // TODO: 初始化為適當值
+            BindingList<Record> workRecords = ezMoneyModel.GetRecords(workCategory); // TODO: 初始化為適當值
             Assert.AreEqual(3, workRecords.Count);
         }
 

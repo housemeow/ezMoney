@@ -55,7 +55,7 @@
             this._radioButtonStatisticIncome = new System.Windows.Forms.RadioButton();
             this._radioButtonStatisticExpense = new System.Windows.Forms.RadioButton();
             this._textBoxIncome = new System.Windows.Forms.TextBox();
-            this._textBoxStatisticExpense = new System.Windows.Forms.TextBox();
+            this._textBoxExpense = new System.Windows.Forms.TextBox();
             this._textBoxBalance = new System.Windows.Forms.TextBox();
             this._dataGridViewStatisticRecord = new System.Windows.Forms.DataGridView();
             this._dataGridViewDetail = new System.Windows.Forms.DataGridView();
@@ -110,16 +110,19 @@
             this._textBoxCategoryName.Name = "_textBoxCategoryName";
             this._textBoxCategoryName.Size = new System.Drawing.Size(157, 22);
             this._textBoxCategoryName.TabIndex = 1;
+            this._textBoxCategoryName.TextChanged += new System.EventHandler(this.ChangeCategoryName);
             // 
             // _buttonCategoryAdd
             // 
             this._buttonCategoryAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this._buttonCategoryAdd.Enabled = false;
             this._buttonCategoryAdd.Location = new System.Drawing.Point(271, 8);
             this._buttonCategoryAdd.Name = "_buttonCategoryAdd";
             this._buttonCategoryAdd.Size = new System.Drawing.Size(75, 23);
             this._buttonCategoryAdd.TabIndex = 2;
             this._buttonCategoryAdd.Text = "Add";
             this._buttonCategoryAdd.UseVisualStyleBackColor = true;
+            this._buttonCategoryAdd.Click += new System.EventHandler(this.AddCategory);
             // 
             // _listBoxCategories
             // 
@@ -245,16 +248,20 @@
             this._textBoxRecordAmount.Name = "_textBoxRecordAmount";
             this._textBoxRecordAmount.Size = new System.Drawing.Size(176, 22);
             this._textBoxRecordAmount.TabIndex = 4;
+            this._textBoxRecordAmount.TextChanged += new System.EventHandler(this.ChangeRecordAmountTextBox);
+            this._textBoxRecordAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PressRecordAmountTextBoxKey);
             // 
             // _buttonRecordAdd
             // 
             this._buttonRecordAdd.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this._buttonRecordAdd.Enabled = false;
             this._buttonRecordAdd.Location = new System.Drawing.Point(276, 48);
             this._buttonRecordAdd.Name = "_buttonRecordAdd";
             this._buttonRecordAdd.Size = new System.Drawing.Size(68, 23);
             this._buttonRecordAdd.TabIndex = 5;
             this._buttonRecordAdd.Text = "Enter";
             this._buttonRecordAdd.UseVisualStyleBackColor = true;
+            this._buttonRecordAdd.Click += new System.EventHandler(this.ClickRecordButton);
             // 
             // _dataGridViewRecord
             // 
@@ -294,7 +301,7 @@
             this._tableLayoutPanelStatistic.Controls.Add(this._radioButtonStatisticIncome, 0, 0);
             this._tableLayoutPanelStatistic.Controls.Add(this._radioButtonStatisticExpense, 2, 0);
             this._tableLayoutPanelStatistic.Controls.Add(this._textBoxIncome, 1, 2);
-            this._tableLayoutPanelStatistic.Controls.Add(this._textBoxStatisticExpense, 3, 2);
+            this._tableLayoutPanelStatistic.Controls.Add(this._textBoxExpense, 3, 2);
             this._tableLayoutPanelStatistic.Controls.Add(this._textBoxBalance, 5, 2);
             this._tableLayoutPanelStatistic.Controls.Add(this._dataGridViewStatisticRecord, 0, 1);
             this._tableLayoutPanelStatistic.Controls.Add(this._dataGridViewDetail, 0, 4);
@@ -355,6 +362,7 @@
             // _radioButtonStatisticIncome
             // 
             this._radioButtonStatisticIncome.AutoSize = true;
+            this._radioButtonStatisticIncome.Checked = true;
             this._tableLayoutPanelStatistic.SetColumnSpan(this._radioButtonStatisticIncome, 2);
             this._radioButtonStatisticIncome.Dock = System.Windows.Forms.DockStyle.Fill;
             this._radioButtonStatisticIncome.Location = new System.Drawing.Point(3, 3);
@@ -364,6 +372,7 @@
             this._radioButtonStatisticIncome.TabStop = true;
             this._radioButtonStatisticIncome.Text = "Income";
             this._radioButtonStatisticIncome.UseVisualStyleBackColor = true;
+            this._radioButtonStatisticIncome.CheckedChanged += new System.EventHandler(this.CheckChangeRadioButton);
             // 
             // _radioButtonStatisticExpense
             // 
@@ -374,31 +383,34 @@
             this._radioButtonStatisticExpense.Name = "_radioButtonStatisticExpense";
             this._radioButtonStatisticExpense.Size = new System.Drawing.Size(116, 34);
             this._radioButtonStatisticExpense.TabIndex = 5;
-            this._radioButtonStatisticExpense.TabStop = true;
             this._radioButtonStatisticExpense.Text = "Expense";
             this._radioButtonStatisticExpense.UseVisualStyleBackColor = true;
+            this._radioButtonStatisticExpense.CheckedChanged += new System.EventHandler(this.CheckChangeRadioButton);
             // 
             // _textBoxIncome
             // 
             this._textBoxIncome.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this._textBoxIncome.Location = new System.Drawing.Point(64, 182);
             this._textBoxIncome.Name = "_textBoxIncome";
+            this._textBoxIncome.ReadOnly = true;
             this._textBoxIncome.Size = new System.Drawing.Size(55, 22);
             this._textBoxIncome.TabIndex = 6;
             // 
-            // _textBoxStatisticExpense
+            // _textBoxExpense
             // 
-            this._textBoxStatisticExpense.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this._textBoxStatisticExpense.Location = new System.Drawing.Point(186, 182);
-            this._textBoxStatisticExpense.Name = "_textBoxStatisticExpense";
-            this._textBoxStatisticExpense.Size = new System.Drawing.Size(55, 22);
-            this._textBoxStatisticExpense.TabIndex = 7;
+            this._textBoxExpense.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this._textBoxExpense.Location = new System.Drawing.Point(186, 182);
+            this._textBoxExpense.Name = "_textBoxExpense";
+            this._textBoxExpense.ReadOnly = true;
+            this._textBoxExpense.Size = new System.Drawing.Size(55, 22);
+            this._textBoxExpense.TabIndex = 7;
             // 
             // _textBoxBalance
             // 
             this._textBoxBalance.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this._textBoxBalance.Location = new System.Drawing.Point(308, 182);
             this._textBoxBalance.Name = "_textBoxBalance";
+            this._textBoxBalance.ReadOnly = true;
             this._textBoxBalance.Size = new System.Drawing.Size(59, 22);
             this._textBoxBalance.TabIndex = 8;
             // 
@@ -412,6 +424,7 @@
             this._dataGridViewStatisticRecord.RowTemplate.Height = 24;
             this._dataGridViewStatisticRecord.Size = new System.Drawing.Size(364, 127);
             this._dataGridViewStatisticRecord.TabIndex = 9;
+            this._dataGridViewStatisticRecord.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClickDataGridViewCell);
             // 
             // _dataGridViewDetail
             // 
@@ -439,7 +452,7 @@
             this.Name = "EZMoneyForm";
             this.Text = "Categories Management";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClosingFormCategoryManagementForm);
-            this.Load += new System.EventHandler(this.LoadFormCategoryManagement);
+            this.Load += new System.EventHandler(this.LoadFormView);
             this._tableLayoutPanelCategoryManagement.ResumeLayout(false);
             this._tableLayoutPanelCategoryManagement.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._errorProviderAddButton)).EndInit();
@@ -488,7 +501,7 @@
         private System.Windows.Forms.RadioButton _radioButtonStatisticIncome;
         private System.Windows.Forms.RadioButton _radioButtonStatisticExpense;
         private System.Windows.Forms.TextBox _textBoxIncome;
-        private System.Windows.Forms.TextBox _textBoxStatisticExpense;
+        private System.Windows.Forms.TextBox _textBoxExpense;
         private System.Windows.Forms.TextBox _textBoxBalance;
         private System.Windows.Forms.DataGridView _dataGridViewStatisticRecord;
         private System.Windows.Forms.DataGridView _dataGridViewDetail;

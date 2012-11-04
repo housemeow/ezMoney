@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace TestEZMoney
 {
@@ -65,7 +66,7 @@ namespace TestEZMoney
             workRecord = new Record(date, categoryWork, 4000);
             recordModel.AddRecord(workRecord);
             StatisticModel statisticModel = new StatisticModel(categoryModel, recordModel); // TODO: 初始化為適當值
-            List<Statistic> statistics;
+            BindingList<Statistic> statistics;
             statistics = statisticModel.GetExpenseStatistics();
             Assert.AreEqual(1, statistics.Count);
         }
@@ -185,7 +186,7 @@ namespace TestEZMoney
             categoryModel.AddCategory(categoryEntertainment);
             RecordModel recordModel = new RecordModel(categoryModel); // TODO: 初始化為適當值
             StatisticModel statisticModel = new StatisticModel(categoryModel, recordModel); // TODO: 初始化為適當值
-            List<Statistic> statistics = new List<Statistic>(); // TODO: 初始化為適當值
+            BindingList<Statistic> statistics = new BindingList<Statistic>(); // TODO: 初始化為適當值
             Statistic statisticMovie = new Statistic(categoryMovie);
             Statistic statisticEntertainment = new Statistic(categoryEntertainment);
             statisticMovie.Amounts = 1000;
@@ -227,8 +228,8 @@ namespace TestEZMoney
             workRecord = new Record(date, categoryWork, 4000);
             recordModel.AddRecord(workRecord);
             StatisticModel statisticModel = new StatisticModel(categoryModel, recordModel); // TODO: 初始化為適當值
-            List<Statistic> incomeStatistics = statisticModel.GetStatisticDataGridViewDataSource(true);
-            List<Statistic> expenseStatistics = statisticModel.GetStatisticDataGridViewDataSource(false);
+            BindingList<Statistic> incomeStatistics = statisticModel.GetStatisticDataGridViewDataSource(true);
+            BindingList<Statistic> expenseStatistics = statisticModel.GetStatisticDataGridViewDataSource(false);
             Assert.AreEqual(1, incomeStatistics.Count);
             int incomeAmount = 0;
             foreach (Statistic statistic in incomeStatistics)
@@ -303,7 +304,7 @@ namespace TestEZMoney
             workRecord = new Record(date, categoryWork, 4000);
             recordModel.AddRecord(workRecord);
             StatisticModel statisticModel = new StatisticModel(categoryModel, recordModel); // TODO: 初始化為適當值
-            List<Statistic> statistics = statisticModel.GetIncomeStatistics();
+            BindingList<Statistic> statistics = statisticModel.GetIncomeStatistics();
             Assert.AreEqual(1, statistics.Count);
             int amount=0;
             foreach (Statistic statistic in statistics)

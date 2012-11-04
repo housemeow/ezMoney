@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.ComponentModel;
 
 namespace ezMoney
 {
@@ -56,7 +57,7 @@ namespace ezMoney
             _categoryModel.AddCategory(categoryName);
         }
 
-        public List<Category> GetCategories()
+        public BindingList<Category> GetCategories()
         {
             return _categoryModel.GetCategories();
         }
@@ -67,13 +68,13 @@ namespace ezMoney
             _recordModel.AddRecord(record);
         }
 
-        public List<Record> GetRecords()
+        public BindingList<Record> GetRecords()
         {
             return _recordModel.GetRecords();
         }
 
         //get records of category
-        public List<Record> GetRecords(Category category)
+        public BindingList<Record> GetRecords(Category category)
         {
             return _recordModel.GetRecords(category);
         }

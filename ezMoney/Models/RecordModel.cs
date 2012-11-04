@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.ComponentModel;
 
 namespace ezMoney
 {
@@ -11,17 +12,17 @@ namespace ezMoney
         public const String DATE_FORMAT = "yyyy/M/d";
         public const String RECORD_FILE_NAME = "record.txt";
         public const string EMPTY_LINE = "";
-        private List<Record> _records;
+        private BindingList<Record> _records;
         private CategoryModel _categoryModel;
 
         //constructor
         public RecordModel(CategoryModel categoryModel)
         {
             _categoryModel = categoryModel;
-            _records = new List<Record>();
+            _records = new BindingList<Record>();
         }
 
-        public List<Record> GetRecords()
+        public BindingList<Record> GetRecords()
         {
             return _records;
         }
@@ -33,9 +34,9 @@ namespace ezMoney
         }
 
         //get records of category
-        public List<Record> GetRecords(Category category)
+        public BindingList<Record> GetRecords(Category category)
         {
-            List<Record> records = new List<Record>();
+            BindingList<Record> records = new BindingList<Record>();
             foreach (Record record in _records)
             {
                 if (record.Category.Equals(category))
@@ -47,31 +48,31 @@ namespace ezMoney
         }
 
         //get records of category with isPositive
-        public List<Record> GetRecords(Category category, bool isPositive)
+        public BindingList<Record> GetRecords(Category category, bool isPositive)
         {
-            List<Record> records = GetRecords(category);
+            BindingList<Record> records = GetRecords(category);
             records = GetRecords(records, isPositive);
             return records;
         }
 
         //get positive records
-        public List<Record> GetPositiveRecords(List<Record> records)
+        public BindingList<Record> GetPositiveRecords(BindingList<Record> records)
         {
-            List<Record> positiveRecords = GetRecords(records, true);
+            BindingList<Record> positiveRecords = GetRecords(records, true);
             return positiveRecords;
         }
 
         //get negative records
-        public List<Record> GetNegativeRecords(List<Record> records)
+        public BindingList<Record> GetNegativeRecords(BindingList<Record> records)
         {
-            List<Record> negativeRecords = GetRecords(records, false);
+            BindingList<Record> negativeRecords = GetRecords(records, false);
             return negativeRecords;
         }
 
         //get records with isPositive argument
-        public List<Record> GetRecords(List<Record> records, bool isPositive)
+        public BindingList<Record> GetRecords(BindingList<Record> records, bool isPositive)
         {
-            List<Record> newRecords = new List<Record>();
+            BindingList<Record> newRecords = new BindingList<Record>();
             foreach (Record record in records)
             {
                 if ((isPositive && record.Amount >= 0) || (!isPositive && record.Amount < 0))
