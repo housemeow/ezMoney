@@ -59,7 +59,7 @@ namespace ezMoney
             String errorMessage = string.Empty;
             bool isCanAdd = IsValidCategoryAdd(CategoryNameText, ref errorMessage);
             if (IsSelectionMode)
-            {
+            {   
                 IsAddEnable = false;
             }
             else

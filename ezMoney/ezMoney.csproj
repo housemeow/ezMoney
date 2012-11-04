@@ -60,7 +60,9 @@
     <Compile Include="Models\PresentationModels\CategoryPresentationModel.cs" />
     <Compile Include="Models\PresentationModels\Propertys\CategoryPresentationModelProperty.cs" />
     <Compile Include="Models\PresentationModels\Propertys\RecordPresentationModelProperty.cs" />
+    <Compile Include="Models\PresentationModels\Propertys\StatisticPresentationModelProperty.cs" />
     <Compile Include="Models\PresentationModels\RecordPresentationModel.cs" />
+    <Compile Include="Models\PresentationModels\StatisticPresentationModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\DataModels\Record.cs" />

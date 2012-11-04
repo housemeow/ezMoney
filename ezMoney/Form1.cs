@@ -16,6 +16,7 @@ namespace ezMoney
         //presentationModels
         CategoryPresentationModel _categoryPModel;
         RecordPresentationModel _recordPModel;
+        StatisticPresentationModel _statisticPModel;
 
         //class constructor
         public EZMoneyForm()
@@ -29,6 +30,7 @@ namespace ezMoney
             _ezMoneyModel = new EZMoneyModel();
             _categoryPModel = new CategoryPresentationModel(_ezMoneyModel);
             _recordPModel = new RecordPresentationModel(_ezMoneyModel);
+            _statisticPModel = new StatisticPresentationModel(_ezMoneyModel);
             InitCategoryView();
             InitRecordView();
             InitStatisticView();
@@ -208,45 +210,24 @@ namespace ezMoney
         }
         #endregion
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         #region StatisticView
         //initialize statisticView
         void InitStatisticView()
         {
             InitDetailDataGridView();
-            RecordModel recordModel = _ezMoneyModel.GetRecordModel();
-            InitTextBoxValue(recordModel.GetRecords());
+            RefreshStatisticView();
+        }
+
+        //refresh Statistic View
+        void RefreshStatisticView()
+        {
+            _radioButtonStatisticIncome.Checked = _statisticPModel.IsIncomeCheck;
+            _radioButtonStatisticExpense.Checked = _statisticPModel.IsExpenseCheck;
+            _textBoxIncome.Text = _statisticPModel.Income;
+            _textBoxExpense.Text = _statisticPModel.Expense;
+            _textBoxBalance.Text = _statisticPModel.Balance;
+            _dataGridViewStatisticRecord.DataSource = _statisticPModel.StatisticList;
+            _dataGridViewDetail.DataSource = _statisticPModel.RecordList;
         }
 
         //init detail datagridview
@@ -264,20 +245,11 @@ namespace ezMoney
             _dataGridViewDetail.ReadOnly = true;
         }
 
-        //show textBox value
-        private void InitTextBoxValue(BindingList<Record> records)
-        {
-            StatisticModel statisticModel = _ezMoneyModel.GetStatisticModel();
-            _textBoxIncome.Text = statisticModel.GetIncome(records).ToString();
-            _textBoxExpense.Text = statisticModel.GetExpense(records).ToString();
-            _textBoxBalance.Text = statisticModel.GetBalance(records).ToString();
-        }
-
         //radio button checked change
         private void CheckChangeStatisticRadioButton(object sender, EventArgs e)
         {
-            StatisticModel statisticModel = _ezMoneyModel.GetStatisticModel();
-            _dataGridViewStatisticRecord.DataSource = statisticModel.GetStatisticDataGridViewDataSource(_radioButtonStatisticIncome.Checked);
+            _statisticPModel.ChangeRadioButton(_radioButtonStatisticIncome.Checked);
+            RefreshStatisticView();
         }
 
         //click datagridView's cell
@@ -286,23 +258,17 @@ namespace ezMoney
             if (e.RowIndex >= 0)
             {
                 Category category = (Category)_dataGridViewStatisticRecord.Rows[e.RowIndex].Cells[0].Value;
-                RecordModel recordModel = _ezMoneyModel.GetRecordModel();
-                _dataGridViewDetail.DataSource = recordModel.GetRecords(category, _radioButtonStatisticIncome.Checked);
+                _statisticPModel.ClickDataGridView(category);
+                _dataGridViewDetail.DataSource = _statisticPModel.RecordList;// recordModel.GetRecords(category, _radioButtonStatisticIncome.Checked);
             }
         }
 
         //enter tab page statistic
         private void EnterTabPageStatistic(object sender, EventArgs e)
         {
-            RefreshStatistic();
-        }
-
-        //refresh view
-        public void RefreshStatistic()
-        {
-            CheckChangeStatisticRadioButton(this, new EventArgs());
-            RecordModel recordModel = _ezMoneyModel.GetRecordModel();
-            InitTextBoxValue( recordModel.GetRecords());
+            //RefreshStatistic();
+            _statisticPModel.EnterTabPageStatistic();
+            RefreshStatisticView();
         }
         #endregion
     }

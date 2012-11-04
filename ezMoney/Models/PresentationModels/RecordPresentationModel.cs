@@ -39,6 +39,7 @@ namespace ezMoney
             ErrorProviderMessage = errorMessage;
         }
 
+        //change amount text box
         public void ChangeAmount(String amount)
         {
             Amount = amount;

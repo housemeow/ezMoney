@@ -179,7 +179,7 @@
             this._buttonCategoryCancel.UseVisualStyleBackColor = true;
             this._buttonCategoryCancel.Click += new System.EventHandler(this.ClickCategoryCancelButton);
             // 
-            // _errorProviderAddButton
+            // _errorProviderCategory
             // 
             this._errorProviderCategory.ContainerControl = this;
             // 
@@ -505,10 +505,13 @@
             // 
             // _dataGridViewStatisticRecord
             // 
+            this._dataGridViewStatisticRecord.AllowUserToAddRows = false;
+            this._dataGridViewStatisticRecord.AllowUserToDeleteRows = false;
             this._dataGridViewStatisticRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._tableLayoutPanelStatistic.SetColumnSpan(this._dataGridViewStatisticRecord, 6);
             this._dataGridViewStatisticRecord.Dock = System.Windows.Forms.DockStyle.Fill;
             this._dataGridViewStatisticRecord.Location = new System.Drawing.Point(3, 43);
+            this._dataGridViewStatisticRecord.MultiSelect = false;
             this._dataGridViewStatisticRecord.Name = "_dataGridViewStatisticRecord";
             this._dataGridViewStatisticRecord.ReadOnly = true;
             this._dataGridViewStatisticRecord.RowTemplate.Height = 24;
@@ -525,6 +528,7 @@
             this._dataGridViewDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this._dataGridViewDetail.Location = new System.Drawing.Point(3, 256);
             this._dataGridViewDetail.Name = "_dataGridViewDetail";
+            this._dataGridViewDetail.ReadOnly = true;
             this._dataGridViewDetail.RowTemplate.Height = 24;
             this._dataGridViewDetail.Size = new System.Drawing.Size(364, 127);
             this._dataGridViewDetail.TabIndex = 10;
