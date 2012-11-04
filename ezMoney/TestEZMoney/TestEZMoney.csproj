@@ -62,6 +62,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecordModelTest.cs" />
     <Compile Include="RecordPresentationModelPropertyTest.cs" />
+    <Compile Include="RecordPresentationModelTest.cs" />
     <Compile Include="RecordTest.cs" />
     <Compile Include="StatisticModelTest.cs" />
     <Compile Include="StatisticPresentationModelPropertyTest.cs" />
