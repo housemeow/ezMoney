@@ -59,6 +59,19 @@ namespace TestEZMoney
         }
 
         /// <summary>
+        ///AddCategory 的測試
+        ///</summary>
+        [TestMethod()]
+        public void TestAddCategory1()
+        {
+            CategoryModel categoryModel = new CategoryModel();
+            categoryModel.AddCategory(CATEGORY_NAME_MOVIE);
+            Assert.AreEqual(1, categoryModel.GetCategories().Count);
+            categoryModel.AddCategory(CATEGORY_NAME_WORK);
+            Assert.AreEqual(2, categoryModel.GetCategories().Count);
+        }
+
+        /// <summary>
         ///GetCategories 的測試
         ///</summary>
         [TestMethod()]

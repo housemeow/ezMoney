@@ -84,10 +84,17 @@ namespace ezMoney
         }
 
         //category is in categoies
-        public Boolean IsExist(Category categoryName)
+        public Boolean IsExist(Category category)
         {
-            return _categories.Contains(categoryName);
+            return _categories.Contains(category);
         }
+
+        //category is in categories by category Name
+        public Boolean IsExist(String categoryName)
+        {
+            return IsExist(new Category(categoryName));
+        }
+
 
         public BindingList<Category> GetCategories()
         {

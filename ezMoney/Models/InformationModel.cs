@@ -15,28 +15,28 @@ namespace ezMoney
             _categoryModel = categoryModel;
         }
 
-        //check parameter of add category
-        public bool IsValidCategoryAdd(String categoryName, ref String errorMessage)
-        {
-            Category category = new Category(categoryName);
-            bool buttonEnable = false;
-            if (category.CategoryName == String.Empty)
-            {
-                errorMessage = CATEGORY_NO_NAME_INFO;
-                buttonEnable = false;
-            }
-            else if (_categoryModel.IsExist(category))
-            {
-                errorMessage = CATEGORY_NO_NAME_INFO;
-                buttonEnable = false;
-            }
-            else
-            {
-                errorMessage = EMPTY_ERROR_MESSAGE;
-                buttonEnable = true;
-            }
-            return buttonEnable;
-        }
+        ////check parameter of add category
+        //public bool IsValidCategoryAdd(String categoryName, ref String errorMessage)
+        //{
+        //    Category category = new Category(categoryName);
+        //    bool buttonEnable = false;
+        //    if (category.CategoryName == String.Empty)
+        //    {
+        //        errorMessage = CATEGORY_NO_NAME_INFO;
+        //        buttonEnable = false;
+        //    }
+        //    else if (_categoryModel.IsExist(category))
+        //    {
+        //        errorMessage = CATEGORY_NO_NAME_INFO;
+        //        buttonEnable = false;
+        //    }
+        //    else
+        //    {
+        //        errorMessage = EMPTY_ERROR_MESSAGE;
+        //        buttonEnable = true;
+        //    }
+        //    return buttonEnable;
+        //}
 
         //check parameter of add record
         public bool IsValidRecordAdd(int categoryIndex, String amountString, ref String errorMessage)

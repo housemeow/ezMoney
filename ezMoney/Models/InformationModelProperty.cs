@@ -7,9 +7,10 @@ namespace ezMoney
 {
     class InformationModelProperty
     {
-        public const String CATEGORY_NO_NAME_INFO = "category name must have value.";
-        public const String CATEGORY_REPEAT_INFO = "category name is repeat.";
+        //public const String CATEGORY_NO_NAME_INFO = "category name must have value.";
+        //public const String CATEGORY_REPEAT_INFO = "category name is repeat.";
         public const String EMPTY_ERROR_MESSAGE = "";
+
         public const String NO_NUMBER_INFO = "must have number.";
         public const String NO_SELECT_CATEGORY_INFO = "must select a category.";
         public const String TEXT_IS_NOT_NUMBER_INFO = "text is not a number.";

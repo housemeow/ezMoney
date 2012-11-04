@@ -29,12 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this._tableLayoutPanelCategoryManagement = new System.Windows.Forms.TableLayoutPanel();
+            this._tableLayoutPanelCategory = new System.Windows.Forms.TableLayoutPanel();
             this._categoryNameLabel = new System.Windows.Forms.Label();
             this._textBoxCategoryName = new System.Windows.Forms.TextBox();
             this._buttonCategoryAdd = new System.Windows.Forms.Button();
             this._listBoxCategories = new System.Windows.Forms.ListBox();
-            this._errorProviderAddButton = new System.Windows.Forms.ErrorProvider(this.components);
+            this._buttonCategoryModify = new System.Windows.Forms.Button();
+            this._buttonCategoryDelete = new System.Windows.Forms.Button();
+            this._buttonCategoryCancel = new System.Windows.Forms.Button();
+            this._errorProviderCategory = new System.Windows.Forms.ErrorProvider(this.components);
             this._tabControl = new System.Windows.Forms.TabControl();
             this._tabPageCategoryManagement = new System.Windows.Forms.TabPage();
             this._tabPageRecord = new System.Windows.Forms.TabPage();
@@ -46,6 +49,9 @@
             this._textBoxRecordAmount = new System.Windows.Forms.TextBox();
             this._buttonRecordAdd = new System.Windows.Forms.Button();
             this._dataGridViewRecord = new System.Windows.Forms.DataGridView();
+            this._buttonRecordModify = new System.Windows.Forms.Button();
+            this._buttonRecordDelete = new System.Windows.Forms.Button();
+            this._buttonRecordCancel = new System.Windows.Forms.Button();
             this._tabPageStatistic = new System.Windows.Forms.TabPage();
             this._tableLayoutPanelStatistic = new System.Windows.Forms.TableLayoutPanel();
             this._labelStatisticIncome = new System.Windows.Forms.Label();
@@ -60,8 +66,8 @@
             this._dataGridViewStatisticRecord = new System.Windows.Forms.DataGridView();
             this._dataGridViewDetail = new System.Windows.Forms.DataGridView();
             this._errorProviderRecord = new System.Windows.Forms.ErrorProvider(this.components);
-            this._tableLayoutPanelCategoryManagement.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._errorProviderAddButton)).BeginInit();
+            this._tableLayoutPanelCategory.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._errorProviderCategory)).BeginInit();
             this._tabControl.SuspendLayout();
             this._tabPageCategoryManagement.SuspendLayout();
             this._tabPageRecord.SuspendLayout();
@@ -74,24 +80,28 @@
             ((System.ComponentModel.ISupportInitialize)(this._errorProviderRecord)).BeginInit();
             this.SuspendLayout();
             // 
-            // _tableLayoutPanelCategoryManagement
+            // _tableLayoutPanelCategory
             // 
-            this._tableLayoutPanelCategoryManagement.ColumnCount = 3;
-            this._tableLayoutPanelCategoryManagement.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this._tableLayoutPanelCategoryManagement.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
-            this._tableLayoutPanelCategoryManagement.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this._tableLayoutPanelCategoryManagement.Controls.Add(this._categoryNameLabel, 0, 0);
-            this._tableLayoutPanelCategoryManagement.Controls.Add(this._textBoxCategoryName, 1, 0);
-            this._tableLayoutPanelCategoryManagement.Controls.Add(this._buttonCategoryAdd, 2, 0);
-            this._tableLayoutPanelCategoryManagement.Controls.Add(this._listBoxCategories, 0, 1);
-            this._tableLayoutPanelCategoryManagement.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._tableLayoutPanelCategoryManagement.Location = new System.Drawing.Point(3, 3);
-            this._tableLayoutPanelCategoryManagement.Name = "_tableLayoutPanelCategoryManagement";
-            this._tableLayoutPanelCategoryManagement.RowCount = 2;
-            this._tableLayoutPanelCategoryManagement.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this._tableLayoutPanelCategoryManagement.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._tableLayoutPanelCategoryManagement.Size = new System.Drawing.Size(364, 380);
-            this._tableLayoutPanelCategoryManagement.TabIndex = 0;
+            this._tableLayoutPanelCategory.ColumnCount = 3;
+            this._tableLayoutPanelCategory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this._tableLayoutPanelCategory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this._tableLayoutPanelCategory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this._tableLayoutPanelCategory.Controls.Add(this._categoryNameLabel, 0, 0);
+            this._tableLayoutPanelCategory.Controls.Add(this._textBoxCategoryName, 1, 0);
+            this._tableLayoutPanelCategory.Controls.Add(this._buttonCategoryAdd, 2, 0);
+            this._tableLayoutPanelCategory.Controls.Add(this._listBoxCategories, 0, 2);
+            this._tableLayoutPanelCategory.Controls.Add(this._buttonCategoryModify, 0, 1);
+            this._tableLayoutPanelCategory.Controls.Add(this._buttonCategoryDelete, 1, 1);
+            this._tableLayoutPanelCategory.Controls.Add(this._buttonCategoryCancel, 2, 1);
+            this._tableLayoutPanelCategory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._tableLayoutPanelCategory.Location = new System.Drawing.Point(3, 3);
+            this._tableLayoutPanelCategory.Name = "_tableLayoutPanelCategory";
+            this._tableLayoutPanelCategory.RowCount = 3;
+            this._tableLayoutPanelCategory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this._tableLayoutPanelCategory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this._tableLayoutPanelCategory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this._tableLayoutPanelCategory.Size = new System.Drawing.Size(364, 380);
+            this._tableLayoutPanelCategory.TabIndex = 0;
             // 
             // _categoryNameLabel
             // 
@@ -122,22 +132,56 @@
             this._buttonCategoryAdd.TabIndex = 2;
             this._buttonCategoryAdd.Text = "Add";
             this._buttonCategoryAdd.UseVisualStyleBackColor = true;
-            this._buttonCategoryAdd.Click += new System.EventHandler(this.AddCategory);
+            this._buttonCategoryAdd.Click += new System.EventHandler(this.ClickAddCategory);
             // 
             // _listBoxCategories
             // 
-            this._tableLayoutPanelCategoryManagement.SetColumnSpan(this._listBoxCategories, 3);
+            this._tableLayoutPanelCategory.SetColumnSpan(this._listBoxCategories, 3);
             this._listBoxCategories.Dock = System.Windows.Forms.DockStyle.Fill;
             this._listBoxCategories.FormattingEnabled = true;
             this._listBoxCategories.ItemHeight = 12;
-            this._listBoxCategories.Location = new System.Drawing.Point(3, 43);
+            this._listBoxCategories.Location = new System.Drawing.Point(3, 83);
             this._listBoxCategories.Name = "_listBoxCategories";
-            this._listBoxCategories.Size = new System.Drawing.Size(358, 334);
+            this._listBoxCategories.Size = new System.Drawing.Size(358, 294);
             this._listBoxCategories.TabIndex = 3;
+            this._listBoxCategories.SelectedIndexChanged += new System.EventHandler(this.ChangeCategoryListIndex);
+            // 
+            // _buttonCategoryModify
+            // 
+            this._buttonCategoryModify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this._buttonCategoryModify.Location = new System.Drawing.Point(8, 43);
+            this._buttonCategoryModify.Name = "_buttonCategoryModify";
+            this._buttonCategoryModify.Size = new System.Drawing.Size(75, 34);
+            this._buttonCategoryModify.TabIndex = 4;
+            this._buttonCategoryModify.Text = "Modify";
+            this._buttonCategoryModify.UseVisualStyleBackColor = true;
+            this._buttonCategoryModify.Click += new System.EventHandler(this.ClickCategoryModifyButton);
+            // 
+            // _buttonCategoryDelete
+            // 
+            this._buttonCategoryDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this._buttonCategoryDelete.Location = new System.Drawing.Point(135, 43);
+            this._buttonCategoryDelete.Name = "_buttonCategoryDelete";
+            this._buttonCategoryDelete.Size = new System.Drawing.Size(75, 34);
+            this._buttonCategoryDelete.TabIndex = 5;
+            this._buttonCategoryDelete.Text = "Delete";
+            this._buttonCategoryDelete.UseVisualStyleBackColor = true;
+            this._buttonCategoryDelete.Click += new System.EventHandler(this.ClickCategoryDeleteButton);
+            // 
+            // _buttonCategoryCancel
+            // 
+            this._buttonCategoryCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this._buttonCategoryCancel.Location = new System.Drawing.Point(271, 43);
+            this._buttonCategoryCancel.Name = "_buttonCategoryCancel";
+            this._buttonCategoryCancel.Size = new System.Drawing.Size(75, 34);
+            this._buttonCategoryCancel.TabIndex = 6;
+            this._buttonCategoryCancel.Text = "Cancel";
+            this._buttonCategoryCancel.UseVisualStyleBackColor = true;
+            this._buttonCategoryCancel.Click += new System.EventHandler(this.ClickCategoryCancelButton);
             // 
             // _errorProviderAddButton
             // 
-            this._errorProviderAddButton.ContainerControl = this;
+            this._errorProviderCategory.ContainerControl = this;
             // 
             // _tabControl
             // 
@@ -153,7 +197,7 @@
             // 
             // _tabPageCategoryManagement
             // 
-            this._tabPageCategoryManagement.Controls.Add(this._tableLayoutPanelCategoryManagement);
+            this._tabPageCategoryManagement.Controls.Add(this._tableLayoutPanelCategory);
             this._tabPageCategoryManagement.Location = new System.Drawing.Point(4, 22);
             this._tabPageCategoryManagement.Name = "_tabPageCategoryManagement";
             this._tabPageCategoryManagement.Padding = new System.Windows.Forms.Padding(3);
@@ -186,11 +230,15 @@
             this._tableLayoutPanelRecord.Controls.Add(this._comboBoxCategory, 0, 1);
             this._tableLayoutPanelRecord.Controls.Add(this._textBoxRecordAmount, 1, 1);
             this._tableLayoutPanelRecord.Controls.Add(this._buttonRecordAdd, 3, 1);
-            this._tableLayoutPanelRecord.Controls.Add(this._dataGridViewRecord, 0, 2);
+            this._tableLayoutPanelRecord.Controls.Add(this._dataGridViewRecord, 0, 3);
+            this._tableLayoutPanelRecord.Controls.Add(this._buttonRecordModify, 0, 2);
+            this._tableLayoutPanelRecord.Controls.Add(this._buttonRecordDelete, 1, 2);
+            this._tableLayoutPanelRecord.Controls.Add(this._buttonRecordCancel, 2, 2);
             this._tableLayoutPanelRecord.Dock = System.Windows.Forms.DockStyle.Fill;
             this._tableLayoutPanelRecord.Location = new System.Drawing.Point(3, 3);
             this._tableLayoutPanelRecord.Name = "_tableLayoutPanelRecord";
-            this._tableLayoutPanelRecord.RowCount = 3;
+            this._tableLayoutPanelRecord.RowCount = 4;
+            this._tableLayoutPanelRecord.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this._tableLayoutPanelRecord.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this._tableLayoutPanelRecord.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this._tableLayoutPanelRecord.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -209,6 +257,7 @@
             this._radioButtonIncome.TabStop = true;
             this._radioButtonIncome.Text = "Income";
             this._radioButtonIncome.UseVisualStyleBackColor = true;
+            this._radioButtonIncome.CheckedChanged += new System.EventHandler(this.ChangeRecordRadioButton);
             // 
             // _radioButtonExpanse
             // 
@@ -220,6 +269,7 @@
             this._radioButtonExpanse.TabIndex = 2;
             this._radioButtonExpanse.Text = "Expanse";
             this._radioButtonExpanse.UseVisualStyleBackColor = true;
+            this._radioButtonExpanse.CheckedChanged += new System.EventHandler(this.ChangeRecordRadioButton);
             // 
             // _dateTimePickerRecord
             // 
@@ -239,6 +289,7 @@
             this._comboBoxCategory.Name = "_comboBoxCategory";
             this._comboBoxCategory.Size = new System.Drawing.Size(85, 20);
             this._comboBoxCategory.TabIndex = 3;
+            this._comboBoxCategory.SelectedIndexChanged += new System.EventHandler(this.ChangeCategoryComboBoxIndex);
             // 
             // _textBoxRecordAmount
             // 
@@ -261,18 +312,56 @@
             this._buttonRecordAdd.TabIndex = 5;
             this._buttonRecordAdd.Text = "Enter";
             this._buttonRecordAdd.UseVisualStyleBackColor = true;
-            this._buttonRecordAdd.Click += new System.EventHandler(this.ClickRecordButton);
+            this._buttonRecordAdd.Click += new System.EventHandler(this.ClickAddRecordButton);
             // 
             // _dataGridViewRecord
             // 
+            this._dataGridViewRecord.AllowUserToAddRows = false;
+            this._dataGridViewRecord.AllowUserToDeleteRows = false;
             this._dataGridViewRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._tableLayoutPanelRecord.SetColumnSpan(this._dataGridViewRecord, 4);
             this._dataGridViewRecord.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._dataGridViewRecord.Location = new System.Drawing.Point(3, 83);
+            this._dataGridViewRecord.Location = new System.Drawing.Point(3, 123);
+            this._dataGridViewRecord.MultiSelect = false;
             this._dataGridViewRecord.Name = "_dataGridViewRecord";
+            this._dataGridViewRecord.ReadOnly = true;
             this._dataGridViewRecord.RowTemplate.Height = 24;
             this._dataGridViewRecord.Size = new System.Drawing.Size(358, 294);
             this._dataGridViewRecord.TabIndex = 6;
+            this._dataGridViewRecord.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClickDataGridViewRecordCell);
+            // 
+            // _buttonRecordModify
+            // 
+            this._buttonRecordModify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this._buttonRecordModify.Location = new System.Drawing.Point(8, 83);
+            this._buttonRecordModify.Name = "_buttonRecordModify";
+            this._buttonRecordModify.Size = new System.Drawing.Size(75, 34);
+            this._buttonRecordModify.TabIndex = 7;
+            this._buttonRecordModify.Text = "Modify";
+            this._buttonRecordModify.UseVisualStyleBackColor = true;
+            this._buttonRecordModify.Click += new System.EventHandler(this.ClickRecordModify);
+            // 
+            // _buttonRecordDelete
+            // 
+            this._buttonRecordDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this._buttonRecordDelete.Location = new System.Drawing.Point(99, 83);
+            this._buttonRecordDelete.Name = "_buttonRecordDelete";
+            this._buttonRecordDelete.Size = new System.Drawing.Size(75, 34);
+            this._buttonRecordDelete.TabIndex = 8;
+            this._buttonRecordDelete.Text = "Delete";
+            this._buttonRecordDelete.UseVisualStyleBackColor = true;
+            this._buttonRecordDelete.Click += new System.EventHandler(this.ClickRecordDelete);
+            // 
+            // _buttonRecordCancel
+            // 
+            this._buttonRecordCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this._buttonRecordCancel.Location = new System.Drawing.Point(190, 83);
+            this._buttonRecordCancel.Name = "_buttonRecordCancel";
+            this._buttonRecordCancel.Size = new System.Drawing.Size(75, 34);
+            this._buttonRecordCancel.TabIndex = 9;
+            this._buttonRecordCancel.Text = "Cancel";
+            this._buttonRecordCancel.UseVisualStyleBackColor = true;
+            this._buttonRecordCancel.Click += new System.EventHandler(this.ClickRecordCancel);
             // 
             // _tabPageStatistic
             // 
@@ -372,7 +461,7 @@
             this._radioButtonStatisticIncome.TabStop = true;
             this._radioButtonStatisticIncome.Text = "Income";
             this._radioButtonStatisticIncome.UseVisualStyleBackColor = true;
-            this._radioButtonStatisticIncome.CheckedChanged += new System.EventHandler(this.CheckChangeRadioButton);
+            this._radioButtonStatisticIncome.CheckedChanged += new System.EventHandler(this.CheckChangeStatisticRadioButton);
             // 
             // _radioButtonStatisticExpense
             // 
@@ -385,7 +474,7 @@
             this._radioButtonStatisticExpense.TabIndex = 5;
             this._radioButtonStatisticExpense.Text = "Expense";
             this._radioButtonStatisticExpense.UseVisualStyleBackColor = true;
-            this._radioButtonStatisticExpense.CheckedChanged += new System.EventHandler(this.CheckChangeRadioButton);
+            this._radioButtonStatisticExpense.CheckedChanged += new System.EventHandler(this.CheckChangeStatisticRadioButton);
             // 
             // _textBoxIncome
             // 
@@ -421,6 +510,7 @@
             this._dataGridViewStatisticRecord.Dock = System.Windows.Forms.DockStyle.Fill;
             this._dataGridViewStatisticRecord.Location = new System.Drawing.Point(3, 43);
             this._dataGridViewStatisticRecord.Name = "_dataGridViewStatisticRecord";
+            this._dataGridViewStatisticRecord.ReadOnly = true;
             this._dataGridViewStatisticRecord.RowTemplate.Height = 24;
             this._dataGridViewStatisticRecord.Size = new System.Drawing.Size(364, 127);
             this._dataGridViewStatisticRecord.TabIndex = 9;
@@ -453,9 +543,9 @@
             this.Text = "Categories Management";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClosingFormCategoryManagementForm);
             this.Load += new System.EventHandler(this.LoadFormView);
-            this._tableLayoutPanelCategoryManagement.ResumeLayout(false);
-            this._tableLayoutPanelCategoryManagement.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._errorProviderAddButton)).EndInit();
+            this._tableLayoutPanelCategory.ResumeLayout(false);
+            this._tableLayoutPanelCategory.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._errorProviderCategory)).EndInit();
             this._tabControl.ResumeLayout(false);
             this._tabPageCategoryManagement.ResumeLayout(false);
             this._tabPageRecord.ResumeLayout(false);
@@ -474,12 +564,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel _tableLayoutPanelCategoryManagement;
+        private System.Windows.Forms.TableLayoutPanel _tableLayoutPanelCategory;
         private System.Windows.Forms.Label _categoryNameLabel;
         private System.Windows.Forms.TextBox _textBoxCategoryName;
         private System.Windows.Forms.Button _buttonCategoryAdd;
         private System.Windows.Forms.ListBox _listBoxCategories;
-        private System.Windows.Forms.ErrorProvider _errorProviderAddButton;
+        private System.Windows.Forms.ErrorProvider _errorProviderCategory;
         private System.Windows.Forms.TabControl _tabControl;
         private System.Windows.Forms.TabPage _tabPageCategoryManagement;
         private System.Windows.Forms.TabPage _tabPageRecord;
@@ -505,6 +595,12 @@
         private System.Windows.Forms.TextBox _textBoxBalance;
         private System.Windows.Forms.DataGridView _dataGridViewStatisticRecord;
         private System.Windows.Forms.DataGridView _dataGridViewDetail;
+        private System.Windows.Forms.Button _buttonCategoryModify;
+        private System.Windows.Forms.Button _buttonCategoryDelete;
+        private System.Windows.Forms.Button _buttonCategoryCancel;
+        private System.Windows.Forms.Button _buttonRecordModify;
+        private System.Windows.Forms.Button _buttonRecordDelete;
+        private System.Windows.Forms.Button _buttonRecordCancel;
     }
 }
 

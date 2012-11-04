@@ -33,6 +33,12 @@ namespace ezMoney
             _records.Add(record);
         }
 
+        //add record to RecordList by Category and Date and Amount
+        public void AddRecord(DateTime datetime, ref Category category, int amount)
+        {
+            AddRecord(new Record(datetime, category, amount));
+        }
+
         //get records of category
         public BindingList<Record> GetRecords(Category category)
         {
@@ -67,6 +73,18 @@ namespace ezMoney
         {
             BindingList<Record> negativeRecords = GetRecords(records, false);
             return negativeRecords;
+        }
+
+        //remove records contain same category
+        public void RemoveRecordsByCategory(Category category)
+        {
+            for (int i = 0; i < _records.Count; i++)
+            {
+                if (_records[i].Category.Equals(category))
+                {
+                    _records.RemoveAt(i--);
+                }
+            }
         }
 
         //get records with isPositive argument

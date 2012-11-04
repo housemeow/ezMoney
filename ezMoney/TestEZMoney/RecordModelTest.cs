@@ -319,5 +319,52 @@ namespace TestEZMoney
             recordModel.ReadRecordFromFile();
             Assert.AreEqual(records.Count, recordModel.GetRecords().Count);
         }
+
+        /// <summary>
+        ///AddRecord 的測試
+        ///</summary>
+        [TestMethod()]
+        public void TestAddRecord1()
+        {
+            CategoryModel categoryModel = new CategoryModel();
+            RecordModel recordModel = new RecordModel(categoryModel);
+            DateTime now = DateTime.Now;
+            DateTime date = new DateTime(now.Year, now.Month, now.Day);
+            Category category1 = new Category(CATEGORY_NAME_MOVIE);
+            recordModel.AddRecord(date, ref category1, 100);
+            Assert.AreEqual(1, recordModel.GetRecords().Count);
+
+            Category category2 = new Category(CATEGORY_NAME_MOVIE);
+            recordModel.AddRecord(date, ref category2, 100);
+            Assert.AreEqual(2, recordModel.GetRecords().Count);
+            Category category3 = new Category(CATEGORY_NAME_WORK);
+            recordModel.AddRecord(date, ref category3, 100);
+            Assert.AreEqual(3, recordModel.GetRecords().Count);
+            Category category4 = new Category(CATEGORY_NAME_WORK);
+            recordModel.AddRecord(date, ref category4, -100);
+            Assert.AreEqual(4, recordModel.GetRecords().Count);
+        }
+
+        /// <summary>
+        ///RemoveRecordsByCategory 的測試
+        ///</summary>
+        [TestMethod()]
+        public void TestRemoveRecordsByCategory()
+        {
+            CategoryModel categoryModel = new CategoryModel(); // TODO: 初始化為適當值
+            RecordModel recordModel = new RecordModel(categoryModel); // TODO: 初始化為適當值
+
+            Record record1 = new Record(DateTime.Now, new Category(CATEGORY_NAME_MOVIE), 100);
+            Record record2 = new Record(DateTime.Now, new Category(CATEGORY_NAME_MOVIE), 100);
+            Record record3 = new Record(DateTime.Now, new Category(CATEGORY_NAME_WORK), 100);
+            Record record4 = new Record(DateTime.Now, new Category(CATEGORY_NAME_MOVIE), 100);
+            recordModel.AddRecord(record1);
+            recordModel.AddRecord(record2);
+            recordModel.AddRecord(record3);
+            recordModel.AddRecord(record4);
+
+            recordModel.RemoveRecordsByCategory(new Category(CATEGORY_NAME_WORK));
+            Assert.AreEqual(3, recordModel.GetRecords().Count);
+        }
     }
 }
