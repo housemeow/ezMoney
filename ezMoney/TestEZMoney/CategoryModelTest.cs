@@ -179,5 +179,20 @@ namespace TestEZMoney
             Assert.AreEqual(categoryWork, categoryModel.GetCategory(1));
             Assert.AreEqual(categoryEntertainment, categoryModel.GetCategory(2));
         }
+
+        /// <summary>
+        ///IsExist 的測試
+        ///</summary>
+        [TestMethod()]
+        public void TestIsExist1()
+        {
+            CategoryModel categoryModel = new CategoryModel(); // TODO: 初始化為適當值
+            categoryModel.AddCategory(new Category(CATEGORY_NAME_MOVIE));
+            categoryModel.AddCategory(new Category(CATEGORY_NAME_WORK));
+
+            Assert.IsTrue(categoryModel.IsExist(CATEGORY_NAME_MOVIE));
+            Assert.IsTrue(categoryModel.IsExist(CATEGORY_NAME_WORK));
+            Assert.IsFalse(categoryModel.IsExist(CATEGORY_NAME_ENTERTAINMENT));
+        }
     }
 }

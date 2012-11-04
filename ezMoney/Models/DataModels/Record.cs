@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ezMoney
 {
-    public class Record: IEquatable<Record>
+    public class Record : IEquatable<Record>
     {
         DateTime _date;
         Category _category;
@@ -23,24 +23,34 @@ namespace ezMoney
         //iEqualable interface equals
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            return Equals(obj as Record);
         }
 
         //Record equals
         public bool Equals(Record record)
-        { 
-            if(ReferenceEquals(record, null))
+        {
+            if (ReferenceEquals(record, null))
             {
-                return false;   
+                return false;
             }
-            return Date==record.Date && Category ==record.Category && Amount == record.Amount;
+            if (_date == record.Date)
+            {
+                if (_category == record.Category)
+                {
+                    if (_amount == record.Amount)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         //get hash code
         public override int GetHashCode()
         {
             return base.GetHashCode();
-        }    
+        }
 
         public DateTime Date
         {

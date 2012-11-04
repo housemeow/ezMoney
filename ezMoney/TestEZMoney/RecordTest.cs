@@ -88,5 +88,51 @@ namespace TestEZMoney
             Assert.AreEqual(differentDate, record.Date);
             Assert.AreNotEqual(date, record.Date);
         }
+
+        /// <summary>
+        ///Equals 的測試
+        ///</summary>
+        [TestMethod()]
+        public void TestEquals()
+        {
+            DateTime date = new DateTime(); // TODO: 初始化為適當值
+            Category category = new Category(CATEGORY_NAME_WORK); // TODO: 初始化為適當值
+            int amount = 0; // TODO: 初始化為適當值
+            Record record = new Record(date, category, amount); // TODO: 初始化為適當值
+            object obj = new Record(date, category, amount); // TODO: 初始化為適當值
+            Assert.IsTrue(record.Equals(obj));
+        }
+
+        /// <summary>
+        ///Equals 的測試
+        ///</summary>
+        [TestMethod()]
+        public void TestEquals1()
+        {
+            DateTime date = DateTime.Now; // TODO: 初始化為適當值
+            Category category = new Category(CATEGORY_NAME_WORK); // TODO: 初始化為適當值
+            int amount = 0; // TODO: 初始化為適當值
+            Record record1 = new Record(date, category, amount); // TODO: 初始化為適當值
+            Record record2 = new Record(date, category, amount); // TODO: 初始化為適當值
+            Record record3 = new Record(date, category, 2222); // TODO: 初始化為適當值
+            Assert.IsTrue(record1.Equals(record2));
+            Assert.IsTrue(record1.Equals(record1));
+            Assert.IsFalse(record1.Equals(record3));
+            Assert.IsFalse(record1.Equals(null));
+        }
+
+        /// <summary>
+        ///GetHashCode 的測試
+        ///</summary>
+        [TestMethod()]
+        public void TestGetHashCode()
+        {
+            DateTime date = new DateTime(); // TODO: 初始化為適當值
+            Category category = null; // TODO: 初始化為適當值
+            int amount = 0; // TODO: 初始化為適當值
+            Record record1 = new Record(date, category, amount); // TODO: 初始化為適當值
+            Record record2 = new Record(date, category, amount); // TODO: 初始化為適當值
+            Assert.AreNotEqual(record1.GetHashCode(), record2.GetHashCode());
+        }
     }
 }
