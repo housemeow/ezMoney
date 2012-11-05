@@ -95,7 +95,6 @@ namespace ezMoney
             return IsExist(new Category(categoryName));
         }
 
-
         public BindingList<Category> GetCategories()
         {
             return _categories;

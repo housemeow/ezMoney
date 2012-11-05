@@ -31,7 +31,8 @@ namespace ezMoney
             Expense = _statisticModel.GetExpense(records).ToString();
             Balance = _statisticModel.GetBalance(records).ToString();
             StatisticList = _statisticModel.GetStatisticDataGridViewDataSource(IsIncomeCheck);
-            RecordList = null;//_recordModel.GetRecords(category, IncomeCheck);
+            //if you dont click any category, you will not see any detail records.
+            RecordList = null;
         }
 
         //change radio button
@@ -40,7 +41,8 @@ namespace ezMoney
             IsIncomeCheck = isIncome;
             IsExpenseCheck = !isIncome;
             StatisticList = _statisticModel.GetStatisticDataGridViewDataSource(IsIncomeCheck);
-            RecordList = null;//_recordModel.GetRecords(category, IncomeCheck);
+            //if you dont click any category, you will not see any detail records.
+            RecordList = null;
         }
 
         //click data grid cell

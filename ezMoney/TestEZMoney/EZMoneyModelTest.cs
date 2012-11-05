@@ -111,17 +111,6 @@ namespace TestEZMoney
         }
 
         /// <summary>
-        ///GetInformationModel 的測試
-        ///</summary>
-        [TestMethod()]
-        public void TestGetInformationModel()
-        {
-            EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
-            InformationModel informationModel = ezMoneyModel.GetInformationModel();
-            Assert.AreEqual(informationModel, ezMoneyModel.GetInformationModel());
-        }
-
-        /// <summary>
         ///GetRecordModel 的測試
         ///</summary>
         [TestMethod()]

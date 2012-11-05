@@ -29,11 +29,11 @@ namespace ezMoney
             DateTime now = DateTime.Now;
             RecordDate = new DateTime(now.Year, now.Month, now.Day);
             CategoryIndex = -1;
-            Amount = "";
+            Amount = String.Empty;
             IsIncomeCheck = true;
             IsExpenseCheck = false;
 
-            String errorMessage = "";
+            String errorMessage = String.Empty;
             bool isCanAdd = IsValidRecordAdd(CategoryIndex, Amount, ref errorMessage);
             IsAddEnable = isCanAdd;
             ErrorProviderMessage = errorMessage;
@@ -43,7 +43,7 @@ namespace ezMoney
         public void ChangeAmount(String amount)
         {
             Amount = amount;
-            String errorMessage = "";
+            String errorMessage = String.Empty;
             bool isCanAdd = IsValidRecordAdd(CategoryIndex, Amount, ref errorMessage);
             if (IsSelectionMode)
             {
@@ -80,7 +80,7 @@ namespace ezMoney
                 IsModifyEnable = true;
                 IsDeleteEnable = true;
                 IsCancelEnable = true;
-                ErrorProviderMessage = "";
+                ErrorProviderMessage = String.Empty;
                 Record record = _recordModel.GetRecords()[recordIndex];
                 CategoryIndex = _categoryModel.GetCategoryIndex(record.Category);
                 if (record.Amount >= 0)

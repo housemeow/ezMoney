@@ -11,6 +11,7 @@ namespace ezMoney
         private CategoryModel _categoryModel;
         private RecordModel _recordModel;
 
+        //category presentation model constructor
         public CategoryPresentationModel(EZMoneyModel ezMoneyModel)
         {
             _categoryModel = ezMoneyModel.GetCategoryModel();
@@ -25,8 +26,8 @@ namespace ezMoney
             IsModifyEnable = false;
             IsDeleteEnable = false;
             IsCancelEnable = false;
-            String errorMessage = "";
-            CategoryNameText = "";
+            String errorMessage = String.Empty;
+            CategoryNameText = String.Empty;
             bool isCanAdd = IsValidCategoryAdd(CategoryNameText, ref errorMessage);
             IsAddEnable = isCanAdd;
             ErrorProviderMessage = errorMessage;
@@ -42,7 +43,7 @@ namespace ezMoney
                 IsModifyEnable = true;
                 IsDeleteEnable = true;
                 IsCancelEnable = true;
-                ErrorProviderMessage = "";
+                ErrorProviderMessage = String.Empty;
                 Category category = _categoryModel.GetCategory(index);
                 CategoryNameText = category.CategoryName;
             }
@@ -59,7 +60,7 @@ namespace ezMoney
             String errorMessage = string.Empty;
             bool isCanAdd = IsValidCategoryAdd(CategoryNameText, ref errorMessage);
             if (IsSelectionMode)
-            {   
+            {
                 IsAddEnable = false;
             }
             else
@@ -79,7 +80,6 @@ namespace ezMoney
         //modify category instruction
         public void Modify(int index, String categoryName)
         {
-            //Category category = new Category(categoryName);
             if (!_categoryModel.IsExist(categoryName))
             {
                 _categoryModel.GetCategories()[index].CategoryName = categoryName;

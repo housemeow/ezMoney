@@ -12,7 +12,6 @@ namespace ezMoney
         private CategoryModel _categoryModel;
         private RecordModel _recordModel;
         private StatisticModel _statisticModel;
-        private InformationModel _informationModel;
 
         //constructor
         public EZMoneyModel()
@@ -22,7 +21,6 @@ namespace ezMoney
             _recordModel = new RecordModel(_categoryModel);
             _recordModel.ReadRecordFromFile();
             _statisticModel = new StatisticModel(_categoryModel, _recordModel);
-            _informationModel = new InformationModel(_categoryModel);
         }
 
         public CategoryModel GetCategoryModel()
@@ -38,11 +36,6 @@ namespace ezMoney
         public StatisticModel GetStatisticModel()
         {
             return _statisticModel;
-        }
-
-        public InformationModel GetInformationModel()
-        {
-            return _informationModel;
         }
 
         //get category index from category name

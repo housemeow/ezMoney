@@ -47,8 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\DataModels\Category.cs" />
-    <Compile Include="Models\InformationModelProperty.cs" />
-    <Compile Include="Models\InformationModel.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\EZMoneyModel.cs" />
     <Compile Include="Form1.cs">

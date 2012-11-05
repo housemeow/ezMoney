@@ -58,7 +58,6 @@
     <Compile Include="CategoryPresentationModelTest.cs" />
     <Compile Include="CategoryTest.cs" />
     <Compile Include="EZMoneyModelTest.cs" />
-    <Compile Include="InformationModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecordModelTest.cs" />
     <Compile Include="RecordPresentationModelPropertyTest.cs" />
