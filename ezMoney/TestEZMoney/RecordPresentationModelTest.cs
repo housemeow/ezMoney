@@ -40,23 +40,22 @@ namespace TestEZMoney
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
             RecordPresentationModel recordPModel = new RecordPresentationModel(ezMoneyModel); // TODO: 初始化為適當值
-            RecordModel recordModel= ezMoneyModel.GetRecordModel();
-            CategoryModel categoryModel = ezMoneyModel.GetCategoryModel();
-            recordModel.GetRecords().Clear();
-            categoryModel.GetCategories().Clear();
+            RecordModel recordModel = ezMoneyModel.RecordModel;
+            CategoryModel categoryModel = ezMoneyModel.CategoryModel;
+            recordModel.Records.Clear();
+            categoryModel.Categories.Clear();
             Category category = new Category(CATEGORY_NAME_MOVIE);
             categoryModel.AddCategory(category);
             DateTime date = DateTime.Now; // TODO: 初始化為適當值
             int categoryIndex = 0; // TODO: 初始化為適當值
             string amount = string.Empty; // TODO: 初始化為適當值
-            Assert.AreEqual(0, recordModel.GetRecords().Count);
+            Assert.AreEqual(0, recordModel.Records.Count);
             recordPModel.Add(date, categoryIndex, amount);
-            Assert.AreEqual(1, recordModel.GetRecords().Count);
+            Assert.AreEqual(1, recordModel.Records.Count);
             recordPModel.IsIncomeCheck = false;
             recordPModel.IsExpenseCheck = true;
             recordPModel.Add(date, categoryIndex, amount);
-            Assert.AreEqual(2, recordModel.GetRecords().Count);
-
+            Assert.AreEqual(2, recordModel.Records.Count);
         }
 
         /// <summary>
@@ -67,10 +66,10 @@ namespace TestEZMoney
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
             RecordPresentationModel recordPModel = new RecordPresentationModel(ezMoneyModel); // TODO: 初始化為適當值
-            RecordModel recordModel = ezMoneyModel.GetRecordModel();
-            CategoryModel categoryModel = ezMoneyModel.GetCategoryModel();
-            recordModel.GetRecords().Clear();
-            categoryModel.GetCategories().Clear();
+            RecordModel recordModel = ezMoneyModel.RecordModel;
+            CategoryModel categoryModel = ezMoneyModel.CategoryModel;
+            recordModel.Records.Clear();
+            categoryModel.Categories.Clear();
             Category category = new Category(CATEGORY_NAME_MOVIE);
             categoryModel.AddCategory(category);
             DateTime date = DateTime.Now; // TODO: 初始化為適當值
@@ -90,10 +89,10 @@ namespace TestEZMoney
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
             RecordPresentationModel recordPModel = new RecordPresentationModel(ezMoneyModel); // TODO: 初始化為適當值
-            RecordModel recordModel = ezMoneyModel.GetRecordModel();
-            CategoryModel categoryModel = ezMoneyModel.GetCategoryModel();
-            recordModel.GetRecords().Clear();
-            categoryModel.GetCategories().Clear();
+            RecordModel recordModel = ezMoneyModel.RecordModel;
+            CategoryModel categoryModel = ezMoneyModel.CategoryModel;
+            recordModel.Records.Clear();
+            categoryModel.Categories.Clear();
             Category category = new Category(CATEGORY_NAME_MOVIE);
             categoryModel.AddCategory(category);
             DateTime date = DateTime.Now; // TODO: 初始化為適當值
@@ -118,8 +117,8 @@ namespace TestEZMoney
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
             RecordPresentationModel recordPModel = new RecordPresentationModel(ezMoneyModel); // TODO: 初始化為適當值
-            RecordModel recordModel = ezMoneyModel.GetRecordModel();
-            CategoryModel categoryModel = ezMoneyModel.GetCategoryModel();
+            RecordModel recordModel = ezMoneyModel.RecordModel;
+            CategoryModel categoryModel = ezMoneyModel.CategoryModel;
             recordPModel.InitializeState();
             Assert.AreEqual(true, recordPModel.IsIncomeCheck);
             recordPModel.ChangeIncomeCheck(false);
@@ -134,21 +133,21 @@ namespace TestEZMoney
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
             RecordPresentationModel recordPModel = new RecordPresentationModel(ezMoneyModel); // TODO: 初始化為適當值
-            RecordModel recordModel = ezMoneyModel.GetRecordModel();
-            CategoryModel categoryModel = ezMoneyModel.GetCategoryModel();
-            recordModel.GetRecords().Clear();
-            categoryModel.GetCategories().Clear();
+            RecordModel recordModel = ezMoneyModel.RecordModel;
+            CategoryModel categoryModel = ezMoneyModel.CategoryModel;
+            recordModel.Records.Clear();
+            categoryModel.Categories.Clear();
             Category category = new Category(CATEGORY_NAME_MOVIE);
             categoryModel.AddCategory(category);
             DateTime date = DateTime.Now; // TODO: 初始化為適當值
             int categoryIndex = 0; // TODO: 初始化為適當值
             string amount = string.Empty; // TODO: 初始化為適當值
             recordPModel.Add(date, categoryIndex, amount);
-            Assert.AreEqual(1, recordModel.GetRecords().Count);
+            Assert.AreEqual(1, recordModel.Records.Count);
             recordPModel.Delete(DialogResult.No);
-            Assert.AreEqual(1, recordModel.GetRecords().Count);
+            Assert.AreEqual(1, recordModel.Records.Count);
             recordPModel.Delete(DialogResult.Yes);
-            Assert.AreEqual(0, recordModel.GetRecords().Count);
+            Assert.AreEqual(0, recordModel.Records.Count);
         }
 
         /// <summary>
@@ -159,8 +158,8 @@ namespace TestEZMoney
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
             RecordPresentationModel recordPModel = new RecordPresentationModel(ezMoneyModel); // TODO: 初始化為適當值
-            RecordModel recordModel = ezMoneyModel.GetRecordModel();
-            CategoryModel categoryModel = ezMoneyModel.GetCategoryModel();
+            RecordModel recordModel = ezMoneyModel.RecordModel;
+            CategoryModel categoryModel = ezMoneyModel.CategoryModel;
             recordPModel.InitializeState();
             Assert.AreEqual(false, recordPModel.IsSelectionMode);
             Assert.AreEqual(false, recordPModel.IsModifyEnable);
@@ -176,8 +175,8 @@ namespace TestEZMoney
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
             RecordPresentationModel recordPModel = new RecordPresentationModel(ezMoneyModel); // TODO: 初始化為適當值
-            RecordModel recordModel = ezMoneyModel.GetRecordModel();
-            CategoryModel categoryModel = ezMoneyModel.GetCategoryModel();
+            RecordModel recordModel = ezMoneyModel.RecordModel;
+            CategoryModel categoryModel = ezMoneyModel.CategoryModel;
             recordPModel.InitializeState();
             const string AMOUNT = "100";
             const string NOT_NUMBER = "A";
@@ -200,10 +199,10 @@ namespace TestEZMoney
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
             RecordPresentationModel recordPModel = new RecordPresentationModel(ezMoneyModel); // TODO: 初始化為適當值
-            RecordModel recordModel = ezMoneyModel.GetRecordModel();
-            CategoryModel categoryModel = ezMoneyModel.GetCategoryModel();
-            recordModel.GetRecords().Clear();
-            categoryModel.GetCategories().Clear();
+            RecordModel recordModel = ezMoneyModel.RecordModel;
+            CategoryModel categoryModel = ezMoneyModel.CategoryModel;
+            recordModel.Records.Clear();
+            categoryModel.Categories.Clear();
             Category category = new Category(CATEGORY_NAME_MOVIE);
             categoryModel.AddCategory(category);
             DateTime date = DateTime.Now; // TODO: 初始化為適當值
@@ -211,15 +210,15 @@ namespace TestEZMoney
             string amount = string.Empty; // TODO: 初始化為適當值
             const string NEW_AMOUNT = "100";
             recordPModel.Add(date, categoryIndex, amount);
-            Assert.AreEqual(1, recordModel.GetRecords().Count);
+            Assert.AreEqual(1, recordModel.Records.Count);
             recordPModel.Modify(date, 0, NEW_AMOUNT);
-            Assert.AreEqual(1, recordModel.GetRecords().Count);
-            Assert.AreEqual(NEW_AMOUNT, recordModel.GetRecords()[0].Amount.ToString());
+            Assert.AreEqual(1, recordModel.Records.Count);
+            Assert.AreEqual(NEW_AMOUNT, recordModel.Records[0].Amount.ToString());
             recordPModel.IsIncomeCheck = false;
             recordPModel.IsExpenseCheck = true;
             recordPModel.Modify(date, 0, NEW_AMOUNT);
-            Assert.AreEqual(1, recordModel.GetRecords().Count);
-            Assert.AreEqual("-" + NEW_AMOUNT, recordModel.GetRecords()[0].Amount.ToString());
+            Assert.AreEqual(1, recordModel.Records.Count);
+            Assert.AreEqual("-" + NEW_AMOUNT, recordModel.Records[0].Amount.ToString());
         }
 
         /// <summary>
@@ -230,8 +229,8 @@ namespace TestEZMoney
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
             RecordPresentationModel recordPModel = new RecordPresentationModel(ezMoneyModel); // TODO: 初始化為適當值
-            RecordModel recordModel = ezMoneyModel.GetRecordModel();
-            CategoryModel categoryModel = ezMoneyModel.GetCategoryModel();
+            RecordModel recordModel = ezMoneyModel.RecordModel;
+            CategoryModel categoryModel = ezMoneyModel.CategoryModel;
             recordPModel.InitializeState();
             categoryModel.AddCategory(CATEGORY_NAME_WORK);
             recordPModel.SelectCategory(0);
@@ -246,8 +245,8 @@ namespace TestEZMoney
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
             RecordPresentationModel recordPModel = new RecordPresentationModel(ezMoneyModel); // TODO: 初始化為適當值
-            RecordModel recordModel = ezMoneyModel.GetRecordModel();
-            CategoryModel categoryModel = ezMoneyModel.GetCategoryModel();
+            RecordModel recordModel = ezMoneyModel.RecordModel;
+            CategoryModel categoryModel = ezMoneyModel.CategoryModel;
             recordPModel.InitializeState();
             Category category = new Category(CATEGORY_NAME_WORK);
             categoryModel.AddCategory(category);

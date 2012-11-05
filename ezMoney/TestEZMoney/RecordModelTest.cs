@@ -63,13 +63,13 @@ namespace TestEZMoney
             Record recordWorkPositive = new Record(date, categoryWork, 100);
             Record recordWorkNegative = new Record(date, categoryWork, -100);
             recordModel.AddRecord(recordMoviePositive);
-            Assert.AreEqual(1, recordModel.GetRecords().Count);
+            Assert.AreEqual(1, recordModel.Records.Count);
             recordModel.AddRecord(recordMovieNegative);
-            Assert.AreEqual(2, recordModel.GetRecords().Count);
+            Assert.AreEqual(2, recordModel.Records.Count);
             recordModel.AddRecord(recordWorkPositive);
-            Assert.AreEqual(3, recordModel.GetRecords().Count);
+            Assert.AreEqual(3, recordModel.Records.Count);
             recordModel.AddRecord(recordWorkNegative);
-            Assert.AreEqual(4, recordModel.GetRecords().Count);
+            Assert.AreEqual(4, recordModel.Records.Count);
         }
 
         /// <summary>
@@ -94,7 +94,7 @@ namespace TestEZMoney
             recordModel.AddRecord(recordMovieNegative);
             recordModel.AddRecord(recordWorkPositive);
             recordModel.AddRecord(recordWorkNegative);
-            BindingList<Record> negativeRecords = recordModel.GetNegativeRecords(recordModel.GetRecords());
+            BindingList<Record> negativeRecords = recordModel.GetNegativeRecords(recordModel.Records);
             Assert.AreEqual(2, negativeRecords.Count);
         }
 
@@ -120,7 +120,7 @@ namespace TestEZMoney
             recordModel.AddRecord(recordMovieNegative);
             recordModel.AddRecord(recordWorkPositive);
             recordModel.AddRecord(recordWorkNegative);
-            BindingList<Record> positiveRecords = recordModel.GetPositiveRecords(recordModel.GetRecords());
+            BindingList<Record> positiveRecords = recordModel.GetPositiveRecords(recordModel.Records);
             Assert.AreEqual(2, positiveRecords.Count);
         }
 
@@ -180,8 +180,8 @@ namespace TestEZMoney
             recordModel.AddRecord(recordMovieNegative);
             recordModel.AddRecord(recordWorkPositive);
             recordModel.AddRecord(recordWorkNegative);
-            BindingList<Record> records = recordModel.GetRecords();
-            Assert.AreEqual(records, recordModel.GetRecords());
+            BindingList<Record> records = recordModel.Records;
+            Assert.AreEqual(records, recordModel.Records);
         }
 
         /// <summary>
@@ -284,11 +284,11 @@ namespace TestEZMoney
             recordModel.AddRecord(recordMovieNegative);
             recordModel.AddRecord(recordWorkPositive);
             recordModel.AddRecord(recordWorkNegative);
-            BindingList<Record> records = recordModel.GetRecords();
+            BindingList<Record> records = recordModel.Records;
             recordModel.WriteRecordToFile();
             recordModel = new RecordModel(categoryModel);
             recordModel.ReadRecordFromFile();
-            Assert.AreEqual(records.Count, recordModel.GetRecords().Count);
+            Assert.AreEqual(records.Count, recordModel.Records.Count);
         }
 
         /// <summary>
@@ -313,11 +313,11 @@ namespace TestEZMoney
             recordModel.AddRecord(recordMovieNegative);
             recordModel.AddRecord(recordWorkPositive);
             recordModel.AddRecord(recordWorkNegative);
-            BindingList<Record> records = recordModel.GetRecords();
+            BindingList<Record> records = recordModel.Records;
             recordModel.WriteRecordToFile();
             recordModel = new RecordModel(categoryModel);
             recordModel.ReadRecordFromFile();
-            Assert.AreEqual(records.Count, recordModel.GetRecords().Count);
+            Assert.AreEqual(records.Count, recordModel.Records.Count);
         }
 
         /// <summary>
@@ -332,17 +332,16 @@ namespace TestEZMoney
             DateTime date = new DateTime(now.Year, now.Month, now.Day);
             Category category1 = new Category(CATEGORY_NAME_MOVIE);
             recordModel.AddRecord(date, ref category1, 100);
-            Assert.AreEqual(1, recordModel.GetRecords().Count);
-
+            Assert.AreEqual(1, recordModel.Records.Count);
             Category category2 = new Category(CATEGORY_NAME_MOVIE);
             recordModel.AddRecord(date, ref category2, 100);
-            Assert.AreEqual(2, recordModel.GetRecords().Count);
+            Assert.AreEqual(2, recordModel.Records.Count);
             Category category3 = new Category(CATEGORY_NAME_WORK);
             recordModel.AddRecord(date, ref category3, 100);
-            Assert.AreEqual(3, recordModel.GetRecords().Count);
+            Assert.AreEqual(3, recordModel.Records.Count);
             Category category4 = new Category(CATEGORY_NAME_WORK);
             recordModel.AddRecord(date, ref category4, -100);
-            Assert.AreEqual(4, recordModel.GetRecords().Count);
+            Assert.AreEqual(4, recordModel.Records.Count);
         }
 
         /// <summary>
@@ -353,7 +352,6 @@ namespace TestEZMoney
         {
             CategoryModel categoryModel = new CategoryModel(); // TODO: 初始化為適當值
             RecordModel recordModel = new RecordModel(categoryModel); // TODO: 初始化為適當值
-
             Record record1 = new Record(DateTime.Now, new Category(CATEGORY_NAME_MOVIE), 100);
             Record record2 = new Record(DateTime.Now, new Category(CATEGORY_NAME_MOVIE), 100);
             Record record3 = new Record(DateTime.Now, new Category(CATEGORY_NAME_WORK), 100);
@@ -362,9 +360,8 @@ namespace TestEZMoney
             recordModel.AddRecord(record2);
             recordModel.AddRecord(record3);
             recordModel.AddRecord(record4);
-
             recordModel.RemoveRecordsByCategory(new Category(CATEGORY_NAME_WORK));
-            Assert.AreEqual(3, recordModel.GetRecords().Count);
+            Assert.AreEqual(3, recordModel.Records.Count);
         }
     }
 }

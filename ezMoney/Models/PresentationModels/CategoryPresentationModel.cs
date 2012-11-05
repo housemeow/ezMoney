@@ -14,8 +14,8 @@ namespace ezMoney
         //category presentation model constructor
         public CategoryPresentationModel(EZMoneyModel ezMoneyModel)
         {
-            _categoryModel = ezMoneyModel.GetCategoryModel();
-            _recordModel = ezMoneyModel.GetRecordModel();
+            _categoryModel = ezMoneyModel.CategoryModel;
+            _recordModel = ezMoneyModel.RecordModel;
             InitializeState();
         }
 
@@ -82,8 +82,8 @@ namespace ezMoney
         {
             if (!_categoryModel.IsExist(categoryName))
             {
-                _categoryModel.GetCategories()[index].CategoryName = categoryName;
-                _categoryModel.GetCategories()[index] = _categoryModel.GetCategories()[index];
+                _categoryModel.Categories[index].CategoryName = categoryName;
+                _categoryModel.Categories[index] = _categoryModel.Categories[index];
             }
             InitializeState();
         }
@@ -93,9 +93,9 @@ namespace ezMoney
         {
             if (dialogResult == DialogResult.Yes)
             {
-                Category category = _categoryModel.GetCategories()[index];
+                Category category = _categoryModel.Categories[index];
                 _recordModel.RemoveRecordsByCategory(category);
-                _categoryModel.GetCategories().RemoveAt(index);
+                _categoryModel.Categories.RemoveAt(index);
             }
             InitializeState();
         }

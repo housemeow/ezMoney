@@ -6,8 +6,6 @@ using System.ComponentModel;
 
 namespace TestEZMoney
 {
-
-
     /// <summary>
     ///這是 StatisticModelTest 的測試類別，應該包含
     ///所有 StatisticModelTest 單元測試
@@ -100,7 +98,7 @@ namespace TestEZMoney
             workRecord = new Record(date, categoryWork, 4000);
             recordModel.AddRecord(workRecord);
             StatisticModel statisticModel = new StatisticModel(categoryModel, recordModel); // TODO: 初始化為適當值
-            int expense = statisticModel.GetExpense(recordModel.GetRecords());
+            int expense = statisticModel.GetExpense(recordModel.Records);
             Assert.AreEqual(6000, expense);
         }
 
@@ -133,7 +131,7 @@ namespace TestEZMoney
             workRecord = new Record(date, categoryWork, 4000);
             recordModel.AddRecord(workRecord);
             StatisticModel statisticModel = new StatisticModel(categoryModel, recordModel); // TODO: 初始化為適當值
-            int balance = statisticModel.GetBalance(recordModel.GetRecords());
+            int balance = statisticModel.GetBalance(recordModel.Records);
             Assert.AreEqual(4000, balance);
         }
 
@@ -166,9 +164,9 @@ namespace TestEZMoney
             workRecord = new Record(date, categoryWork, 4000);
             recordModel.AddRecord(workRecord);
             StatisticModel statisticModel = new StatisticModel(categoryModel, recordModel); // TODO: 初始化為適當值
-            int income = statisticModel.GetAmounts(recordModel.GetRecords(), true);
+            int income = statisticModel.GetAmounts(recordModel.Records, true);
             Assert.AreEqual(10000, income);
-            int expense = statisticModel.GetAmounts(recordModel.GetRecords(), false);
+            int expense = statisticModel.GetAmounts(recordModel.Records, false);
             Assert.AreEqual(-6000, expense);
         }
 
@@ -179,6 +177,8 @@ namespace TestEZMoney
         [DeploymentItem("ezMoney.exe")]
         public void TestSetPercent()
         {
+            const String SEVENTY_FIVE_PERCENT = "75%";
+            const String TWENTY_FIVE_PERCENT = "25%";
             CategoryModel categoryModel = new CategoryModel(); // TODO: 初始化為適當值
             Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
             Category categoryEntertainment = new Category(CATEGORY_NAME_ENTERTAINMENT);
@@ -195,8 +195,8 @@ namespace TestEZMoney
             statistics.Add(statisticEntertainment);
             int amounts = 4000; // TODO: 初始化為適當值
             statisticModel.SetPercent(statistics, amounts);
-            Assert.AreEqual("25%", statisticMovie.Percent);
-            Assert.AreEqual("75%", statisticEntertainment.Percent);
+            Assert.AreEqual(TWENTY_FIVE_PERCENT, statisticMovie.Percent);
+            Assert.AreEqual(SEVENTY_FIVE_PERCENT, statisticEntertainment.Percent);
         }
 
         /// <summary>
@@ -306,7 +306,7 @@ namespace TestEZMoney
             StatisticModel statisticModel = new StatisticModel(categoryModel, recordModel); // TODO: 初始化為適當值
             BindingList<Statistic> statistics = statisticModel.GetIncomeStatistics();
             Assert.AreEqual(1, statistics.Count);
-            int amount=0;
+            int amount = 0;
             foreach (Statistic statistic in statistics)
             {
                 amount += statistic.Amounts;
@@ -343,7 +343,7 @@ namespace TestEZMoney
             workRecord = new Record(date, categoryWork, 4000);
             recordModel.AddRecord(workRecord);
             StatisticModel statisticModel = new StatisticModel(categoryModel, recordModel); // TODO: 初始化為適當值
-            int income = statisticModel.GetAmounts(recordModel.GetRecords(), true);
+            int income = statisticModel.GetAmounts(recordModel.Records, true);
             Assert.AreEqual(10000, income);
         }
     }

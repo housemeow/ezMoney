@@ -15,9 +15,9 @@ namespace ezMoney
         //constructor of statistic presentation model
         public StatisticPresentationModel(EZMoneyModel ezMoneyModel)
         {
-            _categoryModel = ezMoneyModel.GetCategoryModel();
-            _recordModel = ezMoneyModel.GetRecordModel();
-            _statisticModel = ezMoneyModel.GetStatisticModel();
+            _categoryModel = ezMoneyModel.CategoryModel;
+            _recordModel = ezMoneyModel.RecordModel;
+            _statisticModel = ezMoneyModel.StatisticModel;
             InitializeState();
         }
 
@@ -26,7 +26,7 @@ namespace ezMoney
         {
             IsIncomeCheck = true;
             IsExpenseCheck = false;
-            BindingList<Record> records = _recordModel.GetRecords();
+            BindingList<Record> records = _recordModel.Records;
             Income = _statisticModel.GetIncome(records).ToString();
             Expense = _statisticModel.GetExpense(records).ToString();
             Balance = _statisticModel.GetBalance(records).ToString();

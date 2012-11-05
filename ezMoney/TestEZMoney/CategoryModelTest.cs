@@ -53,9 +53,9 @@ namespace TestEZMoney
             Category categoryMovie = new Category(CATEGORY_NAME_MOVIE);
             Category categoryWork = new Category(CATEGORY_NAME_WORK);
             categoryModel.AddCategory(categoryMovie);
-            Assert.AreEqual(1, categoryModel.GetCategories().Count);
+            Assert.AreEqual(1, categoryModel.Categories.Count);
             categoryModel.AddCategory(categoryWork);
-            Assert.AreEqual(2, categoryModel.GetCategories().Count);
+            Assert.AreEqual(2, categoryModel.Categories.Count);
         }
 
         /// <summary>
@@ -66,9 +66,9 @@ namespace TestEZMoney
         {
             CategoryModel categoryModel = new CategoryModel();
             categoryModel.AddCategory(CATEGORY_NAME_MOVIE);
-            Assert.AreEqual(1, categoryModel.GetCategories().Count);
+            Assert.AreEqual(1, categoryModel.Categories.Count);
             categoryModel.AddCategory(CATEGORY_NAME_WORK);
-            Assert.AreEqual(2, categoryModel.GetCategories().Count);
+            Assert.AreEqual(2, categoryModel.Categories.Count);
         }
 
         /// <summary>
@@ -82,8 +82,8 @@ namespace TestEZMoney
             Category categoryWork = new Category(CATEGORY_NAME_WORK);
             categoryModel.AddCategory(categoryMovie);
             categoryModel.AddCategory(categoryWork);
-            Assert.AreEqual(categoryMovie, categoryModel.GetCategories()[0]);
-            Assert.AreEqual(categoryWork, categoryModel.GetCategories()[1]);
+            Assert.AreEqual(categoryMovie, categoryModel.Categories[0]);
+            Assert.AreEqual(categoryWork, categoryModel.Categories[1]);
         }
 
         /// <summary>
@@ -147,11 +147,11 @@ namespace TestEZMoney
             categoryModel.AddCategory(categoryMovie);
             categoryModel.AddCategory(categoryWork);
             categoryModel.AddCategory(categoryEntertainment);
-            Assert.AreEqual(3, categoryModel.GetCategories().Count);
+            Assert.AreEqual(3, categoryModel.Categories.Count);
             categoryModel.WriteCategoryToFile();
             categoryModel = new CategoryModel();
             categoryModel.ReadCategoryFromFile();
-            Assert.AreEqual(3, categoryModel.GetCategories().Count);
+            Assert.AreEqual(3, categoryModel.Categories.Count);
             Assert.AreEqual(categoryMovie, categoryModel.GetCategory(0));
             Assert.AreEqual(categoryWork, categoryModel.GetCategory(1));
             Assert.AreEqual(categoryEntertainment, categoryModel.GetCategory(2));
@@ -170,11 +170,11 @@ namespace TestEZMoney
             categoryModel.AddCategory(categoryMovie);
             categoryModel.AddCategory(categoryWork);
             categoryModel.AddCategory(categoryEntertainment);
-            Assert.AreEqual(3, categoryModel.GetCategories().Count);
+            Assert.AreEqual(3, categoryModel.Categories.Count);
             categoryModel.WriteCategoryToFile();
             categoryModel = new CategoryModel();
             categoryModel.ReadCategoryFromFile();
-            Assert.AreEqual(3, categoryModel.GetCategories().Count);
+            Assert.AreEqual(3, categoryModel.Categories.Count);
             Assert.AreEqual(categoryMovie, categoryModel.GetCategory(0));
             Assert.AreEqual(categoryWork, categoryModel.GetCategory(1));
             Assert.AreEqual(categoryEntertainment, categoryModel.GetCategory(2));
@@ -189,7 +189,6 @@ namespace TestEZMoney
             CategoryModel categoryModel = new CategoryModel(); // TODO: 初始化為適當值
             categoryModel.AddCategory(new Category(CATEGORY_NAME_MOVIE));
             categoryModel.AddCategory(new Category(CATEGORY_NAME_WORK));
-
             Assert.IsTrue(categoryModel.IsExist(CATEGORY_NAME_MOVIE));
             Assert.IsTrue(categoryModel.IsExist(CATEGORY_NAME_WORK));
             Assert.IsFalse(categoryModel.IsExist(CATEGORY_NAME_ENTERTAINMENT));

@@ -14,8 +14,8 @@ namespace ezMoney
         //record presentation model constructor
         public RecordPresentationModel(EZMoneyModel ezMoneyModel)
         {
-            _categoryModel = ezMoneyModel.GetCategoryModel();
-            _recordModel = ezMoneyModel.GetRecordModel();
+            _categoryModel = ezMoneyModel.CategoryModel;
+            _recordModel = ezMoneyModel.RecordModel;
             InitializeState();
         }
 
@@ -81,7 +81,7 @@ namespace ezMoney
                 IsDeleteEnable = true;
                 IsCancelEnable = true;
                 ErrorProviderMessage = String.Empty;
-                Record record = _recordModel.GetRecords()[recordIndex];
+                Record record = _recordModel.Records[recordIndex];
                 CategoryIndex = _categoryModel.GetCategoryIndex(record.Category);
                 if (record.Amount >= 0)
                 {
@@ -106,7 +106,7 @@ namespace ezMoney
         //add record
         public void Add(DateTime date, int categoryIndex, String amount)
         {
-            Category category = _categoryModel.GetCategories()[categoryIndex];
+            Category category = _categoryModel.Categories[categoryIndex];
             int money = 0;
             int.TryParse(amount, out money);
             if (!IsIncomeCheck)
@@ -122,10 +122,10 @@ namespace ezMoney
         {
             if (categoryIndex >= 0)
             {
-                Category category = _categoryModel.GetCategories()[categoryIndex];
+                Category category = _categoryModel.Categories[categoryIndex];
                 int money = 0;
                 int.TryParse(amount, out money);
-                Record record = _recordModel.GetRecords()[RecordIndex];
+                Record record = _recordModel.Records[RecordIndex];
                 record.Category = category;
                 record.Date = date;
                 if (IsIncomeCheck)
@@ -136,7 +136,7 @@ namespace ezMoney
                 {
                     record.Amount = -money;
                 }
-                _recordModel.GetRecords()[RecordIndex] = _recordModel.GetRecords()[RecordIndex];
+                _recordModel.Records[RecordIndex] = _recordModel.Records[RecordIndex];
             }
             InitializeState();
         }
@@ -146,7 +146,7 @@ namespace ezMoney
         {
             if (dialogResult == DialogResult.Yes)
             {
-                _recordModel.GetRecords().RemoveAt(RecordIndex);
+                _recordModel.Records.RemoveAt(RecordIndex);
             }
             InitializeState();
         }

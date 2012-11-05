@@ -19,6 +19,14 @@ namespace ezMoney
             _categories = new BindingList<Category>();
         }
 
+        public BindingList<Category> Categories
+        {
+            get
+            {
+                return _categories;
+            }
+        }
+
         //write file to category
         public void WriteCategoryToFile()
         {
@@ -93,11 +101,6 @@ namespace ezMoney
         public Boolean IsExist(String categoryName)
         {
             return IsExist(new Category(categoryName));
-        }
-
-        public BindingList<Category> GetCategories()
-        {
-            return _categories;
         }
     }
 }

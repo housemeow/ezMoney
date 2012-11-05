@@ -20,38 +20,6 @@ namespace ezMoney
             _amount = amount;
         }
 
-        //iEqualable interface equals
-        public override bool Equals(object obj)
-        {
-            return Equals(obj as Record);
-        }
-
-        //Record equals
-        public bool Equals(Record record)
-        {
-            if (ReferenceEquals(record, null))
-            {
-                return false;
-            }
-            if (_date == record.Date)
-            {
-                if (_category == record.Category)
-                {
-                    if (_amount == record.Amount)
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-
-        //get hash code
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-
         public DateTime Date
         {
             get
@@ -86,6 +54,38 @@ namespace ezMoney
             {
                 _amount = value;
             }
+        }
+
+        //iEqualable interface equals
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as Record);
+        }
+
+        //Record equals
+        public bool Equals(Record record)
+        {
+            if (ReferenceEquals(record, null))
+            {
+                return false;
+            }
+            if (_date == record.Date)
+            {
+                if (_category == record.Category)
+                {
+                    if (_amount == record.Amount)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        //get hash code
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

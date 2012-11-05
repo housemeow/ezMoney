@@ -23,7 +23,7 @@ namespace ezMoney
         {
             BindingList<Statistic> expenseStatistics = new BindingList<Statistic>();
             int amounts = 0;
-            foreach (Category category in _categoryModel.GetCategories())
+            foreach (Category category in _categoryModel.Categories)
             {
                 Statistic statistic = GetStatistic(category, false);
                 if (statistic.Count != 0)
@@ -41,7 +41,7 @@ namespace ezMoney
         {
             BindingList<Statistic> incomeStatistics = new BindingList<Statistic>();
             int amounts = 0;
-            foreach (Category category in _categoryModel.GetCategories())
+            foreach (Category category in _categoryModel.Categories)
             {
                 Statistic statistic = GetStatistic(category, true);
                 if (statistic.Count != 0)
@@ -58,7 +58,7 @@ namespace ezMoney
         public Statistic GetStatistic(Category category, bool isPositive)
         {
             Statistic statistic = new Statistic(category);
-            foreach (Record record in _recordModel.GetRecords())
+            foreach (Record record in _recordModel.Records)
             {
                 if (record.Category.Equals(category) && ((isPositive && record.Amount >= 0) || (!isPositive && record.Amount < 0)))
                 {

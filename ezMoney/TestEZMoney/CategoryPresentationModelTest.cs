@@ -16,8 +16,6 @@ namespace TestEZMoney
         const String CATEGORY_NAME_MOVIE = "Movie";
         const String CATEGORY_NAME_WORK = "Work";
 
-
-
         /// <summary>
         ///取得或設定提供目前測試回合的相關資訊與功能
         ///的測試內容。

@@ -23,19 +23,40 @@ namespace ezMoney
             _statisticModel = new StatisticModel(_categoryModel, _recordModel);
         }
 
-        public CategoryModel GetCategoryModel()
+        internal CategoryModel CategoryModel
         {
-            return _categoryModel;
+            get
+            {
+                return _categoryModel;
+            }
         }
 
-        public RecordModel GetRecordModel()
+        internal RecordModel RecordModel
         {
-            return _recordModel;
+            get
+            {
+                return _recordModel;
+            }
         }
 
-        public StatisticModel GetStatisticModel()
+        internal StatisticModel StatisticModel
         {
-            return _statisticModel;
+            get
+            {
+                return _statisticModel;
+            }
+        }
+
+        //get categories from category model
+        public BindingList<Category> GetCategories()
+        {
+            return _categoryModel.Categories;
+        }
+
+        //get records from record model
+        public BindingList<Record> GetRecords()
+        {
+            return _recordModel.Records;
         }
 
         //get category index from category name
@@ -50,20 +71,10 @@ namespace ezMoney
             _categoryModel.AddCategory(categoryName);
         }
 
-        public BindingList<Category> GetCategories()
-        {
-            return _categoryModel.GetCategories();
-        }
-
         //add record to RecordList
         public void AddRecord(Record record)
         {
             _recordModel.AddRecord(record);
-        }
-
-        public BindingList<Record> GetRecords()
-        {
-            return _recordModel.GetRecords();
         }
 
         //get records of category

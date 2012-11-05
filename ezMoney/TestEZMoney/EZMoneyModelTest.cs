@@ -103,7 +103,7 @@ namespace TestEZMoney
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
             Category movieCategory = new Category(CATEGORY_NAME_MOVIE); ; // TODO: 初始化為適當值
             Category workCategory = new Category(CATEGORY_NAME_WORK); ; // TODO: 初始化為適當值
-            CategoryModel categoryModel = ezMoneyModel.GetCategoryModel();
+            CategoryModel categoryModel = ezMoneyModel.CategoryModel;
             categoryModel.AddCategory(movieCategory);
             categoryModel.AddCategory(workCategory);
             Assert.AreEqual(0, categoryModel.GetCategoryIndex(movieCategory));
@@ -117,8 +117,8 @@ namespace TestEZMoney
         public void TestGetRecordModel()
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
-            RecordModel recordModel = ezMoneyModel.GetRecordModel();
-            Assert.AreEqual(recordModel, ezMoneyModel.GetRecordModel());
+            RecordModel recordModel = ezMoneyModel.RecordModel;
+            Assert.AreEqual(recordModel, ezMoneyModel.RecordModel);
         }
 
         /// <summary>
@@ -176,8 +176,8 @@ namespace TestEZMoney
         public void TestGetStatisticModel()
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
-            StatisticModel statisticModel = ezMoneyModel.GetStatisticModel();
-            Assert.AreEqual(statisticModel, ezMoneyModel.GetStatisticModel());
+            StatisticModel statisticModel = ezMoneyModel.StatisticModel;
+            Assert.AreEqual(statisticModel, ezMoneyModel.StatisticModel);
         }
     }
 }

@@ -5,8 +5,6 @@ using System.ComponentModel;
 
 namespace TestEZMoney
 {
-    
-    
     /// <summary>
     ///這是 StatisticPresentationModelPropertyTest 的測試類別，應該包含
     ///所有 StatisticPresentationModelPropertyTest 單元測試

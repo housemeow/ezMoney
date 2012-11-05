@@ -22,9 +22,12 @@ namespace ezMoney
             _records = new BindingList<Record>();
         }
 
-        public BindingList<Record> GetRecords()
+        public BindingList<Record> Records
         {
-            return _records;
+            get
+            {
+                return _records;
+            }
         }
 
         //add record to RecordList
@@ -131,7 +134,7 @@ namespace ezMoney
                     String[] strings = recordString.Split(new char[] { ' ' });
                     IFormatProvider culture = new System.Globalization.CultureInfo(ZH_TW, true);
                     DateTime date = DateTime.ParseExact(strings[0], DATE_FORMAT, culture);
-                    Category category = _categoryModel.GetCategories()[Convert.ToInt32(strings[1])];
+                    Category category = _categoryModel.Categories[Convert.ToInt32(strings[1])];
                     int amount = Convert.ToInt32(strings[2]);
                     Record record = new Record(date, category, amount);
                     _records.Add(record);

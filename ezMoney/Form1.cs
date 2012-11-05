@@ -39,8 +39,8 @@ namespace ezMoney
         //closing form
         private void ClosingFormCategoryManagementForm(object sender, FormClosingEventArgs e)
         {
-            _ezMoneyModel.GetCategoryModel().WriteCategoryToFile();
-            _ezMoneyModel.GetRecordModel().WriteRecordToFile();
+            _ezMoneyModel.CategoryModel.WriteCategoryToFile();
+            _ezMoneyModel.RecordModel.WriteRecordToFile();
         }
 
         #region CategoryView
@@ -50,8 +50,11 @@ namespace ezMoney
             _textBoxCategoryName.Text = _categoryPModel.CategoryNameText;
             _buttonCategoryAdd.Enabled = _categoryPModel.IsAddEnable;
             _buttonCategoryModify.Enabled = _categoryPModel.IsModifyEnable;
+            _buttonCategoryModify.Visible = _categoryPModel.IsModifyEnable;
             _buttonCategoryDelete.Enabled = _categoryPModel.IsDeleteEnable;
+            _buttonCategoryDelete.Visible = _categoryPModel.IsDeleteEnable;
             _buttonCategoryCancel.Enabled = _categoryPModel.IsCancelEnable;
+            _buttonCategoryCancel.Visible = _categoryPModel.IsCancelEnable;
             _errorProviderCategory.SetError(_buttonCategoryAdd, _categoryPModel.ErrorProviderMessage);
             //if you want to visible/unvisible modification function, uncomment under line.
             //_tableLayoutPanelCategory.RowStyles[1].Height = _categoryPModel.IsSelectionMode? 40: 0;
@@ -62,13 +65,6 @@ namespace ezMoney
         {
             _listBoxCategories.DataSource = _ezMoneyModel.GetCategories();
             _listBoxCategories.SelectedIndex = -1;
-            RefreshCategoryView();
-        }
-
-        //click add category button
-        private void ClickAddCategory(object sender, EventArgs e)
-        {
-            _categoryPModel.Add(_textBoxCategoryName.Text);
             RefreshCategoryView();
         }
 
@@ -83,6 +79,13 @@ namespace ezMoney
         private void ChangeCategoryListIndex(object sender, EventArgs e)
         {
             _categoryPModel.SelectCategory(_listBoxCategories.SelectedIndex);
+            RefreshCategoryView();
+        }
+
+        //click add category button
+        private void ClickAddCategory(object sender, EventArgs e)
+        {
+            _categoryPModel.Add(_textBoxCategoryName.Text);
             RefreshCategoryView();
         }
 
@@ -129,8 +132,11 @@ namespace ezMoney
             _textBoxRecordAmount.Text = _recordPModel.Amount;
             _buttonRecordAdd.Enabled = _recordPModel.IsAddEnable;
             _buttonRecordModify.Enabled = _recordPModel.IsModifyEnable;
+            _buttonRecordModify.Visible = _recordPModel.IsModifyEnable;
             _buttonRecordDelete.Enabled = _recordPModel.IsDeleteEnable;
+            _buttonRecordDelete.Visible = _recordPModel.IsDeleteEnable;
             _buttonRecordCancel.Enabled = _recordPModel.IsCancelEnable;
+            _buttonRecordCancel.Visible = _recordPModel.IsCancelEnable;
             _radioButtonIncome.Checked = _recordPModel.IsIncomeCheck;
             _radioButtonExpanse.Checked = _recordPModel.IsExpenseCheck;
             _errorProviderRecord.SetError(_buttonRecordAdd, _recordPModel.ErrorProviderMessage);
@@ -165,6 +171,20 @@ namespace ezMoney
             RefreshRecordView();
         }
 
+        //click record datagridView cell
+        private void ClickDataGridViewRecordCell(object sender, DataGridViewCellEventArgs e)
+        {
+            _recordPModel.SelectRecord(e.RowIndex);
+            RefreshRecordView();
+        }
+
+        //change Record radioButton
+        private void ChangeRecordRadioButton(object sender, EventArgs e)
+        {
+            _recordPModel.ChangeIncomeCheck(_radioButtonIncome.Checked);
+            RefreshRecordView();
+        }
+
         //add record button click
         private void ClickAddRecordButton(object sender, EventArgs e)
         {
@@ -192,20 +212,6 @@ namespace ezMoney
         private void ClickRecordCancel(object sender, EventArgs e)
         {
             _recordPModel.Cancel();
-            RefreshRecordView();
-        }
-
-        //click record datagridView cell
-        private void ClickDataGridViewRecordCell(object sender, DataGridViewCellEventArgs e)
-        {
-            _recordPModel.SelectRecord(e.RowIndex);
-            RefreshRecordView();
-        }
-
-        //change Record radioButton
-        private void ChangeRecordRadioButton(object sender, EventArgs e)
-        {
-            _recordPModel.ChangeIncomeCheck(_radioButtonIncome.Checked);
             RefreshRecordView();
         }
         #endregion
@@ -266,7 +272,6 @@ namespace ezMoney
         //enter tab page statistic
         private void EnterTabPageStatistic(object sender, EventArgs e)
         {
-            //RefreshStatistic();
             _statisticPModel.EnterTabPageStatistic();
             RefreshStatisticView();
         }

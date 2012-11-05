@@ -56,8 +56,8 @@ namespace TestEZMoney
         {
             EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
             StatisticPresentationModel statisticPModel = new StatisticPresentationModel(ezMoneyModel); // TODO: 初始化為適當值
-            CategoryModel categoryModel = ezMoneyModel.GetCategoryModel();
-            RecordModel recordModel = ezMoneyModel.GetRecordModel();
+            CategoryModel categoryModel = ezMoneyModel.CategoryModel;
+            RecordModel recordModel = ezMoneyModel.RecordModel;
             Category category1 = new Category(CATEGORY_NAME_WORK);
             Category category2 = new Category(CATEGORY_NAME_MOVIE);
             categoryModel.AddCategory(category1);
