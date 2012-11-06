@@ -260,5 +260,30 @@ namespace TestEZMoney
             recordPModel.SelectRecord(-1);
             Assert.IsFalse(recordPModel.IsSelectionMode);
         }
+
+        /// <summary>
+        ///RaiseUpdateEvent 的測試
+        ///</summary>
+        [TestMethod()]
+        public void TestRaiseUpdateEvent()
+        {
+            EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
+            ezMoneyModel.GetCategories().Clear();
+            ezMoneyModel.GetRecords().Clear();
+            RecordPresentationModel recordPModel = new RecordPresentationModel(ezMoneyModel); // TODO: 初始化為適當值
+            int raiseCount = 0;
+            recordPModel._updateEvent += delegate(RecordPresentationModel localRecordPModel)
+            {
+                raiseCount++;
+            };
+            DateTime date = DateTime.Now;
+            Category category = new Category(CATEGORY_NAME_MOVIE);
+            ezMoneyModel.AddCategory(category);
+            const String FIFTY = "50";
+            recordPModel.Add(date, 0, FIFTY);
+            Assert.AreEqual(1, raiseCount);
+            recordPModel.Cancel();
+            Assert.AreEqual(2, raiseCount);
+        }
     }
 }

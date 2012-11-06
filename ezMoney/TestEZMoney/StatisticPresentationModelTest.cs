@@ -1,6 +1,7 @@
 ﻿using ezMoney;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.ComponentModel;
 
 namespace TestEZMoney
 {
@@ -78,8 +79,9 @@ namespace TestEZMoney
             recordModel.AddRecord(record6);
             recordModel.AddRecord(record7);
             statisticPModel.InitializeState();
-            statisticPModel.ClickDataGridView(category1);
+            BindingList<Record> records = statisticPModel.ClickDataGridView(category1);
             Assert.AreEqual(4, statisticPModel.RecordList.Count);
+            Assert.AreEqual(records, statisticPModel.RecordList);
             statisticPModel.ChangeRadioButton(false);
             statisticPModel.ClickDataGridView(category2);
             Assert.AreEqual(3, statisticPModel.RecordList.Count);

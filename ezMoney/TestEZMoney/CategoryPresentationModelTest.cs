@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace TestEZMoney
 {
@@ -185,6 +186,28 @@ namespace TestEZMoney
             Assert.AreEqual(true, categoryPModel.IsCancelEnable);
             Assert.AreEqual(CATEGORY_NAME_WORK, categoryPModel.CategoryNameText);
             Assert.AreEqual(false, categoryPModel.IsAddEnable);
+        }
+
+        /// <summary>
+        ///RaiseUpdateEvent 的測試
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("ezMoney.exe")]
+        public void TestRaiseUpdateEvent()
+        {
+            int raiseCount = 0;
+            EZMoneyModel ezMoneyModel = new EZMoneyModel();
+            ezMoneyModel.GetCategories().Clear();
+            ezMoneyModel.GetRecords().Clear();
+            CategoryPresentationModel categoryPModel = new CategoryPresentationModel(ezMoneyModel); // TODO: 初始化為適當值
+            categoryPModel._updateEvent += delegate(CategoryPresentationModel localCategoryPModel)
+            {
+                raiseCount++;
+            };
+            categoryPModel.Add(CATEGORY_NAME_WORK);
+            Assert.AreEqual(1, raiseCount);
+            categoryPModel.Cancel();
+            Assert.AreEqual(2, raiseCount);
         }
     }
 }

@@ -8,6 +8,8 @@ namespace ezMoney
 {
     class RecordPresentationModel : RecordPresentationModelProperty
     {
+        public delegate void UpdateEventHandler(RecordPresentationModel recordPModel);
+        public event UpdateEventHandler _updateEvent;
         private CategoryModel _categoryModel;
         private RecordModel _recordModel;
 
@@ -54,12 +56,14 @@ namespace ezMoney
                 IsAddEnable = isCanAdd;
             }
             ErrorProviderMessage = errorMessage;
+            RaiseUpdateEvent();
         }
 
         //select a list item
         public void SelectCategory(int categoryIndex)
         {
             CategoryIndex = categoryIndex;
+            RaiseUpdateEvent();
         }
 
         //change radiobutton
@@ -67,6 +71,7 @@ namespace ezMoney
         {
             IsIncomeCheck = incomeCheck;
             IsExpenseCheck = !incomeCheck;
+            RaiseUpdateEvent();
         }
 
         //select a record
@@ -101,6 +106,7 @@ namespace ezMoney
             {
                 InitializeState();
             }
+            RaiseUpdateEvent();
         }
 
         //add record
@@ -115,6 +121,7 @@ namespace ezMoney
             }
             _recordModel.AddRecord(new Record(date, category, money));
             InitializeState();
+            RaiseUpdateEvent();
         }
 
         //modify record
@@ -139,6 +146,7 @@ namespace ezMoney
                 _recordModel.Records[RecordIndex] = _recordModel.Records[RecordIndex];
             }
             InitializeState();
+            RaiseUpdateEvent();
         }
 
         //delete record
@@ -149,12 +157,14 @@ namespace ezMoney
                 _recordModel.Records.RemoveAt(RecordIndex);
             }
             InitializeState();
+            RaiseUpdateEvent();
         }
 
         //cancel record
         public void Cancel()
         {
             InitializeState();
+            RaiseUpdateEvent();
         }
 
         //check parameter of add record
@@ -184,6 +194,15 @@ namespace ezMoney
                 buttonEnable = true;
             }
             return buttonEnable;
+        }
+
+        //raise update event
+        public void RaiseUpdateEvent()
+        {
+            if (_updateEvent != null)
+            {
+                _updateEvent(this);
+            }
         }
     }
 }

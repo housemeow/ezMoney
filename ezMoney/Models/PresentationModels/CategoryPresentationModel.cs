@@ -8,6 +8,9 @@ namespace ezMoney
 {
     class CategoryPresentationModel : CategoryPresentationModelProperty
     {
+        public delegate void UpdateEventHandler(CategoryPresentationModel categoryPModel);
+        public event UpdateEventHandler _updateEvent;
+        //member
         private CategoryModel _categoryModel;
         private RecordModel _recordModel;
 
@@ -51,6 +54,7 @@ namespace ezMoney
             {
                 InitializeState();
             }
+            RaiseUpdateEvent();
         }
 
         //text change and check if Category is error
@@ -68,6 +72,7 @@ namespace ezMoney
                 IsAddEnable = isCanAdd;
             }
             ErrorProviderMessage = errorMessage;
+            RaiseUpdateEvent();
         }
 
         //add category instruction
@@ -75,6 +80,7 @@ namespace ezMoney
         {
             _categoryModel.AddCategory(categoryName);
             InitializeState();
+            RaiseUpdateEvent();
         }
 
         //modify category instruction
@@ -86,6 +92,7 @@ namespace ezMoney
                 _categoryModel.Categories[index] = _categoryModel.Categories[index];
             }
             InitializeState();
+            RaiseUpdateEvent();
         }
 
         //delete category instruction
@@ -98,12 +105,14 @@ namespace ezMoney
                 _categoryModel.Categories.RemoveAt(index);
             }
             InitializeState();
+            RaiseUpdateEvent();
         }
 
         //cancel button click
         public void Cancel()
         {
             InitializeState();
+            RaiseUpdateEvent();
         }
 
         //check parameter of add category
@@ -126,6 +135,15 @@ namespace ezMoney
                 buttonEnable = true;
             }
             return buttonEnable;
+        }
+
+        //event raise
+        public void RaiseUpdateEvent()
+        {
+            if (_updateEvent != null)
+            {
+                _updateEvent(this);
+            }
         }
     }
 }

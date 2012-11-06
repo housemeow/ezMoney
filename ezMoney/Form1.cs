@@ -44,8 +44,17 @@ namespace ezMoney
         }
 
         #region CategoryView
+        //initialize categoryManagementView
+        void InitCategoryView()
+        {
+            _listBoxCategories.DataSource = _ezMoneyModel.GetCategories();
+            _listBoxCategories.SelectedIndex = -1;
+            RefreshCategoryView(_categoryPModel);
+            _categoryPModel._updateEvent += RefreshCategoryView;
+        }
+
         //refresh CategoryView state
-        void RefreshCategoryView()
+        void RefreshCategoryView(CategoryPresentationModel categoryPModel)
         {
             _textBoxCategoryName.Text = _categoryPModel.CategoryNameText;
             _buttonCategoryAdd.Enabled = _categoryPModel.IsAddEnable;
@@ -60,40 +69,28 @@ namespace ezMoney
             //_tableLayoutPanelCategory.RowStyles[1].Height = _categoryPModel.IsSelectionMode? 40: 0;
         }
 
-        //initialize categoryManagementView
-        void InitCategoryView()
-        {
-            _listBoxCategories.DataSource = _ezMoneyModel.GetCategories();
-            _listBoxCategories.SelectedIndex = -1;
-            RefreshCategoryView();
-        }
-
         //change category name event
         private void ChangeCategoryName(object sender, EventArgs e)
         {
             _categoryPModel.ChangeTextBox(_textBoxCategoryName.Text);
-            RefreshCategoryView();
         }
 
         //change categoryListBox index
         private void ChangeCategoryListIndex(object sender, EventArgs e)
         {
             _categoryPModel.SelectCategory(_listBoxCategories.SelectedIndex);
-            RefreshCategoryView();
         }
 
         //click add category button
         private void ClickAddCategory(object sender, EventArgs e)
         {
             _categoryPModel.Add(_textBoxCategoryName.Text);
-            RefreshCategoryView();
         }
 
         //click modifyButton
         private void ClickCategoryModifyButton(object sender, EventArgs e)
         {
             _categoryPModel.Modify(_listBoxCategories.SelectedIndex, _textBoxCategoryName.Text);
-            RefreshCategoryView();
         }
 
         //click delete button
@@ -102,15 +99,13 @@ namespace ezMoney
             const string MSG_CONTENT = "Do you want to delete?";
             const string MSG_TITLE = "Delete Category";
             _categoryPModel.Delete(_listBoxCategories.SelectedIndex, MessageBox.Show(MSG_CONTENT, MSG_TITLE, MessageBoxButtons.YesNo));
-            RefreshCategoryView();
         }
 
         //click cancel button
         private void ClickCategoryCancelButton(object sender, EventArgs e)
         {
-            _categoryPModel.Cancel();
             _listBoxCategories.ClearSelected();
-            RefreshCategoryView();
+            _categoryPModel.Cancel();
         }
         #endregion
 
@@ -121,11 +116,12 @@ namespace ezMoney
             _comboBoxCategory.DataSource = _ezMoneyModel.GetCategories();
             _dataGridViewRecord.DataSource = _ezMoneyModel.GetRecords();
             _dataGridViewRecord.AutoGenerateColumns = true;
-            RefreshRecordView();
+            RefreshRecordView(_recordPModel);
+            _recordPModel._updateEvent += RefreshRecordView;
         }
 
         //refresh record view
-        void RefreshRecordView()
+        void RefreshRecordView(RecordPresentationModel recordPModel)
         {
             _dateTimePickerRecord.Value = _recordPModel.RecordDate;
             _comboBoxCategory.SelectedIndex = _recordPModel.CategoryIndex;
@@ -148,7 +144,6 @@ namespace ezMoney
         private void ChangeCategoryComboBoxIndex(object sender, EventArgs e)
         {
             _recordPModel.SelectCategory(_comboBoxCategory.SelectedIndex);
-            RefreshRecordView();
         }
 
         //record amount textbox key press event
@@ -168,35 +163,30 @@ namespace ezMoney
         private void ChangeRecordAmountTextBox(object sender, EventArgs e)
         {
             _recordPModel.ChangeAmount(_textBoxRecordAmount.Text);
-            RefreshRecordView();
         }
 
         //click record datagridView cell
         private void ClickDataGridViewRecordCell(object sender, DataGridViewCellEventArgs e)
         {
             _recordPModel.SelectRecord(e.RowIndex);
-            RefreshRecordView();
         }
 
         //change Record radioButton
         private void ChangeRecordRadioButton(object sender, EventArgs e)
         {
             _recordPModel.ChangeIncomeCheck(_radioButtonIncome.Checked);
-            RefreshRecordView();
         }
 
         //add record button click
         private void ClickAddRecordButton(object sender, EventArgs e)
         {
             _recordPModel.Add(_dateTimePickerRecord.Value, _comboBoxCategory.SelectedIndex, _textBoxRecordAmount.Text);
-            RefreshRecordView();
         }
 
         //click record modify button
         private void ClickRecordModify(object sender, EventArgs e)
         {
             _recordPModel.Modify(_dateTimePickerRecord.Value, _comboBoxCategory.SelectedIndex, _textBoxRecordAmount.Text);
-            RefreshRecordView();
         }
 
         //click record delete button
@@ -204,15 +194,13 @@ namespace ezMoney
         {
             const string MSG_CONTENT = "Do you want to delete record?";
             const string MSG_TITLE = "Delete Record";
-            _recordPModel.Delete(MessageBox.Show(MSG_CONTENT, MSG_TITLE,  MessageBoxButtons.YesNo));
-            RefreshRecordView();
+            _recordPModel.Delete(MessageBox.Show(MSG_CONTENT, MSG_TITLE, MessageBoxButtons.YesNo));
         }
 
         //click record cancel button
         private void ClickRecordCancel(object sender, EventArgs e)
         {
             _recordPModel.Cancel();
-            RefreshRecordView();
         }
         #endregion
 
@@ -239,13 +227,15 @@ namespace ezMoney
         //init detail datagridview
         private void InitDetailDataGridView()
         {
+            const String DATE_STRING = "Date";
+            const String AMOUNT_STRING = "Amount";
             _dataGridViewDetail.AutoGenerateColumns = false;
             DataGridViewTextBoxColumn dateColumn = new DataGridViewTextBoxColumn();
-            dateColumn.DataPropertyName = "Date";
-            dateColumn.HeaderText = "Date";
+            dateColumn.DataPropertyName = DATE_STRING;
+            dateColumn.HeaderText = DATE_STRING;
             DataGridViewTextBoxColumn amountColumn = new DataGridViewTextBoxColumn();
-            amountColumn.DataPropertyName = "Amount";
-            amountColumn.HeaderText = "Amount";
+            amountColumn.DataPropertyName = AMOUNT_STRING;
+            amountColumn.HeaderText = AMOUNT_STRING;
             _dataGridViewDetail.Columns.Add(dateColumn);
             _dataGridViewDetail.Columns.Add(amountColumn);
             _dataGridViewDetail.ReadOnly = true;
@@ -258,22 +248,21 @@ namespace ezMoney
             RefreshStatisticView();
         }
 
+        //enter tab page statistic
+        private void EnterTabPageStatistic(object sender, EventArgs e)
+        {
+            _statisticPModel.EnterTabPageStatistic();
+            RefreshStatisticView();
+        }
+
         //click datagridView's cell
         private void ClickDataGridViewCell(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 Category category = (Category)_dataGridViewStatisticRecord.Rows[e.RowIndex].Cells[0].Value;
-                _statisticPModel.ClickDataGridView(category);
-                _dataGridViewDetail.DataSource = _statisticPModel.RecordList;// recordModel.GetRecords(category, _radioButtonStatisticIncome.Checked);
+                _dataGridViewDetail.DataSource = _statisticPModel.ClickDataGridView(category);
             }
-        }
-
-        //enter tab page statistic
-        private void EnterTabPageStatistic(object sender, EventArgs e)
-        {
-            _statisticPModel.EnterTabPageStatistic();
-            RefreshStatisticView();
         }
         #endregion
     }

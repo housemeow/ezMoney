@@ -46,9 +46,10 @@ namespace ezMoney
         }
 
         //click data grid cell
-        public void ClickDataGridView(Category category)
+        public BindingList<Record> ClickDataGridView(Category category)
         {
             RecordList = _recordModel.GetRecords(category, IsIncomeCheck);
+            return RecordList;
         }
 
         //tab enter
