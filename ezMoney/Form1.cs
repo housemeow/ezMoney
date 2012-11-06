@@ -162,6 +162,7 @@ namespace ezMoney
         //event of recordAmountTextBoxChanged
         private void ChangeRecordAmountTextBox(object sender, EventArgs e)
         {
+            _recordPModel.CategoryIndex = _comboBoxCategory.SelectedIndex;
             _recordPModel.ChangeAmount(_textBoxRecordAmount.Text);
         }
 

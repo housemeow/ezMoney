@@ -285,5 +285,26 @@ namespace TestEZMoney
             recordPModel.Cancel();
             Assert.AreEqual(2, raiseCount);
         }
+
+        /// <summary>
+        ///SetErrorProvider 的測試
+        ///</summary>
+        [TestMethod()]
+        public void TestSetErrorProvider()
+        {
+            EZMoneyModel ezMoneyModel = new EZMoneyModel(); // TODO: 初始化為適當值
+            ezMoneyModel.GetCategories().Clear();
+            ezMoneyModel.GetRecords().Clear();
+            RecordPresentationModel recordPModel = new RecordPresentationModel(ezMoneyModel); // TODO: 初始化為適當值
+            Category category = new Category(CATEGORY_NAME_WORK);
+            ezMoneyModel.AddCategory(category);
+            recordPModel.InitializeState();
+            const String FIFTY = "50";
+            recordPModel.ChangeAmount(FIFTY);
+            recordPModel.SetErrorProvider();
+            Assert.AreEqual(RecordPresentationModel.NO_SELECT_CATEGORY_INFO, recordPModel.ErrorProviderMessage);
+            recordPModel.SelectCategory(0);
+            Assert.AreEqual(RecordPresentationModel.EMPTY_ERROR_MESSAGE, recordPModel.ErrorProviderMessage);
+        }
     }
 }

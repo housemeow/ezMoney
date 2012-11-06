@@ -34,7 +34,6 @@ namespace ezMoney
             Amount = String.Empty;
             IsIncomeCheck = true;
             IsExpenseCheck = false;
-
             String errorMessage = String.Empty;
             bool isCanAdd = IsValidRecordAdd(CategoryIndex, Amount, ref errorMessage);
             IsAddEnable = isCanAdd;
@@ -45,6 +44,13 @@ namespace ezMoney
         public void ChangeAmount(String amount)
         {
             Amount = amount;
+            SetErrorProvider();
+            RaiseUpdateEvent();
+        }
+
+        //set error provider message and button enable
+        public void SetErrorProvider()
+        {
             String errorMessage = String.Empty;
             bool isCanAdd = IsValidRecordAdd(CategoryIndex, Amount, ref errorMessage);
             if (IsSelectionMode)
@@ -56,13 +62,13 @@ namespace ezMoney
                 IsAddEnable = isCanAdd;
             }
             ErrorProviderMessage = errorMessage;
-            RaiseUpdateEvent();
         }
 
         //select a list item
         public void SelectCategory(int categoryIndex)
         {
             CategoryIndex = categoryIndex;
+            SetErrorProvider();
             RaiseUpdateEvent();
         }
 
