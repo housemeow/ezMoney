@@ -184,7 +184,7 @@ namespace TestEZMoney
         ///IsExist 的測試
         ///</summary>
         [TestMethod()]
-        public void TestIsExist1()
+        public void TestIsExistByCategoryName()
         {
             CategoryModel categoryModel = new CategoryModel(); // TODO: 初始化為適當值
             categoryModel.AddCategory(new Category(CATEGORY_NAME_MOVIE));

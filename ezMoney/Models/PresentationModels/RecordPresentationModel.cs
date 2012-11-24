@@ -94,18 +94,7 @@ namespace ezMoney
                 ErrorProviderMessage = String.Empty;
                 Record record = _recordModel.Records[recordIndex];
                 CategoryIndex = _categoryModel.GetCategoryIndex(record.Category);
-                if (record.Amount >= 0)
-                {
-                    Amount = record.Amount.ToString();
-                    IsIncomeCheck = true;
-                    IsExpenseCheck = false;
-                }
-                else
-                {
-                    Amount = (-record.Amount).ToString();
-                    IsIncomeCheck = false;
-                    IsExpenseCheck = true;
-                }
+                SetAmountAndIncome(record);
                 RecordDate = record.Date;
             }
             else
@@ -113,6 +102,23 @@ namespace ezMoney
                 InitializeState();
             }
             RaiseUpdateEvent();
+        }
+
+        //set record amount and checked
+        private void SetAmountAndIncome(Record record)
+        {
+            if (record.Amount >= 0)
+            {
+                Amount = record.Amount.ToString();
+                IsIncomeCheck = true;
+                IsExpenseCheck = false;
+            }
+            else
+            {
+                Amount = (-record.Amount).ToString();
+                IsIncomeCheck = false;
+                IsExpenseCheck = true;
+            }
         }
 
         //add record

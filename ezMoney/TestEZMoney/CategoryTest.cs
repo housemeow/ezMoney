@@ -38,13 +38,13 @@ namespace TestEZMoney
         [TestMethod()]
         public void TestEquals()
         {
-            Category category1, category2;
-            category1 = new Category(CATEGORY_NAME_MOVIE);
-            category2 = new Category(CATEGORY_NAME_MOVIE);
-            Assert.AreEqual<Category>(category1, category2);
-            Assert.AreNotEqual(new Category(DISTINCT_CATEGORY_NAME), category1);
-            Assert.AreEqual<Category>(category1, category2);
-            Assert.IsFalse(category1.Equals(null));
+            Category movieCategory, sameCategory;
+            movieCategory = new Category(CATEGORY_NAME_MOVIE);
+            sameCategory = new Category(CATEGORY_NAME_MOVIE);
+            Assert.AreEqual<Category>(movieCategory, sameCategory);
+            Assert.AreNotEqual(new Category(DISTINCT_CATEGORY_NAME), movieCategory);
+            Assert.AreEqual<Category>(movieCategory, sameCategory);
+            Assert.IsFalse(movieCategory.Equals(null));
         }
 
         /// <summary>

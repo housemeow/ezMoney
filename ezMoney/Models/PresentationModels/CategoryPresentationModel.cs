@@ -102,7 +102,7 @@ namespace ezMoney
             {
                 Category category = _categoryModel.Categories[index];
                 _recordModel.RemoveRecordsByCategory(category);
-                _categoryModel.Categories.RemoveAt(index);
+                _categoryModel.RemoveCategory(index);
             }
             InitializeState();
             RaiseUpdateEvent();

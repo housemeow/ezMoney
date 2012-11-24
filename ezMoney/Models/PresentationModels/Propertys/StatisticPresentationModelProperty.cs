@@ -87,6 +87,7 @@ namespace ezMoney
                 _statisticList = value;
             }
         }
+
         public BindingList<Record> RecordList
         {
             get

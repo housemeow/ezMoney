@@ -39,8 +39,8 @@ namespace ezMoney
         //closing form
         private void ClosingFormCategoryManagementForm(object sender, FormClosingEventArgs e)
         {
-            _ezMoneyModel.CategoryModel.WriteCategoryToFile();
-            _ezMoneyModel.RecordModel.WriteRecordToFile();
+            _ezMoneyModel.WriteCategoryToFile();
+            _ezMoneyModel.WriteRecordToFile();
         }
 
         #region CategoryView

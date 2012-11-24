@@ -107,7 +107,7 @@ namespace TestEZMoney
         ///Equals 的測試
         ///</summary>
         [TestMethod()]
-        public void TestEquals1()
+        public void TestEqualsByRecord()
         {
             DateTime date = DateTime.Now; // TODO: 初始化為適當值
             Category category = new Category(CATEGORY_NAME_WORK); // TODO: 初始化為適當值

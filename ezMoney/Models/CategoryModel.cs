@@ -91,6 +91,12 @@ namespace ezMoney
             AddCategory(new Category(categoryName));
         }
 
+        //remove category by index
+        public void RemoveCategory(int index)
+        {
+            _categories.RemoveAt(index);
+        }
+
         //category is in categoies
         public Boolean IsExist(Category category)
         {

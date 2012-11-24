@@ -47,6 +47,18 @@ namespace ezMoney
             }
         }
 
+        //write categories to file
+        public void WriteCategoryToFile()
+        {
+            _categoryModel.WriteCategoryToFile();
+        }
+
+        //write records to file
+        public void WriteRecordToFile()
+        {
+            _recordModel.WriteRecordToFile();
+        }
+
         //get categories from category model
         public BindingList<Category> GetCategories()
         {

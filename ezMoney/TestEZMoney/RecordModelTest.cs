@@ -324,7 +324,7 @@ namespace TestEZMoney
         ///AddRecord 的測試
         ///</summary>
         [TestMethod()]
-        public void TestAddRecord1()
+        public void TestAddRecordByConstructor()
         {
             CategoryModel categoryModel = new CategoryModel();
             RecordModel recordModel = new RecordModel(categoryModel);
