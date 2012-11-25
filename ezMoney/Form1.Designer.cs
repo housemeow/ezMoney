@@ -39,11 +39,11 @@
             this._buttonCategoryCancel = new System.Windows.Forms.Button();
             this._errorProviderCategory = new System.Windows.Forms.ErrorProvider(this.components);
             this._tabControl = new System.Windows.Forms.TabControl();
-            this._tabPageCategoryManagement = new System.Windows.Forms.TabPage();
+            this._tabPageCategory = new System.Windows.Forms.TabPage();
             this._tabPageRecord = new System.Windows.Forms.TabPage();
             this._tableLayoutPanelRecord = new System.Windows.Forms.TableLayoutPanel();
             this._radioButtonIncome = new System.Windows.Forms.RadioButton();
-            this._radioButtonExpanse = new System.Windows.Forms.RadioButton();
+            this._radioButtonExpense = new System.Windows.Forms.RadioButton();
             this._dateTimePickerRecord = new System.Windows.Forms.DateTimePicker();
             this._comboBoxCategory = new System.Windows.Forms.ComboBox();
             this._textBoxRecordAmount = new System.Windows.Forms.TextBox();
@@ -69,7 +69,7 @@
             this._tableLayoutPanelCategory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._errorProviderCategory)).BeginInit();
             this._tabControl.SuspendLayout();
-            this._tabPageCategoryManagement.SuspendLayout();
+            this._tabPageCategory.SuspendLayout();
             this._tabPageRecord.SuspendLayout();
             this._tableLayoutPanelRecord.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewRecord)).BeginInit();
@@ -115,6 +115,7 @@
             // 
             // _textBoxCategoryName
             // 
+            this._textBoxCategoryName.AccessibleName = "textBoxCategoryName";
             this._textBoxCategoryName.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this._textBoxCategoryName.Location = new System.Drawing.Point(94, 9);
             this._textBoxCategoryName.Name = "_textBoxCategoryName";
@@ -124,6 +125,7 @@
             // 
             // _buttonCategoryAdd
             // 
+            this._buttonCategoryAdd.AccessibleName = "buttonCategoryAdd";
             this._buttonCategoryAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
             this._buttonCategoryAdd.Enabled = false;
             this._buttonCategoryAdd.Location = new System.Drawing.Point(271, 8);
@@ -136,6 +138,7 @@
             // 
             // _listBoxCategories
             // 
+            this._listBoxCategories.AccessibleName = "listBoxCategories";
             this._tableLayoutPanelCategory.SetColumnSpan(this._listBoxCategories, 3);
             this._listBoxCategories.Dock = System.Windows.Forms.DockStyle.Fill;
             this._listBoxCategories.FormattingEnabled = true;
@@ -148,6 +151,7 @@
             // 
             // _buttonCategoryModify
             // 
+            this._buttonCategoryModify.AccessibleName = "buttonCategoryModify";
             this._buttonCategoryModify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this._buttonCategoryModify.Location = new System.Drawing.Point(8, 43);
             this._buttonCategoryModify.Name = "_buttonCategoryModify";
@@ -159,6 +163,7 @@
             // 
             // _buttonCategoryDelete
             // 
+            this._buttonCategoryDelete.AccessibleName = "buttonCategoryDelete";
             this._buttonCategoryDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this._buttonCategoryDelete.Location = new System.Drawing.Point(135, 43);
             this._buttonCategoryDelete.Name = "_buttonCategoryDelete";
@@ -170,6 +175,7 @@
             // 
             // _buttonCategoryCancel
             // 
+            this._buttonCategoryCancel.AccessibleName = "buttonCategoryCancel";
             this._buttonCategoryCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this._buttonCategoryCancel.Location = new System.Drawing.Point(271, 43);
             this._buttonCategoryCancel.Name = "_buttonCategoryCancel";
@@ -185,7 +191,8 @@
             // 
             // _tabControl
             // 
-            this._tabControl.Controls.Add(this._tabPageCategoryManagement);
+            this._tabControl.AccessibleName = "tabControl";
+            this._tabControl.Controls.Add(this._tabPageCategory);
             this._tabControl.Controls.Add(this._tabPageRecord);
             this._tabControl.Controls.Add(this._tabPageStatistic);
             this._tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -195,19 +202,20 @@
             this._tabControl.Size = new System.Drawing.Size(378, 412);
             this._tabControl.TabIndex = 1;
             // 
-            // _tabPageCategoryManagement
+            // _tabPageCategory
             // 
-            this._tabPageCategoryManagement.Controls.Add(this._tableLayoutPanelCategory);
-            this._tabPageCategoryManagement.Location = new System.Drawing.Point(4, 22);
-            this._tabPageCategoryManagement.Name = "_tabPageCategoryManagement";
-            this._tabPageCategoryManagement.Padding = new System.Windows.Forms.Padding(3);
-            this._tabPageCategoryManagement.Size = new System.Drawing.Size(370, 386);
-            this._tabPageCategoryManagement.TabIndex = 0;
-            this._tabPageCategoryManagement.Text = "Category";
-            this._tabPageCategoryManagement.UseVisualStyleBackColor = true;
+            this._tabPageCategory.Controls.Add(this._tableLayoutPanelCategory);
+            this._tabPageCategory.Location = new System.Drawing.Point(4, 22);
+            this._tabPageCategory.Name = "_tabPageCategory";
+            this._tabPageCategory.Padding = new System.Windows.Forms.Padding(3);
+            this._tabPageCategory.Size = new System.Drawing.Size(370, 386);
+            this._tabPageCategory.TabIndex = 0;
+            this._tabPageCategory.Text = "Category";
+            this._tabPageCategory.UseVisualStyleBackColor = true;
             // 
             // _tabPageRecord
             // 
+            this._tabPageRecord.AccessibleName = "";
             this._tabPageRecord.Controls.Add(this._tableLayoutPanelRecord);
             this._tabPageRecord.Location = new System.Drawing.Point(4, 22);
             this._tabPageRecord.Name = "_tabPageRecord";
@@ -225,7 +233,7 @@
             this._tableLayoutPanelRecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this._tableLayoutPanelRecord.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this._tableLayoutPanelRecord.Controls.Add(this._radioButtonIncome, 2, 0);
-            this._tableLayoutPanelRecord.Controls.Add(this._radioButtonExpanse, 3, 0);
+            this._tableLayoutPanelRecord.Controls.Add(this._radioButtonExpense, 3, 0);
             this._tableLayoutPanelRecord.Controls.Add(this._dateTimePickerRecord, 0, 0);
             this._tableLayoutPanelRecord.Controls.Add(this._comboBoxCategory, 0, 1);
             this._tableLayoutPanelRecord.Controls.Add(this._textBoxRecordAmount, 1, 1);
@@ -247,6 +255,7 @@
             // 
             // _radioButtonIncome
             // 
+            this._radioButtonIncome.AccessibleName = "radioButtonIncome";
             this._radioButtonIncome.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this._radioButtonIncome.AutoSize = true;
             this._radioButtonIncome.Checked = true;
@@ -259,29 +268,33 @@
             this._radioButtonIncome.UseVisualStyleBackColor = true;
             this._radioButtonIncome.CheckedChanged += new System.EventHandler(this.ChangeRecordRadioButton);
             // 
-            // _radioButtonExpanse
+            // _radioButtonExpense
             // 
-            this._radioButtonExpanse.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this._radioButtonExpanse.AutoSize = true;
-            this._radioButtonExpanse.Location = new System.Drawing.Point(276, 12);
-            this._radioButtonExpanse.Name = "_radioButtonExpanse";
-            this._radioButtonExpanse.Size = new System.Drawing.Size(62, 16);
-            this._radioButtonExpanse.TabIndex = 2;
-            this._radioButtonExpanse.Text = "Expanse";
-            this._radioButtonExpanse.UseVisualStyleBackColor = true;
-            this._radioButtonExpanse.CheckedChanged += new System.EventHandler(this.ChangeRecordRadioButton);
+            this._radioButtonExpense.AccessibleName = "radioButtonExpense";
+            this._radioButtonExpense.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this._radioButtonExpense.AutoSize = true;
+            this._radioButtonExpense.Location = new System.Drawing.Point(276, 12);
+            this._radioButtonExpense.Name = "_radioButtonExpense";
+            this._radioButtonExpense.Size = new System.Drawing.Size(62, 16);
+            this._radioButtonExpense.TabIndex = 2;
+            this._radioButtonExpense.Text = "Expense";
+            this._radioButtonExpense.UseVisualStyleBackColor = true;
+            this._radioButtonExpense.CheckedChanged += new System.EventHandler(this.ChangeRecordRadioButton);
             // 
             // _dateTimePickerRecord
             // 
+            this._dateTimePickerRecord.AccessibleName = "dateTimePickerRecord";
             this._dateTimePickerRecord.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this._tableLayoutPanelRecord.SetColumnSpan(this._dateTimePickerRecord, 2);
             this._dateTimePickerRecord.Location = new System.Drawing.Point(3, 9);
             this._dateTimePickerRecord.Name = "_dateTimePickerRecord";
             this._dateTimePickerRecord.Size = new System.Drawing.Size(176, 22);
             this._dateTimePickerRecord.TabIndex = 0;
+            this._dateTimePickerRecord.ValueChanged += new System.EventHandler(this.ChangeDateTimePickerRecordValue);
             // 
             // _comboBoxCategory
             // 
+            this._comboBoxCategory.AccessibleName = "comboBoxCategory";
             this._comboBoxCategory.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this._comboBoxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._comboBoxCategory.FormattingEnabled = true;
@@ -293,6 +306,7 @@
             // 
             // _textBoxRecordAmount
             // 
+            this._textBoxRecordAmount.AccessibleName = "textBoxRecordAmount";
             this._textBoxRecordAmount.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this._tableLayoutPanelRecord.SetColumnSpan(this._textBoxRecordAmount, 2);
             this._textBoxRecordAmount.Location = new System.Drawing.Point(94, 49);
@@ -304,6 +318,7 @@
             // 
             // _buttonRecordAdd
             // 
+            this._buttonRecordAdd.AccessibleName = "buttonRecordAdd";
             this._buttonRecordAdd.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this._buttonRecordAdd.Enabled = false;
             this._buttonRecordAdd.Location = new System.Drawing.Point(276, 48);
@@ -316,6 +331,7 @@
             // 
             // _dataGridViewRecord
             // 
+            this._dataGridViewRecord.AccessibleName = "dataGridViewRecord";
             this._dataGridViewRecord.AllowUserToAddRows = false;
             this._dataGridViewRecord.AllowUserToDeleteRows = false;
             this._dataGridViewRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -332,6 +348,7 @@
             // 
             // _buttonRecordModify
             // 
+            this._buttonRecordModify.AccessibleName = "buttonRecordModify";
             this._buttonRecordModify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this._buttonRecordModify.Location = new System.Drawing.Point(8, 83);
             this._buttonRecordModify.Name = "_buttonRecordModify";
@@ -343,6 +360,7 @@
             // 
             // _buttonRecordDelete
             // 
+            this._buttonRecordDelete.AccessibleName = "buttonRecordDelete";
             this._buttonRecordDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this._buttonRecordDelete.Location = new System.Drawing.Point(99, 83);
             this._buttonRecordDelete.Name = "_buttonRecordDelete";
@@ -354,6 +372,7 @@
             // 
             // _buttonRecordCancel
             // 
+            this._buttonRecordCancel.AccessibleName = "buttonRecordCancel";
             this._buttonRecordCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this._buttonRecordCancel.Location = new System.Drawing.Point(190, 83);
             this._buttonRecordCancel.Name = "_buttonRecordCancel";
@@ -450,6 +469,7 @@
             // 
             // _radioButtonStatisticIncome
             // 
+            this._radioButtonStatisticIncome.AccessibleName = "radioButtonStatisticIncome";
             this._radioButtonStatisticIncome.AutoSize = true;
             this._radioButtonStatisticIncome.Checked = true;
             this._tableLayoutPanelStatistic.SetColumnSpan(this._radioButtonStatisticIncome, 2);
@@ -465,6 +485,7 @@
             // 
             // _radioButtonStatisticExpense
             // 
+            this._radioButtonStatisticExpense.AccessibleName = "radioButtonStatisticExpense";
             this._radioButtonStatisticExpense.AutoSize = true;
             this._tableLayoutPanelStatistic.SetColumnSpan(this._radioButtonStatisticExpense, 2);
             this._radioButtonStatisticExpense.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -478,6 +499,7 @@
             // 
             // _textBoxIncome
             // 
+            this._textBoxIncome.AccessibleName = "textBoxIncome";
             this._textBoxIncome.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this._textBoxIncome.Location = new System.Drawing.Point(64, 182);
             this._textBoxIncome.Name = "_textBoxIncome";
@@ -487,6 +509,7 @@
             // 
             // _textBoxExpense
             // 
+            this._textBoxExpense.AccessibleName = "textBoxExpense";
             this._textBoxExpense.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this._textBoxExpense.Location = new System.Drawing.Point(186, 182);
             this._textBoxExpense.Name = "_textBoxExpense";
@@ -496,6 +519,7 @@
             // 
             // _textBoxBalance
             // 
+            this._textBoxBalance.AccessibleName = "textBoxBalance";
             this._textBoxBalance.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this._textBoxBalance.Location = new System.Drawing.Point(308, 182);
             this._textBoxBalance.Name = "_textBoxBalance";
@@ -505,6 +529,7 @@
             // 
             // _dataGridViewStatisticRecord
             // 
+            this._dataGridViewStatisticRecord.AccessibleName = "dataGridViewStatisticRecord";
             this._dataGridViewStatisticRecord.AllowUserToAddRows = false;
             this._dataGridViewStatisticRecord.AllowUserToDeleteRows = false;
             this._dataGridViewStatisticRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -521,6 +546,7 @@
             // 
             // _dataGridViewDetail
             // 
+            this._dataGridViewDetail.AccessibleName = "dataGridViewDetail";
             this._dataGridViewDetail.AllowUserToAddRows = false;
             this._dataGridViewDetail.AllowUserToDeleteRows = false;
             this._dataGridViewDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -551,7 +577,7 @@
             this._tableLayoutPanelCategory.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._errorProviderCategory)).EndInit();
             this._tabControl.ResumeLayout(false);
-            this._tabPageCategoryManagement.ResumeLayout(false);
+            this._tabPageCategory.ResumeLayout(false);
             this._tabPageRecord.ResumeLayout(false);
             this._tableLayoutPanelRecord.ResumeLayout(false);
             this._tableLayoutPanelRecord.PerformLayout();
@@ -575,10 +601,10 @@
         private System.Windows.Forms.ListBox _listBoxCategories;
         private System.Windows.Forms.ErrorProvider _errorProviderCategory;
         private System.Windows.Forms.TabControl _tabControl;
-        private System.Windows.Forms.TabPage _tabPageCategoryManagement;
+        private System.Windows.Forms.TabPage _tabPageCategory;
         private System.Windows.Forms.TabPage _tabPageRecord;
         private System.Windows.Forms.TableLayoutPanel _tableLayoutPanelRecord;
-        private System.Windows.Forms.RadioButton _radioButtonExpanse;
+        private System.Windows.Forms.RadioButton _radioButtonExpense;
         private System.Windows.Forms.DateTimePicker _dateTimePickerRecord;
         private System.Windows.Forms.ComboBox _comboBoxCategory;
         private System.Windows.Forms.TextBox _textBoxRecordAmount;

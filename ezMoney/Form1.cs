@@ -134,7 +134,7 @@ namespace ezMoney
             _buttonRecordCancel.Enabled = _recordPModel.IsCancelEnable;
             _buttonRecordCancel.Visible = _recordPModel.IsCancelEnable;
             _radioButtonIncome.Checked = _recordPModel.IsIncomeCheck;
-            _radioButtonExpanse.Checked = _recordPModel.IsExpenseCheck;
+            _radioButtonExpense.Checked = _recordPModel.IsExpenseCheck;
             _errorProviderRecord.SetError(_buttonRecordAdd, _recordPModel.ErrorProviderMessage);
             //if you want to visible/unvisible modification function, uncomment under line.
             //_tableLayoutPanelRecord.RowStyles[2].Height = _recordPModel.IsSelectionMode ? 40 : 0;
@@ -157,6 +157,12 @@ namespace ezMoney
             {//cancel key message
                 e.Handled = true;
             }
+        }
+
+        //dateTimePicker value changed
+        private void ChangeDateTimePickerRecordValue(object sender, EventArgs e)
+        {
+            _recordPModel.RecordDate = _dateTimePickerRecord.Value;
         }
 
         //event of recordAmountTextBoxChanged

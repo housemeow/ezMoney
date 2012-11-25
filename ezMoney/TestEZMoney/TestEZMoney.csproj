@@ -75,13 +75,14 @@
     <Compile Include="CategoryPresentationModelPropertyTest.cs" />
     <Compile Include="CategoryPresentationModelTest.cs" />
     <Compile Include="CategoryTest.cs" />
-    <Compile Include="CodedUITest1.cs" />
+    <Compile Include="EZMoneyUITest.cs" />
     <Compile Include="EZMoneyModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecordModelTest.cs" />
     <Compile Include="RecordPresentationModelPropertyTest.cs" />
     <Compile Include="RecordPresentationModelTest.cs" />
     <Compile Include="RecordTest.cs" />
+    <Compile Include="Robot.cs" />
     <Compile Include="StatisticModelTest.cs" />
     <Compile Include="StatisticPresentationModelPropertyTest.cs" />
     <Compile Include="StatisticPresentationModelTest.cs" />
