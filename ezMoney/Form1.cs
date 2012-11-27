@@ -17,6 +17,7 @@ namespace ezMoney
         CategoryPresentationModel _categoryPModel;
         RecordPresentationModel _recordPModel;
         StatisticPresentationModel _statisticPModel;
+        const int NONE_SELECTED_INDEX = -1;
 
         //class constructor
         public EZMoneyForm()
@@ -48,7 +49,7 @@ namespace ezMoney
         void InitCategoryView()
         {
             _listBoxCategories.DataSource = _ezMoneyModel.GetCategories();
-            _listBoxCategories.SelectedIndex = -1;
+            _listBoxCategories.SelectedIndex = NONE_SELECTED_INDEX;
             RefreshCategoryView(_categoryPModel);
             _categoryPModel._updateEvent += RefreshCategoryView;
         }

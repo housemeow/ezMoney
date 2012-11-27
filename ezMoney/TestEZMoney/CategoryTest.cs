@@ -12,25 +12,8 @@ namespace TestEZMoney
     [TestClass()]
     public class CategoryTest
     {
-        private TestContext testContextInstance;
         const string CATEGORY_NAME_MOVIE = "Movie";
         const string DISTINCT_CATEGORY_NAME = "movie";
-
-        /// <summary>
-        ///取得或設定提供目前測試回合的相關資訊與功能
-        ///的測試內容。
-        ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
 
         /// <summar>ya
         ///Equals 的測試

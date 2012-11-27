@@ -14,23 +14,6 @@ namespace TestEZMoney
     {
         const String CATEGORY_NAME_MOVIE = "Movie";
         const String CATEGORY_NAME_WORK = "Work";
-        private TestContext testContextInstance;
-
-        /// <summary>
-        ///取得或設定提供目前測試回合的相關資訊與功能
-        ///的測試內容。
-        ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
 
         /// <summary>
         ///Add 的測試

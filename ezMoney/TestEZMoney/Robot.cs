@@ -37,7 +37,10 @@ namespace TestEZMoney
         /// </summary>
         public static UITestControl MainWindow
         {
-            get { return _root; }
+            get
+            {
+                return _root;
+            }
         }
         #endregion
 
@@ -55,7 +58,6 @@ namespace TestEZMoney
             Playback.PlaybackSettings.SkipSetPropertyVerification = true;
             Playback.PlaybackSettings.ShouldSearchFailFast = true;
             _aut = ApplicationUnderTest.Launch(path);
-
             _cache = new Dictionary<string, UITestControl>();
             WinWindow window = new WinWindow();
             window.SearchProperties.Add(WinWindow.PropertyNames.Name, title);
@@ -228,7 +230,9 @@ namespace TestEZMoney
         {
             WinEdit edit = (WinEdit)Robot.FindWinControl(typeof(WinEdit), name, _root);
             if (edit.Text != keys)
+            {
                 edit.Text = keys;
+            }
         }
 
         /// <summary>
@@ -253,7 +257,9 @@ namespace TestEZMoney
         {
             WinComboBox comboBox = (WinComboBox)Robot.FindWinControl(typeof(WinComboBox), name, _root);
             if (comboBox.SelectedItem != targetName)
+            {
                 comboBox.SelectedItem = targetName;
+            }
         }
 
         /// <summary>
@@ -266,7 +272,9 @@ namespace TestEZMoney
         {
             WinCheckBox checkBox = (WinCheckBox)Robot.FindWinControl(typeof(WinCheckBox), name, _root);
             if (checkBox.Checked != isChecked)
+            {
                 checkBox.Checked = isChecked;
+            }
         }
 
         /// <summary>
@@ -344,17 +352,11 @@ namespace TestEZMoney
             try
             {
                 WinButton list = (WinButton)Robot.FindWinControl(typeof(WinButton), name, _root);
-                if (!assertValue)
-                {
-                    Assert.Fail();
-                }
+                Assert.IsTrue(assertValue);
             }
             catch (Exception)
             {
-                if (assertValue)
-                {
-                    Assert.Fail();
-                }
+                Assert.IsFalse(assertValue);
             }
         }
 

@@ -11,6 +11,7 @@ namespace ezMoney
         private int _amounts;
         private int _count;
         private String _percent;
+        const String INITIAL_PERCENT = "0%";
 
         //constructor
         public Statistic(Category category)
@@ -18,7 +19,7 @@ namespace ezMoney
             _category = category;
             _amounts = 0;
             _count = 0;
-            _percent = "0%";
+            _percent = INITIAL_PERCENT;
         }
 
         public Category Category

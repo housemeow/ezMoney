@@ -11,24 +11,7 @@ namespace TestEZMoney
     [TestClass()]
     public class RecordPresentationModelPropertyTest
     {
-        private TestContext testContextInstance;
         const string COMPARE_STRING = "abc";
-
-        /// <summary>
-        ///取得或設定提供目前測試回合的相關資訊與功能
-        ///的測試內容。
-        ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
 
         /// <summary>
         ///ErrorProviderMessage 的測試

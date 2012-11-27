@@ -17,23 +17,6 @@ namespace TestEZMoney
         const string CATEGORY_NAME_MOVIE = "Movie";
         const string CATEGORY_NAME_WORK = "Work";
         const string CATEGORY_NAME_ENTERTAINMENT = "Entertainment";
-        private TestContext testContextInstance;
-
-        /// <summary>
-        ///取得或設定提供目前測試回合的相關資訊與功能
-        ///的測試內容。
-        ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
 
         #region 其他測試屬性
         //在執行每一項測試之後，使用 TestCleanup 執行程式碼

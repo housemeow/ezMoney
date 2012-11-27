@@ -10,7 +10,6 @@ using Microsoft.VisualStudio.TestTools.UITest.Extension;
 using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 using System.IO;
 
-
 namespace TestEZMoney
 {
     /// <summary>
